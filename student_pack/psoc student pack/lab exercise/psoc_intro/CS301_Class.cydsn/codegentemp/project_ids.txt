@@ -1,0 +1,9 @@
+C:\Users\rsef899\OneDrive - The University of Auckland\301\student_pack\psoc student pack\lab exercise\psoc_intro\lab1.cydsn\lab1.cyprj|be6a935f-f847-4b6d-a981-1d3ceb9f2dab
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|c4b32a87-55ce-42cd-b691-2334cf10d673
+C:\Users\rsef899\OneDrive - The University of Auckland\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\Downloads ( 4.2).cyprj|a8723d2d-7d05-4912-b2b4-5ccb1c643d0d
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|9383b473-4233-4553-bd7f-6489491f8f4e
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|d95f948e-33b7-4c5e-8f2d-2dd1009112c9
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|90934af7-91fe-4198-a702-6653296d884a
+C:\Users\rsef899\OneDrive - The University of Auckland\301\student_pack\psoc student pack\lab exercise\psoc_intro\lab2.cydsn\lab2.cyprj|386f343d-84a5-4f21-babb-a4d198d26f3b
+C:\Users\rsef899\OneDrive - The University of Auckland\301\student_pack\psoc student pack\lab exercise\psoc_intro\lab3.cydsn\lab3.cyprj|208b0459-974e-4dc0-a061-fbb4623d3968
+C:\Users\rsef899\OneDrive - The University of Auckland\301\student_pack\psoc student pack\lab exercise\psoc_intro\CS301_Class.cydsn\CS301_Class.cyprj|93eaf4c6-4fbc-4f09-af3a-feba253346ae

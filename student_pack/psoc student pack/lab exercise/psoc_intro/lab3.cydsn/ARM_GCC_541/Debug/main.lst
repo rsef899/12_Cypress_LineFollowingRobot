@@ -1,0 +1,684 @@
+ARM GAS  C:\Users\schoo\AppData\Local\Temp\cchXedFh.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"main.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.TC_Interrupt,"ax",%progbits
+  20              		.align	2
+  21              		.global	TC_Interrupt
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	TC_Interrupt, %function
+  25              	TC_Interrupt:
+  26              	.LFB63:
+  27              		.file 1 "main.c"
+   1:main.c        **** 
+   2:main.c        **** /* ========================================
+   3:main.c        ****  * Laboratory Exercise 3
+   4:main.c        ****  *
+   5:main.c        ****  * Program timer to flash LED at 1Hz, use interrupts
+   6:main.c        ****  *
+   7:main.c        ****  * Copyright Univ of Auckland, 2016
+   8:main.c        ****  * All Rights Reserved
+   9:main.c        ****  * UNPUBLISHED, LICENSED SOFTWARE.
+  10:main.c        ****  *
+  11:main.c        ****  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+  12:main.c        ****  * WHICH IS THE PROPERTY OF Univ of Auckland.
+  13:main.c        ****  *
+  14:main.c        ****  * ========================================
+  15:main.c        **** */
+  16:main.c        **** #include "project.h"
+  17:main.c        **** 
+  18:main.c        **** 
+  19:main.c        **** //Define the ISR, CY_ISR is used tod efine the function
+  20:main.c        **** CY_ISR(TC_Interrupt) {
+  28              		.loc 1 20 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32 0000 08B5     		push	{r3, lr}
+  33              		.cfi_def_cfa_offset 8
+  34              		.cfi_offset 3, -8
+  35              		.cfi_offset 14, -4
+  21:main.c        ****     //Toggle the LED, Write to it the opposite of its curent value
+  22:main.c        ****     LED_Write(~LED_Read());
+ARM GAS  C:\Users\schoo\AppData\Local\Temp\cchXedFh.s 			page 2
+
+
+  36              		.loc 1 22 0
+  37 0002 FFF7FEFF 		bl	LED_Read
+  38              	.LVL0:
+  39 0006 C043     		mvns	r0, r0
+  40 0008 C0B2     		uxtb	r0, r0
+  41 000a FFF7FEFF 		bl	LED_Write
+  42              	.LVL1:
+  23:main.c        ****     //reset the TIMER value
+  24:main.c        ****     Timer_1_ReadStatusRegister();   
+  43              		.loc 1 24 0
+  44 000e FFF7FEFF 		bl	Timer_1_ReadStatusRegister
+  45              	.LVL2:
+  46 0012 08BD     		pop	{r3, pc}
+  47              		.cfi_endproc
+  48              	.LFE63:
+  49              		.size	TC_Interrupt, .-TC_Interrupt
+  50              		.section	.text.main,"ax",%progbits
+  51              		.align	2
+  52              		.global	main
+  53              		.thumb
+  54              		.thumb_func
+  55              		.type	main, %function
+  56              	main:
+  57              	.LFB64:
+  25:main.c        **** }
+  26:main.c        **** 
+  27:main.c        **** int main()
+  28:main.c        **** {
+  58              		.loc 1 28 0
+  59              		.cfi_startproc
+  60              		@ Volatile: function does not return.
+  61              		@ args = 0, pretend = 0, frame = 0
+  62              		@ frame_needed = 0, uses_anonymous_args = 0
+  63 0000 08B5     		push	{r3, lr}
+  64              		.cfi_def_cfa_offset 8
+  65              		.cfi_offset 3, -8
+  66              		.cfi_offset 14, -4
+  29:main.c        ****     
+  30:main.c        ****     CyGlobalIntEnable; /* Enable global interrupts. */
+  67              		.loc 1 30 0
+  68              		.syntax unified
+  69              	@ 30 "main.c" 1
+  70 0002 62B6     		CPSIE   i
+  71              	@ 0 "" 2
+  31:main.c        **** 
+  32:main.c        ****     /* Place your initialization/startup code here (e.g. MyInst_Start()) */
+  33:main.c        ****     
+  34:main.c        ****     
+  35:main.c        ****     //Start the Define ISR, pass the ISR to the isr start
+  36:main.c        ****     isr_TC_StartEx(TC_Interrupt);
+  72              		.loc 1 36 0
+  73              		.thumb
+  74              		.syntax unified
+  75 0004 0248     		ldr	r0, .L6
+  76 0006 FFF7FEFF 		bl	isr_TC_StartEx
+  77              	.LVL3:
+  37:main.c        ****     
+ARM GAS  C:\Users\schoo\AppData\Local\Temp\cchXedFh.s 			page 3
+
+
+  38:main.c        ****     
+  39:main.c        ****     //Start the TIemr
+  40:main.c        ****     Timer_1_Start();
+  78              		.loc 1 40 0
+  79 000a FFF7FEFF 		bl	Timer_1_Start
+  80              	.LVL4:
+  81              	.L4:
+  82 000e FEE7     		b	.L4
+  83              	.L7:
+  84              		.align	2
+  85              	.L6:
+  86 0010 00000000 		.word	TC_Interrupt
+  87              		.cfi_endproc
+  88              	.LFE64:
+  89              		.size	main, .-main
+  90              		.text
+  91              	.Letext0:
+  92              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+  93              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+  94              		.file 4 "Generated_Source\\PSoC5/LED.h"
+  95              		.file 5 "Generated_Source\\PSoC5/Timer_1.h"
+  96              		.file 6 "Generated_Source\\PSoC5/isr_TC.h"
+  97              		.file 7 "Generated_Source\\PSoC5/core_cm3.h"
+  98              		.section	.debug_info,"",%progbits
+  99              	.Ldebug_info0:
+ 100 0000 54010000 		.4byte	0x154
+ 101 0004 0400     		.2byte	0x4
+ 102 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 103 000a 04       		.byte	0x4
+ 104 000b 01       		.uleb128 0x1
+ 105 000c 51000000 		.4byte	.LASF21
+ 106 0010 0C       		.byte	0xc
+ 107 0011 45000000 		.4byte	.LASF22
+ 108 0015 08010000 		.4byte	.LASF23
+ 109 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 110 001d 00000000 		.4byte	0
+ 111 0021 00000000 		.4byte	.Ldebug_line0
+ 112 0025 02       		.uleb128 0x2
+ 113 0026 01       		.byte	0x1
+ 114 0027 06       		.byte	0x6
+ 115 0028 F4010000 		.4byte	.LASF0
+ 116 002c 02       		.uleb128 0x2
+ 117 002d 01       		.byte	0x1
+ 118 002e 08       		.byte	0x8
+ 119 002f C4010000 		.4byte	.LASF1
+ 120 0033 02       		.uleb128 0x2
+ 121 0034 02       		.byte	0x2
+ 122 0035 05       		.byte	0x5
+ 123 0036 1C020000 		.4byte	.LASF2
+ 124 003a 02       		.uleb128 0x2
+ 125 003b 02       		.byte	0x2
+ 126 003c 07       		.byte	0x7
+ 127 003d 83010000 		.4byte	.LASF3
+ 128 0041 03       		.uleb128 0x3
+ 129 0042 0C020000 		.4byte	.LASF9
+ 130 0046 02       		.byte	0x2
+ 131 0047 3F       		.byte	0x3f
+ARM GAS  C:\Users\schoo\AppData\Local\Temp\cchXedFh.s 			page 4
+
+
+ 132 0048 4C000000 		.4byte	0x4c
+ 133 004c 02       		.uleb128 0x2
+ 134 004d 04       		.byte	0x4
+ 135 004e 05       		.byte	0x5
+ 136 004f D7010000 		.4byte	.LASF4
+ 137 0053 02       		.uleb128 0x2
+ 138 0054 04       		.byte	0x4
+ 139 0055 07       		.byte	0x7
+ 140 0056 E9000000 		.4byte	.LASF5
+ 141 005a 02       		.uleb128 0x2
+ 142 005b 08       		.byte	0x8
+ 143 005c 05       		.byte	0x5
+ 144 005d 00000000 		.4byte	.LASF6
+ 145 0061 02       		.uleb128 0x2
+ 146 0062 08       		.byte	0x8
+ 147 0063 07       		.byte	0x7
+ 148 0064 AD010000 		.4byte	.LASF7
+ 149 0068 04       		.uleb128 0x4
+ 150 0069 04       		.byte	0x4
+ 151 006a 05       		.byte	0x5
+ 152 006b 696E7400 		.ascii	"int\000"
+ 153 006f 02       		.uleb128 0x2
+ 154 0070 04       		.byte	0x4
+ 155 0071 07       		.byte	0x7
+ 156 0072 29000000 		.4byte	.LASF8
+ 157 0076 03       		.uleb128 0x3
+ 158 0077 26020000 		.4byte	.LASF10
+ 159 007b 03       		.byte	0x3
+ 160 007c 2C       		.byte	0x2c
+ 161 007d 41000000 		.4byte	0x41
+ 162 0081 02       		.uleb128 0x2
+ 163 0082 04       		.byte	0x4
+ 164 0083 04       		.byte	0x4
+ 165 0084 16020000 		.4byte	.LASF11
+ 166 0088 02       		.uleb128 0x2
+ 167 0089 08       		.byte	0x8
+ 168 008a 04       		.byte	0x4
+ 169 008b E0010000 		.4byte	.LASF12
+ 170 008f 02       		.uleb128 0x2
+ 171 0090 01       		.byte	0x1
+ 172 0091 08       		.byte	0x8
+ 173 0092 D2010000 		.4byte	.LASF13
+ 174 0096 02       		.uleb128 0x2
+ 175 0097 08       		.byte	0x8
+ 176 0098 04       		.byte	0x4
+ 177 0099 00020000 		.4byte	.LASF14
+ 178 009d 02       		.uleb128 0x2
+ 179 009e 04       		.byte	0x4
+ 180 009f 07       		.byte	0x7
+ 181 00a0 2E020000 		.4byte	.LASF15
+ 182 00a4 05       		.uleb128 0x5
+ 183 00a5 FB000000 		.4byte	.LASF24
+ 184 00a9 01       		.byte	0x1
+ 185 00aa 14       		.byte	0x14
+ 186 00ab 00000000 		.4byte	.LFB63
+ 187 00af 14000000 		.4byte	.LFE63-.LFB63
+ 188 00b3 01       		.uleb128 0x1
+ARM GAS  C:\Users\schoo\AppData\Local\Temp\cchXedFh.s 			page 5
+
+
+ 189 00b4 9C       		.byte	0x9c
+ 190 00b5 D5000000 		.4byte	0xd5
+ 191 00b9 06       		.uleb128 0x6
+ 192 00ba 06000000 		.4byte	.LVL0
+ 193 00be 20010000 		.4byte	0x120
+ 194 00c2 06       		.uleb128 0x6
+ 195 00c3 0E000000 		.4byte	.LVL1
+ 196 00c7 2B010000 		.4byte	0x12b
+ 197 00cb 06       		.uleb128 0x6
+ 198 00cc 12000000 		.4byte	.LVL2
+ 199 00d0 36010000 		.4byte	0x136
+ 200 00d4 00       		.byte	0
+ 201 00d5 07       		.uleb128 0x7
+ 202 00d6 4C000000 		.4byte	.LASF25
+ 203 00da 01       		.byte	0x1
+ 204 00db 1B       		.byte	0x1b
+ 205 00dc 68000000 		.4byte	0x68
+ 206 00e0 00000000 		.4byte	.LFB64
+ 207 00e4 14000000 		.4byte	.LFE64-.LFB64
+ 208 00e8 01       		.uleb128 0x1
+ 209 00e9 9C       		.byte	0x9c
+ 210 00ea 0F010000 		.4byte	0x10f
+ 211 00ee 08       		.uleb128 0x8
+ 212 00ef 0A000000 		.4byte	.LVL3
+ 213 00f3 41010000 		.4byte	0x141
+ 214 00f7 05010000 		.4byte	0x105
+ 215 00fb 09       		.uleb128 0x9
+ 216 00fc 01       		.uleb128 0x1
+ 217 00fd 50       		.byte	0x50
+ 218 00fe 05       		.uleb128 0x5
+ 219 00ff 03       		.byte	0x3
+ 220 0100 00000000 		.4byte	TC_Interrupt
+ 221 0104 00       		.byte	0
+ 222 0105 06       		.uleb128 0x6
+ 223 0106 0E000000 		.4byte	.LVL4
+ 224 010a 4C010000 		.4byte	0x14c
+ 225 010e 00       		.byte	0
+ 226 010f 0A       		.uleb128 0xa
+ 227 0110 E7010000 		.4byte	.LASF26
+ 228 0114 07       		.byte	0x7
+ 229 0115 1207     		.2byte	0x712
+ 230 0117 1B010000 		.4byte	0x11b
+ 231 011b 0B       		.uleb128 0xb
+ 232 011c 76000000 		.4byte	0x76
+ 233 0120 0C       		.uleb128 0xc
+ 234 0121 96010000 		.4byte	.LASF16
+ 235 0125 96010000 		.4byte	.LASF16
+ 236 0129 04       		.byte	0x4
+ 237 012a 29       		.byte	0x29
+ 238 012b 0C       		.uleb128 0xc
+ 239 012c DF000000 		.4byte	.LASF17
+ 240 0130 DF000000 		.4byte	.LASF17
+ 241 0134 04       		.byte	0x4
+ 242 0135 26       		.byte	0x26
+ 243 0136 0C       		.uleb128 0xc
+ 244 0137 0E000000 		.4byte	.LASF18
+ 245 013b 0E000000 		.4byte	.LASF18
+ARM GAS  C:\Users\schoo\AppData\Local\Temp\cchXedFh.s 			page 6
+
+
+ 246 013f 05       		.byte	0x5
+ 247 0140 5E       		.byte	0x5e
+ 248 0141 0C       		.uleb128 0xc
+ 249 0142 36000000 		.4byte	.LASF19
+ 250 0146 36000000 		.4byte	.LASF19
+ 251 014a 06       		.byte	0x6
+ 252 014b 18       		.byte	0x18
+ 253 014c 0C       		.uleb128 0xc
+ 254 014d 9F010000 		.4byte	.LASF20
+ 255 0151 9F010000 		.4byte	.LASF20
+ 256 0155 05       		.byte	0x5
+ 257 0156 5A       		.byte	0x5a
+ 258 0157 00       		.byte	0
+ 259              		.section	.debug_abbrev,"",%progbits
+ 260              	.Ldebug_abbrev0:
+ 261 0000 01       		.uleb128 0x1
+ 262 0001 11       		.uleb128 0x11
+ 263 0002 01       		.byte	0x1
+ 264 0003 25       		.uleb128 0x25
+ 265 0004 0E       		.uleb128 0xe
+ 266 0005 13       		.uleb128 0x13
+ 267 0006 0B       		.uleb128 0xb
+ 268 0007 03       		.uleb128 0x3
+ 269 0008 0E       		.uleb128 0xe
+ 270 0009 1B       		.uleb128 0x1b
+ 271 000a 0E       		.uleb128 0xe
+ 272 000b 55       		.uleb128 0x55
+ 273 000c 17       		.uleb128 0x17
+ 274 000d 11       		.uleb128 0x11
+ 275 000e 01       		.uleb128 0x1
+ 276 000f 10       		.uleb128 0x10
+ 277 0010 17       		.uleb128 0x17
+ 278 0011 00       		.byte	0
+ 279 0012 00       		.byte	0
+ 280 0013 02       		.uleb128 0x2
+ 281 0014 24       		.uleb128 0x24
+ 282 0015 00       		.byte	0
+ 283 0016 0B       		.uleb128 0xb
+ 284 0017 0B       		.uleb128 0xb
+ 285 0018 3E       		.uleb128 0x3e
+ 286 0019 0B       		.uleb128 0xb
+ 287 001a 03       		.uleb128 0x3
+ 288 001b 0E       		.uleb128 0xe
+ 289 001c 00       		.byte	0
+ 290 001d 00       		.byte	0
+ 291 001e 03       		.uleb128 0x3
+ 292 001f 16       		.uleb128 0x16
+ 293 0020 00       		.byte	0
+ 294 0021 03       		.uleb128 0x3
+ 295 0022 0E       		.uleb128 0xe
+ 296 0023 3A       		.uleb128 0x3a
+ 297 0024 0B       		.uleb128 0xb
+ 298 0025 3B       		.uleb128 0x3b
+ 299 0026 0B       		.uleb128 0xb
+ 300 0027 49       		.uleb128 0x49
+ 301 0028 13       		.uleb128 0x13
+ 302 0029 00       		.byte	0
+ARM GAS  C:\Users\schoo\AppData\Local\Temp\cchXedFh.s 			page 7
+
+
+ 303 002a 00       		.byte	0
+ 304 002b 04       		.uleb128 0x4
+ 305 002c 24       		.uleb128 0x24
+ 306 002d 00       		.byte	0
+ 307 002e 0B       		.uleb128 0xb
+ 308 002f 0B       		.uleb128 0xb
+ 309 0030 3E       		.uleb128 0x3e
+ 310 0031 0B       		.uleb128 0xb
+ 311 0032 03       		.uleb128 0x3
+ 312 0033 08       		.uleb128 0x8
+ 313 0034 00       		.byte	0
+ 314 0035 00       		.byte	0
+ 315 0036 05       		.uleb128 0x5
+ 316 0037 2E       		.uleb128 0x2e
+ 317 0038 01       		.byte	0x1
+ 318 0039 3F       		.uleb128 0x3f
+ 319 003a 19       		.uleb128 0x19
+ 320 003b 03       		.uleb128 0x3
+ 321 003c 0E       		.uleb128 0xe
+ 322 003d 3A       		.uleb128 0x3a
+ 323 003e 0B       		.uleb128 0xb
+ 324 003f 3B       		.uleb128 0x3b
+ 325 0040 0B       		.uleb128 0xb
+ 326 0041 27       		.uleb128 0x27
+ 327 0042 19       		.uleb128 0x19
+ 328 0043 11       		.uleb128 0x11
+ 329 0044 01       		.uleb128 0x1
+ 330 0045 12       		.uleb128 0x12
+ 331 0046 06       		.uleb128 0x6
+ 332 0047 40       		.uleb128 0x40
+ 333 0048 18       		.uleb128 0x18
+ 334 0049 9742     		.uleb128 0x2117
+ 335 004b 19       		.uleb128 0x19
+ 336 004c 01       		.uleb128 0x1
+ 337 004d 13       		.uleb128 0x13
+ 338 004e 00       		.byte	0
+ 339 004f 00       		.byte	0
+ 340 0050 06       		.uleb128 0x6
+ 341 0051 898201   		.uleb128 0x4109
+ 342 0054 00       		.byte	0
+ 343 0055 11       		.uleb128 0x11
+ 344 0056 01       		.uleb128 0x1
+ 345 0057 31       		.uleb128 0x31
+ 346 0058 13       		.uleb128 0x13
+ 347 0059 00       		.byte	0
+ 348 005a 00       		.byte	0
+ 349 005b 07       		.uleb128 0x7
+ 350 005c 2E       		.uleb128 0x2e
+ 351 005d 01       		.byte	0x1
+ 352 005e 3F       		.uleb128 0x3f
+ 353 005f 19       		.uleb128 0x19
+ 354 0060 03       		.uleb128 0x3
+ 355 0061 0E       		.uleb128 0xe
+ 356 0062 3A       		.uleb128 0x3a
+ 357 0063 0B       		.uleb128 0xb
+ 358 0064 3B       		.uleb128 0x3b
+ 359 0065 0B       		.uleb128 0xb
+ARM GAS  C:\Users\schoo\AppData\Local\Temp\cchXedFh.s 			page 8
+
+
+ 360 0066 49       		.uleb128 0x49
+ 361 0067 13       		.uleb128 0x13
+ 362 0068 8701     		.uleb128 0x87
+ 363 006a 19       		.uleb128 0x19
+ 364 006b 11       		.uleb128 0x11
+ 365 006c 01       		.uleb128 0x1
+ 366 006d 12       		.uleb128 0x12
+ 367 006e 06       		.uleb128 0x6
+ 368 006f 40       		.uleb128 0x40
+ 369 0070 18       		.uleb128 0x18
+ 370 0071 9742     		.uleb128 0x2117
+ 371 0073 19       		.uleb128 0x19
+ 372 0074 01       		.uleb128 0x1
+ 373 0075 13       		.uleb128 0x13
+ 374 0076 00       		.byte	0
+ 375 0077 00       		.byte	0
+ 376 0078 08       		.uleb128 0x8
+ 377 0079 898201   		.uleb128 0x4109
+ 378 007c 01       		.byte	0x1
+ 379 007d 11       		.uleb128 0x11
+ 380 007e 01       		.uleb128 0x1
+ 381 007f 31       		.uleb128 0x31
+ 382 0080 13       		.uleb128 0x13
+ 383 0081 01       		.uleb128 0x1
+ 384 0082 13       		.uleb128 0x13
+ 385 0083 00       		.byte	0
+ 386 0084 00       		.byte	0
+ 387 0085 09       		.uleb128 0x9
+ 388 0086 8A8201   		.uleb128 0x410a
+ 389 0089 00       		.byte	0
+ 390 008a 02       		.uleb128 0x2
+ 391 008b 18       		.uleb128 0x18
+ 392 008c 9142     		.uleb128 0x2111
+ 393 008e 18       		.uleb128 0x18
+ 394 008f 00       		.byte	0
+ 395 0090 00       		.byte	0
+ 396 0091 0A       		.uleb128 0xa
+ 397 0092 34       		.uleb128 0x34
+ 398 0093 00       		.byte	0
+ 399 0094 03       		.uleb128 0x3
+ 400 0095 0E       		.uleb128 0xe
+ 401 0096 3A       		.uleb128 0x3a
+ 402 0097 0B       		.uleb128 0xb
+ 403 0098 3B       		.uleb128 0x3b
+ 404 0099 05       		.uleb128 0x5
+ 405 009a 49       		.uleb128 0x49
+ 406 009b 13       		.uleb128 0x13
+ 407 009c 3F       		.uleb128 0x3f
+ 408 009d 19       		.uleb128 0x19
+ 409 009e 3C       		.uleb128 0x3c
+ 410 009f 19       		.uleb128 0x19
+ 411 00a0 00       		.byte	0
+ 412 00a1 00       		.byte	0
+ 413 00a2 0B       		.uleb128 0xb
+ 414 00a3 35       		.uleb128 0x35
+ 415 00a4 00       		.byte	0
+ 416 00a5 49       		.uleb128 0x49
+ARM GAS  C:\Users\schoo\AppData\Local\Temp\cchXedFh.s 			page 9
+
+
+ 417 00a6 13       		.uleb128 0x13
+ 418 00a7 00       		.byte	0
+ 419 00a8 00       		.byte	0
+ 420 00a9 0C       		.uleb128 0xc
+ 421 00aa 2E       		.uleb128 0x2e
+ 422 00ab 00       		.byte	0
+ 423 00ac 3F       		.uleb128 0x3f
+ 424 00ad 19       		.uleb128 0x19
+ 425 00ae 3C       		.uleb128 0x3c
+ 426 00af 19       		.uleb128 0x19
+ 427 00b0 6E       		.uleb128 0x6e
+ 428 00b1 0E       		.uleb128 0xe
+ 429 00b2 03       		.uleb128 0x3
+ 430 00b3 0E       		.uleb128 0xe
+ 431 00b4 3A       		.uleb128 0x3a
+ 432 00b5 0B       		.uleb128 0xb
+ 433 00b6 3B       		.uleb128 0x3b
+ 434 00b7 0B       		.uleb128 0xb
+ 435 00b8 00       		.byte	0
+ 436 00b9 00       		.byte	0
+ 437 00ba 00       		.byte	0
+ 438              		.section	.debug_aranges,"",%progbits
+ 439 0000 24000000 		.4byte	0x24
+ 440 0004 0200     		.2byte	0x2
+ 441 0006 00000000 		.4byte	.Ldebug_info0
+ 442 000a 04       		.byte	0x4
+ 443 000b 00       		.byte	0
+ 444 000c 0000     		.2byte	0
+ 445 000e 0000     		.2byte	0
+ 446 0010 00000000 		.4byte	.LFB63
+ 447 0014 14000000 		.4byte	.LFE63-.LFB63
+ 448 0018 00000000 		.4byte	.LFB64
+ 449 001c 14000000 		.4byte	.LFE64-.LFB64
+ 450 0020 00000000 		.4byte	0
+ 451 0024 00000000 		.4byte	0
+ 452              		.section	.debug_ranges,"",%progbits
+ 453              	.Ldebug_ranges0:
+ 454 0000 00000000 		.4byte	.LFB63
+ 455 0004 14000000 		.4byte	.LFE63
+ 456 0008 00000000 		.4byte	.LFB64
+ 457 000c 14000000 		.4byte	.LFE64
+ 458 0010 00000000 		.4byte	0
+ 459 0014 00000000 		.4byte	0
+ 460              		.section	.debug_line,"",%progbits
+ 461              	.Ldebug_line0:
+ 462 0000 8A010000 		.section	.debug_str,"MS",%progbits,1
+ 462      02006101 
+ 462      00000201 
+ 462      FB0E0D00 
+ 462      01010101 
+ 463              	.LASF6:
+ 464 0000 6C6F6E67 		.ascii	"long long int\000"
+ 464      206C6F6E 
+ 464      6720696E 
+ 464      7400
+ 465              	.LASF18:
+ 466 000e 54696D65 		.ascii	"Timer_1_ReadStatusRegister\000"
+ARM GAS  C:\Users\schoo\AppData\Local\Temp\cchXedFh.s 			page 10
+
+
+ 466      725F315F 
+ 466      52656164 
+ 466      53746174 
+ 466      75735265 
+ 467              	.LASF8:
+ 468 0029 756E7369 		.ascii	"unsigned int\000"
+ 468      676E6564 
+ 468      20696E74 
+ 468      00
+ 469              	.LASF19:
+ 470 0036 6973725F 		.ascii	"isr_TC_StartEx\000"
+ 470      54435F53 
+ 470      74617274 
+ 470      457800
+ 471              	.LASF22:
+ 472 0045 6D61696E 		.ascii	"main.c\000"
+ 472      2E6300
+ 473              	.LASF25:
+ 474 004c 6D61696E 		.ascii	"main\000"
+ 474      00
+ 475              	.LASF21:
+ 476 0051 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 476      43313120 
+ 476      352E342E 
+ 476      31203230 
+ 476      31363036 
+ 477 0084 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 477      20726576 
+ 477      6973696F 
+ 477      6E203233 
+ 477      37373135 
+ 478 00b7 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 478      66756E63 
+ 478      74696F6E 
+ 478      2D736563 
+ 478      74696F6E 
+ 479              	.LASF17:
+ 480 00df 4C45445F 		.ascii	"LED_Write\000"
+ 480      57726974 
+ 480      6500
+ 481              	.LASF5:
+ 482 00e9 6C6F6E67 		.ascii	"long unsigned int\000"
+ 482      20756E73 
+ 482      69676E65 
+ 482      6420696E 
+ 482      7400
+ 483              	.LASF24:
+ 484 00fb 54435F49 		.ascii	"TC_Interrupt\000"
+ 484      6E746572 
+ 484      72757074 
+ 484      00
+ 485              	.LASF23:
+ 486 0108 433A5C55 		.ascii	"C:\\Users\\schoo\\OneDrive - The University of Auck"
+ 486      73657273 
+ 486      5C736368 
+ 486      6F6F5C4F 
+ 486      6E654472 
+ARM GAS  C:\Users\schoo\AppData\Local\Temp\cchXedFh.s 			page 11
+
+
+ 487 0138 6C616E64 		.ascii	"land\\301\\student_pack\\psoc student pack\\lab exe"
+ 487      5C333031 
+ 487      5C737475 
+ 487      64656E74 
+ 487      5F706163 
+ 488 0167 72636973 		.ascii	"rcise\\psoc_intro\\lab3.cydsn\000"
+ 488      655C7073 
+ 488      6F635F69 
+ 488      6E74726F 
+ 488      5C6C6162 
+ 489              	.LASF3:
+ 490 0183 73686F72 		.ascii	"short unsigned int\000"
+ 490      7420756E 
+ 490      7369676E 
+ 490      65642069 
+ 490      6E7400
+ 491              	.LASF16:
+ 492 0196 4C45445F 		.ascii	"LED_Read\000"
+ 492      52656164 
+ 492      00
+ 493              	.LASF20:
+ 494 019f 54696D65 		.ascii	"Timer_1_Start\000"
+ 494      725F315F 
+ 494      53746172 
+ 494      7400
+ 495              	.LASF7:
+ 496 01ad 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 496      206C6F6E 
+ 496      6720756E 
+ 496      7369676E 
+ 496      65642069 
+ 497              	.LASF1:
+ 498 01c4 756E7369 		.ascii	"unsigned char\000"
+ 498      676E6564 
+ 498      20636861 
+ 498      7200
+ 499              	.LASF13:
+ 500 01d2 63686172 		.ascii	"char\000"
+ 500      00
+ 501              	.LASF4:
+ 502 01d7 6C6F6E67 		.ascii	"long int\000"
+ 502      20696E74 
+ 502      00
+ 503              	.LASF12:
+ 504 01e0 646F7562 		.ascii	"double\000"
+ 504      6C6500
+ 505              	.LASF26:
+ 506 01e7 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 506      52784275 
+ 506      66666572 
+ 506      00
+ 507              	.LASF0:
+ 508 01f4 7369676E 		.ascii	"signed char\000"
+ 508      65642063 
+ 508      68617200 
+ 509              	.LASF14:
+ 510 0200 6C6F6E67 		.ascii	"long double\000"
+ARM GAS  C:\Users\schoo\AppData\Local\Temp\cchXedFh.s 			page 12
+
+
+ 510      20646F75 
+ 510      626C6500 
+ 511              	.LASF9:
+ 512 020c 5F5F696E 		.ascii	"__int32_t\000"
+ 512      7433325F 
+ 512      7400
+ 513              	.LASF11:
+ 514 0216 666C6F61 		.ascii	"float\000"
+ 514      7400
+ 515              	.LASF2:
+ 516 021c 73686F72 		.ascii	"short int\000"
+ 516      7420696E 
+ 516      7400
+ 517              	.LASF10:
+ 518 0226 696E7433 		.ascii	"int32_t\000"
+ 518      325F7400 
+ 519              	.LASF15:
+ 520 022e 73697A65 		.ascii	"sizetype\000"
+ 520      74797065 
+ 520      00
+ 521              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
