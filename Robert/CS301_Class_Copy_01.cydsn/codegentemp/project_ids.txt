@@ -1,0 +1,6 @@
+C:\Users\schoo\302OffOnedrive\301 Project\12_Cypress_LineFollowingRobot\Robert\CS301_Class_Copy_01.cydsn\CS301_Class_Copy_01.cyprj|3ccf1544-9754-42de-abec-6b270896a061
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|b5cddb16-f0d2-412d-be0a-bd8c3944f90e
+C:\Users\schoo\OneDrive\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\Downloads ( 4.2).cyprj|348b532d-15d0-4023-8159-4a2de14b28e2
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|3aed4ee2-0513-4fac-8112-2b742448567a
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|2ef1d556-faf0-4535-b8d1-adb6fcf0cb84
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|b246433d-5d63-4072-9c6e-1b164d8fab35
