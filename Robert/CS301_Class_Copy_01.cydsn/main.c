@@ -36,7 +36,7 @@ volatile uint16_t bufferIndex = 0;
 CY_ISR(ADCInterupt){
     //if we are printing pdmt store ADC values
     if(printFlag == 1) return;
-    uint16_t ADCReturn = ADC_GetResult16((uint16_t)0);  
+    uint16_t ADCReturn = ADC_GetResult16((uint16_t)0);
     //add the result to the buffer
     buffer[bufferIndex++] = ADC_CountsTo_mVolts(ADCReturn);
     //when the buffer is full set the prin flag, start the buffer aggain
@@ -64,6 +64,9 @@ int main(){
     isr_eoc_StartEx(ADCInterupt);
     
     ADC_Start();
+    VDAC8_Start();
+    
+    uint16_t bufferFollow = 1;
     
     for(;;)
     {
@@ -82,10 +85,12 @@ int main(){
             }
             usbPutString("\r\n");
             printFlag = 0;
+            bufferFollow = 1;
+        } else if (bufferFollow != bufferIndex){
+            // Set DAC value
+            VDAC8_SetValue((buffer[bufferIndex - 1])/16);
+            bufferFollow = bufferIndex;
         }
-        
-        
-         
     }  
 }//End main
 
