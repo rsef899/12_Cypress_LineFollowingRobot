@@ -1,5 +1,5 @@
 -- Project:   CS301_Class_Copy_01
--- Generated: 07/28/2023 21:05:33
+-- Generated: 08/02/2023 13:43:31
 -- PSoC Creator  4.2
 
 ENTITY CS301_Class_Copy_01 IS
@@ -190,6 +190,7 @@ ARCHITECTURE __DEFAULT__ OF CS301_Class_Copy_01 IS
     SIGNAL \ADC:Net_3698\ : bit;
     SIGNAL \ADC:Net_3830\ : bit;
     SIGNAL \ADC:Net_3935\ : bit;
+    SIGNAL \\\ADC:SAR:Bypass(0)\\__PA\ : bit;
     SIGNAL \ADC:SAR:Net_207_0\ : bit;
     SIGNAL \ADC:SAR:Net_207_10\ : bit;
     SIGNAL \ADC:SAR:Net_207_11\ : bit;
@@ -407,7 +408,7 @@ ARCHITECTURE __DEFAULT__ OF CS301_Class_Copy_01 IS
     SIGNAL tmpOE__M1_IN1_net_0 : bit;
     ATTRIBUTE POWER OF tmpOE__M1_IN1_net_0 : SIGNAL IS true;
     SIGNAL \ClockBlock.dclk_glb_ff_2__sig\ : bit;
-    SIGNAL \ClockBlock.dclk_glb_ff_4__sig\ : bit;
+    SIGNAL \ClockBlock.dclk_glb_ff_3__sig\ : bit;
     SIGNAL \QuadDec_M1:Cnt16:CounterUDB:sC16:counterdp:u0.ce0__sig\ : bit;
     SIGNAL \QuadDec_M1:Cnt16:CounterUDB:sC16:counterdp:u0.cl0__sig\ : bit;
     SIGNAL \QuadDec_M1:Cnt16:CounterUDB:sC16:counterdp:u0.z0__sig\ : bit;
@@ -454,39 +455,41 @@ ARCHITECTURE __DEFAULT__ OF CS301_Class_Copy_01 IS
     ATTRIBUTE Location OF M2_QB(0) : LABEL IS "P0[1]";
     ATTRIBUTE lib_model OF A0(0) : LABEL IS "iocell10";
     ATTRIBUTE Location OF A0(0) : LABEL IS "P0[5]";
-    ATTRIBUTE lib_model OF A1(0) : LABEL IS "iocell11";
+    ATTRIBUTE lib_model OF \ADC:SAR:Bypass(0)\ : LABEL IS "iocell11";
+    ATTRIBUTE Location OF \ADC:SAR:Bypass(0)\ : LABEL IS "P0[2]";
+    ATTRIBUTE lib_model OF A1(0) : LABEL IS "iocell12";
     ATTRIBUTE Location OF A1(0) : LABEL IS "P0[6]";
-    ATTRIBUTE lib_model OF A2(0) : LABEL IS "iocell12";
+    ATTRIBUTE lib_model OF A2(0) : LABEL IS "iocell13";
     ATTRIBUTE Location OF A2(0) : LABEL IS "P0[7]";
-    ATTRIBUTE lib_model OF A3(0) : LABEL IS "iocell13";
+    ATTRIBUTE lib_model OF A3(0) : LABEL IS "iocell14";
     ATTRIBUTE Location OF A3(0) : LABEL IS "P1[2]";
-    ATTRIBUTE lib_model OF A4(0) : LABEL IS "iocell14";
+    ATTRIBUTE lib_model OF A4(0) : LABEL IS "iocell15";
     ATTRIBUTE Location OF A4(0) : LABEL IS "P1[4]";
-    ATTRIBUTE lib_model OF A5(0) : LABEL IS "iocell15";
+    ATTRIBUTE lib_model OF A5(0) : LABEL IS "iocell16";
     ATTRIBUTE Location OF A5(0) : LABEL IS "P1[5]";
-    ATTRIBUTE lib_model OF A6(0) : LABEL IS "iocell16";
+    ATTRIBUTE lib_model OF A6(0) : LABEL IS "iocell17";
     ATTRIBUTE Location OF A6(0) : LABEL IS "P1[6]";
-    ATTRIBUTE lib_model OF A7(0) : LABEL IS "iocell17";
+    ATTRIBUTE lib_model OF A7(0) : LABEL IS "iocell18";
     ATTRIBUTE Location OF A7(0) : LABEL IS "P1[7]";
-    ATTRIBUTE lib_model OF \USBUART:Dm(0)\ : LABEL IS "iocell18";
+    ATTRIBUTE lib_model OF \USBUART:Dm(0)\ : LABEL IS "iocell19";
     ATTRIBUTE Location OF \USBUART:Dm(0)\ : LABEL IS "P15[7]";
-    ATTRIBUTE lib_model OF \USBUART:Dp(0)\ : LABEL IS "iocell19";
+    ATTRIBUTE lib_model OF \USBUART:Dp(0)\ : LABEL IS "iocell20";
     ATTRIBUTE Location OF \USBUART:Dp(0)\ : LABEL IS "P15[6]";
-    ATTRIBUTE lib_model OF M1_D1(0) : LABEL IS "iocell20";
+    ATTRIBUTE lib_model OF M1_D1(0) : LABEL IS "iocell21";
     ATTRIBUTE Location OF M1_D1(0) : LABEL IS "P3[3]";
-    ATTRIBUTE lib_model OF Rx_1(0) : LABEL IS "iocell21";
+    ATTRIBUTE lib_model OF Rx_1(0) : LABEL IS "iocell22";
     ATTRIBUTE Location OF Rx_1(0) : LABEL IS "P2[2]";
-    ATTRIBUTE lib_model OF Tx_1(0) : LABEL IS "iocell22";
+    ATTRIBUTE lib_model OF Tx_1(0) : LABEL IS "iocell23";
     ATTRIBUTE Location OF Tx_1(0) : LABEL IS "P2[3]";
-    ATTRIBUTE lib_model OF LED(0) : LABEL IS "iocell23";
+    ATTRIBUTE lib_model OF LED(0) : LABEL IS "iocell24";
     ATTRIBUTE Location OF LED(0) : LABEL IS "P2[1]";
-    ATTRIBUTE lib_model OF DB0(0) : LABEL IS "iocell24";
+    ATTRIBUTE lib_model OF DB0(0) : LABEL IS "iocell25";
     ATTRIBUTE Location OF DB0(0) : LABEL IS "P3[0]";
-    ATTRIBUTE lib_model OF DB1(0) : LABEL IS "iocell25";
+    ATTRIBUTE lib_model OF DB1(0) : LABEL IS "iocell26";
     ATTRIBUTE Location OF DB1(0) : LABEL IS "P3[1]";
-    ATTRIBUTE lib_model OF DB2(0) : LABEL IS "iocell26";
+    ATTRIBUTE lib_model OF DB2(0) : LABEL IS "iocell27";
     ATTRIBUTE Location OF DB2(0) : LABEL IS "P3[6]";
-    ATTRIBUTE lib_model OF Rx_2(0) : LABEL IS "iocell27";
+    ATTRIBUTE lib_model OF Rx_2(0) : LABEL IS "iocell28";
     ATTRIBUTE Location OF Rx_2(0) : LABEL IS "P2[4]";
     ATTRIBUTE lib_model OF \QuadDec_M1:Cnt16:CounterUDB:reload\ : LABEL IS "macrocell2";
     ATTRIBUTE lib_model OF \QuadDec_M1:Cnt16:CounterUDB:status_0\ : LABEL IS "macrocell3";
@@ -537,7 +540,7 @@ ARCHITECTURE __DEFAULT__ OF CS301_Class_Copy_01 IS
     ATTRIBUTE lib_model OF \QuadDec_M2:bQuadDec:quad_B_delayed_1\ : LABEL IS "macrocell39";
     ATTRIBUTE lib_model OF \QuadDec_M2:bQuadDec:quad_B_delayed_2\ : LABEL IS "macrocell40";
     ATTRIBUTE lib_model OF \QuadDec_M2:bQuadDec:Stsreg\ : LABEL IS "statusicell4";
-    ATTRIBUTE Location OF \ADC:SAR:ADC_SAR\ : LABEL IS "F(SAR,0)";
+    ATTRIBUTE Location OF \ADC:SAR:ADC_SAR\ : LABEL IS "F(SAR,1)";
     ATTRIBUTE lib_model OF \ADC:bSAR_SEQ:CtrlReg\ : LABEL IS "controlcell3";
     ATTRIBUTE lib_model OF \ADC:bSAR_SEQ:EOCSts\ : LABEL IS "statuscell1";
     ATTRIBUTE lib_model OF \ADC:TempBuf\ : LABEL IS "drqcell1";
@@ -1138,12 +1141,12 @@ BEGIN
             dclk_1 => \ADC:clock_local\,
             dclk_glb_2 => CLK24M,
             dclk_2 => CLK24M_local,
-            dclk_glb_3 => \UART:Net_9\,
-            dclk_3 => \UART:Net_9_local\,
-            dclk_glb_4 => Net_10,
-            dclk_4 => Net_10_local,
+            dclk_glb_3 => Net_10,
+            dclk_3 => Net_10_local,
+            dclk_glb_4 => \UART:Net_9\,
+            dclk_4 => \UART:Net_9_local\,
             dclk_glb_ff_2 => \ClockBlock.dclk_glb_ff_2__sig\,
-            dclk_glb_ff_4 => \ClockBlock.dclk_glb_ff_4__sig\);
+            dclk_glb_ff_3 => \ClockBlock.dclk_glb_ff_3__sig\);
 
     M1_IN1:logicalport
         GENERIC MAP(
@@ -2057,6 +2060,95 @@ BEGIN
             oe => open,
             in_clock => open,
             pin_input => \ADC:AMuxHw_2_Decoder_one_hot_0\,
+            in_clock_en => '1',
+            in_reset => '0',
+            out_clock => open,
+            out_clock_en => '1',
+            out_reset => '0');
+
+    \ADC:SAR:Bypass\:logicalport
+        GENERIC MAP(
+            drive_mode => "000",
+            ibuf_enabled => "0",
+            id => "fde0a943-5276-4812-84ac-47fe7c122954/dea208d9-07b0-438b-a5e0-ac5d207f2658/16a808f6-2e13-45b9-bce0-b001c8655113",
+            init_dr_st => "0",
+            input_buffer_sel => "00",
+            input_clk_en => 0,
+            input_sync => "1",
+            input_sync_mode => "0",
+            intr_mode => "00",
+            invert_in_clock => 0,
+            invert_in_clock_en => 0,
+            invert_in_reset => 0,
+            invert_out_clock => 0,
+            invert_out_clock_en => 0,
+            invert_out_reset => 0,
+            io_voltage => "",
+            layout_mode => "CONTIGUOUS",
+            oe_conn => "0",
+            oe_reset => 0,
+            oe_sync => "0",
+            output_clk_en => 0,
+            output_clock_mode => "0",
+            output_conn => "0",
+            output_mode => "0",
+            output_reset => 0,
+            output_sync => "0",
+            ovt_hyst_trim => "0",
+            ovt_needed => "0",
+            ovt_slew_control => "00",
+            pa_in_clock => -1,
+            pa_in_clock_en => -1,
+            pa_in_reset => -1,
+            pa_out_clock => -1,
+            pa_out_clock_en => -1,
+            pa_out_reset => -1,
+            pin_aliases => "",
+            pin_mode => "A",
+            por_state => 4,
+            port_alias_group => "",
+            port_alias_required => 0,
+            sio_group_cnt => 0,
+            sio_hifreq => "00000000",
+            sio_hyst => "1",
+            sio_ibuf => "00000000",
+            sio_info => "00",
+            sio_obuf => "00000000",
+            sio_refsel => "00000000",
+            sio_vohsel => "00000000",
+            sio_vtrip => "00000000",
+            slew_rate => "0",
+            spanning => 0,
+            sw_only => 0,
+            use_annotation => "0",
+            vtrip => "10",
+            width => 1,
+            in_clk_inv => 0,
+            in_clken_inv => 0,
+            in_clken_mode => 1,
+            in_rst_inv => 0,
+            out_clk_inv => 0,
+            out_clken_inv => 0,
+            out_clken_mode => 1,
+            out_rst_inv => 0)
+        PORT MAP(
+            in_clock_en => open,
+            in_reset => open,
+            out_clock_en => open,
+            out_reset => open);
+
+    \ADC:SAR:Bypass(0)\:iocell
+        GENERIC MAP(
+            in_sync_mode => 0,
+            out_sync_mode => 0,
+            oe_sync_mode => 0,
+            logicalport => "\ADC:SAR:Bypass\",
+            logicalport_pin_id => 0,
+            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000010")
+        PORT MAP(
+            pa_out => \\\ADC:SAR:Bypass(0)\\__PA\,
+            oe => open,
+            in_clock => open,
             in_clock_en => '1',
             in_reset => '0',
             out_clock => open,
@@ -4488,7 +4580,7 @@ BEGIN
         GENERIC MAP(
             cy_registers => "")
         PORT MAP(
-            clock => \ClockBlock.dclk_glb_ff_4__sig\,
+            clock => \ClockBlock.dclk_glb_ff_3__sig\,
             kill => open,
             enable => __ONE__,
             capture => open,

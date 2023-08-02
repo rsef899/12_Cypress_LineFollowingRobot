@@ -2,7 +2,7 @@
 --	Conversion of CS301_Class_Copy_01.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Fri Jul 28 21:05:31 2023
+--	Wed Aug 02 13:42:39 2023
 --
 
 USE cypress.cypress.all;
@@ -701,8 +701,14 @@ SIGNAL \ADC:SAR:Net_207_2\ : bit;
 SIGNAL \ADC:SAR:Net_207_1\ : bit;
 SIGNAL \ADC:SAR:Net_207_0\ : bit;
 SIGNAL \ADC:Net_3830\ : bit;
-TERMINAL \ADC:SAR:Net_209\ : bit;
+TERMINAL \ADC:SAR:Net_210\ : bit;
+SIGNAL \ADC:SAR:tmpOE__Bypass_net_0\ : bit;
+SIGNAL \ADC:SAR:tmpFB_0__Bypass_net_0\ : bit;
+SIGNAL \ADC:SAR:tmpIO_0__Bypass_net_0\ : bit;
+TERMINAL \ADC:SAR:tmpSIOVREF__Bypass_net_0\ : bit;
+SIGNAL \ADC:SAR:tmpINTERRUPT_0__Bypass_net_0\ : bit;
 TERMINAL \ADC:SAR:Net_149\ : bit;
+TERMINAL \ADC:SAR:Net_209\ : bit;
 TERMINAL \ADC:SAR:Net_255\ : bit;
 TERMINAL \ADC:SAR:Net_368\ : bit;
 SIGNAL \ADC:SAR:Net_221\ : bit;
@@ -3314,7 +3320,77 @@ A0:cy_psoc3_pins_v1_10
 	GENERIC MAP(sig_width=>1,
 		is_net_join=>'0')
 	PORT MAP(signal1=>\ADC:SAR:Net_215\,
-		signal2=>\ADC:SAR:Net_209\);
+		signal2=>\ADC:SAR:Net_210\);
+\ADC:SAR:Bypass\:cy_psoc3_pins_v1_10
+	GENERIC MAP(id=>"fde0a943-5276-4812-84ac-47fe7c122954/dea208d9-07b0-438b-a5e0-ac5d207f2658/16a808f6-2e13-45b9-bce0-b001c8655113",
+		drive_mode=>"000",
+		ibuf_enabled=>"0",
+		init_dr_st=>"0",
+		input_sync=>"1",
+		input_clk_en=>'0',
+		input_sync_mode=>"0",
+		intr_mode=>"00",
+		invert_in_clock=>'0',
+		invert_in_clock_en=>'0',
+		invert_in_reset=>'0',
+		invert_out_clock=>'0',
+		invert_out_clock_en=>'0',
+		invert_out_reset=>'0',
+		io_voltage=>"",
+		layout_mode=>"CONTIGUOUS",
+		output_conn=>"0",
+		output_sync=>"0",
+		output_clk_en=>'0',
+		output_mode=>"0",
+		output_reset=>'0',
+		output_clock_mode=>"0",
+		oe_sync=>"0",
+		oe_conn=>"0",
+		oe_reset=>'0',
+		pin_aliases=>"",
+		pin_mode=>"A",
+		por_state=>4,
+		sio_group_cnt=>0,
+		sio_hifreq=>"00000000",
+		sio_hyst=>"1",
+		sio_ibuf=>"00000000",
+		sio_info=>"00",
+		sio_obuf=>"00000000",
+		sio_refsel=>"00000000",
+		sio_vtrip=>"00000000",
+		sio_vohsel=>"00000000",
+		slew_rate=>"0",
+		spanning=>'0',
+		sw_only=>'0',
+		vtrip=>"10",
+		width=>1,
+		port_alias_required=>'0',
+		port_alias_group=>"",
+		use_annotation=>"0",
+		pa_in_clock=>-1,
+		pa_in_clock_en=>-1,
+		pa_in_reset=>-1,
+		pa_out_clock=>-1,
+		pa_out_clock_en=>-1,
+		pa_out_reset=>-1,
+		ovt_needed=>"0",
+		ovt_slew_control=>"00",
+		ovt_hyst_trim=>"0",
+		input_buffer_sel=>"00")
+	PORT MAP(oe=>(tmpOE__M1_IN1_net_0),
+		y=>(Net_2183),
+		fb=>(\ADC:SAR:tmpFB_0__Bypass_net_0\),
+		analog=>\ADC:SAR:Net_210\,
+		io=>(\ADC:SAR:tmpIO_0__Bypass_net_0\),
+		siovref=>(\ADC:SAR:tmpSIOVREF__Bypass_net_0\),
+		annotation=>(open),
+		in_clock=>Net_2183,
+		in_clock_en=>tmpOE__M1_IN1_net_0,
+		in_reset=>Net_2183,
+		out_clock=>Net_2183,
+		out_clock_en=>tmpOE__M1_IN1_net_0,
+		out_reset=>Net_2183,
+		interrupt=>\ADC:SAR:tmpINTERRUPT_0__Bypass_net_0\);
 \ADC:SAR:cy_analog_virtualmux_1_connect\:cy_connect_v1_0
 	GENERIC MAP(sig_width=>1,
 		is_net_join=>'0')
@@ -3387,7 +3463,7 @@ A0:cy_psoc3_pins_v1_10
 		id=>"fde0a943-5276-4812-84ac-47fe7c122954/9725d809-97e7-404e-b621-dfdbe78d0ca9",
 		source_clock_id=>"",
 		divisor=>0,
-		period=>"637755102.040816",
+		period=>"357142857.142857",
 		is_direct=>'0',
 		is_digital=>'1')
 	PORT MAP(clock_out=>\ADC:clock\,
@@ -4127,9 +4203,9 @@ isr_TS:cy_isr_v1_0
 Clock2:cy_clock_v1_0
 	GENERIC MAP(cy_registers=>"",
 		id=>"4c992dc7-2721-4e82-beca-fd2bdf776a66",
-		source_clock_id=>"315365C3-2E3E-4f04-84A2-BB564A173261",
+		source_clock_id=>"39D5E4C2-EBFC-44ab-AE3D-19F9BBFD674D",
 		divisor=>0,
-		period=>"10000000000",
+		period=>"2000000000",
 		is_direct=>'0',
 		is_digital=>'1')
 	PORT MAP(clock_out=>Net_10,

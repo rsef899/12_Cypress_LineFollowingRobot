@@ -99,6 +99,8 @@
 #include "USBUART_Dp_aliases.h"
 #include "USBUART_Dp.h"
 #include "UART_IntClock.h"
+#include "ADC_SAR_Bypass_aliases.h"
+#include "ADC_SAR_Bypass.h"
 #include "cy_em_eeprom.h"
 #include "core_cm3_psoc5.h"
 #include "CyDmac.h"

@@ -29,12 +29,21 @@ void handle_usb();
 void changeDutyCycle(char* dutyValue);
 
 volatile uint8_t printFlag = 0;
-volatile uint16_t ADCVoltage;
+volatile uint16_t buffer[1024];
+volatile uint16_t bufferIndex = 0;
+
 //define teh TImer Interuprt
 CY_ISR(ADCInterupt){
+    //if we are printing pdmt store ADC values
+    if(printFlag == 1) return;
     uint16_t ADCReturn = ADC_GetResult16((uint16_t)0);  
-    ADCVoltage = ADC_CountsTo_mVolts(ADCReturn);
-    printFlag = 1;
+    //add the result to the buffer
+    buffer[bufferIndex++] = ADC_CountsTo_mVolts(ADCReturn);
+    //when the buffer is full set the prin flag, start the buffer aggain
+    if(bufferIndex == 1024) {
+        printFlag = 1;
+        bufferIndex = 0;
+    }
 }
 
 
@@ -58,13 +67,20 @@ int main(){
     
     for(;;)
     {
-        
+        //print the data
         if (printFlag == 1){
-            char str[20];
-            sprintf(str, "%d", ADCVoltage);
-            usbPutString(str);
-            usbPutString("\n");
-            usbPutString("\r");
+            usbPutString("---------------------Sample Start-------------------------------");
+            for(uint16_t i = 0; i < 1024; i++) {
+                char numBuffer[6];
+                
+                //COnvert the value in the buffer to a string
+                itoa(buffer[i], numBuffer, 10);
+                numBuffer[5] = '\0';
+                //print the value
+                usbPutString(numBuffer);
+                usbPutString("\n\r");
+            }
+            usbPutString("\r\n");
             printFlag = 0;
         }
         
