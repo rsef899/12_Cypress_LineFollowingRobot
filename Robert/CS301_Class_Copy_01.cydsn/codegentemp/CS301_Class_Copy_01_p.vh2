@@ -1,5 +1,5 @@
 -- Project:   CS301_Class_Copy_01
--- Generated: 08/02/2023 15:07:37
+-- Generated: 08/04/2023 16:28:33
 -- PSoC Creator  4.2
 
 ENTITY CS301_Class_Copy_01 IS
@@ -15,16 +15,16 @@ ENTITY CS301_Class_Copy_01 IS
         M2_QB(0)_PAD : IN std_ulogic;
         A1(0)_PAD : INOUT std_ulogic;
         A2(0)_PAD : INOUT std_ulogic;
-        A3(0)_PAD : INOUT std_ulogic;
-        A4(0)_PAD : INOUT std_ulogic;
+        IN2A(0)_PAD : INOUT std_ulogic;
+        IN2B(0)_PAD : INOUT std_ulogic;
         A5(0)_PAD : INOUT std_ulogic;
-        A6(0)_PAD : INOUT std_ulogic;
+        IN1B(0)_PAD : INOUT std_ulogic;
         M1_D1(0)_PAD : OUT std_ulogic;
         Rx_1(0)_PAD : IN std_ulogic;
         Tx_1(0)_PAD : OUT std_ulogic;
         LED(0)_PAD : OUT std_ulogic;
         DB0(0)_PAD : OUT std_ulogic;
-        DB1(0)_PAD : OUT std_ulogic;
+        IN1A(0)_PAD : OUT std_ulogic;
         DB2(0)_PAD : OUT std_ulogic;
         Rx_2(0)_PAD : IN std_ulogic);
     ATTRIBUTE voltage_VDDABUF OF __DEFAULT__ : ENTITY IS 5e0;
@@ -41,10 +41,7 @@ ARCHITECTURE __DEFAULT__ OF CS301_Class_Copy_01 IS
     SIGNAL A0(0)__PA : bit;
     SIGNAL A1(0)__PA : bit;
     SIGNAL A2(0)__PA : bit;
-    SIGNAL A3(0)__PA : bit;
-    SIGNAL A4(0)__PA : bit;
     SIGNAL A5(0)__PA : bit;
-    SIGNAL A6(0)__PA : bit;
     SIGNAL A7(0)__PA : bit;
     SIGNAL CLK24M : bit;
     ATTRIBUTE global_signal OF CLK24M : SIGNAL IS true;
@@ -62,8 +59,11 @@ ARCHITECTURE __DEFAULT__ OF CS301_Class_Copy_01 IS
     SIGNAL ClockBlock_XTAL : bit;
     SIGNAL ClockBlock_XTAL_32KHZ : bit;
     SIGNAL DB0(0)__PA : bit;
-    SIGNAL DB1(0)__PA : bit;
     SIGNAL DB2(0)__PA : bit;
+    SIGNAL IN1A(0)__PA : bit;
+    SIGNAL IN1B(0)__PA : bit;
+    SIGNAL IN2A(0)__PA : bit;
+    SIGNAL IN2B(0)__PA : bit;
     SIGNAL LED(0)__PA : bit;
     SIGNAL M1_D1(0)__PA : bit;
     SIGNAL M1_IN1(0)__PA : bit;
@@ -460,14 +460,14 @@ ARCHITECTURE __DEFAULT__ OF CS301_Class_Copy_01 IS
     ATTRIBUTE Location OF A1(0) : LABEL IS "P0[6]";
     ATTRIBUTE lib_model OF A2(0) : LABEL IS "iocell13";
     ATTRIBUTE Location OF A2(0) : LABEL IS "P0[7]";
-    ATTRIBUTE lib_model OF A3(0) : LABEL IS "iocell14";
-    ATTRIBUTE Location OF A3(0) : LABEL IS "P1[2]";
-    ATTRIBUTE lib_model OF A4(0) : LABEL IS "iocell15";
-    ATTRIBUTE Location OF A4(0) : LABEL IS "P1[4]";
+    ATTRIBUTE lib_model OF IN2A(0) : LABEL IS "iocell14";
+    ATTRIBUTE Location OF IN2A(0) : LABEL IS "P1[2]";
+    ATTRIBUTE lib_model OF IN2B(0) : LABEL IS "iocell15";
+    ATTRIBUTE Location OF IN2B(0) : LABEL IS "P1[4]";
     ATTRIBUTE lib_model OF A5(0) : LABEL IS "iocell16";
     ATTRIBUTE Location OF A5(0) : LABEL IS "P1[5]";
-    ATTRIBUTE lib_model OF A6(0) : LABEL IS "iocell17";
-    ATTRIBUTE Location OF A6(0) : LABEL IS "P1[6]";
+    ATTRIBUTE lib_model OF IN1B(0) : LABEL IS "iocell17";
+    ATTRIBUTE Location OF IN1B(0) : LABEL IS "P1[6]";
     ATTRIBUTE lib_model OF \USBUART:Dm(0)\ : LABEL IS "iocell18";
     ATTRIBUTE Location OF \USBUART:Dm(0)\ : LABEL IS "P15[7]";
     ATTRIBUTE lib_model OF \USBUART:Dp(0)\ : LABEL IS "iocell19";
@@ -482,8 +482,8 @@ ARCHITECTURE __DEFAULT__ OF CS301_Class_Copy_01 IS
     ATTRIBUTE Location OF LED(0) : LABEL IS "P2[1]";
     ATTRIBUTE lib_model OF DB0(0) : LABEL IS "iocell24";
     ATTRIBUTE Location OF DB0(0) : LABEL IS "P3[0]";
-    ATTRIBUTE lib_model OF DB1(0) : LABEL IS "iocell25";
-    ATTRIBUTE Location OF DB1(0) : LABEL IS "P3[1]";
+    ATTRIBUTE lib_model OF IN1A(0) : LABEL IS "iocell25";
+    ATTRIBUTE Location OF IN1A(0) : LABEL IS "P3[1]";
     ATTRIBUTE lib_model OF DB2(0) : LABEL IS "iocell26";
     ATTRIBUTE Location OF DB2(0) : LABEL IS "P3[6]";
     ATTRIBUTE lib_model OF Rx_2(0) : LABEL IS "iocell27";
@@ -2351,7 +2351,7 @@ BEGIN
             out_clock_en => '1',
             out_reset => '0');
 
-    A3:logicalport
+    IN2A:logicalport
         GENERIC MAP(
             drive_mode => "000",
             ibuf_enabled => "0",
@@ -2422,18 +2422,18 @@ BEGIN
             out_clock_en => open,
             out_reset => open);
 
-    A3(0):iocell
+    IN2A(0):iocell
         GENERIC MAP(
             in_sync_mode => 0,
             out_sync_mode => 0,
             oe_sync_mode => 0,
-            logicalport => "A3",
+            logicalport => "IN2A",
             logicalport_pin_id => 0,
             io_capabilities => "0000000000000000000000000000000000000000000000000000000000000010")
         PORT MAP(
-            pa_out => A3(0)__PA,
+            pa_out => IN2A(0)__PA,
             oe => open,
-            pad_in => A3(0)_PAD,
+            pad_in => IN2A(0)_PAD,
             in_clock => open,
             in_clock_en => '1',
             in_reset => '0',
@@ -2441,7 +2441,7 @@ BEGIN
             out_clock_en => '1',
             out_reset => '0');
 
-    A4:logicalport
+    IN2B:logicalport
         GENERIC MAP(
             drive_mode => "000",
             ibuf_enabled => "0",
@@ -2512,18 +2512,18 @@ BEGIN
             out_clock_en => open,
             out_reset => open);
 
-    A4(0):iocell
+    IN2B(0):iocell
         GENERIC MAP(
             in_sync_mode => 0,
             out_sync_mode => 0,
             oe_sync_mode => 0,
-            logicalport => "A4",
+            logicalport => "IN2B",
             logicalport_pin_id => 0,
             io_capabilities => "0000000000000000000000000000000000000000000000000000000000000010")
         PORT MAP(
-            pa_out => A4(0)__PA,
+            pa_out => IN2B(0)__PA,
             oe => open,
-            pad_in => A4(0)_PAD,
+            pad_in => IN2B(0)_PAD,
             in_clock => open,
             in_clock_en => '1',
             in_reset => '0',
@@ -2621,7 +2621,7 @@ BEGIN
             out_clock_en => '1',
             out_reset => '0');
 
-    A6:logicalport
+    IN1B:logicalport
         GENERIC MAP(
             drive_mode => "000",
             ibuf_enabled => "0",
@@ -2692,18 +2692,18 @@ BEGIN
             out_clock_en => open,
             out_reset => open);
 
-    A6(0):iocell
+    IN1B(0):iocell
         GENERIC MAP(
             in_sync_mode => 0,
             out_sync_mode => 0,
             oe_sync_mode => 0,
-            logicalport => "A6",
+            logicalport => "IN1B",
             logicalport_pin_id => 0,
             io_capabilities => "0000000000000000000000000000000000000000000000000000000000000010")
         PORT MAP(
-            pa_out => A6(0)__PA,
+            pa_out => IN1B(0)__PA,
             oe => open,
-            pad_in => A6(0)_PAD,
+            pad_in => IN1B(0)_PAD,
             in_clock => open,
             in_clock_en => '1',
             in_reset => '0',
@@ -3347,7 +3347,7 @@ BEGIN
             out_clock_en => '1',
             out_reset => '0');
 
-    DB1:logicalport
+    IN1A:logicalport
         GENERIC MAP(
             drive_mode => "110",
             ibuf_enabled => "1",
@@ -3418,18 +3418,18 @@ BEGIN
             out_clock_en => open,
             out_reset => open);
 
-    DB1(0):iocell
+    IN1A(0):iocell
         GENERIC MAP(
             in_sync_mode => 0,
             out_sync_mode => 0,
             oe_sync_mode => 0,
-            logicalport => "DB1",
+            logicalport => "IN1A",
             logicalport_pin_id => 0,
             io_capabilities => "0000000000000000000000000000000000000000000000000000000000000001")
         PORT MAP(
-            pa_out => DB1(0)__PA,
+            pa_out => IN1A(0)__PA,
             oe => open,
-            pad_in => DB1(0)_PAD,
+            pad_in => IN1A(0)_PAD,
             in_clock => open,
             in_clock_en => '1',
             in_reset => '0',

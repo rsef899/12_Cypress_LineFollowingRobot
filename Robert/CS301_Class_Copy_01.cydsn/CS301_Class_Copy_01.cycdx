@@ -1185,7 +1185,7 @@
   <block name="Em_EEPROM_Dynamic" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="A7" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="DB2" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="DB1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="IN1A" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="DB0" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="isrRF_RX" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="isrRF_TX" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
@@ -1346,11 +1346,11 @@
   <block name="M1_IN2" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="M1_QB" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="A5" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="A4" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="A3" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="IN2B" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="IN2A" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="ZeroTerminal_1" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="isr_TS" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
-  <block name="A6" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
+  <block name="IN1B" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="A0" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="M2_QB" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />
   <block name="M2_QA" BASE="0x0" SIZE="0x0" desc="" visible="true" hidden="false" />

@@ -50,47 +50,14 @@ CY_ISR(ADCInterupt){
 int main(){
     
 
-// --------------------------------    
-// ----- INITIALIZATIONS ----------
-    CYGlobalIntEnable;
-
-    USBUART_Start(0,USBUART_5V_OPERATION);
-    //Default message to see if terminal connection is working
-    usbPutString("*--- ROBERT IS GAY ----*");
-    
-    //Start the timer and initialise its interupt
-    Timer_TS_Start();
-    //initialise the ADC timer
-    isr_eoc_StartEx(ADCInterupt);
-    
-    ADC_Start();
-    VDAC8_Start();
-    
-    uint16_t bufferFollow = 1;
+    IN1A_Write(1);
+    IN1B_Write(1);
+    IN2A_Write(0);
+    IN2B_Write(0);
     
     for(;;)
     {
-        //print the data
-        if (printFlag == 1){
-            usbPutString("---------------------Sample Start-------------------------------");
-            for(uint16_t i = 0; i < 1024; i++) {
-                char numBuffer[6];
-                
-                //COnvert the value in the buffer to a string
-                itoa(buffer[i], numBuffer, 10);
-                numBuffer[5] = '\0';
-                //print the value
-                usbPutString(numBuffer);
-                usbPutString("\n\r");
-            }
-            usbPutString("\r\n");
-            printFlag = 0;
-            bufferFollow = 1;
-        } else if (bufferFollow != bufferIndex){
-            // Set DAC value
-            VDAC8_SetValue((buffer[bufferIndex - 1])/16);
-            bufferFollow = bufferIndex;
-        }
+      
     }  
 }//End main
 
