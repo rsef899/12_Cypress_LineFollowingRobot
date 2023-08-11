@@ -1438,7 +1438,7 @@ END GROUP
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0x6a99
+.debug_info     0x00000000     0x6aa6
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000      0x3fe .\CortexM3\ARM_GCC_541\Debug\main.o
  .debug_info    0x000003fe      0x14e .\CortexM3\ARM_GCC_541\Debug\tacho.o
@@ -1462,11 +1462,11 @@ END GROUP
  .debug_info    0x000056ac      0x291 .\CortexM3\ARM_GCC_541\Debug\CS301_Class.a(QuadDec_M1_Cnt16.o)
  .debug_info    0x0000593d      0x291 .\CortexM3\ARM_GCC_541\Debug\CS301_Class.a(QuadDec_M2_Cnt16.o)
  .debug_info    0x00005bce       0xd7 .\CortexM3\ARM_GCC_541\Debug\CS301_Class.a(RF_BT_SELECT.o)
- .debug_info    0x00005ca5       0xd2 .\CortexM3\ARM_GCC_541\Debug\CS301_Class.a(CyBootAsmGnu.o)
- .debug_info    0x00005d77      0x1c8 .\CortexM3\ARM_GCC_541\Debug\CS301_Class.a(USBUART_cls.o)
- .debug_info    0x00005f3f      0x2e1 .\CortexM3\ARM_GCC_541\Debug\CS301_Class.a(USBUART_descr.o)
- .debug_info    0x00006220      0x3b9 .\CortexM3\ARM_GCC_541\Debug\CS301_Class.a(CyFlash.o)
- .debug_info    0x000065d9      0x4c0 .\CortexM3\ARM_GCC_541\Debug\CS301_Class.a(CySpc.o)
+ .debug_info    0x00005ca5       0xdf .\CortexM3\ARM_GCC_541\Debug\CS301_Class.a(CyBootAsmGnu.o)
+ .debug_info    0x00005d84      0x1c8 .\CortexM3\ARM_GCC_541\Debug\CS301_Class.a(USBUART_cls.o)
+ .debug_info    0x00005f4c      0x2e1 .\CortexM3\ARM_GCC_541\Debug\CS301_Class.a(USBUART_descr.o)
+ .debug_info    0x0000622d      0x3b9 .\CortexM3\ARM_GCC_541\Debug\CS301_Class.a(CyFlash.o)
+ .debug_info    0x000065e6      0x4c0 .\CortexM3\ARM_GCC_541\Debug\CS301_Class.a(CySpc.o)
 
 .debug_abbrev   0x00000000     0x1fe2
  *(.debug_abbrev)
@@ -1563,60 +1563,60 @@ END GROUP
  .debug_frame   0x0000330c       0x20 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-strcpy.o)
  .debug_frame   0x0000332c       0x44 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-strtol.o)
 
-.debug_str      0x00000000     0x31b3
+.debug_str      0x00000000     0x31c0
  *(.debug_str)
- .debug_str     0x00000000      0x36c .\CortexM3\ARM_GCC_541\Debug\main.o
-                                0x3f1 (size before relaxing)
- .debug_str     0x0000036c       0x37 .\CortexM3\ARM_GCC_541\Debug\tacho.o
-                                0x219 (size before relaxing)
- .debug_str     0x000003a3      0x1a9 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
-                                0x380 (size before relaxing)
- .debug_str     0x0000054c       0x75 .\CortexM3\ARM_GCC_541\Debug\cymetadata.o
+ .debug_str     0x00000000      0x379 .\CortexM3\ARM_GCC_541\Debug\main.o
+                                0x3fe (size before relaxing)
+ .debug_str     0x00000379       0x37 .\CortexM3\ARM_GCC_541\Debug\tacho.o
                                 0x226 (size before relaxing)
- .debug_str     0x000005c1      0x11d .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
-                                0x319 (size before relaxing)
- .debug_str     0x000006de      0x434 .\CortexM3\ARM_GCC_541\Debug\CS301_Class.a(USBUART.o)
-                                0x62d (size before relaxing)
- .debug_str     0x00000b12      0x4d2 .\CortexM3\ARM_GCC_541\Debug\CS301_Class.a(USBUART_cdc.o)
-                                0x75c (size before relaxing)
- .debug_str     0x00000fe4      0x296 .\CortexM3\ARM_GCC_541\Debug\CS301_Class.a(USBUART_drv.o)
-                                0x63c (size before relaxing)
- .debug_str     0x0000127a       0x80 .\CortexM3\ARM_GCC_541\Debug\CS301_Class.a(USBUART_episr.o)
-                                0x309 (size before relaxing)
- .debug_str     0x000012fa       0xac .\CortexM3\ARM_GCC_541\Debug\CS301_Class.a(USBUART_pm.o)
-                                0x2ad (size before relaxing)
- .debug_str     0x000013a6      0x2bb .\CortexM3\ARM_GCC_541\Debug\CS301_Class.a(USBUART_std.o)
-                                0x79c (size before relaxing)
- .debug_str     0x00001661       0x5f .\CortexM3\ARM_GCC_541\Debug\CS301_Class.a(USBUART_vnd.o)
-                                0x2b9 (size before relaxing)
- .debug_str     0x000016c0       0xb5 .\CortexM3\ARM_GCC_541\Debug\CS301_Class.a(USBUART_Dp.o)
-                                0x283 (size before relaxing)
- .debug_str     0x00001775      0x349 .\CortexM3\ARM_GCC_541\Debug\CS301_Class.a(CyDmac.o)
-                                0x55f (size before relaxing)
- .debug_str     0x00001abe      0x7d0 .\CortexM3\ARM_GCC_541\Debug\CS301_Class.a(CyLib.o)
-                                0xa2c (size before relaxing)
- .debug_str     0x0000228e      0x371 .\CortexM3\ARM_GCC_541\Debug\CS301_Class.a(cyPm.o)
-                                0x585 (size before relaxing)
- .debug_str     0x000025ff      0x133 .\CortexM3\ARM_GCC_541\Debug\CS301_Class.a(PWM_1.o)
-                                0x30f (size before relaxing)
- .debug_str     0x00002732       0xfa .\CortexM3\ARM_GCC_541\Debug\CS301_Class.a(QuadDec_M1.o)
-                                0x2f7 (size before relaxing)
- .debug_str     0x0000282c       0xf3 .\CortexM3\ARM_GCC_541\Debug\CS301_Class.a(QuadDec_M2.o)
-                                0x2f7 (size before relaxing)
- .debug_str     0x0000291f      0x24d .\CortexM3\ARM_GCC_541\Debug\CS301_Class.a(QuadDec_M1_Cnt16.o)
-                                0x43e (size before relaxing)
- .debug_str     0x00002b6c      0x236 .\CortexM3\ARM_GCC_541\Debug\CS301_Class.a(QuadDec_M2_Cnt16.o)
-                                0x43e (size before relaxing)
- .debug_str     0x00002da2       0x4b .\CortexM3\ARM_GCC_541\Debug\CS301_Class.a(RF_BT_SELECT.o)
-                                0x206 (size before relaxing)
- .debug_str     0x00002ded       0x3f .\CortexM3\ARM_GCC_541\Debug\CS301_Class.a(USBUART_cls.o)
-                                0x2d1 (size before relaxing)
- .debug_str     0x00002e2c      0x104 .\CortexM3\ARM_GCC_541\Debug\CS301_Class.a(USBUART_descr.o)
-                                0x3d4 (size before relaxing)
- .debug_str     0x00002f30      0x156 .\CortexM3\ARM_GCC_541\Debug\CS301_Class.a(CyFlash.o)
-                                0x349 (size before relaxing)
- .debug_str     0x00003086      0x12d .\CortexM3\ARM_GCC_541\Debug\CS301_Class.a(CySpc.o)
-                                0x343 (size before relaxing)
+ .debug_str     0x000003b0      0x1a9 .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+                                0x38d (size before relaxing)
+ .debug_str     0x00000559       0x75 .\CortexM3\ARM_GCC_541\Debug\cymetadata.o
+                                0x233 (size before relaxing)
+ .debug_str     0x000005ce      0x11d .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+                                0x326 (size before relaxing)
+ .debug_str     0x000006eb      0x434 .\CortexM3\ARM_GCC_541\Debug\CS301_Class.a(USBUART.o)
+                                0x63a (size before relaxing)
+ .debug_str     0x00000b1f      0x4d2 .\CortexM3\ARM_GCC_541\Debug\CS301_Class.a(USBUART_cdc.o)
+                                0x769 (size before relaxing)
+ .debug_str     0x00000ff1      0x296 .\CortexM3\ARM_GCC_541\Debug\CS301_Class.a(USBUART_drv.o)
+                                0x649 (size before relaxing)
+ .debug_str     0x00001287       0x80 .\CortexM3\ARM_GCC_541\Debug\CS301_Class.a(USBUART_episr.o)
+                                0x316 (size before relaxing)
+ .debug_str     0x00001307       0xac .\CortexM3\ARM_GCC_541\Debug\CS301_Class.a(USBUART_pm.o)
+                                0x2ba (size before relaxing)
+ .debug_str     0x000013b3      0x2bb .\CortexM3\ARM_GCC_541\Debug\CS301_Class.a(USBUART_std.o)
+                                0x7a9 (size before relaxing)
+ .debug_str     0x0000166e       0x5f .\CortexM3\ARM_GCC_541\Debug\CS301_Class.a(USBUART_vnd.o)
+                                0x2c6 (size before relaxing)
+ .debug_str     0x000016cd       0xb5 .\CortexM3\ARM_GCC_541\Debug\CS301_Class.a(USBUART_Dp.o)
+                                0x290 (size before relaxing)
+ .debug_str     0x00001782      0x349 .\CortexM3\ARM_GCC_541\Debug\CS301_Class.a(CyDmac.o)
+                                0x56c (size before relaxing)
+ .debug_str     0x00001acb      0x7d0 .\CortexM3\ARM_GCC_541\Debug\CS301_Class.a(CyLib.o)
+                                0xa39 (size before relaxing)
+ .debug_str     0x0000229b      0x371 .\CortexM3\ARM_GCC_541\Debug\CS301_Class.a(cyPm.o)
+                                0x592 (size before relaxing)
+ .debug_str     0x0000260c      0x133 .\CortexM3\ARM_GCC_541\Debug\CS301_Class.a(PWM_1.o)
+                                0x31c (size before relaxing)
+ .debug_str     0x0000273f       0xfa .\CortexM3\ARM_GCC_541\Debug\CS301_Class.a(QuadDec_M1.o)
+                                0x304 (size before relaxing)
+ .debug_str     0x00002839       0xf3 .\CortexM3\ARM_GCC_541\Debug\CS301_Class.a(QuadDec_M2.o)
+                                0x304 (size before relaxing)
+ .debug_str     0x0000292c      0x24d .\CortexM3\ARM_GCC_541\Debug\CS301_Class.a(QuadDec_M1_Cnt16.o)
+                                0x44b (size before relaxing)
+ .debug_str     0x00002b79      0x236 .\CortexM3\ARM_GCC_541\Debug\CS301_Class.a(QuadDec_M2_Cnt16.o)
+                                0x44b (size before relaxing)
+ .debug_str     0x00002daf       0x4b .\CortexM3\ARM_GCC_541\Debug\CS301_Class.a(RF_BT_SELECT.o)
+                                0x213 (size before relaxing)
+ .debug_str     0x00002dfa       0x3f .\CortexM3\ARM_GCC_541\Debug\CS301_Class.a(USBUART_cls.o)
+                                0x2de (size before relaxing)
+ .debug_str     0x00002e39      0x104 .\CortexM3\ARM_GCC_541\Debug\CS301_Class.a(USBUART_descr.o)
+                                0x3e1 (size before relaxing)
+ .debug_str     0x00002f3d      0x156 .\CortexM3\ARM_GCC_541\Debug\CS301_Class.a(CyFlash.o)
+                                0x356 (size before relaxing)
+ .debug_str     0x00003093      0x12d .\CortexM3\ARM_GCC_541\Debug\CS301_Class.a(CySpc.o)
+                                0x350 (size before relaxing)
 
 .debug_loc
  *(.debug_loc)
@@ -1787,4 +1787,4 @@ END GROUP
 
 /DISCARD/
  *(.note.GNU-stack)
-OUTPUT(C:\Users\rsef899\OneDrive - The University of Auckland\301\student_pack\psoc student pack\lab exercise\psoc_intro\CS301_Class.cydsn\CortexM3\ARM_GCC_541\Debug\CS301_Class.elf elf32-littlearm)
+OUTPUT(C:\Users\schoo\302OffOnedrive\301 Project\12_Cypress_LineFollowingRobot\student_pack\psoc student pack\lab exercise\psoc_intro\CS301_Class.cydsn\CortexM3\ARM_GCC_541\Debug\CS301_Class.elf elf32-littlearm)

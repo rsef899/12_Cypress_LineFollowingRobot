@@ -13,7 +13,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="psoc_intro\CS301_Class_Copy_01">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="psoc_intro\HardwareTask2Project\Source Files\main.c">
 <ExpandedNodeIds>
 <v>psoc_intro</v>
 <v>psoc_intro\CS301_Class\TopDesign</v>
@@ -34,42 +34,24 @@
 <v>psoc_intro\CS301_Class\commands</v>
 <v>psoc_intro\CS301_Class\Generated_Source</v>
 <v>psoc_intro\CS301_Class\Generated_Source\PSoC5</v>
-<v>psoc_intro\CS301_Class_Copy_01</v>
-<v>psoc_intro\CS301_Class_Copy_01\TopDesign</v>
-<v>psoc_intro\CS301_Class_Copy_01\CS301_Class_Copy_01.cydwr</v>
-<v>psoc_intro\CS301_Class_Copy_01\CS301_Class_Copy_01.cydwr\Pins</v>
-<v>psoc_intro\CS301_Class_Copy_01\CS301_Class_Copy_01.cydwr\Analog</v>
-<v>psoc_intro\CS301_Class_Copy_01\CS301_Class_Copy_01.cydwr\Clocks</v>
-<v>psoc_intro\CS301_Class_Copy_01\CS301_Class_Copy_01.cydwr\Interrupts</v>
-<v>psoc_intro\CS301_Class_Copy_01\CS301_Class_Copy_01.cydwr\DMA</v>
-<v>psoc_intro\CS301_Class_Copy_01\CS301_Class_Copy_01.cydwr\System</v>
-<v>psoc_intro\CS301_Class_Copy_01\CS301_Class_Copy_01.cydwr\Directives</v>
-<v>psoc_intro\CS301_Class_Copy_01\CS301_Class_Copy_01.cydwr\Flash Security</v>
-<v>psoc_intro\CS301_Class_Copy_01\CS301_Class_Copy_01.cydwr\EEPROM</v>
-<v>psoc_intro\CS301_Class_Copy_01\Header Files</v>
-<v>psoc_intro\CS301_Class_Copy_01\Header Files\defines.h</v>
-<v>psoc_intro\CS301_Class_Copy_01\Header Files\vars.h</v>
-<v>psoc_intro\CS301_Class_Copy_01\Source Files</v>
-<v>psoc_intro\CS301_Class_Copy_01\Source Files\main.c</v>
-<v>psoc_intro\CS301_Class_Copy_01\Source Files\tacho.c</v>
-<v>psoc_intro\CS301_Class_Copy_01\commands</v>
-<v>psoc_intro\CS301_Class_Copy_01\Generated_Source</v>
-<v>psoc_intro\CS301_Class_Copy_01\Generated_Source\PSoC5</v>
-<v>psoc_intro\lab1\TopDesign</v>
-<v>psoc_intro\lab1\lab1.cydwr</v>
-<v>psoc_intro\lab1\lab1.cydwr\Pins</v>
-<v>psoc_intro\lab1\lab1.cydwr\Analog</v>
-<v>psoc_intro\lab1\lab1.cydwr\Clocks</v>
-<v>psoc_intro\lab1\lab1.cydwr\Interrupts</v>
-<v>psoc_intro\lab1\lab1.cydwr\DMA</v>
-<v>psoc_intro\lab1\lab1.cydwr\System</v>
-<v>psoc_intro\lab1\lab1.cydwr\Directives</v>
-<v>psoc_intro\lab1\lab1.cydwr\Flash Security</v>
-<v>psoc_intro\lab1\lab1.cydwr\EEPROM</v>
-<v>psoc_intro\lab1\Header Files\cyapicallbacks.h</v>
-<v>psoc_intro\lab1\Source Files</v>
-<v>psoc_intro\lab1\Source Files\main.c</v>
-<v>psoc_intro\lab1\Generated_Source\PSoC5</v>
+<v>psoc_intro\HardwareTask2Project</v>
+<v>psoc_intro\HardwareTask2Project\TopDesign</v>
+<v>psoc_intro\HardwareTask2Project\HardwareTask2Project.cydwr</v>
+<v>psoc_intro\HardwareTask2Project\HardwareTask2Project.cydwr\Pins</v>
+<v>psoc_intro\HardwareTask2Project\HardwareTask2Project.cydwr\Analog</v>
+<v>psoc_intro\HardwareTask2Project\HardwareTask2Project.cydwr\Clocks</v>
+<v>psoc_intro\HardwareTask2Project\HardwareTask2Project.cydwr\Interrupts</v>
+<v>psoc_intro\HardwareTask2Project\HardwareTask2Project.cydwr\DMA</v>
+<v>psoc_intro\HardwareTask2Project\HardwareTask2Project.cydwr\System</v>
+<v>psoc_intro\HardwareTask2Project\HardwareTask2Project.cydwr\Directives</v>
+<v>psoc_intro\HardwareTask2Project\HardwareTask2Project.cydwr\Flash Security</v>
+<v>psoc_intro\HardwareTask2Project\HardwareTask2Project.cydwr\EEPROM</v>
+<v>psoc_intro\HardwareTask2Project\Header Files</v>
+<v>psoc_intro\HardwareTask2Project\Header Files\cyapicallbacks.h</v>
+<v>psoc_intro\HardwareTask2Project\Source Files</v>
+<v>psoc_intro\HardwareTask2Project\Source Files\main.c</v>
+<v>psoc_intro\HardwareTask2Project\Generated_Source</v>
+<v>psoc_intro\HardwareTask2Project\Generated_Source\PSoC5</v>
 <v>psoc_intro\lab2\TopDesign</v>
 <v>psoc_intro\lab2\lab2.cydwr</v>
 <v>psoc_intro\lab2\lab2.cydwr\Pins</v>
@@ -108,47 +90,47 @@
 <VisibleNodeIds>
 <v>psoc_intro</v>
 <v>psoc_intro\CS301_Class</v>
-<v>psoc_intro\CS301_Class_Copy_01</v>
-<v>psoc_intro\CS301_Class_Copy_01\TopDesign</v>
-<v>psoc_intro\CS301_Class_Copy_01\CS301_Class_Copy_01.cydwr</v>
-<v>psoc_intro\CS301_Class_Copy_01\CS301_Class_Copy_01.cydwr\Pins</v>
-<v>psoc_intro\CS301_Class_Copy_01\CS301_Class_Copy_01.cydwr\Analog</v>
-<v>psoc_intro\CS301_Class_Copy_01\CS301_Class_Copy_01.cydwr\Clocks</v>
-<v>psoc_intro\CS301_Class_Copy_01\CS301_Class_Copy_01.cydwr\Interrupts</v>
-<v>psoc_intro\CS301_Class_Copy_01\CS301_Class_Copy_01.cydwr\DMA</v>
-<v>psoc_intro\CS301_Class_Copy_01\CS301_Class_Copy_01.cydwr\System</v>
-<v>psoc_intro\CS301_Class_Copy_01\CS301_Class_Copy_01.cydwr\Directives</v>
-<v>psoc_intro\CS301_Class_Copy_01\CS301_Class_Copy_01.cydwr\Flash Security</v>
-<v>psoc_intro\CS301_Class_Copy_01\CS301_Class_Copy_01.cydwr\EEPROM</v>
-<v>psoc_intro\CS301_Class_Copy_01\Header Files</v>
-<v>psoc_intro\CS301_Class_Copy_01\Header Files\defines.h</v>
-<v>psoc_intro\CS301_Class_Copy_01\Header Files\vars.h</v>
-<v>psoc_intro\CS301_Class_Copy_01\Source Files</v>
-<v>psoc_intro\CS301_Class_Copy_01\Source Files\main.c</v>
-<v>psoc_intro\CS301_Class_Copy_01\Source Files\tacho.c</v>
-<v>psoc_intro\CS301_Class_Copy_01\commands</v>
-<v>psoc_intro\CS301_Class_Copy_01\Generated_Source</v>
-<v>psoc_intro\CS301_Class_Copy_01\Generated_Source\PSoC5</v>
-<v>psoc_intro\CS301_Class_Copy_01\Generated_Source\PSoC5\A0</v>
-<v>psoc_intro\CS301_Class_Copy_01\Generated_Source\PSoC5\A1</v>
-<v>psoc_intro\CS301_Class_Copy_01\Generated_Source\PSoC5\A2</v>
-<v>psoc_intro\CS301_Class_Copy_01\Generated_Source\PSoC5\A3</v>
-<v>psoc_intro\CS301_Class_Copy_01\Generated_Source\PSoC5\A4</v>
-<v>psoc_intro\CS301_Class_Copy_01\Generated_Source\PSoC5\A5</v>
-<v>psoc_intro\CS301_Class_Copy_01\Generated_Source\PSoC5\A6</v>
-<v>psoc_intro\CS301_Class_Copy_01\Generated_Source\PSoC5\A7</v>
-<v>psoc_intro\CS301_Class_Copy_01\Generated_Source\PSoC5\ADC</v>
-<v>psoc_intro\CS301_Class_Copy_01\Generated_Source\PSoC5\ADC_FinalBuf</v>
-<v>psoc_intro\CS301_Class_Copy_01\Generated_Source\PSoC5\ADC_IntClock</v>
-<v>psoc_intro\CS301_Class_Copy_01\Generated_Source\PSoC5\ADC_IRQ</v>
-<v>psoc_intro\CS301_Class_Copy_01\Generated_Source\PSoC5\ADC_SAR</v>
-<v>psoc_intro\CS301_Class_Copy_01\Generated_Source\PSoC5\ADC_TempBuf</v>
-<v>psoc_intro\CS301_Class_Copy_01\Generated_Source\PSoC5\Clock_PWM</v>
-<v>psoc_intro\CS301_Class_Copy_01\Generated_Source\PSoC5\Clock_QENC</v>
-<v>psoc_intro\CS301_Class_Copy_01\Generated_Source\PSoC5\Clock2</v>
-<v>psoc_intro\CS301_Class_Copy_01\Generated_Source\PSoC5\CONTROL</v>
-<v>psoc_intro\CS301_Class_Copy_01\Generated_Source\PSoC5\cy_boot</v>
-<v>psoc_intro\CS301_Class_Copy_01\Generated_Source\PSoC5\DB0</v>
+<v>psoc_intro\HardwareTask2Project</v>
+<v>psoc_intro\HardwareTask2Project\TopDesign</v>
+<v>psoc_intro\HardwareTask2Project\HardwareTask2Project.cydwr</v>
+<v>psoc_intro\HardwareTask2Project\HardwareTask2Project.cydwr\Pins</v>
+<v>psoc_intro\HardwareTask2Project\HardwareTask2Project.cydwr\Analog</v>
+<v>psoc_intro\HardwareTask2Project\HardwareTask2Project.cydwr\Clocks</v>
+<v>psoc_intro\HardwareTask2Project\HardwareTask2Project.cydwr\Interrupts</v>
+<v>psoc_intro\HardwareTask2Project\HardwareTask2Project.cydwr\DMA</v>
+<v>psoc_intro\HardwareTask2Project\HardwareTask2Project.cydwr\System</v>
+<v>psoc_intro\HardwareTask2Project\HardwareTask2Project.cydwr\Directives</v>
+<v>psoc_intro\HardwareTask2Project\HardwareTask2Project.cydwr\Flash Security</v>
+<v>psoc_intro\HardwareTask2Project\HardwareTask2Project.cydwr\EEPROM</v>
+<v>psoc_intro\HardwareTask2Project\Header Files</v>
+<v>psoc_intro\HardwareTask2Project\Header Files\cyapicallbacks.h</v>
+<v>psoc_intro\HardwareTask2Project\Source Files</v>
+<v>psoc_intro\HardwareTask2Project\Source Files\main.c</v>
+<v>psoc_intro\HardwareTask2Project\Generated_Source</v>
+<v>psoc_intro\HardwareTask2Project\Generated_Source\PSoC5</v>
+<v>psoc_intro\HardwareTask2Project\Generated_Source\PSoC5\Clock_1</v>
+<v>psoc_intro\HardwareTask2Project\Generated_Source\PSoC5\cy_boot</v>
+<v>psoc_intro\HardwareTask2Project\Generated_Source\PSoC5\Em_EEPROM_Dynamic</v>
+<v>psoc_intro\HardwareTask2Project\Generated_Source\PSoC5\IN1A</v>
+<v>psoc_intro\HardwareTask2Project\Generated_Source\PSoC5\IN1B</v>
+<v>psoc_intro\HardwareTask2Project\Generated_Source\PSoC5\IN2A</v>
+<v>psoc_intro\HardwareTask2Project\Generated_Source\PSoC5\IN2B</v>
+<v>psoc_intro\HardwareTask2Project\Generated_Source\PSoC5\LED</v>
+<v>psoc_intro\HardwareTask2Project\Generated_Source\PSoC5\SW1</v>
+<v>psoc_intro\HardwareTask2Project\Generated_Source\PSoC5\cycodeshareexport.ld</v>
+<v>psoc_intro\HardwareTask2Project\Generated_Source\PSoC5\cycodeshareimport.ld</v>
+<v>psoc_intro\HardwareTask2Project\Generated_Source\PSoC5\cycodeshareimport.scat</v>
+<v>psoc_intro\HardwareTask2Project\Generated_Source\PSoC5\cydevice.h</v>
+<v>psoc_intro\HardwareTask2Project\Generated_Source\PSoC5\cydevice_trm.h</v>
+<v>psoc_intro\HardwareTask2Project\Generated_Source\PSoC5\cydevicegnu.inc</v>
+<v>psoc_intro\HardwareTask2Project\Generated_Source\PSoC5\cydevicegnu_trm.inc</v>
+<v>psoc_intro\HardwareTask2Project\Generated_Source\PSoC5\cydeviceiar.inc</v>
+<v>psoc_intro\HardwareTask2Project\Generated_Source\PSoC5\cydeviceiar_trm.inc</v>
+<v>psoc_intro\HardwareTask2Project\Generated_Source\PSoC5\cydevicerv.inc</v>
+<v>psoc_intro\HardwareTask2Project\Generated_Source\PSoC5\cydevicerv_trm.inc</v>
+<v>psoc_intro\HardwareTask2Project\Generated_Source\PSoC5\cydisabledsheets.h</v>
+<v>psoc_intro\HardwareTask2Project\Generated_Source\PSoC5\cyfitter.h</v>
+<v>psoc_intro\HardwareTask2Project\Generated_Source\PSoC5\cyfitter_cfg.c</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
@@ -157,12 +139,9 @@
 <v>psoc_intro\CS301_Class</v>
 <v>psoc_intro\CS301_Class\TopDesign</v>
 <v>psoc_intro\CS301_Class\TopDesign\TopDesign.cysch</v>
-<v>psoc_intro\CS301_Class_Copy_01</v>
-<v>psoc_intro\CS301_Class_Copy_01\TopDesign</v>
-<v>psoc_intro\CS301_Class_Copy_01\TopDesign\TopDesign.cysch</v>
-<v>psoc_intro\lab1</v>
-<v>psoc_intro\lab1\TopDesign</v>
-<v>psoc_intro\lab1\TopDesign\TopDesign.cysch</v>
+<v>psoc_intro\HardwareTask2Project</v>
+<v>psoc_intro\HardwareTask2Project\TopDesign</v>
+<v>psoc_intro\HardwareTask2Project\TopDesign\TopDesign.cysch</v>
 <v>psoc_intro\lab2</v>
 <v>psoc_intro\lab2\TopDesign</v>
 <v>psoc_intro\lab2\TopDesign\TopDesign.cysch</v>
@@ -175,12 +154,9 @@
 <v>psoc_intro\CS301_Class</v>
 <v>psoc_intro\CS301_Class\TopDesign</v>
 <v>psoc_intro\CS301_Class\TopDesign\TopDesign.cysch</v>
-<v>psoc_intro\CS301_Class_Copy_01</v>
-<v>psoc_intro\CS301_Class_Copy_01\TopDesign</v>
-<v>psoc_intro\CS301_Class_Copy_01\TopDesign\TopDesign.cysch</v>
-<v>psoc_intro\lab1</v>
-<v>psoc_intro\lab1\TopDesign</v>
-<v>psoc_intro\lab1\TopDesign\TopDesign.cysch</v>
+<v>psoc_intro\HardwareTask2Project</v>
+<v>psoc_intro\HardwareTask2Project\TopDesign</v>
+<v>psoc_intro\HardwareTask2Project\TopDesign\TopDesign.cysch</v>
 <v>psoc_intro\lab2</v>
 <v>psoc_intro\lab2\TopDesign</v>
 <v>psoc_intro\lab2\TopDesign\TopDesign.cysch</v>
@@ -294,42 +270,36 @@
 <v>psoc_intro\CS301_Class\CS301_Class.gpdsc</v>
 <v>psoc_intro\CS301_Class\CS301_Class.rpt</v>
 <v>psoc_intro\CS301_Class\CS301_Class_timing.html</v>
-<v>psoc_intro\CS301_Class_Copy_01</v>
-<v>psoc_intro\CS301_Class_Copy_01\CortexM3</v>
-<v>psoc_intro\CS301_Class_Copy_01\CortexM3\ARM_GCC_541</v>
-<v>psoc_intro\CS301_Class_Copy_01\CortexM3\ARM_GCC_541\Debug</v>
-<v>psoc_intro\CS301_Class_Copy_01\CortexM3\ARM_GCC_541\Debug\CS301_Class_Copy_01.elf</v>
-<v>psoc_intro\CS301_Class_Copy_01\CortexM3\ARM_GCC_541\Debug\CS301_Class_Copy_01.hex</v>
-<v>psoc_intro\CS301_Class_Copy_01\CortexM3\ARM_GCC_541\Debug\CS301_Class_Copy_01.map</v>
-<v>psoc_intro\CS301_Class_Copy_01\CS301_Class_Copy_01.gpdsc</v>
-<v>psoc_intro\CS301_Class_Copy_01\CS301_Class_Copy_01.rpt</v>
-<v>psoc_intro\CS301_Class_Copy_01\CS301_Class_Copy_01_timing.html</v>
-<v>psoc_intro\lab1</v>
-<v>psoc_intro\lab1\CortexM3</v>
-<v>psoc_intro\lab1\CortexM3\ARM_GCC_541</v>
-<v>psoc_intro\lab1\CortexM3\ARM_GCC_541\Debug</v>
-<v>psoc_intro\lab1\CortexM3\ARM_GCC_541\Debug\Listing Files</v>
-<v>psoc_intro\lab1\CortexM3\ARM_GCC_541\Debug\Listing Files\Clock_1.lst</v>
-<v>psoc_intro\lab1\CortexM3\ARM_GCC_541\Debug\Listing Files\Cm3Start.lst</v>
-<v>psoc_intro\lab1\CortexM3\ARM_GCC_541\Debug\Listing Files\cy_em_eeprom.lst</v>
-<v>psoc_intro\lab1\CortexM3\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
-<v>psoc_intro\lab1\CortexM3\ARM_GCC_541\Debug\Listing Files\CyDmac.lst</v>
-<v>psoc_intro\lab1\CortexM3\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
-<v>psoc_intro\lab1\CortexM3\ARM_GCC_541\Debug\Listing Files\CyFlash.lst</v>
-<v>psoc_intro\lab1\CortexM3\ARM_GCC_541\Debug\Listing Files\CyLib.lst</v>
-<v>psoc_intro\lab1\CortexM3\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
-<v>psoc_intro\lab1\CortexM3\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
-<v>psoc_intro\lab1\CortexM3\ARM_GCC_541\Debug\Listing Files\CySpc.lst</v>
-<v>psoc_intro\lab1\CortexM3\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
-<v>psoc_intro\lab1\CortexM3\ARM_GCC_541\Debug\Listing Files\LED.lst</v>
-<v>psoc_intro\lab1\CortexM3\ARM_GCC_541\Debug\Listing Files\main.lst</v>
-<v>psoc_intro\lab1\CortexM3\ARM_GCC_541\Debug\Listing Files\SW1.lst</v>
-<v>psoc_intro\lab1\CortexM3\ARM_GCC_541\Debug\lab1.elf</v>
-<v>psoc_intro\lab1\CortexM3\ARM_GCC_541\Debug\lab1.hex</v>
-<v>psoc_intro\lab1\CortexM3\ARM_GCC_541\Debug\lab1.map</v>
-<v>psoc_intro\lab1\lab1.gpdsc</v>
-<v>psoc_intro\lab1\lab1.rpt</v>
-<v>psoc_intro\lab1\lab1_timing.html</v>
+<v>psoc_intro\HardwareTask2Project</v>
+<v>psoc_intro\HardwareTask2Project\CortexM3</v>
+<v>psoc_intro\HardwareTask2Project\CortexM3\ARM_GCC_541</v>
+<v>psoc_intro\HardwareTask2Project\CortexM3\ARM_GCC_541\Debug</v>
+<v>psoc_intro\HardwareTask2Project\CortexM3\ARM_GCC_541\Debug\Listing Files</v>
+<v>psoc_intro\HardwareTask2Project\CortexM3\ARM_GCC_541\Debug\Listing Files\Clock_1.lst</v>
+<v>psoc_intro\HardwareTask2Project\CortexM3\ARM_GCC_541\Debug\Listing Files\Cm3Start.lst</v>
+<v>psoc_intro\HardwareTask2Project\CortexM3\ARM_GCC_541\Debug\Listing Files\cy_em_eeprom.lst</v>
+<v>psoc_intro\HardwareTask2Project\CortexM3\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
+<v>psoc_intro\HardwareTask2Project\CortexM3\ARM_GCC_541\Debug\Listing Files\CyDmac.lst</v>
+<v>psoc_intro\HardwareTask2Project\CortexM3\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
+<v>psoc_intro\HardwareTask2Project\CortexM3\ARM_GCC_541\Debug\Listing Files\CyFlash.lst</v>
+<v>psoc_intro\HardwareTask2Project\CortexM3\ARM_GCC_541\Debug\Listing Files\CyLib.lst</v>
+<v>psoc_intro\HardwareTask2Project\CortexM3\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
+<v>psoc_intro\HardwareTask2Project\CortexM3\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
+<v>psoc_intro\HardwareTask2Project\CortexM3\ARM_GCC_541\Debug\Listing Files\CySpc.lst</v>
+<v>psoc_intro\HardwareTask2Project\CortexM3\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
+<v>psoc_intro\HardwareTask2Project\CortexM3\ARM_GCC_541\Debug\Listing Files\IN1A.lst</v>
+<v>psoc_intro\HardwareTask2Project\CortexM3\ARM_GCC_541\Debug\Listing Files\IN1B.lst</v>
+<v>psoc_intro\HardwareTask2Project\CortexM3\ARM_GCC_541\Debug\Listing Files\IN2A.lst</v>
+<v>psoc_intro\HardwareTask2Project\CortexM3\ARM_GCC_541\Debug\Listing Files\IN2B.lst</v>
+<v>psoc_intro\HardwareTask2Project\CortexM3\ARM_GCC_541\Debug\Listing Files\LED.lst</v>
+<v>psoc_intro\HardwareTask2Project\CortexM3\ARM_GCC_541\Debug\Listing Files\main.lst</v>
+<v>psoc_intro\HardwareTask2Project\CortexM3\ARM_GCC_541\Debug\Listing Files\SW1.lst</v>
+<v>psoc_intro\HardwareTask2Project\CortexM3\ARM_GCC_541\Debug\HardwareTask2Project.elf</v>
+<v>psoc_intro\HardwareTask2Project\CortexM3\ARM_GCC_541\Debug\HardwareTask2Project.hex</v>
+<v>psoc_intro\HardwareTask2Project\CortexM3\ARM_GCC_541\Debug\HardwareTask2Project.map</v>
+<v>psoc_intro\HardwareTask2Project\HardwareTask2Project.gpdsc</v>
+<v>psoc_intro\HardwareTask2Project\HardwareTask2Project.rpt</v>
+<v>psoc_intro\HardwareTask2Project\HardwareTask2Project_timing.html</v>
 <v>psoc_intro\lab2</v>
 <v>psoc_intro\lab2\CortexM3</v>
 <v>psoc_intro\lab2\CortexM3\ARM_GCC_541</v>
@@ -466,42 +436,16 @@
 <v>psoc_intro\CS301_Class\UART_v2_50.pdf</v>
 <v>psoc_intro\CS301_Class\USBFS_v3_20.pdf</v>
 <v>psoc_intro\CS301_Class\ZeroTerminal.pdf</v>
-<v>psoc_intro\CS301_Class_Copy_01</v>
-<v>psoc_intro\CS301_Class_Copy_01\PSoC 5LP Architecture TRM</v>
-<v>psoc_intro\CS301_Class_Copy_01\CY8C58LP Family Datasheet</v>
-<v>psoc_intro\CS301_Class_Copy_01\System Reference Guides</v>
-<v>psoc_intro\CS301_Class_Copy_01\System Reference Guides\cy_boot_v5_82</v>
-<v>psoc_intro\CS301_Class_Copy_01\ADC_SAR_SEQ_v2_10.pdf</v>
-<v>psoc_intro\CS301_Class_Copy_01\cy_clock_v2_20</v>
-<v>psoc_intro\CS301_Class_Copy_01\cy_clock_v2_20\cy_clock_v2_20.pdf</v>
-<v>psoc_intro\CS301_Class_Copy_01\cy_constant_v1_0.pdf</v>
-<v>psoc_intro\CS301_Class_Copy_01\cy_isr_v1_71</v>
-<v>psoc_intro\CS301_Class_Copy_01\cy_isr_v1_71\cy_isr_v1_71.pdf</v>
-<v>psoc_intro\CS301_Class_Copy_01\cy_pins_v2_20</v>
-<v>psoc_intro\CS301_Class_Copy_01\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
-<v>psoc_intro\CS301_Class_Copy_01\CyControlReg_v1_80</v>
-<v>psoc_intro\CS301_Class_Copy_01\CyControlReg_v1_80\CyControlReg_v1_80.pdf</v>
-<v>psoc_intro\CS301_Class_Copy_01\mux_v1_10.pdf</v>
-<v>psoc_intro\CS301_Class_Copy_01\not_v1_0</v>
-<v>psoc_intro\CS301_Class_Copy_01\not_v1_0\not_v1_0.pdf</v>
-<v>psoc_intro\CS301_Class_Copy_01\PWM_v3_30</v>
-<v>psoc_intro\CS301_Class_Copy_01\PWM_v3_30\PWM_v3_30.pdf</v>
-<v>psoc_intro\CS301_Class_Copy_01\QuadDec_v3_0</v>
-<v>psoc_intro\CS301_Class_Copy_01\QuadDec_v3_0\QuadDec_v3_0.pdf</v>
-<v>psoc_intro\CS301_Class_Copy_01\Timer_v2_80.pdf</v>
-<v>psoc_intro\CS301_Class_Copy_01\UART_v2_50.pdf</v>
-<v>psoc_intro\CS301_Class_Copy_01\USBFS_v3_20.pdf</v>
-<v>psoc_intro\CS301_Class_Copy_01\ZeroTerminal.pdf</v>
-<v>psoc_intro\lab1</v>
-<v>psoc_intro\lab1\PSoC 5LP Architecture TRM</v>
-<v>psoc_intro\lab1\CY8C58LP Family Datasheet</v>
-<v>psoc_intro\lab1\System Reference Guides</v>
-<v>psoc_intro\lab1\System Reference Guides\cy_boot_v5_82</v>
-<v>psoc_intro\lab1\cy_clock_v2_20.pdf</v>
-<v>psoc_intro\lab1\cy_pins_v2_20</v>
-<v>psoc_intro\lab1\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
-<v>psoc_intro\lab1\Debouncer_v1_0.pdf</v>
-<v>psoc_intro\lab1\not_v1_0.pdf</v>
+<v>psoc_intro\HardwareTask2Project</v>
+<v>psoc_intro\HardwareTask2Project\PSoC 5LP Architecture TRM</v>
+<v>psoc_intro\HardwareTask2Project\CY8C58LP Family Datasheet</v>
+<v>psoc_intro\HardwareTask2Project\System Reference Guides</v>
+<v>psoc_intro\HardwareTask2Project\System Reference Guides\cy_boot_v5_82</v>
+<v>psoc_intro\HardwareTask2Project\cy_clock_v2_20.pdf</v>
+<v>psoc_intro\HardwareTask2Project\cy_pins_v2_20</v>
+<v>psoc_intro\HardwareTask2Project\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
+<v>psoc_intro\HardwareTask2Project\Debouncer_v1_0.pdf</v>
+<v>psoc_intro\HardwareTask2Project\not_v1_0.pdf</v>
 <v>psoc_intro\lab2</v>
 <v>psoc_intro\lab2\PSoC 5LP Architecture TRM</v>
 <v>psoc_intro\lab2\CY8C58LP Family Datasheet</v>
@@ -552,22 +496,22 @@
 <v>psoc_intro\CS301_Class\UART_v2_50.pdf</v>
 <v>psoc_intro\CS301_Class\USBFS_v3_20.pdf</v>
 <v>psoc_intro\CS301_Class\ZeroTerminal.pdf</v>
-<v>psoc_intro\CS301_Class_Copy_01</v>
-<v>psoc_intro\CS301_Class_Copy_01\PSoC 5LP Architecture TRM</v>
-<v>psoc_intro\CS301_Class_Copy_01\CY8C58LP Family Datasheet</v>
-<v>psoc_intro\CS301_Class_Copy_01\System Reference Guides</v>
-<v>psoc_intro\CS301_Class_Copy_01\System Reference Guides\cy_boot_v5_82</v>
-<v>psoc_intro\CS301_Class_Copy_01\ADC_SAR_SEQ_v2_10.pdf</v>
-<v>psoc_intro\CS301_Class_Copy_01\cy_clock_v2_20</v>
-<v>psoc_intro\CS301_Class_Copy_01\cy_clock_v2_20\cy_clock_v2_20.pdf</v>
-<v>psoc_intro\CS301_Class_Copy_01\cy_constant_v1_0.pdf</v>
-<v>psoc_intro\CS301_Class_Copy_01\cy_isr_v1_71</v>
-<v>psoc_intro\CS301_Class_Copy_01\cy_isr_v1_71\cy_isr_v1_71.pdf</v>
-<v>psoc_intro\CS301_Class_Copy_01\cy_pins_v2_20</v>
-<v>psoc_intro\CS301_Class_Copy_01\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
-<v>psoc_intro\CS301_Class_Copy_01\CyControlReg_v1_80</v>
-<v>psoc_intro\CS301_Class_Copy_01\CyControlReg_v1_80\CyControlReg_v1_80.pdf</v>
-<v>psoc_intro\CS301_Class_Copy_01\mux_v1_10.pdf</v>
+<v>psoc_intro\HardwareTask2Project</v>
+<v>psoc_intro\HardwareTask2Project\PSoC 5LP Architecture TRM</v>
+<v>psoc_intro\HardwareTask2Project\CY8C58LP Family Datasheet</v>
+<v>psoc_intro\HardwareTask2Project\System Reference Guides</v>
+<v>psoc_intro\HardwareTask2Project\System Reference Guides\cy_boot_v5_82</v>
+<v>psoc_intro\HardwareTask2Project\cy_clock_v2_20.pdf</v>
+<v>psoc_intro\HardwareTask2Project\cy_pins_v2_20</v>
+<v>psoc_intro\HardwareTask2Project\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
+<v>psoc_intro\HardwareTask2Project\Debouncer_v1_0.pdf</v>
+<v>psoc_intro\HardwareTask2Project\not_v1_0.pdf</v>
+<v>psoc_intro\lab2</v>
+<v>psoc_intro\lab2\PSoC 5LP Architecture TRM</v>
+<v>psoc_intro\lab2\CY8C58LP Family Datasheet</v>
+<v>psoc_intro\lab2\System Reference Guides</v>
+<v>psoc_intro\lab2\System Reference Guides\cy_boot_v5_82</v>
+<v>psoc_intro\lab2\cy_clock_v2_20.pdf</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStatesV2>
@@ -582,8 +526,9 @@
 </CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
 <Unloaded />
 <OpenDocs>
-<name v=".\CS301_Class.cydsn\TopDesign\TopDesign.cysch" />
-<name v=".\CS301_Class.cydsn\main.c" />
+<name v="..\..\..\..\Robert\HArdware_Task2\HardwareTask2Project.cydsn\main.c" />
+<name v="..\..\..\..\Robert\HArdware_Task2\HardwareTask2Project.cydsn\TopDesign\TopDesign.cysch" />
+<name v="..\..\..\..\Robert\HArdware_Task2\HardwareTask2Project.cydsn\HardwareTask2Project.cydwr" />
 </OpenDocs>
 <OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
 
@@ -591,7 +536,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="910, 642" SelectedTabbedMdiWindow="64523cdb-409b-4951-8be5-6f9c43966208"><DocumentWindow Key="C:\Users\schoo\OneDrive - The University of Auckland\301\student_pack\psoc student pack\lab exercise\psoc_intro\CS301_Class.cydsn\TopDesign\TopDesign.cysch" Guid="0f45acb9-6cdb-4358-8274-9c0ee9d03aca" /><DocumentWindow Key="C:\Users\schoo\OneDrive - The University of Auckland\301\student_pack\psoc student pack\lab exercise\psoc_intro\CS301_Class.cydsn\main.c" Guid="64523cdb-409b-4951-8be5-6f9c43966208" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="910, 642" SelectedTabbedMdiWindow="f8d29404-ece1-4dde-85fd-d940a6d346b2"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="36eb70d5-c0e2-4956-9dc3-293dd4423901" /><DocumentWindow Key="C:\Users\schoo\302OffOnedrive\301 Project\12_Cypress_LineFollowingRobot\Robert\HArdware_Task2\HardwareTask2Project.cydsn\main.c" Guid="f8d29404-ece1-4dde-85fd-d940a6d346b2" /><DocumentWindow Key="C:\Users\schoo\302OffOnedrive\301 Project\12_Cypress_LineFollowingRobot\Robert\HArdware_Task2\HardwareTask2Project.cydsn\TopDesign\TopDesign.cysch" Guid="586741bd-b577-4911-a301-58bff08f0939" /><DocumentWindow Key="C:\Users\schoo\302OffOnedrive\301 Project\12_Cypress_LineFollowingRobot\Robert\HArdware_Task2\HardwareTask2Project.cydsn\HardwareTask2Project.cydwr" Guid="003149be-d66a-4ac1-a37e-08989cde6dcb" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>

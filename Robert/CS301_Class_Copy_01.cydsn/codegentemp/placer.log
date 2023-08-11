@@ -6,7 +6,7 @@
 
 #Build Date:         Dec  5 2017 15:35:27
 
-#File Generated:     Aug 4 2023 16:28:33
+#File Generated:     Aug 8 2023 12:44:33
 
 #Purpose:            
 
@@ -122,7 +122,7 @@ Clock: UART_IntClock        | Frequency:  59.1 MHz | Target:   0.5 MHz
 ======================================================================
                      End of Clock Summary
 ######################################################################
-D2088: Phase 7, elapsed time : 2.1 (sec)
+D2088: Phase 7, elapsed time : 5.1 (sec)
 
 Final Design Statistics
     Number of Combinational MCs 	:	32
@@ -176,5 +176,5 @@ D2088: Phase 8, elapsed time : 0.0 (sec)
 
 D2054: Placement of the design completed successfully
 
-I2076: Total run-time: 3.0 sec.
+I2076: Total run-time: 6.1 sec.
 

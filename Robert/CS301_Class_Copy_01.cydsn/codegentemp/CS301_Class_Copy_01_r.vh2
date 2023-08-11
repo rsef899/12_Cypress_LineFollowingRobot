@@ -1,5 +1,5 @@
 -- Project:   CS301_Class_Copy_01
--- Generated: 08/04/2023 16:29:31
+-- Generated: 08/08/2023 12:44:39
 -- PSoC Creator  4.2
 
 ENTITY CS301_Class_Copy_01 IS
@@ -15,10 +15,10 @@ ENTITY CS301_Class_Copy_01 IS
         M2_QB(0)_PAD : IN std_ulogic;
         A1(0)_PAD : INOUT std_ulogic;
         A2(0)_PAD : INOUT std_ulogic;
-        IN2A(0)_PAD : INOUT std_ulogic;
-        IN2B(0)_PAD : INOUT std_ulogic;
+        IN2A(0)_PAD : OUT std_ulogic;
+        IN2B(0)_PAD : OUT std_ulogic;
         A5(0)_PAD : INOUT std_ulogic;
-        IN1B(0)_PAD : INOUT std_ulogic;
+        IN1B(0)_PAD : OUT std_ulogic;
         M1_D1(0)_PAD : OUT std_ulogic;
         Rx_1(0)_PAD : IN std_ulogic;
         Tx_1(0)_PAD : OUT std_ulogic;
@@ -2700,8 +2700,8 @@ BEGIN
 
     IN2A:logicalport
         GENERIC MAP(
-            drive_mode => "000",
-            ibuf_enabled => "0",
+            drive_mode => "110",
+            ibuf_enabled => "1",
             id => "b6ffe4e8-bfde-4b71-b826-17696ee2657e",
             init_dr_st => "0",
             input_buffer_sel => "00",
@@ -2736,7 +2736,7 @@ BEGIN
             pa_out_clock_en => -1,
             pa_out_reset => -1,
             pin_aliases => "",
-            pin_mode => "A",
+            pin_mode => "O",
             por_state => 4,
             port_alias_group => "",
             port_alias_required => 0,
@@ -2776,7 +2776,7 @@ BEGIN
             oe_sync_mode => 0,
             logicalport => "IN2A",
             logicalport_pin_id => 0,
-            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000010")
+            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000001")
         PORT MAP(
             pa_out => IN2A(0)__PA,
             oe => open,
@@ -2790,8 +2790,8 @@ BEGIN
 
     IN2B:logicalport
         GENERIC MAP(
-            drive_mode => "000",
-            ibuf_enabled => "0",
+            drive_mode => "110",
+            ibuf_enabled => "1",
             id => "a5db89f8-422e-4e1c-9c19-9200e66c9056",
             init_dr_st => "0",
             input_buffer_sel => "00",
@@ -2826,7 +2826,7 @@ BEGIN
             pa_out_clock_en => -1,
             pa_out_reset => -1,
             pin_aliases => "",
-            pin_mode => "A",
+            pin_mode => "O",
             por_state => 4,
             port_alias_group => "",
             port_alias_required => 0,
@@ -2866,7 +2866,7 @@ BEGIN
             oe_sync_mode => 0,
             logicalport => "IN2B",
             logicalport_pin_id => 0,
-            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000010")
+            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000001")
         PORT MAP(
             pa_out => IN2B(0)__PA,
             oe => open,
@@ -2970,8 +2970,8 @@ BEGIN
 
     IN1B:logicalport
         GENERIC MAP(
-            drive_mode => "000",
-            ibuf_enabled => "0",
+            drive_mode => "110",
+            ibuf_enabled => "1",
             id => "e61018a9-3bf7-4d47-a028-2de4b96349e9",
             init_dr_st => "0",
             input_buffer_sel => "00",
@@ -3006,7 +3006,7 @@ BEGIN
             pa_out_clock_en => -1,
             pa_out_reset => -1,
             pin_aliases => "",
-            pin_mode => "A",
+            pin_mode => "O",
             por_state => 4,
             port_alias_group => "",
             port_alias_required => 0,
@@ -3046,7 +3046,7 @@ BEGIN
             oe_sync_mode => 0,
             logicalport => "IN1B",
             logicalport_pin_id => 0,
-            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000010")
+            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000001")
         PORT MAP(
             pa_out => IN1B(0)__PA,
             oe => open,

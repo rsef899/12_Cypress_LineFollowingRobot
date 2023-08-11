@@ -1,6 +1,6 @@
 // ======================================================================
 // CS301_Class_Copy_01.v generated from TopDesign.cysch
-// 08/04/2023 at 16:27
+// 08/08/2023 at 12:44
 // This file is auto generated. ANY EDITS YOU MAKE MAY BE LOST WHEN THIS FILE IS REGENERATED!!!
 // ======================================================================
 
@@ -2382,10 +2382,7 @@ module top ;
           wire  Net_1849;
           wire  Net_1497;
           wire  Net_1619;
-    electrical  Net_4337;
     electrical  Net_4338;
-    electrical  Net_4339;
-    electrical  Net_4340;
     electrical  Net_4341;
     electrical  Net_4342;
     electrical  Net_4343;
@@ -3457,8 +3454,8 @@ module top ;
 
 	cy_psoc3_pins_v1_10
 		#(.id("b6ffe4e8-bfde-4b71-b826-17696ee2657e"),
-		  .drive_mode(3'b000),
-		  .ibuf_enabled(1'b0),
+		  .drive_mode(3'b110),
+		  .ibuf_enabled(1'b1),
 		  .init_dr_st(1'b0),
 		  .input_clk_en(0),
 		  .input_sync(1'b1),
@@ -3488,7 +3485,7 @@ module top ;
 		  .pa_out_clock_en(-1),
 		  .pa_out_reset(-1),
 		  .pin_aliases(""),
-		  .pin_mode("A"),
+		  .pin_mode("O"),
 		  .por_state(4),
 		  .sio_group_cnt(0),
 		  .sio_hyst(1'b1),
@@ -3512,7 +3509,6 @@ module top ;
 		 (.oe(tmpOE__IN2A_net),
 		  .y({1'b0}),
 		  .fb({tmpFB_0__IN2A_net[0:0]}),
-		  .analog({Net_4340}),
 		  .io({tmpIO_0__IN2A_net[0:0]}),
 		  .siovref(tmpSIOVREF__IN2A_net),
 		  .interrupt({tmpINTERRUPT_0__IN2A_net[0:0]}),
@@ -3533,8 +3529,8 @@ module top ;
 
 	cy_psoc3_pins_v1_10
 		#(.id("a5db89f8-422e-4e1c-9c19-9200e66c9056"),
-		  .drive_mode(3'b000),
-		  .ibuf_enabled(1'b0),
+		  .drive_mode(3'b110),
+		  .ibuf_enabled(1'b1),
 		  .init_dr_st(1'b0),
 		  .input_clk_en(0),
 		  .input_sync(1'b1),
@@ -3564,7 +3560,7 @@ module top ;
 		  .pa_out_clock_en(-1),
 		  .pa_out_reset(-1),
 		  .pin_aliases(""),
-		  .pin_mode("A"),
+		  .pin_mode("O"),
 		  .por_state(4),
 		  .sio_group_cnt(0),
 		  .sio_hyst(1'b1),
@@ -3588,7 +3584,6 @@ module top ;
 		 (.oe(tmpOE__IN2B_net),
 		  .y({1'b0}),
 		  .fb({tmpFB_0__IN2B_net[0:0]}),
-		  .analog({Net_4339}),
 		  .io({tmpIO_0__IN2B_net[0:0]}),
 		  .siovref(tmpSIOVREF__IN2B_net),
 		  .interrupt({tmpINTERRUPT_0__IN2B_net[0:0]}),
@@ -3685,8 +3680,8 @@ module top ;
 
 	cy_psoc3_pins_v1_10
 		#(.id("e61018a9-3bf7-4d47-a028-2de4b96349e9"),
-		  .drive_mode(3'b000),
-		  .ibuf_enabled(1'b0),
+		  .drive_mode(3'b110),
+		  .ibuf_enabled(1'b1),
 		  .init_dr_st(1'b0),
 		  .input_clk_en(0),
 		  .input_sync(1'b1),
@@ -3716,7 +3711,7 @@ module top ;
 		  .pa_out_clock_en(-1),
 		  .pa_out_reset(-1),
 		  .pin_aliases(""),
-		  .pin_mode("A"),
+		  .pin_mode("O"),
 		  .por_state(4),
 		  .sio_group_cnt(0),
 		  .sio_hyst(1'b1),
@@ -3740,7 +3735,6 @@ module top ;
 		 (.oe(tmpOE__IN1B_net),
 		  .y({1'b0}),
 		  .fb({tmpFB_0__IN1B_net[0:0]}),
-		  .analog({Net_4337}),
 		  .io({tmpIO_0__IN1B_net[0:0]}),
 		  .siovref(tmpSIOVREF__IN1B_net),
 		  .interrupt({tmpINTERRUPT_0__IN1B_net[0:0]}),
