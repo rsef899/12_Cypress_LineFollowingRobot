@@ -29,9 +29,8 @@ void handle_usb();
 
 
 uint8_t changeDutyCycle(uint8_t dutyValue){
-    //PWM_1_WriteCompare((uint8_t)(255 * dutyValue)/(float)100);
-    //PWM_2_WriteCompare((uint8_t)(255 * dutyValue)/(float)100);
-    uint8_t val = (uint8_t)((float)PWM_1_ReadPeriod() * (dutyValue/100));
+
+    uint8_t val = ((float)PWM_1_ReadPeriod() * (dutyValue/100.0));
     PWM_1_WriteCompare(val);
     PWM_2_WriteCompare(val);
     return val;
@@ -46,7 +45,7 @@ int main(){
     
     uint8_t testnum;
     char buffer [64];
-    uint8_t duty = 50;
+    uint8_t duty = 20;
     testnum = changeDutyCycle(duty);
     
     itoa(testnum, buffer, 10);
