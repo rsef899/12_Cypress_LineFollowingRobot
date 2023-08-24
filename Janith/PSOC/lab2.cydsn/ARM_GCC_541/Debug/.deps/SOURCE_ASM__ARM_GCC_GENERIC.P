@@ -1,0 +1,10 @@
+D:/Documents/UOA/2023/Semester\ 2/COMPSYS301/psoc\ student\ pack/lab\ exercise/psoc_intro/lab2.cydsn/ARM_GCC_541/Debug/CyBootAsmGnu.o : D:/Documents/UOA/2023/Semester\ 2/COMPSYS301/psoc\ student\ pack/lab\ exercise/psoc_intro/lab2.cydsn/Generated_Source/PSoC5/CyBootAsmGnu.s D:/Documents/UOA/2023/Semester\ 2/COMPSYS301/psoc\ student\ pack/lab\ exercise/psoc_intro/lab2.cydsn/Generated_Source/PSoC5/cydevicegnu.inc D:/Documents/UOA/2023/Semester\ 2/COMPSYS301/psoc\ student\ pack/lab\ exercise/psoc_intro/lab2.cydsn/Generated_Source/PSoC5/cydevicegnu_trm.inc D:/Documents/UOA/2023/Semester\ 2/COMPSYS301/psoc\ student\ pack/lab\ exercise/psoc_intro/lab2.cydsn/Generated_Source/PSoC5/cyfittergnu.inc 
+
+D:/Documents/UOA/2023/Semester\ 2/COMPSYS301/psoc\ student\ pack/lab\ exercise/psoc_intro/lab2.cydsn/Generated_Source/PSoC5/CyBootAsmGnu.s : 
+
+D:/Documents/UOA/2023/Semester\ 2/COMPSYS301/psoc\ student\ pack/lab\ exercise/psoc_intro/lab2.cydsn/Generated_Source/PSoC5/cydevicegnu.inc : 
+
+D:/Documents/UOA/2023/Semester\ 2/COMPSYS301/psoc\ student\ pack/lab\ exercise/psoc_intro/lab2.cydsn/Generated_Source/PSoC5/cydevicegnu_trm.inc : 
+
+D:/Documents/UOA/2023/Semester\ 2/COMPSYS301/psoc\ student\ pack/lab\ exercise/psoc_intro/lab2.cydsn/Generated_Source/PSoC5/cyfittergnu.inc : 
+

@@ -1,0 +1,24 @@
+D:/Documents/UOA/2023/Semester\ 2/COMPSYS301/psoc\ student\ pack/lab\ exercise/psoc_intro/lab1.cydsn/ARM_GCC_541/Debug/cyfitter_cfg.o : D:/Documents/UOA/2023/Semester\ 2/COMPSYS301/psoc\ student\ pack/lab\ exercise/psoc_intro/lab1.cydsn/Generated_Source/PSoC5/CyFlash.h D:/Documents/UOA/2023/Semester\ 2/COMPSYS301/psoc\ student\ pack/lab\ exercise/psoc_intro/lab1.cydsn/Generated_Source/PSoC5/CyLib.h D:/Documents/UOA/2023/Semester\ 2/COMPSYS301/psoc\ student\ pack/lab\ exercise/psoc_intro/lab1.cydsn/Generated_Source/PSoC5/CySpc.h D:/Documents/UOA/2023/Semester\ 2/COMPSYS301/psoc\ student\ pack/lab\ exercise/psoc_intro/lab1.cydsn/Generated_Source/PSoC5/cyPm.h D:/Documents/UOA/2023/Semester\ 2/COMPSYS301/psoc\ student\ pack/lab\ exercise/psoc_intro/lab1.cydsn/Generated_Source/PSoC5/cydevice.h D:/Documents/UOA/2023/Semester\ 2/COMPSYS301/psoc\ student\ pack/lab\ exercise/psoc_intro/lab1.cydsn/Generated_Source/PSoC5/cydevice_trm.h D:/Documents/UOA/2023/Semester\ 2/COMPSYS301/psoc\ student\ pack/lab\ exercise/psoc_intro/lab1.cydsn/Generated_Source/PSoC5/cyfitter.h D:/Documents/UOA/2023/Semester\ 2/COMPSYS301/psoc\ student\ pack/lab\ exercise/psoc_intro/lab1.cydsn/Generated_Source/PSoC5/cyfitter_cfg.c D:/Documents/UOA/2023/Semester\ 2/COMPSYS301/psoc\ student\ pack/lab\ exercise/psoc_intro/lab1.cydsn/Generated_Source/PSoC5/cyfitter_cfg.h D:/Documents/UOA/2023/Semester\ 2/COMPSYS301/psoc\ student\ pack/lab\ exercise/psoc_intro/lab1.cydsn/Generated_Source/PSoC5/cytypes.h D:/Documents/UOA/2023/Semester\ 2/COMPSYS301/psoc\ student\ pack/lab\ exercise/psoc_intro/lab1.cydsn/cyapicallbacks.h 
+
+D:/Documents/UOA/2023/Semester\ 2/COMPSYS301/psoc\ student\ pack/lab\ exercise/psoc_intro/lab1.cydsn/Generated_Source/PSoC5/CyFlash.h : 
+
+D:/Documents/UOA/2023/Semester\ 2/COMPSYS301/psoc\ student\ pack/lab\ exercise/psoc_intro/lab1.cydsn/Generated_Source/PSoC5/CyLib.h : 
+
+D:/Documents/UOA/2023/Semester\ 2/COMPSYS301/psoc\ student\ pack/lab\ exercise/psoc_intro/lab1.cydsn/Generated_Source/PSoC5/CySpc.h : 
+
+D:/Documents/UOA/2023/Semester\ 2/COMPSYS301/psoc\ student\ pack/lab\ exercise/psoc_intro/lab1.cydsn/Generated_Source/PSoC5/cyPm.h : 
+
+D:/Documents/UOA/2023/Semester\ 2/COMPSYS301/psoc\ student\ pack/lab\ exercise/psoc_intro/lab1.cydsn/Generated_Source/PSoC5/cydevice.h : 
+
+D:/Documents/UOA/2023/Semester\ 2/COMPSYS301/psoc\ student\ pack/lab\ exercise/psoc_intro/lab1.cydsn/Generated_Source/PSoC5/cydevice_trm.h : 
+
+D:/Documents/UOA/2023/Semester\ 2/COMPSYS301/psoc\ student\ pack/lab\ exercise/psoc_intro/lab1.cydsn/Generated_Source/PSoC5/cyfitter.h : 
+
+D:/Documents/UOA/2023/Semester\ 2/COMPSYS301/psoc\ student\ pack/lab\ exercise/psoc_intro/lab1.cydsn/Generated_Source/PSoC5/cyfitter_cfg.c : 
+
+D:/Documents/UOA/2023/Semester\ 2/COMPSYS301/psoc\ student\ pack/lab\ exercise/psoc_intro/lab1.cydsn/Generated_Source/PSoC5/cyfitter_cfg.h : 
+
+D:/Documents/UOA/2023/Semester\ 2/COMPSYS301/psoc\ student\ pack/lab\ exercise/psoc_intro/lab1.cydsn/Generated_Source/PSoC5/cytypes.h : 
+
+D:/Documents/UOA/2023/Semester\ 2/COMPSYS301/psoc\ student\ pack/lab\ exercise/psoc_intro/lab1.cydsn/cyapicallbacks.h : 
+
