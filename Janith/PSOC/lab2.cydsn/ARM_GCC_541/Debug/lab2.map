@@ -915,4 +915,4 @@ END GROUP
 
 /DISCARD/
  *(.note.GNU-stack)
-OUTPUT(D:\Documents\UOA\2023\Semester 2\COMPSYS301\psoc student pack\lab exercise\psoc_intro\lab2.cydsn\ARM_GCC_541\Debug\lab2.elf elf32-littlearm)
+OUTPUT(D:\Documents\UOA\2023\Semester 2\COMPSYS301\repos\12_Cypress_LineFollowingRobot\Janith\PSOC\lab2.cydsn\ARM_GCC_541\Debug\lab2.elf elf32-littlearm)

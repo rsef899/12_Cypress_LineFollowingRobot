@@ -1,3 +1,3 @@
-# Component constraints for D:\Documents\UOA\2023\Semester 2\COMPSYS301\psoc student pack\lab exercise\psoc_intro\CS301_Class.cydsn\TopDesign\TopDesign.cysch
-# Project: D:\Documents\UOA\2023\Semester 2\COMPSYS301\psoc student pack\lab exercise\psoc_intro\CS301_Class.cydsn\CS301_Class.cyprj
-# Date: Sun, 20 Aug 2023 12:20:30 GMT
+# Component constraints for D:\Documents\UOA\2023\Semester 2\COMPSYS301\repos\12_Cypress_LineFollowingRobot\Janith\PSOC\CS301_Class.cydsn\TopDesign\TopDesign.cysch
+# Project: D:\Documents\UOA\2023\Semester 2\COMPSYS301\repos\12_Cypress_LineFollowingRobot\Janith\PSOC\CS301_Class.cydsn\CS301_Class.cyprj
+# Date: Thu, 24 Aug 2023 03:03:04 GMT

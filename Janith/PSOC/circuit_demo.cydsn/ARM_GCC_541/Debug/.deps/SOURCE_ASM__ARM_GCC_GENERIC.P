@@ -1,0 +1,10 @@
+D:/Documents/UOA/2023/Semester\ 2/COMPSYS301/repos/12_Cypress_LineFollowingRobot/Janith/PSOC/circuit_demo.cydsn/ARM_GCC_541/Debug/CyBootAsmGnu.o : D:/Documents/UOA/2023/Semester\ 2/COMPSYS301/repos/12_Cypress_LineFollowingRobot/Janith/PSOC/circuit_demo.cydsn/Generated_Source/PSoC5/CyBootAsmGnu.s D:/Documents/UOA/2023/Semester\ 2/COMPSYS301/repos/12_Cypress_LineFollowingRobot/Janith/PSOC/circuit_demo.cydsn/Generated_Source/PSoC5/cydevicegnu.inc D:/Documents/UOA/2023/Semester\ 2/COMPSYS301/repos/12_Cypress_LineFollowingRobot/Janith/PSOC/circuit_demo.cydsn/Generated_Source/PSoC5/cydevicegnu_trm.inc D:/Documents/UOA/2023/Semester\ 2/COMPSYS301/repos/12_Cypress_LineFollowingRobot/Janith/PSOC/circuit_demo.cydsn/Generated_Source/PSoC5/cyfittergnu.inc 
+
+D:/Documents/UOA/2023/Semester\ 2/COMPSYS301/repos/12_Cypress_LineFollowingRobot/Janith/PSOC/circuit_demo.cydsn/Generated_Source/PSoC5/CyBootAsmGnu.s : 
+
+D:/Documents/UOA/2023/Semester\ 2/COMPSYS301/repos/12_Cypress_LineFollowingRobot/Janith/PSOC/circuit_demo.cydsn/Generated_Source/PSoC5/cydevicegnu.inc : 
+
+D:/Documents/UOA/2023/Semester\ 2/COMPSYS301/repos/12_Cypress_LineFollowingRobot/Janith/PSOC/circuit_demo.cydsn/Generated_Source/PSoC5/cydevicegnu_trm.inc : 
+
+D:/Documents/UOA/2023/Semester\ 2/COMPSYS301/repos/12_Cypress_LineFollowingRobot/Janith/PSOC/circuit_demo.cydsn/Generated_Source/PSoC5/cyfittergnu.inc : 
+

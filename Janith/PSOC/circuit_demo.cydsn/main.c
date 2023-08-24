@@ -15,18 +15,19 @@
 */
 #include <project.h>
 
-CY_ISR(MyInterrupt){
-    LED_Write(~LED_Read());
-    Timer_1_ReadStatusRegister();
+CY_ISR(SENSOR1){
+    LED1_Write(~LED1_Read());
+}
+
+CY_ISR(SENSOR2){
+    LED1_Write(~LED2_Read());
 }
 
 int main()
 {
     CyGlobalIntEnable; /* Enable global interrupts. */
-
-    /* Place your initialization/startup code here (e.g. MyInst_Start()) */
-    Timer_1_Start();
-    isr_TC_StartEx(MyInterrupt);
+    isr_sens1_StartEx(SENSOR1);
+    isr_sens2_StartEx(SENSOR2);
 
     for(;;)
     {
