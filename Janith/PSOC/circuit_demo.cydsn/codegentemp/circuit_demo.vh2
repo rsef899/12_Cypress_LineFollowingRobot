@@ -2,7 +2,7 @@
 --	Conversion of circuit_demo.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Thu Aug 24 15:06:09 2023
+--	Fri Aug 25 12:31:58 2023
 --
 
 USE cypress.cypress.all;
@@ -20,7 +20,7 @@ TERMINAL tmpSIOVREF__LED1_net_0 : bit;
 SIGNAL one : bit;
 SIGNAL tmpINTERRUPT_0__LED1_net_0 : bit;
 SIGNAL tmpOE__SENS2_net_0 : bit;
-SIGNAL Net_126 : bit;
+SIGNAL tmpFB_0__SENS2_net_0 : bit;
 SIGNAL tmpIO_0__SENS2_net_0 : bit;
 TERMINAL tmpSIOVREF__SENS2_net_0 : bit;
 SIGNAL tmpINTERRUPT_0__SENS2_net_0 : bit;
@@ -30,7 +30,7 @@ SIGNAL tmpIO_0__LED2_net_0 : bit;
 TERMINAL tmpSIOVREF__LED2_net_0 : bit;
 SIGNAL tmpINTERRUPT_0__LED2_net_0 : bit;
 SIGNAL tmpOE__SENS1_net_0 : bit;
-SIGNAL Net_125 : bit;
+SIGNAL tmpFB_0__SENS1_net_0 : bit;
 SIGNAL tmpIO_0__SENS1_net_0 : bit;
 TERMINAL tmpSIOVREF__SENS1_net_0 : bit;
 SIGNAL tmpINTERRUPT_0__SENS1_net_0 : bit;
@@ -168,7 +168,7 @@ SENS2:cy_psoc3_pins_v1_10
 		input_buffer_sel=>"00")
 	PORT MAP(oe=>(tmpOE__LED1_net_0),
 		y=>(zero),
-		fb=>Net_126,
+		fb=>(tmpFB_0__SENS2_net_0),
 		analog=>(open),
 		io=>(tmpIO_0__SENS2_net_0),
 		siovref=>(tmpSIOVREF__SENS2_net_0),
@@ -308,7 +308,7 @@ SENS1:cy_psoc3_pins_v1_10
 		input_buffer_sel=>"00")
 	PORT MAP(oe=>(tmpOE__LED1_net_0),
 		y=>(zero),
-		fb=>Net_125,
+		fb=>(tmpFB_0__SENS1_net_0),
 		analog=>(open),
 		io=>(tmpIO_0__SENS1_net_0),
 		siovref=>(tmpSIOVREF__SENS1_net_0),
@@ -320,13 +320,5 @@ SENS1:cy_psoc3_pins_v1_10
 		out_clock_en=>tmpOE__LED1_net_0,
 		out_reset=>zero,
 		interrupt=>tmpINTERRUPT_0__SENS1_net_0);
-isr_sens1:cy_isr_v1_0
-	GENERIC MAP(int_type=>"10",
-		is_nmi=>'0')
-	PORT MAP(int_signal=>Net_125);
-isr_sens2:cy_isr_v1_0
-	GENERIC MAP(int_type=>"10",
-		is_nmi=>'0')
-	PORT MAP(int_signal=>Net_126);
 
 END R_T_L;

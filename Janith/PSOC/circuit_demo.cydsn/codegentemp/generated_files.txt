@@ -30,10 +30,6 @@
   <file name="D:\Documents\UOA\2023\Semester 2\COMPSYS301\repos\12_Cypress_LineFollowingRobot\Janith\PSOC\circuit_demo.cydsn\codegentemp\SENS1_aliases.h" value="HEADER;;;;;SENS1" />
   <file name="D:\Documents\UOA\2023\Semester 2\COMPSYS301\repos\12_Cypress_LineFollowingRobot\Janith\PSOC\circuit_demo.cydsn\codegentemp\SENS1.c" value="SOURCE_C;CortexM3;;;;SENS1" />
   <file name="D:\Documents\UOA\2023\Semester 2\COMPSYS301\repos\12_Cypress_LineFollowingRobot\Janith\PSOC\circuit_demo.cydsn\codegentemp\SENS1.h" value="HEADER;;;;;SENS1" />
-  <file name="D:\Documents\UOA\2023\Semester 2\COMPSYS301\repos\12_Cypress_LineFollowingRobot\Janith\PSOC\circuit_demo.cydsn\codegentemp\isr_sens1.c" value="SOURCE_C;CortexM3;;;;isr_sens1" />
-  <file name="D:\Documents\UOA\2023\Semester 2\COMPSYS301\repos\12_Cypress_LineFollowingRobot\Janith\PSOC\circuit_demo.cydsn\codegentemp\isr_sens1.h" value="HEADER;;;;;isr_sens1" />
-  <file name="D:\Documents\UOA\2023\Semester 2\COMPSYS301\repos\12_Cypress_LineFollowingRobot\Janith\PSOC\circuit_demo.cydsn\codegentemp\isr_sens2.c" value="SOURCE_C;CortexM3;;;;isr_sens2" />
-  <file name="D:\Documents\UOA\2023\Semester 2\COMPSYS301\repos\12_Cypress_LineFollowingRobot\Janith\PSOC\circuit_demo.cydsn\codegentemp\isr_sens2.h" value="HEADER;;;;;isr_sens2" />
   <file name="D:\Documents\UOA\2023\Semester 2\COMPSYS301\repos\12_Cypress_LineFollowingRobot\Janith\PSOC\circuit_demo.cydsn\codegentemp\cy_em_eeprom.c" value="SOURCE_C;CortexM3;;;;Em_EEPROM_Dynamic" />
   <file name="D:\Documents\UOA\2023\Semester 2\COMPSYS301\repos\12_Cypress_LineFollowingRobot\Janith\PSOC\circuit_demo.cydsn\codegentemp\cy_em_eeprom.h" value="HEADER;;;;;Em_EEPROM_Dynamic" />
   <file name="D:\Documents\UOA\2023\Semester 2\COMPSYS301\repos\12_Cypress_LineFollowingRobot\Janith\PSOC\circuit_demo.cydsn\codegentemp\cm3gcc.ld" value="LINKER_SCRIPT;;;b98f980c-3bd1-4fc7-a887-c56a20a46fdd;;cy_boot" />

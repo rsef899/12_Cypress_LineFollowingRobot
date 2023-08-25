@@ -1,6 +1,6 @@
 // ======================================================================
 // circuit_demo.v generated from TopDesign.cysch
-// 08/24/2023 at 15:06
+// 08/25/2023 at 12:31
 // This file is auto generated. ANY EDITS YOU MAKE MAY BE LOST WHEN THIS FILE IS REGENERATED!!!
 // ======================================================================
 
@@ -129,8 +129,6 @@
 // top
 module top ;
 
-          wire  Net_125;
-          wire  Net_126;
 
 	wire [0:0] tmpOE__LED1_net;
 	wire [0:0] tmpFB_0__LED1_net;
@@ -208,6 +206,7 @@ module top ;
 	assign tmpOE__LED1_net = (`CYDEV_CHIP_MEMBER_USED == `CYDEV_CHIP_MEMBER_3A && `CYDEV_CHIP_REVISION_USED < `CYDEV_CHIP_REVISION_3A_ES3) ? ~{1'b1} : {1'b1};
 
 	wire [0:0] tmpOE__SENS2_net;
+	wire [0:0] tmpFB_0__SENS2_net;
 	wire [0:0] tmpIO_0__SENS2_net;
 	wire [0:0] tmpINTERRUPT_0__SENS2_net;
 	electrical [0:0] tmpSIOVREF__SENS2_net;
@@ -268,7 +267,7 @@ module top ;
 		SENS2
 		 (.oe(tmpOE__SENS2_net),
 		  .y({1'b0}),
-		  .fb({Net_126}),
+		  .fb({tmpFB_0__SENS2_net[0:0]}),
 		  .io({tmpIO_0__SENS2_net[0:0]}),
 		  .siovref(tmpSIOVREF__SENS2_net),
 		  .interrupt({tmpINTERRUPT_0__SENS2_net[0:0]}),
@@ -357,6 +356,7 @@ module top ;
 	assign tmpOE__LED2_net = (`CYDEV_CHIP_MEMBER_USED == `CYDEV_CHIP_MEMBER_3A && `CYDEV_CHIP_REVISION_USED < `CYDEV_CHIP_REVISION_3A_ES3) ? ~{1'b1} : {1'b1};
 
 	wire [0:0] tmpOE__SENS1_net;
+	wire [0:0] tmpFB_0__SENS1_net;
 	wire [0:0] tmpIO_0__SENS1_net;
 	wire [0:0] tmpINTERRUPT_0__SENS1_net;
 	electrical [0:0] tmpSIOVREF__SENS1_net;
@@ -417,7 +417,7 @@ module top ;
 		SENS1
 		 (.oe(tmpOE__SENS1_net),
 		  .y({1'b0}),
-		  .fb({Net_125}),
+		  .fb({tmpFB_0__SENS1_net[0:0]}),
 		  .io({tmpIO_0__SENS1_net[0:0]}),
 		  .siovref(tmpSIOVREF__SENS1_net),
 		  .interrupt({tmpINTERRUPT_0__SENS1_net[0:0]}),
@@ -429,20 +429,6 @@ module top ;
 		  .out_reset({1'b0}));
 
 	assign tmpOE__SENS1_net = (`CYDEV_CHIP_MEMBER_USED == `CYDEV_CHIP_MEMBER_3A && `CYDEV_CHIP_REVISION_USED < `CYDEV_CHIP_REVISION_3A_ES3) ? ~{1'b1} : {1'b1};
-
-
-	cy_isr_v1_0
-		#(.int_type(2'b10))
-		isr_sens1
-		 (.int_signal(Net_125));
-
-
-
-	cy_isr_v1_0
-		#(.int_type(2'b10))
-		isr_sens2
-		 (.int_signal(Net_126));
-
 
 
 

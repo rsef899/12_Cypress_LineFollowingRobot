@@ -1,6 +1,6 @@
 (DELAYFILE
  (SDFVERSION "IEEE 1497 4.0")
- (DATE "2023-08-24T03:06:11Z")
+ (DATE "2023-08-25T00:32:04Z")
  (DESIGN "circuit_demo")
  (VENDOR "Cypress Semiconductor")
  (PROGRAM "PSoC Creator")
@@ -12,10 +12,6 @@
   (INSTANCE *)
   (DELAY
    (ABSOLUTE
-    (INTERCONNECT ClockBlock.clk_bus_glb isr_sens1.clock (0.000:0.000:0.000))
-    (INTERCONNECT ClockBlock.clk_bus_glb isr_sens2.clock (0.000:0.000:0.000))
-    (INTERCONNECT SENS1\(0\).fb isr_sens1.interrupt (6.502:6.502:6.502))
-    (INTERCONNECT SENS2\(0\).fb isr_sens2.interrupt (4.930:4.930:4.930))
     (INTERCONNECT LED1\(0\)_PAD LED1\(0\).pad_in (0.000:0.000:0.000))
     (INTERCONNECT SENS2\(0\)_PAD SENS2\(0\).pad_in (0.000:0.000:0.000))
     (INTERCONNECT LED2\(0\)_PAD LED2\(0\).pad_in (0.000:0.000:0.000))
