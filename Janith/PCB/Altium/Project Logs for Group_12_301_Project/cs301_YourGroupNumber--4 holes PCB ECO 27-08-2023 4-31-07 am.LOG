@@ -1,0 +1,5 @@
+Removed Pin From Net: NetName=+5V Pin=R12-1
+Removed Pin From Net: NetName=GND Pin=R15-2
+Added Pin To Net: NetName=NetR9_2 Pin=X1-6
+Change Net Name : Old Net Name=NetR9_2 New Net Name=S1S2COMPV
+Added Room: Name=Sensors

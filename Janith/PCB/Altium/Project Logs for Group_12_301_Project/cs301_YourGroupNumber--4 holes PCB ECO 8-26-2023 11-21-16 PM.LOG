@@ -1,0 +1,27 @@
+Removed Pin From Net: NetName=+5V Pin=Q2-1
+Change component parameters: Designator = "Q2" ("Q2"); Footprint = "VEMT3700"; UniqueID = "\TUOQDLXH" ("\TUOQDLXH")
+Change component parameters (AddParameter): Name = "Availability"; Value = "Good"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Check_prices"; Value = "https://www.snapeda.com/parts/TEMT6200FX01/Vishay%20Semiconductor%20Opto%20Division/view-part/43955/?ref=eda"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "MF"; Value = "Vishay Semiconductor"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "MP"; Value = "TEMT6200FX01"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Package"; Value = "0805 Vishay Semiconductor"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Price"; Value = "None"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Purchase-URL"; Value = "https://pricing.snapeda.com/search/part/TEMT6200FX01/?ref=eda"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "SnapEDA_Link"; Value = "https://www.snapeda.com/parts/TEMT6200FX01/Vishay%20Semiconductor%20Opto%20Division/view-part/43955/?ref=snap"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Add Pin To Net: Unknown Pin: Pin Q1-C
+Add Pin To Net: Unknown Pin: Pin Q1-E
+Add Pin To Net: Unknown Pin: Pin Q2-C
+Add Pin To Net: Unknown Pin: Pin Q3-C
+Add Pin To Net: Unknown Pin: Pin Q3-E
+Add Pin To Net: Unknown Pin: Pin Q4-C
+Add Pin To Net: Unknown Pin: Pin Q4-E
+Add Pin To Net: Unknown Pin: Pin Q5-C
+Add Pin To Net: Unknown Pin: Pin Q5-E
+Add Pin To Net: Unknown Pin: Pin Q6-C
+Add Pin To Net: Unknown Pin: Pin Q6-E
+Add Pin To Net: Unknown Pin: Pin Q7-C
+Add Pin To Net: Unknown Pin: Pin Q7-E
+Added Pin To Net: NetName=NetQ2_E Pin=R19-2
+Added Pin To Net: NetName=NetQ2_E Pin=U1-10
+Added Net: Name=NetQ2_E
