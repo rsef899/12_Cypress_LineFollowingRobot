@@ -414,6 +414,7 @@
       <Data key="20cb7137-8a04-4df9-96a9-a72e04bf758a" value="A2" />
       <Data key="34c4f5ce-504e-4b4d-8c23-359accdd7835" value="DIN_4" />
       <Data key="041c6c3d-648b-444f-9124-b4f62f856c1b" value="MA_SLEW" />
+      <Data key="75d9c1fd-7bc2-49e6-a9ea-a25325c0c4f6" value="TestPin" />
       <Data key="75fb4e60-5adc-4b69-9072-893c9be41f43" value="M2_D1" />
       <Data key="81b045b0-2a48-4320-a913-3ebfa8d191a0" value="Rx_2" />
       <Data key="89ece963-8d34-42cb-8d83-575cf0220aef" value="MA_D2n" />
@@ -3571,6 +3572,11 @@
     <Group key="041c6c3d-648b-444f-9124-b4f62f856c1b">
       <Group key="0">
         <Data key="Port Format" value="3,4" />
+      </Group>
+    </Group>
+    <Group key="75d9c1fd-7bc2-49e6-a9ea-a25325c0c4f6">
+      <Group key="0">
+        <Data key="Port Format" value="0,2" />
       </Group>
     </Group>
     <Group key="75fb4e60-5adc-4b69-9072-893c9be41f43">

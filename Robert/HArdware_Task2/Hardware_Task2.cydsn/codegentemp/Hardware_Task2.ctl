@@ -1,6 +1,6 @@
 -- ======================================================================
 -- Hardware_Task2.ctl generated from Hardware_Task2
--- 08/26/2023 at 15:44
+-- 08/26/2023 at 17:29
 -- This file is auto generated. ANY EDITS YOU MAKE MAY BE LOST WHEN THIS FILE IS REGENERATED!!!
 -- ======================================================================
 

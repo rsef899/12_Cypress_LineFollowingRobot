@@ -257,6 +257,16 @@
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\VDAC8.c</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\VDAC8.h</File>
           <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\VDAC8_PM.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Quad_TImer.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Quad_TImer.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Quad_TImer_PM.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\isr_quad_timer.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\isr_quad_timer.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Quad_Timer_clk.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\Quad_Timer_clk.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\TestPin_aliases.h</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\TestPin.c</File>
+          <File BuildType="BUILD" Toolchain="">Generated_Source\PSoC5\TestPin.h</File>
         </Files>
       </Folder>
       <Folder BuildType="STRICT" Path="C:\Users\schoo\302OffOnedrive\301 Project\12_Cypress_LineFollowingRobot\Robert\HArdware_Task2\Hardware_Task2.cydsn\Export\ARM_GCC_Generic">

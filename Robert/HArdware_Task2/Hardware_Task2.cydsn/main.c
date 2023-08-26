@@ -26,6 +26,22 @@ void usbPutString(char *s);
 void usbPutChar(char c);
 void handle_usb();
 //* ========================================
+uint8_t timeIndex = 0;
+uint8_t timeArray[2];
+uint8_t printSpeed = 0;
+
+
+//Interupts
+CY_ISR(QuadDecoderIsr){
+    if (timeIndex == 0){
+        timeArray[0] = QuadDec_M2_GetCounter();
+        timeIndex = 1;
+    } else {
+        timeArray[1] = QuadDec_M2_GetCounter();
+        timeIndex = 0;
+        printSpeed = 1;      
+    }
+}
 
 
 uint8_t changeDutyCycle(uint8_t dutyValue){
@@ -41,27 +57,30 @@ int main(){
     //PWM1
     PWM_1_Start();
     //PWM2
-    PWM_2_Start();
-    
-    uint8_t testnum;
-    char buffer [64];
-    uint8_t duty = 0;
-    testnum = changeDutyCycle(duty);
-    
-    itoa(testnum, buffer, 10);
-    
-    USBUART_PutString(buffer);
+    PWM_2_Start();   
+    uint8_t duty = 100;
+    changeDutyCycle(duty);
+
+    //QuadEncoder initialisation
+    isr_quad_timer_StartEx(QuadDecoderIsr);
+    Quad_TImer_Start();
     
 
 // --------------------------------    
 // ----- INITIALIZATIONS ----------
-    CYGlobalIntEnable;
-
-
-    
+    CYGlobalIntEnable;    
     for(;;)
     {
-       
+        //QuadEncoder icode
+        if (printSpeed == 1){
+            uint16_t speed = timeArray[0] - timeArray[1];
+            speed =  (float)speed / 1.31;
+            
+            char buffer [64];
+            itoa(speed, buffer, 10);
+            USBUART_PutString(buffer);
+            printSpeed = 0; 
+        }
     }  
 }//End main
 

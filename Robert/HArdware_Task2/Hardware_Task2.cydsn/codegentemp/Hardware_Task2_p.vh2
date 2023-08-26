@@ -1,5 +1,5 @@
 -- Project:   Hardware_Task2
--- Generated: 08/26/2023 15:44:07
+-- Generated: 08/26/2023 17:29:52
 -- PSoC Creator  4.2
 
 ENTITY Hardware_Task2 IS
@@ -26,7 +26,8 @@ ENTITY Hardware_Task2 IS
         DB0(0)_PAD : OUT std_ulogic;
         DB1(0)_PAD : OUT std_ulogic;
         DB2(0)_PAD : OUT std_ulogic;
-        Rx_2(0)_PAD : IN std_ulogic);
+        Rx_2(0)_PAD : IN std_ulogic;
+        TestPin(0)_PAD : OUT std_ulogic);
     ATTRIBUTE voltage_VDDABUF OF __DEFAULT__ : ENTITY IS 5e0;
     ATTRIBUTE voltage_VDDA OF __DEFAULT__ : ENTITY IS 5e0;
     ATTRIBUTE voltage_VUSB OF __DEFAULT__ : ENTITY IS 5e0;
@@ -102,6 +103,11 @@ ARCHITECTURE __DEFAULT__ OF Hardware_Task2 IS
     SIGNAL Net_362 : bit;
     SIGNAL Net_368 : bit;
     SIGNAL Net_4334 : bit;
+    SIGNAL Net_4468 : bit;
+    ATTRIBUTE global_signal OF Net_4468 : SIGNAL IS true;
+    SIGNAL Net_4468_local : bit;
+    SIGNAL Net_4476 : bit;
+    SIGNAL Net_4484 : bit;
     SIGNAL Net_724 : bit;
     SIGNAL Net_724_SYNCOUT : bit;
     SIGNAL Net_725 : bit;
@@ -112,6 +118,7 @@ ARCHITECTURE __DEFAULT__ OF Hardware_Task2 IS
     SIGNAL Net_730_SYNCOUT : bit;
     SIGNAL Rx_1(0)__PA : bit;
     SIGNAL Rx_2(0)__PA : bit;
+    SIGNAL TestPin(0)__PA : bit;
     SIGNAL Tx_1(0)__PA : bit;
     SIGNAL \ADC:AMuxHw_2_Decoder_is_active\ : bit;
     ATTRIBUTE soft OF \ADC:AMuxHw_2_Decoder_is_active\ : SIGNAL IS 1;
@@ -324,6 +331,7 @@ ARCHITECTURE __DEFAULT__ OF Hardware_Task2 IS
     SIGNAL \QuadDec_M2:bQuadDec:quad_B_filt\ : bit;
     SIGNAL \QuadDec_M2:bQuadDec:state_0\ : bit;
     SIGNAL \QuadDec_M2:bQuadDec:state_1\ : bit;
+    SIGNAL \Quad_TImer:Net_261\ : bit;
     SIGNAL \RF_BT_SELECT:control_1\ : bit;
     SIGNAL \RF_BT_SELECT:control_2\ : bit;
     SIGNAL \RF_BT_SELECT:control_3\ : bit;
@@ -408,6 +416,7 @@ ARCHITECTURE __DEFAULT__ OF Hardware_Task2 IS
     ATTRIBUTE POWER OF tmpOE__M1_IN1_net_0 : SIGNAL IS true;
     SIGNAL \ClockBlock.dclk_glb_ff_2__sig\ : bit;
     SIGNAL \ClockBlock.dclk_glb_ff_3__sig\ : bit;
+    SIGNAL \ClockBlock.dclk_glb_ff_5__sig\ : bit;
     SIGNAL \QuadDec_M1:Cnt16:CounterUDB:sC16:counterdp:u0.ce0__sig\ : bit;
     SIGNAL \QuadDec_M1:Cnt16:CounterUDB:sC16:counterdp:u0.cl0__sig\ : bit;
     SIGNAL \QuadDec_M1:Cnt16:CounterUDB:sC16:counterdp:u0.z0__sig\ : bit;
@@ -461,11 +470,11 @@ ARCHITECTURE __DEFAULT__ OF Hardware_Task2 IS
     ATTRIBUTE lib_model OF A2(0) : LABEL IS "iocell13";
     ATTRIBUTE Location OF A2(0) : LABEL IS "P0[7]";
     ATTRIBUTE lib_model OF A3(0) : LABEL IS "iocell14";
-    ATTRIBUTE Location OF A3(0) : LABEL IS "P0[3]";
+    ATTRIBUTE Location OF A3(0) : LABEL IS "P2[6]";
     ATTRIBUTE lib_model OF A4(0) : LABEL IS "iocell15";
-    ATTRIBUTE Location OF A4(0) : LABEL IS "P2[0]";
+    ATTRIBUTE Location OF A4(0) : LABEL IS "P15[5]";
     ATTRIBUTE lib_model OF A5(0) : LABEL IS "iocell16";
-    ATTRIBUTE Location OF A5(0) : LABEL IS "P2[5]";
+    ATTRIBUTE Location OF A5(0) : LABEL IS "P2[0]";
     ATTRIBUTE lib_model OF A6(0) : LABEL IS "iocell17";
     ATTRIBUTE Location OF A6(0) : LABEL IS "P1[6]";
     ATTRIBUTE lib_model OF \USBUART:Dm(0)\ : LABEL IS "iocell18";
@@ -490,6 +499,8 @@ ARCHITECTURE __DEFAULT__ OF Hardware_Task2 IS
     ATTRIBUTE Location OF Rx_2(0) : LABEL IS "P2[4]";
     ATTRIBUTE lib_model OF A7(0) : LABEL IS "iocell28";
     ATTRIBUTE Location OF A7(0) : LABEL IS "P1[7]";
+    ATTRIBUTE lib_model OF TestPin(0) : LABEL IS "iocell29";
+    ATTRIBUTE Location OF TestPin(0) : LABEL IS "P0[2]";
     ATTRIBUTE lib_model OF \QuadDec_M1:Cnt16:CounterUDB:reload\ : LABEL IS "macrocell2";
     ATTRIBUTE lib_model OF \QuadDec_M1:Cnt16:CounterUDB:status_0\ : LABEL IS "macrocell3";
     ATTRIBUTE lib_model OF \QuadDec_M1:Cnt16:CounterUDB:status_2\ : LABEL IS "macrocell4";
@@ -552,7 +563,7 @@ ARCHITECTURE __DEFAULT__ OF Hardware_Task2 IS
     ATTRIBUTE lib_model OF \UART:BUART:sRX:RxShifter:u0\ : LABEL IS "datapathcell7";
     ATTRIBUTE lib_model OF \UART:BUART:sRX:RxSts\ : LABEL IS "statusicell6";
     ATTRIBUTE lib_model OF \RF_BT_SELECT:Sync:ctrl_reg\ : LABEL IS "controlcell5";
-    ATTRIBUTE Location OF \VDAC8:viDAC8\ : LABEL IS "F(VIDAC,1)";
+    ATTRIBUTE Location OF \VDAC8:viDAC8\ : LABEL IS "F(VIDAC,3)";
     ATTRIBUTE lib_model OF \QuadDec_M1:Net_1251\ : LABEL IS "macrocell41";
     ATTRIBUTE lib_model OF \QuadDec_M1:Cnt16:CounterUDB:overflow_reg_i\ : LABEL IS "macrocell42";
     ATTRIBUTE lib_model OF \QuadDec_M1:Cnt16:CounterUDB:underflow_reg_i\ : LABEL IS "macrocell43";
@@ -1161,8 +1172,11 @@ BEGIN
             dclk_3 => Net_10_local,
             dclk_glb_4 => \UART:Net_9\,
             dclk_4 => \UART:Net_9_local\,
+            dclk_glb_5 => Net_4468,
+            dclk_5 => Net_4468_local,
             dclk_glb_ff_2 => \ClockBlock.dclk_glb_ff_2__sig\,
-            dclk_glb_ff_3 => \ClockBlock.dclk_glb_ff_3__sig\);
+            dclk_glb_ff_3 => \ClockBlock.dclk_glb_ff_3__sig\,
+            dclk_glb_ff_5 => \ClockBlock.dclk_glb_ff_5__sig\);
 
     M1_IN1:logicalport
         GENERIC MAP(
@@ -3708,6 +3722,98 @@ BEGIN
             out_clock_en => '1',
             out_reset => '0');
 
+    TestPin:logicalport
+        GENERIC MAP(
+            drive_mode => "110",
+            ibuf_enabled => "1",
+            id => "75d9c1fd-7bc2-49e6-a9ea-a25325c0c4f6",
+            init_dr_st => "0",
+            input_buffer_sel => "00",
+            input_clk_en => 0,
+            input_sync => "1",
+            input_sync_mode => "0",
+            intr_mode => "00",
+            invert_in_clock => 0,
+            invert_in_clock_en => 0,
+            invert_in_reset => 0,
+            invert_out_clock => 0,
+            invert_out_clock_en => 0,
+            invert_out_reset => 0,
+            io_voltage => "",
+            layout_mode => "CONTIGUOUS",
+            oe_conn => "0",
+            oe_reset => 0,
+            oe_sync => "0",
+            output_clk_en => 0,
+            output_clock_mode => "0",
+            output_conn => "1",
+            output_mode => "0",
+            output_reset => 0,
+            output_sync => "0",
+            ovt_hyst_trim => "0",
+            ovt_needed => "0",
+            ovt_slew_control => "00",
+            pa_in_clock => -1,
+            pa_in_clock_en => -1,
+            pa_in_reset => -1,
+            pa_out_clock => -1,
+            pa_out_clock_en => -1,
+            pa_out_reset => -1,
+            pin_aliases => "",
+            pin_mode => "O",
+            por_state => 4,
+            port_alias_group => "",
+            port_alias_required => 0,
+            sio_group_cnt => 0,
+            sio_hifreq => "00000000",
+            sio_hyst => "1",
+            sio_ibuf => "00000000",
+            sio_info => "00",
+            sio_obuf => "00000000",
+            sio_refsel => "00000000",
+            sio_vohsel => "00000000",
+            sio_vtrip => "00000000",
+            slew_rate => "0",
+            spanning => 0,
+            sw_only => 0,
+            use_annotation => "0",
+            vtrip => "10",
+            width => 1,
+            in_clk_inv => 0,
+            in_clken_inv => 0,
+            in_clken_mode => 1,
+            in_rst_inv => 0,
+            out_clk_inv => 0,
+            out_clken_inv => 0,
+            out_clken_mode => 1,
+            out_rst_inv => 0)
+        PORT MAP(
+            in_clock_en => open,
+            in_reset => open,
+            out_clock_en => open,
+            out_reset => open);
+
+    TestPin(0):iocell
+        GENERIC MAP(
+            in_sync_mode => 0,
+            out_sync_mode => 0,
+            oe_sync_mode => 0,
+            logicalport => "TestPin",
+            logicalport_pin_id => 0,
+            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000101")
+        PORT MAP(
+            pa_out => TestPin(0)__PA,
+            oe => open,
+            pin_input => Net_4476,
+            pad_out => TestPin(0)_PAD,
+            pad_in => TestPin(0)_PAD,
+            in_clock => open,
+            in_clock_en => '1',
+            in_reset => '0',
+            out_clock => open,
+            out_clock_en => '1',
+            out_reset => '0');
+
     \QuadDec_M1:Cnt16:CounterUDB:reload\:macrocell
         GENERIC MAP(
             eqn_main => "(!main_0 * !main_1 * !main_2)",
@@ -4965,6 +5071,27 @@ BEGIN
             reset => open,
             idir => open,
             ioff => open);
+
+    \Quad_TImer:TimerHW\:timercell
+        GENERIC MAP(
+            cy_registers => "")
+        PORT MAP(
+            clock => \ClockBlock.dclk_glb_ff_5__sig\,
+            kill => open,
+            enable => __ONE__,
+            capture => open,
+            timer_reset => open,
+            tc => Net_4476,
+            cmp => \Quad_TImer:Net_261\,
+            irq => Net_4484);
+
+    isr_quad_timer:interrupt
+        GENERIC MAP(
+            int_type => "10",
+            is_nmi => 0)
+        PORT MAP(
+            interrupt => Net_4484,
+            clock => ClockBlock_BUS_CLK);
 
     \QuadDec_M1:Net_1251\:macrocell
         GENERIC MAP(
