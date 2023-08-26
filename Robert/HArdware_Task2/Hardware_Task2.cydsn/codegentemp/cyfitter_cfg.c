@@ -319,9 +319,9 @@ static void AnalogSetDefault(void)
 	CY_SET_XTND_REG8((void CYFAR *)(CYREG_RESET_CR4), (cr4 | 0x03u));
 	CY_SET_XTND_REG8((void CYFAR *)(CYREG_RESET_CR5), (cr5 | 0x03u));
 	CY_SET_XTND_REG8((void CYFAR *)CYREG_PRT0_AG, 0x20u);
-	CY_SET_XTND_REG8((void CYFAR *)CYREG_PRT1_AMUX, 0x80u);
+	CY_SET_XTND_REG8((void CYFAR *)CYREG_PRT15_AG, 0x10u);
 	CY_SET_XTND_REG8((void CYFAR *)CYREG_SAR0_CSR1, 0x80u);
-	CY_SET_XTND_REG8((void CYFAR *)CYREG_DAC3_SW3, 0x01u);
+	CY_SET_XTND_REG8((void CYFAR *)CYREG_DAC0_SW0, 0x01u);
 	CY_SET_XTND_REG8((void CYFAR *)CYREG_SAR0_SW0, 0x20u);
 	CY_SET_XTND_REG8((void CYFAR *)CYREG_SAR0_SW3, 0x20u);
 	CyDelayUs(10u); /* Allow vref to settle before re-enabling PRES */

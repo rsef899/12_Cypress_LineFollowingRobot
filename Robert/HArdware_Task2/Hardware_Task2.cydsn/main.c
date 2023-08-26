@@ -76,9 +76,9 @@ int main(){
             uint16_t speed = timeArray[0] - timeArray[1];
             speed =  (float)speed / 1.31;
             
-            char buffer [64];
-            itoa(speed, buffer, 10);
-            USBUART_PutString(buffer);
+            //char buffer [64];
+            //itoa(speed, buffer, 10);
+           // USBUART_PutString(buffer);
             printSpeed = 0; 
         }
     }  

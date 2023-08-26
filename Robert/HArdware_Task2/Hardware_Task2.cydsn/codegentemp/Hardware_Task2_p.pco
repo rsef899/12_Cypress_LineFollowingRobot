@@ -191,13 +191,12 @@ set_location "\USBUART:USB\" usbcell -1 -1 0
 set_location "\USBUART:sof_int\" interrupt -1 -1 21
 set_location "\ADC:FinalBuf\" drqcell -1 -1 0
 set_io "A1(0)" iocell 0 6
-set_io "A5(0)" iocell 2 0
+set_io "A5(0)" iocell 2 5
 # Note: port 15 is the logical name for port 8
 set_io "M1_QB(0)" iocell 15 2
-# Note: port 15 is the logical name for port 8
-set_io "A4(0)" iocell 15 5
+set_io "A4(0)" iocell 0 3
 set_location "\Quad_TImer:TimerHW\" timercell -1 -1 2
-set_location "\VDAC8:viDAC8\" vidaccell -1 -1 3
+set_location "\VDAC8:viDAC8\" vidaccell -1 -1 0
 set_location "\CONTROL:Sync:ctrl_reg\" controlcell 2 2 6 
 set_location "\ADC:bSAR_SEQ:EOCSts\" statuscell 3 3 3 
 set_io "M2_QB(0)" iocell 0 1
@@ -219,7 +218,7 @@ set_location "\ADC:bSAR_SEQ:CtrlReg\" controlcell 3 1 6
 set_io "TestPin(0)" iocell 0 2
 set_io "M2_IN2(0)" iocell 1 5
 set_location "\USBUART:Dp\" logicalport -1 -1 8
-set_io "A3(0)" iocell 2 6
+set_io "A3(0)" iocell 3 2
 set_io "Tx_1(0)" iocell 2 3
 set_location "\Timer_TS:TimerHW\" timercell -1 -1 3
 set_location "\USBUART:ep_1\" interrupt -1 -1 1
@@ -239,9 +238,12 @@ set_io "\ADC:SAR:Bypass(0)\" iocell 0 4
 set_io "\USBUART:Dm(0)\" iocell 15 7
 set_io "LED(0)" iocell 2 1
 set_io "DB0(0)" iocell 3 0
+set_io "M1_INV(0)" iocell 3 7
 set_io "DB1(0)" iocell 3 1
+set_io "M2_INV(0)" iocell 1 7
 set_io "DB2(0)" iocell 3 6
-set_io "A7(0)" iocell 1 7
+# Note: port 15 is the logical name for port 8
+set_io "A7(0)" iocell 15 4
 set_location "\PWM_1:PWMHW\" timercell -1 -1 0
 set_location "\PWM_2:PWMHW\" timercell -1 -1 1
 set_location "isr_TS" interrupt -1 -1 6
