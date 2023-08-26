@@ -56,7 +56,7 @@ int main(){
 
     USBUART_Start(0,USBUART_5V_OPERATION);
     //Default message to see if terminal connection is working
-    usbPutString("*--- ROBERT IS GAY ----*");
+    
     
     //Start the timer and initialise its interupt
     Timer_TS_Start();

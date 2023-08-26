@@ -45,7 +45,7 @@ int main(){
     
     uint8_t testnum;
     char buffer [64];
-    uint8_t duty = 20;
+    uint8_t duty = 0;
     testnum = changeDutyCycle(duty);
     
     itoa(testnum, buffer, 10);
