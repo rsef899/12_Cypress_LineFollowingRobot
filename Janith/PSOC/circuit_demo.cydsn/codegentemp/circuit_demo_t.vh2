@@ -1,5 +1,5 @@
 -- Project:   D:\Documents\UOA\2023\Semester 2\COMPSYS301\repos\12_Cypress_LineFollowingRobot\Janith\PSOC\circuit_demo.cydsn\circuit_demo.cyprj
--- Generated: 08/25/2023 12:32:04
+-- Generated: 08/26/2023 18:44:38
 -- PSoC Creator  4.2
 
 ENTITY circuit_demo IS
@@ -45,13 +45,13 @@ ARCHITECTURE __DEFAULT__ OF circuit_demo IS
     ATTRIBUTE GROUND OF zero : SIGNAL IS true;
     ATTRIBUTE Location OF ClockBlock : LABEL IS "F(Clock,0)";
     ATTRIBUTE lib_model OF LED1(0) : LABEL IS "iocell1";
-    ATTRIBUTE Location OF LED1(0) : LABEL IS "P1[4]";
+    ATTRIBUTE Location OF LED1(0) : LABEL IS "P3[2]";
     ATTRIBUTE lib_model OF SENS2(0) : LABEL IS "iocell2";
-    ATTRIBUTE Location OF SENS2(0) : LABEL IS "P1[7]";
+    ATTRIBUTE Location OF SENS2(0) : LABEL IS "P3[1]";
     ATTRIBUTE lib_model OF LED2(0) : LABEL IS "iocell3";
-    ATTRIBUTE Location OF LED2(0) : LABEL IS "P1[5]";
+    ATTRIBUTE Location OF LED2(0) : LABEL IS "P3[0]";
     ATTRIBUTE lib_model OF SENS1(0) : LABEL IS "iocell4";
-    ATTRIBUTE Location OF SENS1(0) : LABEL IS "P1[6]";
+    ATTRIBUTE Location OF SENS1(0) : LABEL IS "P3[3]";
     COMPONENT clockblockcell
         PORT (
             dclk_0 : OUT std_ulogic;
