@@ -1,0 +1,13 @@
+Added Component: Designator=J1(SAMTEC_MTSW-109-22-G-S-440)
+Add component (AddParameter): Name = "Availability"; Value = "Unavailable"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MF"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MP"; Value = "MTSW-109-22-G-S-440"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Price"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Pin To Net: NetName=3.2 Pin=J1-01
+Added Pin To Net: NetName=3.6 Pin=J1-02
+Added Pin To Net: NetName=Ibat Pin=J1-03
+Added Pin To Net: NetName=Vbat Pin=J1-04
+Added Pin To Net: NetName=SLW Pin=J1-05
+Added Pin To Net: NetName=NC Pin=J1-06

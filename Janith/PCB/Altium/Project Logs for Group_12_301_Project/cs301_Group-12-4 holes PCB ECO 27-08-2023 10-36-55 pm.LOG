@@ -1,0 +1,61 @@
+Added Component: Designator=J3(SAMTEC_TSW-108-05-F-S)
+Add component (AddParameter): Name = "Availability"; Value = "Unavailable"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MF"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MP"; Value = "TSW-108-05-F-S"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Price"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=J4(SAMTEC_TSW-108-05-F-S)
+Add component (AddParameter): Name = "Availability"; Value = "Unavailable"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MF"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MP"; Value = "TSW-108-05-F-S"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Price"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Pin To Net: NetName=SLW Pin=J4-01
+Added Pin To Net: NetName=SLW Pin=J18-4
+Added Pin To Net: NetName=2.0 Pin=J3-08
+Added Pin To Net: NetName=2.0 Pin=P2-1
+Added Net: Name=2.0
+Added Pin To Net: NetName=2.1 Pin=J3-07
+Added Pin To Net: NetName=2.1 Pin=P2-2
+Added Net: Name=2.1
+Added Pin To Net: NetName=2.2 Pin=J3-06
+Added Pin To Net: NetName=2.2 Pin=P2-3
+Added Net: Name=2.2
+Added Pin To Net: NetName=2.3 Pin=J3-05
+Added Pin To Net: NetName=2.3 Pin=P2-4
+Added Net: Name=2.3
+Added Pin To Net: NetName=2.4 Pin=J3-04
+Added Pin To Net: NetName=2.4 Pin=P2-5
+Added Net: Name=2.4
+Added Pin To Net: NetName=2.5 Pin=J3-03
+Added Pin To Net: NetName=2.5 Pin=P2-6
+Added Net: Name=2.5
+Added Pin To Net: NetName=2.6 Pin=J3-02
+Added Pin To Net: NetName=2.6 Pin=P2-7
+Added Net: Name=2.6
+Added Pin To Net: NetName=12.0 Pin=J4-02
+Added Pin To Net: NetName=12.0 Pin=P12-1
+Added Net: Name=12.0
+Added Pin To Net: NetName=12.1 Pin=J4-03
+Added Pin To Net: NetName=12.1 Pin=P12-2
+Added Net: Name=12.1
+Added Pin To Net: NetName=12.2 Pin=J4-04
+Added Pin To Net: NetName=12.2 Pin=P12-3
+Added Net: Name=12.2
+Added Pin To Net: NetName=12.3 Pin=J4-05
+Added Pin To Net: NetName=12.3 Pin=P12-4
+Added Net: Name=12.3
+Added Pin To Net: NetName=12.4 Pin=J4-06
+Added Pin To Net: NetName=12.4 Pin=P12-5
+Added Net: Name=12.4
+Added Pin To Net: NetName=12.5 Pin=J4-07
+Added Pin To Net: NetName=12.5 Pin=P12-6
+Added Net: Name=12.5
+Added Pin To Net: NetName=12.6 Pin=J4-08
+Added Pin To Net: NetName=12.6 Pin=P12-7
+Added Net: Name=12.6
+Added Pin To Net: NetName=12.7 Pin=J3-01
+Added Pin To Net: NetName=12.7 Pin=P12-8
+Added Net: Name=12.7

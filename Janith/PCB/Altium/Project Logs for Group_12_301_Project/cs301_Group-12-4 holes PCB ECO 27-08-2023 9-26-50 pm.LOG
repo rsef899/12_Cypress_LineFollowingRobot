@@ -1,0 +1,13 @@
+Add Component: Footprint Not Found idc8
+Added Pin To Net: NetName=3.2 Pin=P3-3
+Added Net: Name=3.2
+Added Pin To Net: NetName=3.6 Pin=P3-7
+Added Net: Name=3.6
+Added Pin To Net: NetName=Ibat Pin=J13-1
+Added Net: Name=Ibat
+Added Pin To Net: NetName=NC Pin=J13-10
+Added Net: Name=NC
+Added Pin To Net: NetName=SLW Pin=J13-6
+Added Net: Name=SLW
+Added Pin To Net: NetName=Vbat Pin=J13-2
+Added Net: Name=Vbat
