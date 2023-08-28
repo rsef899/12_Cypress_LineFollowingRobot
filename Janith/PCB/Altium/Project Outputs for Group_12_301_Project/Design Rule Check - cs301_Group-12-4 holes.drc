@@ -1,7 +1,7 @@
 Protel Design System Design Rule Check
 PCB File : D:\Documents\UOA\2023\Semester 2\COMPSYS301\repos\12_Cypress_LineFollowingRobot\Janith\PCB\Altium\cs301_Group-12-4 holes.PcbDoc
 Date     : 28/08/2023
-Time     : 4:36:34 am
+Time     : 5:30:26 am
 
 Processing Rule : Clearance Constraint (Gap=0.254mm) (All),(All)
 Rule Violations :0
@@ -45,4 +45,4 @@ Rule Violations :0
 
 Violations Detected : 0
 Waived Violations : 0
-Time Elapsed        : 00:00:02
+Time Elapsed        : 00:00:03
