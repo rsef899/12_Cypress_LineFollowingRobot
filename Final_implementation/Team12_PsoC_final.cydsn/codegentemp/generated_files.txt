@@ -170,6 +170,27 @@
   <file name="C:\Users\schoo\302OffOnedrive\301 Project\12_Cypress_LineFollowingRobot\Final_implementation\Team12_PsoC_final.cydsn\codegentemp\M2_INV_aliases.h" value="HEADER;;;;;M2_INV" />
   <file name="C:\Users\schoo\302OffOnedrive\301 Project\12_Cypress_LineFollowingRobot\Final_implementation\Team12_PsoC_final.cydsn\codegentemp\M2_INV.c" value="SOURCE_C;CortexM3;;;;M2_INV" />
   <file name="C:\Users\schoo\302OffOnedrive\301 Project\12_Cypress_LineFollowingRobot\Final_implementation\Team12_PsoC_final.cydsn\codegentemp\M2_INV.h" value="HEADER;;;;;M2_INV" />
+  <file name="C:\Users\schoo\302OffOnedrive\301 Project\12_Cypress_LineFollowingRobot\Final_implementation\Team12_PsoC_final.cydsn\codegentemp\Q1_aliases.h" value="HEADER;;;;;Q1" />
+  <file name="C:\Users\schoo\302OffOnedrive\301 Project\12_Cypress_LineFollowingRobot\Final_implementation\Team12_PsoC_final.cydsn\codegentemp\Q1.c" value="SOURCE_C;CortexM3;;;;Q1" />
+  <file name="C:\Users\schoo\302OffOnedrive\301 Project\12_Cypress_LineFollowingRobot\Final_implementation\Team12_PsoC_final.cydsn\codegentemp\Q1.h" value="HEADER;;;;;Q1" />
+  <file name="C:\Users\schoo\302OffOnedrive\301 Project\12_Cypress_LineFollowingRobot\Final_implementation\Team12_PsoC_final.cydsn\codegentemp\Q2_aliases.h" value="HEADER;;;;;Q2" />
+  <file name="C:\Users\schoo\302OffOnedrive\301 Project\12_Cypress_LineFollowingRobot\Final_implementation\Team12_PsoC_final.cydsn\codegentemp\Q2.c" value="SOURCE_C;CortexM3;;;;Q2" />
+  <file name="C:\Users\schoo\302OffOnedrive\301 Project\12_Cypress_LineFollowingRobot\Final_implementation\Team12_PsoC_final.cydsn\codegentemp\Q2.h" value="HEADER;;;;;Q2" />
+  <file name="C:\Users\schoo\302OffOnedrive\301 Project\12_Cypress_LineFollowingRobot\Final_implementation\Team12_PsoC_final.cydsn\codegentemp\Q5_aliases.h" value="HEADER;;;;;Q5" />
+  <file name="C:\Users\schoo\302OffOnedrive\301 Project\12_Cypress_LineFollowingRobot\Final_implementation\Team12_PsoC_final.cydsn\codegentemp\Q5.c" value="SOURCE_C;CortexM3;;;;Q5" />
+  <file name="C:\Users\schoo\302OffOnedrive\301 Project\12_Cypress_LineFollowingRobot\Final_implementation\Team12_PsoC_final.cydsn\codegentemp\Q5.h" value="HEADER;;;;;Q5" />
+  <file name="C:\Users\schoo\302OffOnedrive\301 Project\12_Cypress_LineFollowingRobot\Final_implementation\Team12_PsoC_final.cydsn\codegentemp\Q6_aliases.h" value="HEADER;;;;;Q6" />
+  <file name="C:\Users\schoo\302OffOnedrive\301 Project\12_Cypress_LineFollowingRobot\Final_implementation\Team12_PsoC_final.cydsn\codegentemp\Q6.c" value="SOURCE_C;CortexM3;;;;Q6" />
+  <file name="C:\Users\schoo\302OffOnedrive\301 Project\12_Cypress_LineFollowingRobot\Final_implementation\Team12_PsoC_final.cydsn\codegentemp\Q6.h" value="HEADER;;;;;Q6" />
+  <file name="C:\Users\schoo\302OffOnedrive\301 Project\12_Cypress_LineFollowingRobot\Final_implementation\Team12_PsoC_final.cydsn\codegentemp\Q7_aliases.h" value="HEADER;;;;;Q7" />
+  <file name="C:\Users\schoo\302OffOnedrive\301 Project\12_Cypress_LineFollowingRobot\Final_implementation\Team12_PsoC_final.cydsn\codegentemp\Q7.c" value="SOURCE_C;CortexM3;;;;Q7" />
+  <file name="C:\Users\schoo\302OffOnedrive\301 Project\12_Cypress_LineFollowingRobot\Final_implementation\Team12_PsoC_final.cydsn\codegentemp\Q7.h" value="HEADER;;;;;Q7" />
+  <file name="C:\Users\schoo\302OffOnedrive\301 Project\12_Cypress_LineFollowingRobot\Final_implementation\Team12_PsoC_final.cydsn\codegentemp\Q4_aliases.h" value="HEADER;;;;;Q4" />
+  <file name="C:\Users\schoo\302OffOnedrive\301 Project\12_Cypress_LineFollowingRobot\Final_implementation\Team12_PsoC_final.cydsn\codegentemp\Q4.c" value="SOURCE_C;CortexM3;;;;Q4" />
+  <file name="C:\Users\schoo\302OffOnedrive\301 Project\12_Cypress_LineFollowingRobot\Final_implementation\Team12_PsoC_final.cydsn\codegentemp\Q4.h" value="HEADER;;;;;Q4" />
+  <file name="C:\Users\schoo\302OffOnedrive\301 Project\12_Cypress_LineFollowingRobot\Final_implementation\Team12_PsoC_final.cydsn\codegentemp\Q3_aliases.h" value="HEADER;;;;;Q3" />
+  <file name="C:\Users\schoo\302OffOnedrive\301 Project\12_Cypress_LineFollowingRobot\Final_implementation\Team12_PsoC_final.cydsn\codegentemp\Q3.c" value="SOURCE_C;CortexM3;;;;Q3" />
+  <file name="C:\Users\schoo\302OffOnedrive\301 Project\12_Cypress_LineFollowingRobot\Final_implementation\Team12_PsoC_final.cydsn\codegentemp\Q3.h" value="HEADER;;;;;Q3" />
   <file name="C:\Users\schoo\302OffOnedrive\301 Project\12_Cypress_LineFollowingRobot\Final_implementation\Team12_PsoC_final.cydsn\codegentemp\QuadDec_M1_Cnt16.c" value="SOURCE_C;CortexM3;;;;QuadDec_M1_Cnt16" />
   <file name="C:\Users\schoo\302OffOnedrive\301 Project\12_Cypress_LineFollowingRobot\Final_implementation\Team12_PsoC_final.cydsn\codegentemp\QuadDec_M1_Cnt16.h" value="HEADER;;;;;QuadDec_M1_Cnt16" />
   <file name="C:\Users\schoo\302OffOnedrive\301 Project\12_Cypress_LineFollowingRobot\Final_implementation\Team12_PsoC_final.cydsn\codegentemp\QuadDec_M1_Cnt16_PM.c" value="SOURCE_C;CortexM3;;;;QuadDec_M1_Cnt16" />

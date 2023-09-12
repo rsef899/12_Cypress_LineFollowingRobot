@@ -1,41 +1,41 @@
---------------- Build Started: 08/26/2023 17:15:41 Project: Hardware_Task2, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
-cydsfit.exe -.appdatapath "C:\Users\schoo\AppData\Local\Cypress Semiconductor\PSoC Creator\4.2" -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -.fdsreffile=referenced_files.txt -p "C:\Users\schoo\302OffOnedrive\301 Project\12_Cypress_LineFollowingRobot\Robert\HArdware_Task2\Hardware_Task2.cydsn\Hardware_Task2.cyprj" -d CY8C5888LTI-LP097 -s "C:\Users\schoo\302OffOnedrive\301 Project\12_Cypress_LineFollowingRobot\Robert\HArdware_Task2\Hardware_Task2.cydsn\Generated_Source\PSoC5" -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE
+--------------- Build Started: 09/12/2023 14:02:44 Project: Team12_PsoC_final, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
+cydsfit.exe -.appdatapath "C:\Users\schoo\AppData\Local\Cypress Semiconductor\PSoC Creator\4.2" -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -.fdsreffile=referenced_files.txt -p "C:\Users\schoo\302OffOnedrive\301 Project\12_Cypress_LineFollowingRobot\Final_implementation\Team12_PsoC_final.cydsn\Team12_PsoC_final.cyprj" -d CY8C5888LTI-LP097 -s "C:\Users\schoo\302OffOnedrive\301 Project\12_Cypress_LineFollowingRobot\Final_implementation\Team12_PsoC_final.cydsn\Generated_Source\PSoC5" -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE
 Elaborating Design...
 ADD: sdb.M0065: information: Analog terminal "A6.analog_0" on TopDesign is unconnected.
- * C:\Users\schoo\302OffOnedrive\301 Project\12_Cypress_LineFollowingRobot\Robert\HArdware_Task2\Hardware_Task2.cydsn\TopDesign\TopDesign.cysch (Signal: Net_4337)
- * C:\Users\schoo\302OffOnedrive\301 Project\12_Cypress_LineFollowingRobot\Robert\HArdware_Task2\Hardware_Task2.cydsn\TopDesign\TopDesign.cysch (Shape_1166)
- * C:\Users\schoo\302OffOnedrive\301 Project\12_Cypress_LineFollowingRobot\Robert\HArdware_Task2\Hardware_Task2.cydsn\TopDesign\TopDesign.cysch (Shape_211.1)
+ * C:\Users\schoo\302OffOnedrive\301 Project\12_Cypress_LineFollowingRobot\Final_implementation\Team12_PsoC_final.cydsn\TopDesign\TopDesign.cysch (Signal: Net_4337)
+ * C:\Users\schoo\302OffOnedrive\301 Project\12_Cypress_LineFollowingRobot\Final_implementation\Team12_PsoC_final.cydsn\TopDesign\TopDesign.cysch (Shape_1166)
+ * C:\Users\schoo\302OffOnedrive\301 Project\12_Cypress_LineFollowingRobot\Final_implementation\Team12_PsoC_final.cydsn\TopDesign\TopDesign.cysch (Shape_211.1)
 ADD: sdb.M0065: information: Analog terminal "A5.analog_0" on TopDesign is unconnected.
- * C:\Users\schoo\302OffOnedrive\301 Project\12_Cypress_LineFollowingRobot\Robert\HArdware_Task2\Hardware_Task2.cydsn\TopDesign\TopDesign.cysch (Signal: Net_4338)
- * C:\Users\schoo\302OffOnedrive\301 Project\12_Cypress_LineFollowingRobot\Robert\HArdware_Task2\Hardware_Task2.cydsn\TopDesign\TopDesign.cysch (Shape_1165)
- * C:\Users\schoo\302OffOnedrive\301 Project\12_Cypress_LineFollowingRobot\Robert\HArdware_Task2\Hardware_Task2.cydsn\TopDesign\TopDesign.cysch (Shape_210.1)
+ * C:\Users\schoo\302OffOnedrive\301 Project\12_Cypress_LineFollowingRobot\Final_implementation\Team12_PsoC_final.cydsn\TopDesign\TopDesign.cysch (Signal: Net_4338)
+ * C:\Users\schoo\302OffOnedrive\301 Project\12_Cypress_LineFollowingRobot\Final_implementation\Team12_PsoC_final.cydsn\TopDesign\TopDesign.cysch (Shape_1165)
+ * C:\Users\schoo\302OffOnedrive\301 Project\12_Cypress_LineFollowingRobot\Final_implementation\Team12_PsoC_final.cydsn\TopDesign\TopDesign.cysch (Shape_210.1)
 ADD: sdb.M0065: information: Analog terminal "A4.analog_0" on TopDesign is unconnected.
- * C:\Users\schoo\302OffOnedrive\301 Project\12_Cypress_LineFollowingRobot\Robert\HArdware_Task2\Hardware_Task2.cydsn\TopDesign\TopDesign.cysch (Signal: Net_4339)
- * C:\Users\schoo\302OffOnedrive\301 Project\12_Cypress_LineFollowingRobot\Robert\HArdware_Task2\Hardware_Task2.cydsn\TopDesign\TopDesign.cysch (Shape_1164)
- * C:\Users\schoo\302OffOnedrive\301 Project\12_Cypress_LineFollowingRobot\Robert\HArdware_Task2\Hardware_Task2.cydsn\TopDesign\TopDesign.cysch (Shape_209.1)
+ * C:\Users\schoo\302OffOnedrive\301 Project\12_Cypress_LineFollowingRobot\Final_implementation\Team12_PsoC_final.cydsn\TopDesign\TopDesign.cysch (Signal: Net_4339)
+ * C:\Users\schoo\302OffOnedrive\301 Project\12_Cypress_LineFollowingRobot\Final_implementation\Team12_PsoC_final.cydsn\TopDesign\TopDesign.cysch (Shape_1164)
+ * C:\Users\schoo\302OffOnedrive\301 Project\12_Cypress_LineFollowingRobot\Final_implementation\Team12_PsoC_final.cydsn\TopDesign\TopDesign.cysch (Shape_209.1)
 ADD: sdb.M0065: information: Analog terminal "A3.analog_0" on TopDesign is unconnected.
- * C:\Users\schoo\302OffOnedrive\301 Project\12_Cypress_LineFollowingRobot\Robert\HArdware_Task2\Hardware_Task2.cydsn\TopDesign\TopDesign.cysch (Signal: Net_4340)
- * C:\Users\schoo\302OffOnedrive\301 Project\12_Cypress_LineFollowingRobot\Robert\HArdware_Task2\Hardware_Task2.cydsn\TopDesign\TopDesign.cysch (Shape_1163)
- * C:\Users\schoo\302OffOnedrive\301 Project\12_Cypress_LineFollowingRobot\Robert\HArdware_Task2\Hardware_Task2.cydsn\TopDesign\TopDesign.cysch (Shape_208.1)
+ * C:\Users\schoo\302OffOnedrive\301 Project\12_Cypress_LineFollowingRobot\Final_implementation\Team12_PsoC_final.cydsn\TopDesign\TopDesign.cysch (Signal: Net_4340)
+ * C:\Users\schoo\302OffOnedrive\301 Project\12_Cypress_LineFollowingRobot\Final_implementation\Team12_PsoC_final.cydsn\TopDesign\TopDesign.cysch (Shape_1163)
+ * C:\Users\schoo\302OffOnedrive\301 Project\12_Cypress_LineFollowingRobot\Final_implementation\Team12_PsoC_final.cydsn\TopDesign\TopDesign.cysch (Shape_208.1)
 ADD: sdb.M0065: information: Analog terminal "A2.analog_0" on TopDesign is unconnected.
- * C:\Users\schoo\302OffOnedrive\301 Project\12_Cypress_LineFollowingRobot\Robert\HArdware_Task2\Hardware_Task2.cydsn\TopDesign\TopDesign.cysch (Signal: Net_4341)
- * C:\Users\schoo\302OffOnedrive\301 Project\12_Cypress_LineFollowingRobot\Robert\HArdware_Task2\Hardware_Task2.cydsn\TopDesign\TopDesign.cysch (Shape_1162)
- * C:\Users\schoo\302OffOnedrive\301 Project\12_Cypress_LineFollowingRobot\Robert\HArdware_Task2\Hardware_Task2.cydsn\TopDesign\TopDesign.cysch (Shape_207.1)
+ * C:\Users\schoo\302OffOnedrive\301 Project\12_Cypress_LineFollowingRobot\Final_implementation\Team12_PsoC_final.cydsn\TopDesign\TopDesign.cysch (Signal: Net_4341)
+ * C:\Users\schoo\302OffOnedrive\301 Project\12_Cypress_LineFollowingRobot\Final_implementation\Team12_PsoC_final.cydsn\TopDesign\TopDesign.cysch (Shape_1162)
+ * C:\Users\schoo\302OffOnedrive\301 Project\12_Cypress_LineFollowingRobot\Final_implementation\Team12_PsoC_final.cydsn\TopDesign\TopDesign.cysch (Shape_207.1)
 ADD: sdb.M0065: information: Analog terminal "A1.analog_0" on TopDesign is unconnected.
- * C:\Users\schoo\302OffOnedrive\301 Project\12_Cypress_LineFollowingRobot\Robert\HArdware_Task2\Hardware_Task2.cydsn\TopDesign\TopDesign.cysch (Signal: Net_4342)
- * C:\Users\schoo\302OffOnedrive\301 Project\12_Cypress_LineFollowingRobot\Robert\HArdware_Task2\Hardware_Task2.cydsn\TopDesign\TopDesign.cysch (Shape_1161)
- * C:\Users\schoo\302OffOnedrive\301 Project\12_Cypress_LineFollowingRobot\Robert\HArdware_Task2\Hardware_Task2.cydsn\TopDesign\TopDesign.cysch (Shape_206.1)
+ * C:\Users\schoo\302OffOnedrive\301 Project\12_Cypress_LineFollowingRobot\Final_implementation\Team12_PsoC_final.cydsn\TopDesign\TopDesign.cysch (Signal: Net_4342)
+ * C:\Users\schoo\302OffOnedrive\301 Project\12_Cypress_LineFollowingRobot\Final_implementation\Team12_PsoC_final.cydsn\TopDesign\TopDesign.cysch (Shape_1161)
+ * C:\Users\schoo\302OffOnedrive\301 Project\12_Cypress_LineFollowingRobot\Final_implementation\Team12_PsoC_final.cydsn\TopDesign\TopDesign.cysch (Shape_206.1)
 ADD: sdb.M0065: information: Analog terminal "vdac_ref" on ADC_SAR_SEQ_v2_10 is unconnected.
  * C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\ADC_SAR_SEQ_v2_10\PSoC5\ADC_SAR_SEQ_v2_10.cysch (Signal: vdac_ref)
  * C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\ADC_SAR_SEQ_v2_10\PSoC5\ADC_SAR_SEQ_v2_10.cysch (Shape_798)
  * C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\ADC_SAR_SEQ_v2_10\PSoC5\ADC_SAR_SEQ_v2_10.cysch (Shape_885)
-ADD: fit.M0032: warning: Clock Warning: (Quad_Timer_clk's accuracy range '1.526  Hz -55% +100%, (0.687  Hz - 3.052  Hz)' is not within the specified tolerance range '1  Hz +/- 5%, (0.95  Hz - 1.05  Hz)'.).
- * C:\Users\schoo\302OffOnedrive\301 Project\12_Cypress_LineFollowingRobot\Robert\HArdware_Task2\Hardware_Task2.cydsn\Hardware_Task2.cydwr (Quad_Timer_clk)
- * C:\Users\schoo\302OffOnedrive\301 Project\12_Cypress_LineFollowingRobot\Robert\HArdware_Task2\Hardware_Task2.cydsn\TopDesign\TopDesign.cysch (Instance:Quad_Timer_clk)
+ADD: fit.M0032: warning: Clock Warning: (Quad_Timer_clk's accuracy range '1.526  Hz -55% +100%, (0.687  Hz - 3.052  Hz)' is not within the specified tolerance range '1  Hz +/- 10%, (0.9  Hz - 1.1  Hz)'.).
+ * C:\Users\schoo\302OffOnedrive\301 Project\12_Cypress_LineFollowingRobot\Final_implementation\Team12_PsoC_final.cydsn\Team12_PsoC_final.cydwr (Quad_Timer_clk)
+ * C:\Users\schoo\302OffOnedrive\301 Project\12_Cypress_LineFollowingRobot\Final_implementation\Team12_PsoC_final.cydsn\TopDesign\TopDesign.cysch (Instance:Quad_Timer_clk)
 HDL Generation...
 Synthesis...
 Tech Mapping...
-ADD: pft.M0040: information: The following 4 pin(s) will be assigned a location by the fitter: \ADC:SAR:Bypass(0)\, A3(0), A4(0), A5(0)
+ADD: pft.M0040: information: The following 10 pin(s) will be assigned a location by the fitter: \ADC:SAR:Bypass(0)\, A2(0), A3(0), A4(0), A5(0), A6(0), A7(0), DB0(0), DB1(0), M2_INV(0)
 Analog Placement...
 Info: apr.M0002: Analog signal "Net_4347" is connected to one terminal only. (App=cydsfit)
 Info: apr.M0002: Analog signal "Net_4348" is connected to one terminal only. (App=cydsfit)
@@ -100,8 +100,8 @@ Info: apr.M0002: Analog signal "Net_1581" is connected to one terminal only. (Ap
 Info: apr.M0002: Analog signal "Net_1582" is connected to one terminal only. (App=cydsfit)
 Info: apr.M0002: Analog signal "Net_1583" is connected to one terminal only. (App=cydsfit)
 Info: apr.M0002: Analog signal "Net_1584" is connected to one terminal only. (App=cydsfit)
-Log: apr.M0058: The analog placement iterative improvement is 57% done. (App=cydsfit)
-Log: apr.M0058: The analog placement iterative improvement is 100% done. (App=cydsfit)
+Log: apr.M0058: The analog placement iterative improvement is 53% done. (App=cydsfit)
+Log: apr.M0058: The analog placement iterative improvement is 82% done. (App=cydsfit)
 Analog Routing...
 Analog Code Generation...
 Digital Placement...
@@ -109,8 +109,8 @@ Digital Routing...
 Bitstream Generation...
 Bitstream Verification...
 Static timing analysis...
-Warning: sta.M0021: Hardware_Task2_timing.html: Warning-1350: Asynchronous path(s) exist from "ClockBlock/dclk_glb_ff_3" to "ADC_IntClock". See the timing report for details. (File=C:\Users\schoo\302OffOnedrive\301 Project\12_Cypress_LineFollowingRobot\Robert\HArdware_Task2\Hardware_Task2.cydsn\Hardware_Task2_timing.html)
+Warning: sta.M0021: Team12_PsoC_final_timing.html: Warning-1350: Asynchronous path(s) exist from "ClockBlock/dclk_glb_ff_3" to "ADC_IntClock". See the timing report for details. (File=C:\Users\schoo\302OffOnedrive\301 Project\12_Cypress_LineFollowingRobot\Final_implementation\Team12_PsoC_final.cydsn\Team12_PsoC_final_timing.html)
 API Generation...
 Dependency Generation...
 Cleanup...
---------------- Build Succeeded: 08/26/2023 17:16:04 ---------------
+--------------- Build Succeeded: 09/12/2023 14:03:30 ---------------

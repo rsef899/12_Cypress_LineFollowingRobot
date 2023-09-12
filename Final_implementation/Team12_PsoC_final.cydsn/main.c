@@ -22,7 +22,9 @@
 #include "defines.h"
 #include "vars.h"
 //* ========================================
+//* ==== Our functionsality Includes =======
 #include "movement.h"
+#include "states.h"
 
 //*=========================================
 void usbPutString(char *s);
@@ -52,23 +54,72 @@ CY_ISR(QuadDecoderIsr){
 
 int main(){
     
+// --------------------------------    
+// ----- INITIALIZATIONS ----------
+    CYGlobalIntEnable;    
+    
     //PWM1
     PWM_1_Start();
     //PWM2
     PWM_2_Start();   
-    uint8_t duty = 50;
-    controlWheels(MEDIUM_REVSERSE, MEDIUM_REVSERSE);
-
+    
     //QuadEncoder initialisation
     isr_quad_timer_StartEx(QuadDecoderIsr);
     Quad_TImer_Start();
     
-
-// --------------------------------    
-// ----- INITIALIZATIONS ----------
-    CYGlobalIntEnable;    
+    
+    // control signals
+    uint8_t currentState = 0;
+    volatile uint8_t mode = 0;
+    volatile uint8_t cal = 0;
+    
+    
+    
+    
+    
     for(;;)
     {
+        //StateMachine
+        
+        switch (currentState){
+            case (MODESELECT):
+                switch (mode){
+                    case (0):
+                       currentState = FREERUNNING;
+                    break;
+                    case (1):
+                        currentState = SHORTESTMODE;
+                    break;
+                }
+            case (FREERUNNING):
+                switch (cal){
+                    case (1):
+                        currentState = CALIBRATING;
+                    break;
+                    case(0):
+                        currentState = DRIVING;
+                    break;   
+                }
+            case (DRIVING):
+                //state Actions
+                //drive
+                controlWheels(MEDIUM_FORWARD, MEDIUM_FORWARD);
+                
+            
+                if (!Q5_Read() || !Q4_Read()){
+                    currentState = TURNING;
+                }
+                if (Q2_Read() && !Q6_Read()){
+                    currentState = CALIBRATING;
+                }
+                if (Q1_Read() && Q2_Read() && Q3_Read()){
+                    currentState = STOPCAR;
+                }
+                    
+            break;
+        }
+        
+        
         //QuadEncoder icode
         if (printSpeed == 1){
             uint16_t speed = timeArray[0] - timeArray[1];
