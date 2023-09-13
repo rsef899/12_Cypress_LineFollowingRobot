@@ -322,9 +322,9 @@ static void AnalogSetDefault(void)
 	CY_SET_XTND_REG8((void CYFAR *)(CYREG_RESET_CR4), (cr4 | 0x03u));
 	CY_SET_XTND_REG8((void CYFAR *)(CYREG_RESET_CR5), (cr5 | 0x03u));
 	CY_SET_XTND_REG8((void CYFAR *)CYREG_PRT0_AG, 0x20u);
-	CY_SET_XTND_REG8((void CYFAR *)CYREG_PRT2_AG, 0x20u);
+	CY_SET_XTND_REG8((void CYFAR *)CYREG_PRT2_AG, 0x01u);
 	CY_SET_XTND_REG8((void CYFAR *)CYREG_SAR0_CSR1, 0x80u);
-	CY_SET_XTND_REG8((void CYFAR *)CYREG_DAC0_SW0, 0x02u);
+	CY_SET_XTND_REG8((void CYFAR *)CYREG_DAC0_SW0, 0x01u);
 	CY_SET_XTND_REG8((void CYFAR *)CYREG_SAR0_SW0, 0x20u);
 	CY_SET_XTND_REG8((void CYFAR *)CYREG_SAR0_SW3, 0x20u);
 	CyDelayUs(10u); /* Allow vref to settle before re-enabling PRES */
@@ -400,9 +400,6 @@ void cyfitter_cfg(void)
 	ClockSetup();
 	/* Set Flash Cycles based on newly configured 60.00MHz Bus Clock. */
 	CY_SET_XTND_REG8((void CYFAR *)(CYREG_CACHE_CC_CTL), (((CYDEV_INSTRUCT_CACHE_ENABLED) != 0) ? 0x01u : 0x00u));
-	/* Enable/Disable Debug functionality based on settings from System DWR */
-	CY_SET_XTND_REG8((void CYFAR *)CYREG_MLOGIC_DEBUG, (CY_GET_XTND_REG8((void CYFAR *)CYREG_MLOGIC_DEBUG) | 0x04u));
-
 	{
 
 		CYPACKED typedef struct {

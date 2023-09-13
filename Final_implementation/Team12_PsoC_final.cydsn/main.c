@@ -70,7 +70,7 @@ int main(){
     
     // control signals
     uint8_t currentState = 0;
-    volatile uint8_t mode = 0;
+    volatile uint8_t mode = FREERUNNING;
     volatile uint8_t cal = 0;
     
     
@@ -80,18 +80,18 @@ int main(){
     for(;;)
     {
         //StateMachine
-        
         switch (currentState){
             case (MODESELECT):
                 switch (mode){
-                    case (0):
+                    case (FREERUNNING):
                        currentState = FREERUNNING;
                     break;
-                    case (1):
+                    case (SHORTESTMODE):
                         currentState = SHORTESTMODE;
                     break;
                 }
             case (FREERUNNING):
+                //TODO:  code to see if calibration is needed
                 switch (cal){
                     case (1):
                         currentState = CALIBRATING;
@@ -103,19 +103,40 @@ int main(){
             case (DRIVING):
                 //state Actions
                 //drive
-                controlWheels(MEDIUM_FORWARD, MEDIUM_FORWARD);
+                controlWheels(MEDIUM_FORWARD, FULL_FORWARD);
                 
-            
                 if (!Q5_Read() || !Q4_Read()){
-                    currentState = TURNING;
+                    currentState = STOP;
                 }
                 if (Q2_Read() && !Q6_Read()){
                     currentState = CALIBRATING;
                 }
-                if (Q1_Read() && Q2_Read() && Q3_Read()){
+                if (Q1_Read() && Q2_Read() && Q3_Read() && !Q4_Read()){
                     currentState = STOPCAR;
                 }
                     
+            break;
+            case (STOP):
+                controlWheels(STOP, STOP);
+                if (!Q5_Read() || !Q4_Read()){
+                    currentState = TURNING;
+                }
+                       
+            break;
+            case (TURNING):
+                switch (mode){
+                    case(FREERUNNING):
+                        if (!Q5_Read()){
+                            turn(TURN_LEFT);
+                        }
+                        if (!Q4_Read()){
+                            turn(TURN_RIGHT);
+                        }
+                        if (!Q2_Read() && (Q3_Read() && Q1_Read())){
+                            currentState = STOP;
+                        }
+                    break;
+                }
             break;
         }
         

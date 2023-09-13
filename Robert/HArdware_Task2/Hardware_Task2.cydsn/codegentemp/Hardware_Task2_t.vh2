@@ -1,5 +1,5 @@
 -- Project:   C:\Users\schoo\302OffOnedrive\301 Project\12_Cypress_LineFollowingRobot\Robert\HArdware_Task2\Hardware_Task2.cydsn\Hardware_Task2.cyprj
--- Generated: 08/26/2023 18:25:51
+-- Generated: 09/13/2023 17:55:34
 -- PSoC Creator  4.2
 
 ENTITY Hardware_Task2 IS
@@ -639,11 +639,11 @@ ARCHITECTURE __DEFAULT__ OF Hardware_Task2 IS
     ATTRIBUTE lib_model OF A2(0) : LABEL IS "iocell13";
     ATTRIBUTE Location OF A2(0) : LABEL IS "P0[7]";
     ATTRIBUTE lib_model OF A3(0) : LABEL IS "iocell14";
-    ATTRIBUTE Location OF A3(0) : LABEL IS "P3[2]";
+    ATTRIBUTE Location OF A3(0) : LABEL IS "P15[5]";
     ATTRIBUTE lib_model OF A4(0) : LABEL IS "iocell15";
-    ATTRIBUTE Location OF A4(0) : LABEL IS "P0[3]";
+    ATTRIBUTE Location OF A4(0) : LABEL IS "P15[3]";
     ATTRIBUTE lib_model OF A5(0) : LABEL IS "iocell16";
-    ATTRIBUTE Location OF A5(0) : LABEL IS "P2[5]";
+    ATTRIBUTE Location OF A5(0) : LABEL IS "P0[3]";
     ATTRIBUTE lib_model OF A6(0) : LABEL IS "iocell17";
     ATTRIBUTE Location OF A6(0) : LABEL IS "P1[6]";
     ATTRIBUTE lib_model OF \USBUART:Dm(0)\ : LABEL IS "iocell18";
@@ -668,7 +668,7 @@ ARCHITECTURE __DEFAULT__ OF Hardware_Task2 IS
     ATTRIBUTE lib_model OF Rx_2(0) : LABEL IS "iocell27";
     ATTRIBUTE Location OF Rx_2(0) : LABEL IS "P2[4]";
     ATTRIBUTE lib_model OF A7(0) : LABEL IS "iocell28";
-    ATTRIBUTE Location OF A7(0) : LABEL IS "P15[4]";
+    ATTRIBUTE Location OF A7(0) : LABEL IS "P2[5]";
     ATTRIBUTE lib_model OF TestPin(0) : LABEL IS "iocell29";
     ATTRIBUTE Location OF TestPin(0) : LABEL IS "P0[2]";
     ATTRIBUTE lib_model OF M1_INV(0) : LABEL IS "iocell30";

@@ -314,7 +314,22 @@
 </userData>
 </CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
 <Unloaded />
-<OpenDocs />
+<OpenDocs>
+<name v=".\main.c" />
+<name v=".\TopDesign\TopDesign.cysch" />
+<name v=".\movement.c" />
+<name v=".\movement.h" />
+<name v=".\states.h" />
+<name v=".\QuadEncoder.c" />
+<name v=".\Team12_PsoC_final.cydwr" />
+</OpenDocs>
+<OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
+
+  Actipro Docking/MDI for WinForms
+  Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
+  http://www.actiprosoftware.com
+
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="910, 613" SelectedTabbedMdiWindow="7c64ccdd-617e-4e3e-aae3-9c659a35a1d2"><DocumentWindow Key="C:\Users\schoo\302OffOnedrive\301 Project\12_Cypress_LineFollowingRobot\Final_implementation\Team12_PsoC_final.cydsn\main.c" Guid="7c64ccdd-617e-4e3e-aae3-9c659a35a1d2" /><DocumentWindow Key="C:\Users\schoo\302OffOnedrive\301 Project\12_Cypress_LineFollowingRobot\Final_implementation\Team12_PsoC_final.cydsn\TopDesign\TopDesign.cysch" Guid="7f3a9802-d268-4e30-9c58-c4bc2c36ffbb" /><DocumentWindow Key="C:\Users\schoo\302OffOnedrive\301 Project\12_Cypress_LineFollowingRobot\Final_implementation\Team12_PsoC_final.cydsn\movement.c" Guid="d5173e3b-0c49-4720-84a0-7359d103331f" /><DocumentWindow Key="C:\Users\schoo\302OffOnedrive\301 Project\12_Cypress_LineFollowingRobot\Final_implementation\Team12_PsoC_final.cydsn\movement.h" Guid="cd1a7e8e-3bc1-4592-825b-e10d4cc40c8d" /><DocumentWindow Key="C:\Users\schoo\302OffOnedrive\301 Project\12_Cypress_LineFollowingRobot\Final_implementation\Team12_PsoC_final.cydsn\states.h" Guid="c7c51c21-f55a-48c1-ac5e-2433f98ef6ae" /><DocumentWindow Key="C:\Users\schoo\302OffOnedrive\301 Project\12_Cypress_LineFollowingRobot\Final_implementation\Team12_PsoC_final.cydsn\QuadEncoder.c" Guid="ca569b58-45cd-4912-978f-b62600164c9b" /><DocumentWindow Key="C:\Users\schoo\302OffOnedrive\301 Project\12_Cypress_LineFollowingRobot\Final_implementation\Team12_PsoC_final.cydsn\Team12_PsoC_final.cydwr" Guid="be7809dc-c0d9-411f-8333-9ab6a030d4b0" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>

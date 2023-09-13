@@ -52,6 +52,18 @@ uint8_t changeDutyCycle(uint8_t dutyValue){
     return val;
 }
 
+void controlWheels(uint8_t wheel1Duty, uint8_t wheel2Duty){
+    
+    //find the compare value, i.e count number of each PWM
+    uint8_t compareValue1 = ((float)PWM_1_ReadPeriod() * (wheel1Duty/100.0));
+    uint8_t compareValue2 = ((float)PWM_2_ReadPeriod() * (wheel2Duty/100.0));
+    //set the PWM to the found value
+    PWM_1_WriteCompare(compareValue1);
+    PWM_2_WriteCompare(compareValue2);
+ 
+}
+
+
 int main(){
     
     //PWM1
@@ -71,6 +83,7 @@ int main(){
     CYGlobalIntEnable;    
     for(;;)
     {
+        /*
         //QuadEncoder icode
         if (printSpeed == 1){
             uint16_t speed = timeArray[0] - timeArray[1];
@@ -81,6 +94,7 @@ int main(){
            // USBUART_PutString(buffer);
             printSpeed = 0; 
         }
+        */
     }  
 }//End main
 

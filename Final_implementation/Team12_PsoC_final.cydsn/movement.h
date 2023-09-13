@@ -22,9 +22,14 @@
 #define FULL_REVERSE 0
 #define MEDIUM_FORWARD 75
 #define MEDIUM_REVSERSE 25
+    
+#define TURN_RIGHT 1
+#define TURN_LEFT 2
    
     
-uint8_t controlWheels(uint8_t wheel1Duty, uint8_t wheel2Duty);
+void controlWheels(uint8_t wheel1Duty, uint8_t wheel2Duty);
+
+void turn(uint8_t dierection);
     
    
     

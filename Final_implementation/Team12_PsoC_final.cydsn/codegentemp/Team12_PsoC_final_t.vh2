@@ -1,5 +1,5 @@
 -- Project:   C:\Users\schoo\302OffOnedrive\301 Project\12_Cypress_LineFollowingRobot\Final_implementation\Team12_PsoC_final.cydsn\Team12_PsoC_final.cyprj
--- Generated: 09/12/2023 14:28:00
+-- Generated: 09/13/2023 17:47:53
 -- PSoC Creator  4.2
 
 ENTITY Team12_PsoC_final IS
@@ -651,15 +651,15 @@ ARCHITECTURE __DEFAULT__ OF Team12_PsoC_final IS
     ATTRIBUTE lib_model OF A1(0) : LABEL IS "iocell12";
     ATTRIBUTE Location OF A1(0) : LABEL IS "P0[6]";
     ATTRIBUTE lib_model OF A2(0) : LABEL IS "iocell13";
-    ATTRIBUTE Location OF A2(0) : LABEL IS "P15[3]";
+    ATTRIBUTE Location OF A2(0) : LABEL IS "P3[2]";
     ATTRIBUTE lib_model OF A3(0) : LABEL IS "iocell14";
-    ATTRIBUTE Location OF A3(0) : LABEL IS "P15[5]";
+    ATTRIBUTE Location OF A3(0) : LABEL IS "P15[0]";
     ATTRIBUTE lib_model OF A4(0) : LABEL IS "iocell15";
-    ATTRIBUTE Location OF A4(0) : LABEL IS "P15[4]";
+    ATTRIBUTE Location OF A4(0) : LABEL IS "P15[3]";
     ATTRIBUTE lib_model OF A5(0) : LABEL IS "iocell16";
-    ATTRIBUTE Location OF A5(0) : LABEL IS "P2[6]";
+    ATTRIBUTE Location OF A5(0) : LABEL IS "P1[3]";
     ATTRIBUTE lib_model OF A6(0) : LABEL IS "iocell17";
-    ATTRIBUTE Location OF A6(0) : LABEL IS "P2[0]";
+    ATTRIBUTE Location OF A6(0) : LABEL IS "P15[4]";
     ATTRIBUTE lib_model OF \USBUART:Dm(0)\ : LABEL IS "iocell18";
     ATTRIBUTE Location OF \USBUART:Dm(0)\ : LABEL IS "P15[7]";
     ATTRIBUTE Location OF \USBUART:Dp\ : LABEL IS "F(PICU,8)";
@@ -674,21 +674,21 @@ ARCHITECTURE __DEFAULT__ OF Team12_PsoC_final IS
     ATTRIBUTE lib_model OF LED(0) : LABEL IS "iocell23";
     ATTRIBUTE Location OF LED(0) : LABEL IS "P2[1]";
     ATTRIBUTE lib_model OF DB0(0) : LABEL IS "iocell24";
-    ATTRIBUTE Location OF DB0(0) : LABEL IS "P3[2]";
+    ATTRIBUTE Location OF DB0(0) : LABEL IS "P2[5]";
     ATTRIBUTE lib_model OF DB1(0) : LABEL IS "iocell25";
-    ATTRIBUTE Location OF DB1(0) : LABEL IS "P12[0]";
+    ATTRIBUTE Location OF DB1(0) : LABEL IS "P2[6]";
     ATTRIBUTE lib_model OF DB2(0) : LABEL IS "iocell26";
     ATTRIBUTE Location OF DB2(0) : LABEL IS "P3[6]";
     ATTRIBUTE lib_model OF Rx_2(0) : LABEL IS "iocell27";
     ATTRIBUTE Location OF Rx_2(0) : LABEL IS "P2[4]";
     ATTRIBUTE lib_model OF A7(0) : LABEL IS "iocell28";
-    ATTRIBUTE Location OF A7(0) : LABEL IS "P2[5]";
+    ATTRIBUTE Location OF A7(0) : LABEL IS "P2[0]";
     ATTRIBUTE lib_model OF TestPin(0) : LABEL IS "iocell29";
     ATTRIBUTE Location OF TestPin(0) : LABEL IS "P0[2]";
     ATTRIBUTE lib_model OF M1_INV(0) : LABEL IS "iocell30";
     ATTRIBUTE Location OF M1_INV(0) : LABEL IS "P3[7]";
     ATTRIBUTE lib_model OF M2_INV(0) : LABEL IS "iocell31";
-    ATTRIBUTE Location OF M2_INV(0) : LABEL IS "P12[1]";
+    ATTRIBUTE Location OF M2_INV(0) : LABEL IS "P12[0]";
     ATTRIBUTE lib_model OF Q1(0) : LABEL IS "iocell32";
     ATTRIBUTE Location OF Q1(0) : LABEL IS "P3[0]";
     ATTRIBUTE lib_model OF Q2(0) : LABEL IS "iocell33";

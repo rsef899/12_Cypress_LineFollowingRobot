@@ -14,8 +14,10 @@
 #include <stdlib.h>
 #include <project.h>
 
+#include "movement.h"
 
-uint8_t controlWheels(uint8_t wheel1Duty, uint8_t wheel2Duty){
+
+void controlWheels(uint8_t wheel1Duty, uint8_t wheel2Duty){
     
     //find the compare value, i.e count number of each PWM
     uint8_t compareValue1 = ((float)PWM_1_ReadPeriod() * (wheel1Duty/100.0));
@@ -25,5 +27,20 @@ uint8_t controlWheels(uint8_t wheel1Duty, uint8_t wheel2Duty){
     PWM_2_WriteCompare(compareValue2);
  
 }
+
+void turn(uint8_t dierection){
+    switch (dierection){
+        case(TURN_RIGHT):
+        controlWheels(MEDIUM_FORWARD, STOP);
+        break;
+        
+        case(TURN_LEFT):
+        controlWheels(STOP, MEDIUM_FORWARD);
+        break;
+        
+    }
+}
+
+
 
 /* [] END OF FILE */
