@@ -3,11 +3,12 @@
 <!--This file is machine generated and read. It is not intended to be edited by hand.-->
 <!--Due to this, there is no schema for this file.-->
 <CyGuid_2867d519-54d2-4c01-9830-c51cb08bc3dd type_name="CyDesigner.Common.ProjMgmt.Model.CyPrjMgmtWorkspaceSerialize" version="5" xml_contents_version="3" name="Team12_PsoC_final-000" persistent="Team12_PsoC_final-000.cywrk" platform="NOT_USED">
-<current_project name=".\Team12_PsoC_final.cyprj" />
+<current_project name="..\Team12_PsoC_benchmark_test.cydsn\Team12_PsoC_benchmark_test.cyprj" />
 <wrkspc_folders />
 <files />
 <projects>
 <v>.\Team12_PsoC_final.cyprj</v>
+<v>..\Team12_PsoC_benchmark_test.cydsn\Team12_PsoC_benchmark_test.cyprj</v>
 </projects>
 <workspace_id v="d6ce85f7-5c43-42a4-9edc-803458fbf2a3" />
 <WriteAppVersionLastSavedWith v="4.2.0.641" />
