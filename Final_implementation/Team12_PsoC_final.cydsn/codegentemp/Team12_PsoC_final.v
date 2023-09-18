@@ -1,6 +1,6 @@
 // ======================================================================
 // Team12_PsoC_final.v generated from TopDesign.cysch
-// 09/15/2023 at 17:59
+// 09/18/2023 at 17:27
 // This file is auto generated. ANY EDITS YOU MAKE MAY BE LOST WHEN THIS FILE IS REGENERATED!!!
 // ======================================================================
 
@@ -5959,7 +5959,7 @@ module top ;
 		#(.id("90a3dd86-ad49-444c-9e88-20999c2a8b67"),
 		  .drive_mode(3'b110),
 		  .ibuf_enabled(1'b1),
-		  .init_dr_st(1'b1),
+		  .init_dr_st(1'b0),
 		  .input_clk_en(0),
 		  .input_sync(1'b1),
 		  .input_sync_mode(1'b0),

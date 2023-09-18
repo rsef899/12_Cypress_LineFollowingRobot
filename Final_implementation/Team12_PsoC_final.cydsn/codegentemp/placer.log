@@ -6,7 +6,7 @@
 
 #Build Date:         Dec  5 2017 15:35:27
 
-#File Generated:     Sep 15 2023 17:59:57
+#File Generated:     Sep 18 2023 17:27:26
 
 #Purpose:            
 
@@ -58,7 +58,7 @@ Device Utilization Summary after Packing
     IOs                         :	45/72
 
 
-D2088: Phase 3, elapsed time : 0.0 (sec)
+D2088: Phase 3, elapsed time : 0.1 (sec)
 
 Phase 4
 D2088: Phase 4, elapsed time : 0.0 (sec)
@@ -100,7 +100,7 @@ Clock: UART_IntClock        | Frequency:  41.2 MHz | Target:   0.5 MHz
                      End of Clock Summary
 ######################################################################
 
-D2088: Phase 6, elapsed time : 0.2 (sec)
+D2088: Phase 6, elapsed time : 0.4 (sec)
 
 Phase 7
 ######################################################################
@@ -126,7 +126,7 @@ Clock: UART_IntClock        | Frequency:  57.7 MHz | Target:   0.5 MHz
 ======================================================================
                      End of Clock Summary
 ######################################################################
-D2088: Phase 7, elapsed time : 1.1 (sec)
+D2088: Phase 7, elapsed time : 2.9 (sec)
 
 Final Design Statistics
     Number of Combinational MCs 	:	32
@@ -211,7 +211,7 @@ Clock: UART_IntClock        | Frequency:   6.0 MHz | Target:   0.5 MHz
                      End of Clock Summary
 ######################################################################
 
-D2088: Phase 6, elapsed time : 0.1 (sec)
+D2088: Phase 6, elapsed time : 0.2 (sec)
 
 Phase 7
 ######################################################################
@@ -237,7 +237,7 @@ Clock: UART_IntClock        | Frequency:   7.2 MHz | Target:   0.5 MHz
 ======================================================================
                      End of Clock Summary
 ######################################################################
-D2088: Phase 7, elapsed time : 4.0 (sec)
+D2088: Phase 7, elapsed time : 9.0 (sec)
 
 Final Design Statistics
     Number of Combinational MCs 	:	32
@@ -293,5 +293,5 @@ D2088: Phase 8, elapsed time : 0.0 (sec)
 
 D2054: Placement of the design completed successfully
 
-I2076: Total run-time: 6.4 sec.
+I2076: Total run-time: 15.5 sec.
 

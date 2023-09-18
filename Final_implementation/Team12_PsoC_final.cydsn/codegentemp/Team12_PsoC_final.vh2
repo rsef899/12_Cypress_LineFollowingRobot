@@ -2,7 +2,7 @@
 --	Conversion of Team12_PsoC_final.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Fri Sep 15 17:59:55 2023
+--	Mon Sep 18 17:27:20 2023
 --
 
 USE cypress.cypress.all;
@@ -6399,7 +6399,7 @@ D12:cy_psoc3_pins_v1_10
 	GENERIC MAP(id=>"90a3dd86-ad49-444c-9e88-20999c2a8b67",
 		drive_mode=>"110",
 		ibuf_enabled=>"1",
-		init_dr_st=>"1",
+		init_dr_st=>"0",
 		input_sync=>"1",
 		input_clk_en=>'0',
 		input_sync_mode=>"0",

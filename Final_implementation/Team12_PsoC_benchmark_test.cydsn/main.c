@@ -47,18 +47,54 @@ int main(){
     
     controlWheels(STOP, STOP);
     
-    for(;;)
-    {
-        if (!Q2_Read()){
+    for(;;){ 
+        /*
+        if (Q1_Read() && Q2_Read() && Q3_Read() && Q4_Read() && Q5_Read() && Q6_Read() && Q7_Read()){
+            controlWheels(STOP, STOP);
+        }
+        else if (!(Q1_Read() && Q2_Read() && Q3_Read() && Q4_Read() && Q5_Read() && Q6_Read() && Q7_Read())){
+            controlWheels(STOP, STOP);
+        }
+        */
+        // GO STRAIGHT CODE //
+        if ((!Q2_Read() && !Q7_Read()) || (!Q7_Read() && !Q6_Read()) || (!Q7_Read() && !Q6_Read() && !Q2_Read())){
             controlWheels(MEDIUM_FORWARD, MEDIUM_FORWARD);
-        } else {
-            if (!Q3_Read()){
-                controlWheels(MEDIUM_FORWARD, SLOW_FORWARD);
-            }
-            if (!Q1_Read()){
-                controlWheels(SLOW_FORWARD, MEDIUM_FORWARD);
+              
+        }
+        // TURNING CODE //
+        else if (!Q7_Read() && !Q4_Read() && !Q6_Read()){
+            while (Q2_Read()){              
+                controlWheels(MEDIUM_FORWARD, MEDIUM_REVERSE);
+                if (!Q1_Read()){
+                    break;
+                }
             }
         }
+        else if (!Q7_Read() && !Q5_Read() && !Q6_Read()){
+            while (Q2_Read()){
+                controlWheels(MEDIUM_REVERSE, MEDIUM_FORWARD);
+                if (!Q1_Read()){
+                    break;
+                }
+            }
+        }
+        // CORRECTION CODE //
+        else if (Q2_Read() && !Q3_Read()){
+            controlWheels(MEDIUM_FORWARD, SLOW_FORWARD);
+        }
+        else if (Q2_Read() && !Q1_Read()){
+            controlWheels(SLOW_FORWARD, MEDIUM_FORWARD);
+        }
+        // ELSE //
+        else {
+            controlWheels(STOP, STOP);
+        }
+        
+        
+        
+        
+        
+        
     }  
 }//End main
 
