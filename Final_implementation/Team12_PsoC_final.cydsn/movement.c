@@ -25,6 +25,7 @@ void controlWheels(uint8_t wheel1Duty, uint8_t wheel2Duty){
     //set the PWM to the found value
     PWM_1_WriteCompare(compareValue1);
     PWM_2_WriteCompare(compareValue2);
+    LED_Write(1);
  
 }
 

@@ -56,7 +56,9 @@ int main(){
     
 // --------------------------------    
 // ----- INITIALIZATIONS ----------
-    CYGlobalIntEnable;    
+    CYGlobalIntEnable;   
+    
+    M1_INV_Write(1);
     
     //PWM1
     PWM_1_Start();
@@ -71,14 +73,11 @@ int main(){
     // control signals
     uint8_t currentState = 0;
     volatile uint8_t mode = FREERUNNING;
-    volatile uint8_t cal = 0;
-    
-    
-    
-    
+    volatile uint8_t cal = 0;   
     
     for(;;)
     {
+        
         //StateMachine
         switch (currentState){
             case (MODESELECT):
@@ -89,6 +88,7 @@ int main(){
                     case (SHORTESTMODE):
                         currentState = SHORTESTMODE;
                     break;
+            break;
                 }
             case (FREERUNNING):
                 //TODO:  code to see if calibration is needed
@@ -100,10 +100,11 @@ int main(){
                         currentState = DRIVING;
                     break;   
                 }
+             break;
             case (DRIVING):
-                //state Actions
                 //drive
-                controlWheels(MEDIUM_FORWARD, FULL_FORWARD);
+                controlWheels(FULL_FORWARD, FULL_FORWARD);
+               
                 
                 if (!Q5_Read() || !Q4_Read()){
                     currentState = STOP;
