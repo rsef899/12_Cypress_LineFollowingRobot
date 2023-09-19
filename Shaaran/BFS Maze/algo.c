@@ -72,25 +72,18 @@ size_t bfs(const uint8_t map[MAP_HEIGHT][MAP_WIDTH], Point start,
   uint8_t found = 0;
   size_t pathIndex = 0;
   uint8_t foundEndsCount = 0;
-  Point foundEnds[endCount];
+  //Point foundEnds[endCount];
   Point newStart = start;
   enqueue(start);
 
   while (!isQueueEmpty()) {
-    found = 0;
     Point curr = dequeue();
     Point left = LEFT(curr);
     Point right = RIGHT(curr);
     Point above = ABOVE(curr);
     Point below = BELOW(curr);
-    for (size_t i = 0; i < endCount; i++) {
-      if (point_eq(curr, ends[i])) {
-        for (uint8_t j = 0; j < endCount; j++) {
-          if (point_eq(curr, foundEnds[j])) {
-            found = 1;
-          }
-        }
-        if (found == 0) {
+    
+      if (point_eq(curr, ends[foundEndsCount])) {
           // Reconstruct the path to the endpoint
           Point shortestPath[MAP_HEIGHT*MAP_WIDTH];
           size_t shortestPathIndex = 0;
@@ -120,7 +113,7 @@ size_t bfs(const uint8_t map[MAP_HEIGHT][MAP_WIDTH], Point start,
           size = 0;
 
           newStart = curr;
-          foundEnds[foundEndsCount] = curr;
+          //foundEnds[foundEndsCount] = curr;
           // Increment the found ends count:
           foundEndsCount++;
 
@@ -129,22 +122,24 @@ size_t bfs(const uint8_t map[MAP_HEIGHT][MAP_WIDTH], Point start,
             return pathIndex;
           }
         }
-      }
-    }
     dummyMap[curr.y][curr.x] = 1;
     if (isValid(left, dummyMap)) {
+      left.direction = LEFTTURN;
       enqueue(left);
       visited[left.y][left.x] = curr; // Store the parent
     }
     if (isValid(right, dummyMap)) {
+      right.direction = RIGHTTURN;
       enqueue(right);
       visited[right.y][right.x] = curr; // Store the parent
     }
     if (isValid(above, dummyMap)) {
+      above.direction = UPTURN;
       enqueue(above);
       visited[above.y][above.x] = curr; // Store the parent
     }
     if (isValid(below, dummyMap)) {
+      below.direction = DOWNTURN;
       enqueue(below);
       visited[below.y][below.x] = curr; // Store the parent
     }

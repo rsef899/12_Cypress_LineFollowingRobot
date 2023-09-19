@@ -4,16 +4,17 @@
 #include <stddef.h>
 #include <stdint.h>
 
-#define MAX_PATH_SIZE 285
+#define MAX_PATH_SIZE 128
 #define MAP_WIDTH 19
 #define MAP_HEIGHT 15
+#define IGNORE 0
+#define UPTURN    1
+#define DOWNTURN  2
+#define LEFTTURN  3
+#define RIGHTTURN 4
 
 typedef struct Point {
-  uint8_t x, y;
+  uint8_t x, y,direction,node;
 } Point;
 
-typedef struct Stack {
-  uint8_t top, cap;
-  Point *array;
-} Stack;
 #endif // _MAP_H
