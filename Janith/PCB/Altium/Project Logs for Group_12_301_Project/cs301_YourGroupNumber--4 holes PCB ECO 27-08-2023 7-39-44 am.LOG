@@ -1,0 +1,6 @@
+Removed Pin From Net: NetName=+5V Pin=R36-1
+Removed Pin From Net: NetName=GND Pin=R40-2
+Removed Member From Class: ClassName=Sensors Member=R36
+Removed Member From Class: ClassName=Sensors Member=R40
+Added Pin To Net: NetName=NetR37_2 Pin=X3-6
+Change Net Name : Old Net Name=NetR37_2 New Net Name=S5S6COMPV

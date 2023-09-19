@@ -15,26 +15,19 @@
 */
 #include <project.h>
 
-CY_ISR(SENSOR1){
-    LED1_Write(~LED1_Read());
-}
-
-CY_ISR(SENSOR2){
-    LED1_Write(~LED2_Read());
-}
-
 int main()
 {
     CyGlobalIntEnable; /* Enable global interrupts. */
-    isr_sens1_StartEx(SENSOR1);
-    isr_sens2_StartEx(SENSOR2);
 
     for(;;)
     {
         /* Place your application code here. */
         
+        LED1_Write(SENS1_Read());
+        LED2_Write(SENS2_Read());
         
     }
+        
 }
 
 /* [] END OF FILE */

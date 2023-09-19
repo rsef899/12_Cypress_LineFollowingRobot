@@ -1,0 +1,4803 @@
+ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccDcP5We.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"cymetadata.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.global	cy_meta_configecc
+  20              		.section	.cyconfigecc,"a",%progbits
+  21              		.align	2
+  22              		.type	cy_meta_configecc, %object
+  23              		.size	cy_meta_configecc, 4076
+  24              	cy_meta_configecc:
+  25 0000 01       		.byte	1
+  26 0001 45       		.byte	69
+  27 0002 00       		.byte	0
+  28 0003 40       		.byte	64
+  29 0004 08       		.byte	8
+  30 0005 4F       		.byte	79
+  31 0006 00       		.byte	0
+  32 0007 40       		.byte	64
+  33 0008 0A       		.byte	10
+  34 0009 52       		.byte	82
+  35 000a 00       		.byte	0
+  36 000b 40       		.byte	64
+  37 000c 01       		.byte	1
+  38 000d 5B       		.byte	91
+  39 000e 00       		.byte	0
+  40 000f 40       		.byte	64
+  41 0010 04       		.byte	4
+  42 0011 64       		.byte	100
+  43 0012 00       		.byte	0
+  44 0013 40       		.byte	64
+  45 0014 03       		.byte	3
+  46 0015 65       		.byte	101
+  47 0016 00       		.byte	0
+  48 0017 40       		.byte	64
+  49 0018 2D       		.byte	45
+  50 0019 00       		.byte	0
+  51 001a 01       		.byte	1
+  52 001b 40       		.byte	64
+  53 001c 34       		.byte	52
+  54 001d 01       		.byte	1
+  55 001e 01       		.byte	1
+  56 001f 40       		.byte	64
+  57 0020 47       		.byte	71
+ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccDcP5We.s 			page 2
+
+
+  58 0021 02       		.byte	2
+  59 0022 01       		.byte	1
+  60 0023 40       		.byte	64
+  61 0024 4F       		.byte	79
+  62 0025 03       		.byte	3
+  63 0026 01       		.byte	1
+  64 0027 40       		.byte	64
+  65 0028 2D       		.byte	45
+  66 0029 04       		.byte	4
+  67 002a 01       		.byte	1
+  68 002b 40       		.byte	64
+  69 002c 4F       		.byte	79
+  70 002d 05       		.byte	5
+  71 002e 01       		.byte	1
+  72 002f 40       		.byte	64
+  73 0030 5A       		.byte	90
+  74 0031 06       		.byte	6
+  75 0032 01       		.byte	1
+  76 0033 40       		.byte	64
+  77 0034 4B       		.byte	75
+  78 0035 07       		.byte	7
+  79 0036 01       		.byte	1
+  80 0037 40       		.byte	64
+  81 0038 45       		.byte	69
+  82 0039 08       		.byte	8
+  83 003a 01       		.byte	1
+  84 003b 40       		.byte	64
+  85 003c 4E       		.byte	78
+  86 003d 09       		.byte	9
+  87 003e 01       		.byte	1
+  88 003f 40       		.byte	64
+  89 0040 51       		.byte	81
+  90 0041 0A       		.byte	10
+  91 0042 01       		.byte	1
+  92 0043 40       		.byte	64
+  93 0044 56       		.byte	86
+  94 0045 0B       		.byte	11
+  95 0046 01       		.byte	1
+  96 0047 40       		.byte	64
+  97 0048 35       		.byte	53
+  98 0049 0C       		.byte	12
+  99 004a 01       		.byte	1
+ 100 004b 40       		.byte	64
+ 101 004c 45       		.byte	69
+ 102 004d 0D       		.byte	13
+ 103 004e 01       		.byte	1
+ 104 004f 40       		.byte	64
+ 105 0050 5C       		.byte	92
+ 106 0051 0E       		.byte	14
+ 107 0052 01       		.byte	1
+ 108 0053 40       		.byte	64
+ 109 0054 39       		.byte	57
+ 110 0055 0F       		.byte	15
+ 111 0056 01       		.byte	1
+ 112 0057 40       		.byte	64
+ 113 0058 3C       		.byte	60
+ 114 0059 14       		.byte	20
+ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccDcP5We.s 			page 3
+
+
+ 115 005a 01       		.byte	1
+ 116 005b 40       		.byte	64
+ 117 005c 4F       		.byte	79
+ 118 005d 15       		.byte	21
+ 119 005e 01       		.byte	1
+ 120 005f 40       		.byte	64
+ 121 0060 32       		.byte	50
+ 122 0061 16       		.byte	22
+ 123 0062 01       		.byte	1
+ 124 0063 40       		.byte	64
+ 125 0064 53       		.byte	83
+ 126 0065 17       		.byte	23
+ 127 0066 01       		.byte	1
+ 128 0067 40       		.byte	64
+ 129 0068 58       		.byte	88
+ 130 0069 18       		.byte	24
+ 131 006a 01       		.byte	1
+ 132 006b 40       		.byte	64
+ 133 006c 4E       		.byte	78
+ 134 006d 19       		.byte	25
+ 135 006e 01       		.byte	1
+ 136 006f 40       		.byte	64
+ 137 0070 28       		.byte	40
+ 138 0071 1A       		.byte	26
+ 139 0072 01       		.byte	1
+ 140 0073 40       		.byte	64
+ 141 0074 50       		.byte	80
+ 142 0075 1B       		.byte	27
+ 143 0076 01       		.byte	1
+ 144 0077 40       		.byte	64
+ 145 0078 0E       		.byte	14
+ 146 0079 40       		.byte	64
+ 147 007a 01       		.byte	1
+ 148 007b 40       		.byte	64
+ 149 007c 1A       		.byte	26
+ 150 007d 41       		.byte	65
+ 151 007e 01       		.byte	1
+ 152 007f 40       		.byte	64
+ 153 0080 11       		.byte	17
+ 154 0081 42       		.byte	66
+ 155 0082 01       		.byte	1
+ 156 0083 40       		.byte	64
+ 157 0084 0F       		.byte	15
+ 158 0085 43       		.byte	67
+ 159 0086 01       		.byte	1
+ 160 0087 40       		.byte	64
+ 161 0088 01       		.byte	1
+ 162 0089 44       		.byte	68
+ 163 008a 01       		.byte	1
+ 164 008b 40       		.byte	64
+ 165 008c 0C       		.byte	12
+ 166 008d 45       		.byte	69
+ 167 008e 01       		.byte	1
+ 168 008f 40       		.byte	64
+ 169 0090 0C       		.byte	12
+ 170 0091 46       		.byte	70
+ 171 0092 01       		.byte	1
+ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccDcP5We.s 			page 4
+
+
+ 172 0093 40       		.byte	64
+ 173 0094 0F       		.byte	15
+ 174 0095 47       		.byte	71
+ 175 0096 01       		.byte	1
+ 176 0097 40       		.byte	64
+ 177 0098 1E       		.byte	30
+ 178 0099 48       		.byte	72
+ 179 009a 01       		.byte	1
+ 180 009b 40       		.byte	64
+ 181 009c 1A       		.byte	26
+ 182 009d 49       		.byte	73
+ 183 009e 01       		.byte	1
+ 184 009f 40       		.byte	64
+ 185 00a0 0E       		.byte	14
+ 186 00a1 4C       		.byte	76
+ 187 00a2 01       		.byte	1
+ 188 00a3 40       		.byte	64
+ 189 00a4 0C       		.byte	12
+ 190 00a5 4D       		.byte	77
+ 191 00a6 01       		.byte	1
+ 192 00a7 40       		.byte	64
+ 193 00a8 06       		.byte	6
+ 194 00a9 50       		.byte	80
+ 195 00aa 01       		.byte	1
+ 196 00ab 40       		.byte	64
+ 197 00ac 03       		.byte	3
+ 198 00ad 51       		.byte	81
+ 199 00ae 01       		.byte	1
+ 200 00af 40       		.byte	64
+ 201 00b0 7E       		.byte	126
+ 202 00b1 02       		.byte	2
+ 203 00b2 01       		.byte	1
+ 204 00b3 20       		.byte	32
+ 205 00b4 0A       		.byte	10
+ 206 00b5 36       		.byte	54
+ 207 00b6 0D       		.byte	13
+ 208 00b7 20       		.byte	32
+ 209 00b8 16       		.byte	22
+ 210 00b9 36       		.byte	54
+ 211 00ba 19       		.byte	25
+ 212 00bb 50       		.byte	80
+ 213 00bc 22       		.byte	34
+ 214 00bd 36       		.byte	54
+ 215 00be 25       		.byte	37
+ 216 00bf 30       		.byte	48
+ 217 00c0 2E       		.byte	46
+ 218 00c1 36       		.byte	54
+ 219 00c2 00       		.byte	0
+ 220 00c3 20       		.byte	32
+ 221 00c4 08       		.byte	8
+ 222 00c5 24       		.byte	36
+ 223 00c6 09       		.byte	9
+ 224 00c7 20       		.byte	32
+ 225 00c8 18       		.byte	24
+ 226 00c9 20       		.byte	32
+ 227 00ca 19       		.byte	25
+ 228 00cb 28       		.byte	40
+ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccDcP5We.s 			page 5
+
+
+ 229 00cc 60       		.byte	96
+ 230 00cd 06       		.byte	6
+ 231 00ce 61       		.byte	97
+ 232 00cf 05       		.byte	5
+ 233 00d0 78       		.byte	120
+ 234 00d1 09       		.byte	9
+ 235 00d2 79       		.byte	121
+ 236 00d3 03       		.byte	3
+ 237 00d4 7C       		.byte	124
+ 238 00d5 40       		.byte	64
+ 239 00d6 27       		.byte	39
+ 240 00d7 84       		.byte	-124
+ 241 00d8 83       		.byte	-125
+ 242 00d9 38       		.byte	56
+ 243 00da 8B       		.byte	-117
+ 244 00db 0F       		.byte	15
+ 245 00dc 8C       		.byte	-116
+ 246 00dd 72       		.byte	114
+ 247 00de 8F       		.byte	-113
+ 248 00df 6F       		.byte	111
+ 249 00e0 87       		.byte	-121
+ 250 00e1 0F       		.byte	15
+ 251 00e2 88       		.byte	-120
+ 252 00e3 0F       		.byte	15
+ 253 00e4 8B       		.byte	-117
+ 254 00e5 6F       		.byte	111
+ 255 00e6 56       		.byte	86
+ 256 00e7 08       		.byte	8
+ 257 00e8 58       		.byte	88
+ 258 00e9 04       		.byte	4
+ 259 00ea 59       		.byte	89
+ 260 00eb 04       		.byte	4
+ 261 00ec 5B       		.byte	91
+ 262 00ed 04       		.byte	4
+ 263 00ee 5C       		.byte	92
+ 264 00ef 11       		.byte	17
+ 265 00f0 5D       		.byte	93
+ 266 00f1 90       		.byte	-112
+ 267 00f2 5F       		.byte	95
+ 268 00f3 01       		.byte	1
+ 269 00f4 80       		.byte	-128
+ 270 00f5 10       		.byte	16
+ 271 00f6 81       		.byte	-127
+ 272 00f7 04       		.byte	4
+ 273 00f8 82       		.byte	-126
+ 274 00f9 20       		.byte	32
+ 275 00fa 86       		.byte	-122
+ 276 00fb 01       		.byte	1
+ 277 00fc 87       		.byte	-121
+ 278 00fd 01       		.byte	1
+ 279 00fe 88       		.byte	-120
+ 280 00ff 20       		.byte	32
+ 281 0100 8A       		.byte	-118
+ 282 0101 10       		.byte	16
+ 283 0102 8B       		.byte	-117
+ 284 0103 02       		.byte	2
+ 285 0104 8D       		.byte	-115
+ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccDcP5We.s 			page 6
+
+
+ 286 0105 04       		.byte	4
+ 287 0106 8E       		.byte	-114
+ 288 0107 08       		.byte	8
+ 289 0108 90       		.byte	-112
+ 290 0109 40       		.byte	64
+ 291 010a 92       		.byte	-110
+ 292 010b 80       		.byte	-128
+ 293 010c 95       		.byte	-107
+ 294 010d 04       		.byte	4
+ 295 010e 96       		.byte	-106
+ 296 010f 04       		.byte	4
+ 297 0110 98       		.byte	-104
+ 298 0111 08       		.byte	8
+ 299 0112 99       		.byte	-103
+ 300 0113 04       		.byte	4
+ 301 0114 9C       		.byte	-100
+ 302 0115 04       		.byte	4
+ 303 0116 A0       		.byte	-96
+ 304 0117 02       		.byte	2
+ 305 0118 A3       		.byte	-93
+ 306 0119 04       		.byte	4
+ 307 011a A4       		.byte	-92
+ 308 011b 01       		.byte	1
+ 309 011c A9       		.byte	-87
+ 310 011d 04       		.byte	4
+ 311 011e AA       		.byte	-86
+ 312 011f 02       		.byte	2
+ 313 0120 AC       		.byte	-84
+ 314 0121 80       		.byte	-128
+ 315 0122 AD       		.byte	-83
+ 316 0123 04       		.byte	4
+ 317 0124 AE       		.byte	-82
+ 318 0125 40       		.byte	64
+ 319 0126 B1       		.byte	-79
+ 320 0127 01       		.byte	1
+ 321 0128 B4       		.byte	-76
+ 322 0129 FF       		.byte	-1
+ 323 012a B5       		.byte	-75
+ 324 012b 04       		.byte	4
+ 325 012c B7       		.byte	-73
+ 326 012d 02       		.byte	2
+ 327 012e BE       		.byte	-66
+ 328 012f 10       		.byte	16
+ 329 0130 D6       		.byte	-42
+ 330 0131 02       		.byte	2
+ 331 0132 D7       		.byte	-41
+ 332 0133 39       		.byte	57
+ 333 0134 D8       		.byte	-40
+ 334 0135 04       		.byte	4
+ 335 0136 D9       		.byte	-39
+ 336 0137 04       		.byte	4
+ 337 0138 DB       		.byte	-37
+ 338 0139 0C       		.byte	12
+ 339 013a DC       		.byte	-36
+ 340 013b 10       		.byte	16
+ 341 013c DD       		.byte	-35
+ 342 013d 10       		.byte	16
+ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccDcP5We.s 			page 7
+
+
+ 343 013e DF       		.byte	-33
+ 344 013f 01       		.byte	1
+ 345 0140 03       		.byte	3
+ 346 0141 90       		.byte	-112
+ 347 0142 04       		.byte	4
+ 348 0143 8A       		.byte	-118
+ 349 0144 05       		.byte	5
+ 350 0145 01       		.byte	1
+ 351 0146 06       		.byte	6
+ 352 0147 B2       		.byte	-78
+ 353 0148 07       		.byte	7
+ 354 0149 04       		.byte	4
+ 355 014a 09       		.byte	9
+ 356 014b 22       		.byte	34
+ 357 014c 0C       		.byte	12
+ 358 014d 04       		.byte	4
+ 359 014e 0D       		.byte	13
+ 360 014f 02       		.byte	2
+ 361 0150 0E       		.byte	14
+ 362 0151 6A       		.byte	106
+ 363 0152 10       		.byte	16
+ 364 0153 04       		.byte	4
+ 365 0154 11       		.byte	17
+ 366 0155 02       		.byte	2
+ 367 0156 12       		.byte	18
+ 368 0157 10       		.byte	16
+ 369 0158 15       		.byte	21
+ 370 0159 42       		.byte	66
+ 371 015a 17       		.byte	23
+ 372 015b 19       		.byte	25
+ 373 015c 1E       		.byte	30
+ 374 015d 04       		.byte	4
+ 375 015e 24       		.byte	36
+ 376 015f 82       		.byte	-126
+ 377 0160 25       		.byte	37
+ 378 0161 01       		.byte	1
+ 379 0162 26       		.byte	38
+ 380 0163 20       		.byte	32
+ 381 0164 2B       		.byte	43
+ 382 0165 80       		.byte	-128
+ 383 0166 2E       		.byte	46
+ 384 0167 60       		.byte	96
+ 385 0168 2F       		.byte	47
+ 386 0169 80       		.byte	-128
+ 387 016a 30       		.byte	48
+ 388 016b 04       		.byte	4
+ 389 016c 31       		.byte	49
+ 390 016d 02       		.byte	2
+ 391 016e 33       		.byte	51
+ 392 016f 10       		.byte	16
+ 393 0170 34       		.byte	52
+ 394 0171 04       		.byte	4
+ 395 0172 37       		.byte	55
+ 396 0173 10       		.byte	16
+ 397 0174 38       		.byte	56
+ 398 0175 8A       		.byte	-118
+ 399 0176 3D       		.byte	61
+ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccDcP5We.s 			page 8
+
+
+ 400 0177 24       		.byte	36
+ 401 0178 3E       		.byte	62
+ 402 0179 82       		.byte	-126
+ 403 017a 59       		.byte	89
+ 404 017b 40       		.byte	64
+ 405 017c 5D       		.byte	93
+ 406 017d 10       		.byte	16
+ 407 017e 62       		.byte	98
+ 408 017f 40       		.byte	64
+ 409 0180 67       		.byte	103
+ 410 0181 10       		.byte	16
+ 411 0182 6D       		.byte	109
+ 412 0183 64       		.byte	100
+ 413 0184 6E       		.byte	110
+ 414 0185 0A       		.byte	10
+ 415 0186 6F       		.byte	111
+ 416 0187 44       		.byte	68
+ 417 0188 74       		.byte	116
+ 418 0189 02       		.byte	2
+ 419 018a 77       		.byte	119
+ 420 018b 09       		.byte	9
+ 421 018c 7D       		.byte	125
+ 422 018d 80       		.byte	-128
+ 423 018e 81       		.byte	-127
+ 424 018f 21       		.byte	33
+ 425 0190 82       		.byte	-126
+ 426 0191 20       		.byte	32
+ 427 0192 C0       		.byte	-64
+ 428 0193 FC       		.byte	-4
+ 429 0194 C2       		.byte	-62
+ 430 0195 FA       		.byte	-6
+ 431 0196 C4       		.byte	-60
+ 432 0197 FE       		.byte	-2
+ 433 0198 CA       		.byte	-54
+ 434 0199 B1       		.byte	-79
+ 435 019a CC       		.byte	-52
+ 436 019b 67       		.byte	103
+ 437 019c CE       		.byte	-50
+ 438 019d FB       		.byte	-5
+ 439 019e D6       		.byte	-42
+ 440 019f 28       		.byte	40
+ 441 01a0 D8       		.byte	-40
+ 442 01a1 48       		.byte	72
+ 443 01a2 DE       		.byte	-34
+ 444 01a3 10       		.byte	16
+ 445 01a4 E0       		.byte	-32
+ 446 01a5 04       		.byte	4
+ 447 01a6 E6       		.byte	-26
+ 448 01a7 04       		.byte	4
+ 449 01a8 01       		.byte	1
+ 450 01a9 01       		.byte	1
+ 451 01aa 03       		.byte	3
+ 452 01ab 04       		.byte	4
+ 453 01ac 0A       		.byte	10
+ 454 01ad 01       		.byte	1
+ 455 01ae 0B       		.byte	11
+ 456 01af 1D       		.byte	29
+ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccDcP5We.s 			page 9
+
+
+ 457 01b0 0C       		.byte	12
+ 458 01b1 C5       		.byte	-59
+ 459 01b2 0E       		.byte	14
+ 460 01b3 3A       		.byte	58
+ 461 01b4 11       		.byte	17
+ 462 01b5 D1       		.byte	-47
+ 463 01b6 13       		.byte	19
+ 464 01b7 08       		.byte	8
+ 465 01b8 14       		.byte	20
+ 466 01b9 96       		.byte	-106
+ 467 01ba 15       		.byte	21
+ 468 01bb 7C       		.byte	124
+ 469 01bc 16       		.byte	22
+ 470 01bd 68       		.byte	104
+ 471 01be 18       		.byte	24
+ 472 01bf A3       		.byte	-93
+ 473 01c0 1A       		.byte	26
+ 474 01c1 5C       		.byte	92
+ 475 01c2 1C       		.byte	28
+ 476 01c3 0E       		.byte	14
+ 477 01c4 1E       		.byte	30
+ 478 01c5 F0       		.byte	-16
+ 479 01c6 24       		.byte	36
+ 480 01c7 7F       		.byte	127
+ 481 01c8 25       		.byte	37
+ 482 01c9 D1       		.byte	-47
+ 483 01ca 27       		.byte	39
+ 484 01cb 04       		.byte	4
+ 485 01cc 2B       		.byte	43
+ 486 01cd 02       		.byte	2
+ 487 01ce 2C       		.byte	44
+ 488 01cf FE       		.byte	-2
+ 489 01d0 2D       		.byte	45
+ 490 01d1 AD       		.byte	-83
+ 491 01d2 2E       		.byte	46
+ 492 01d3 01       		.byte	1
+ 493 01d4 2F       		.byte	47
+ 494 01d5 10       		.byte	16
+ 495 01d6 31       		.byte	49
+ 496 01d7 E0       		.byte	-32
+ 497 01d8 32       		.byte	50
+ 498 01d9 FF       		.byte	-1
+ 499 01da 35       		.byte	53
+ 500 01db 03       		.byte	3
+ 501 01dc 37       		.byte	55
+ 502 01dd 1D       		.byte	29
+ 503 01de 39       		.byte	57
+ 504 01df 02       		.byte	2
+ 505 01e0 3E       		.byte	62
+ 506 01e1 04       		.byte	4
+ 507 01e2 52       		.byte	82
+ 508 01e3 03       		.byte	3
+ 509 01e4 53       		.byte	83
+ 510 01e5 02       		.byte	2
+ 511 01e6 58       		.byte	88
+ 512 01e7 04       		.byte	4
+ 513 01e8 59       		.byte	89
+ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccDcP5We.s 			page 10
+
+
+ 514 01e9 04       		.byte	4
+ 515 01ea 5B       		.byte	91
+ 516 01eb 04       		.byte	4
+ 517 01ec 5D       		.byte	93
+ 518 01ed 10       		.byte	16
+ 519 01ee 5F       		.byte	95
+ 520 01ef 01       		.byte	1
+ 521 01f0 84       		.byte	-124
+ 522 01f1 01       		.byte	1
+ 523 01f2 89       		.byte	-119
+ 524 01f3 01       		.byte	1
+ 525 01f4 8A       		.byte	-118
+ 526 01f5 02       		.byte	2
+ 527 01f6 8E       		.byte	-114
+ 528 01f7 08       		.byte	8
+ 529 01f8 90       		.byte	-112
+ 530 01f9 01       		.byte	1
+ 531 01fa 91       		.byte	-111
+ 532 01fb 04       		.byte	4
+ 533 01fc 94       		.byte	-108
+ 534 01fd 01       		.byte	1
+ 535 01fe 95       		.byte	-107
+ 536 01ff 01       		.byte	1
+ 537 0200 98       		.byte	-104
+ 538 0201 02       		.byte	2
+ 539 0202 9E       		.byte	-98
+ 540 0203 10       		.byte	16
+ 541 0204 A2       		.byte	-94
+ 542 0205 04       		.byte	4
+ 543 0206 A6       		.byte	-90
+ 544 0207 10       		.byte	16
+ 545 0208 A7       		.byte	-89
+ 546 0209 06       		.byte	6
+ 547 020a A8       		.byte	-88
+ 548 020b 01       		.byte	1
+ 549 020c A9       		.byte	-87
+ 550 020d 08       		.byte	8
+ 551 020e AE       		.byte	-82
+ 552 020f 08       		.byte	8
+ 553 0210 B0       		.byte	-80
+ 554 0211 01       		.byte	1
+ 555 0212 B1       		.byte	-79
+ 556 0213 02       		.byte	2
+ 557 0214 B2       		.byte	-78
+ 558 0215 06       		.byte	6
+ 559 0216 B3       		.byte	-77
+ 560 0217 01       		.byte	1
+ 561 0218 B4       		.byte	-76
+ 562 0219 08       		.byte	8
+ 563 021a B5       		.byte	-75
+ 564 021b 04       		.byte	4
+ 565 021c B6       		.byte	-74
+ 566 021d 10       		.byte	16
+ 567 021e B7       		.byte	-73
+ 568 021f 08       		.byte	8
+ 569 0220 B9       		.byte	-71
+ 570 0221 08       		.byte	8
+ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccDcP5We.s 			page 11
+
+
+ 571 0222 BE       		.byte	-66
+ 572 0223 51       		.byte	81
+ 573 0224 BF       		.byte	-65
+ 574 0225 44       		.byte	68
+ 575 0226 D4       		.byte	-44
+ 576 0227 18       		.byte	24
+ 577 0228 D6       		.byte	-42
+ 578 0229 04       		.byte	4
+ 579 022a D8       		.byte	-40
+ 580 022b 04       		.byte	4
+ 581 022c D9       		.byte	-39
+ 582 022d 0F       		.byte	15
+ 583 022e DB       		.byte	-37
+ 584 022f 04       		.byte	4
+ 585 0230 DC       		.byte	-36
+ 586 0231 19       		.byte	25
+ 587 0232 DD       		.byte	-35
+ 588 0233 40       		.byte	64
+ 589 0234 DF       		.byte	-33
+ 590 0235 01       		.byte	1
+ 591 0236 00       		.byte	0
+ 592 0237 90       		.byte	-112
+ 593 0238 01       		.byte	1
+ 594 0239 08       		.byte	8
+ 595 023a 06       		.byte	6
+ 596 023b 04       		.byte	4
+ 597 023c 07       		.byte	7
+ 598 023d 01       		.byte	1
+ 599 023e 08       		.byte	8
+ 600 023f 08       		.byte	8
+ 601 0240 09       		.byte	9
+ 602 0241 20       		.byte	32
+ 603 0242 0A       		.byte	10
+ 604 0243 01       		.byte	1
+ 605 0244 0B       		.byte	11
+ 606 0245 40       		.byte	64
+ 607 0246 0C       		.byte	12
+ 608 0247 20       		.byte	32
+ 609 0248 0D       		.byte	13
+ 610 0249 04       		.byte	4
+ 611 024a 0E       		.byte	14
+ 612 024b 08       		.byte	8
+ 613 024c 0F       		.byte	15
+ 614 024d 22       		.byte	34
+ 615 024e 10       		.byte	16
+ 616 024f 04       		.byte	4
+ 617 0250 12       		.byte	18
+ 618 0251 51       		.byte	81
+ 619 0252 14       		.byte	20
+ 620 0253 01       		.byte	1
+ 621 0254 15       		.byte	21
+ 622 0255 80       		.byte	-128
+ 623 0256 17       		.byte	23
+ 624 0257 04       		.byte	4
+ 625 0258 18       		.byte	24
+ 626 0259 14       		.byte	20
+ 627 025a 19       		.byte	25
+ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccDcP5We.s 			page 12
+
+
+ 628 025b 44       		.byte	68
+ 629 025c 1B       		.byte	27
+ 630 025d 02       		.byte	2
+ 631 025e 1F       		.byte	31
+ 632 025f 04       		.byte	4
+ 633 0260 20       		.byte	32
+ 634 0261 08       		.byte	8
+ 635 0262 21       		.byte	33
+ 636 0263 20       		.byte	32
+ 637 0264 22       		.byte	34
+ 638 0265 41       		.byte	65
+ 639 0266 23       		.byte	35
+ 640 0267 10       		.byte	16
+ 641 0268 24       		.byte	36
+ 642 0269 02       		.byte	2
+ 643 026a 25       		.byte	37
+ 644 026b 10       		.byte	16
+ 645 026c 26       		.byte	38
+ 646 026d 02       		.byte	2
+ 647 026e 27       		.byte	39
+ 648 026f 01       		.byte	1
+ 649 0270 29       		.byte	41
+ 650 0271 04       		.byte	4
+ 651 0272 2B       		.byte	43
+ 652 0273 04       		.byte	4
+ 653 0274 2C       		.byte	44
+ 654 0275 21       		.byte	33
+ 655 0276 2F       		.byte	47
+ 656 0277 04       		.byte	4
+ 657 0278 32       		.byte	50
+ 658 0279 01       		.byte	1
+ 659 027a 33       		.byte	51
+ 660 027b 08       		.byte	8
+ 661 027c 37       		.byte	55
+ 662 027d 05       		.byte	5
+ 663 027e 39       		.byte	57
+ 664 027f 10       		.byte	16
+ 665 0280 3D       		.byte	61
+ 666 0281 80       		.byte	-128
+ 667 0282 3F       		.byte	63
+ 668 0283 A2       		.byte	-94
+ 669 0284 58       		.byte	88
+ 670 0285 02       		.byte	2
+ 671 0286 60       		.byte	96
+ 672 0287 84       		.byte	-124
+ 673 0288 61       		.byte	97
+ 674 0289 40       		.byte	64
+ 675 028a 6D       		.byte	109
+ 676 028b 90       		.byte	-112
+ 677 028c 7B       		.byte	123
+ 678 028d 40       		.byte	64
+ 679 028e 82       		.byte	-126
+ 680 028f 40       		.byte	64
+ 681 0290 83       		.byte	-125
+ 682 0291 05       		.byte	5
+ 683 0292 84       		.byte	-124
+ 684 0293 80       		.byte	-128
+ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccDcP5We.s 			page 13
+
+
+ 685 0294 86       		.byte	-122
+ 686 0295 01       		.byte	1
+ 687 0296 8A       		.byte	-118
+ 688 0297 10       		.byte	16
+ 689 0298 8B       		.byte	-117
+ 690 0299 02       		.byte	2
+ 691 029a 8E       		.byte	-114
+ 692 029b 02       		.byte	2
+ 693 029c 8F       		.byte	-113
+ 694 029d 1C       		.byte	28
+ 695 029e 91       		.byte	-111
+ 696 029f 46       		.byte	70
+ 697 02a0 92       		.byte	-110
+ 698 02a1 04       		.byte	4
+ 699 02a2 94       		.byte	-108
+ 700 02a3 08       		.byte	8
+ 701 02a4 95       		.byte	-107
+ 702 02a5 10       		.byte	16
+ 703 02a6 97       		.byte	-105
+ 704 02a7 10       		.byte	16
+ 705 02a8 9A       		.byte	-102
+ 706 02a9 C2       		.byte	-62
+ 707 02aa 9B       		.byte	-101
+ 708 02ab 48       		.byte	72
+ 709 02ac 9F       		.byte	-97
+ 710 02ad 10       		.byte	16
+ 711 02ae A0       		.byte	-96
+ 712 02af 02       		.byte	2
+ 713 02b0 A4       		.byte	-92
+ 714 02b1 04       		.byte	4
+ 715 02b2 A5       		.byte	-91
+ 716 02b3 42       		.byte	66
+ 717 02b4 A6       		.byte	-90
+ 718 02b5 10       		.byte	16
+ 719 02b6 A7       		.byte	-89
+ 720 02b7 80       		.byte	-128
+ 721 02b8 AC       		.byte	-84
+ 722 02b9 04       		.byte	4
+ 723 02ba AD       		.byte	-83
+ 724 02bb 40       		.byte	64
+ 725 02bc C0       		.byte	-64
+ 726 02bd C7       		.byte	-57
+ 727 02be C2       		.byte	-62
+ 728 02bf EF       		.byte	-17
+ 729 02c0 C4       		.byte	-60
+ 730 02c1 AF       		.byte	-81
+ 731 02c2 CA       		.byte	-54
+ 732 02c3 76       		.byte	118
+ 733 02c4 CC       		.byte	-52
+ 734 02c5 C3       		.byte	-61
+ 735 02c6 CE       		.byte	-50
+ 736 02c7 A4       		.byte	-92
+ 737 02c8 D6       		.byte	-42
+ 738 02c9 01       		.byte	1
+ 739 02ca D8       		.byte	-40
+ 740 02cb 0D       		.byte	13
+ 741 02cc DE       		.byte	-34
+ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccDcP5We.s 			page 14
+
+
+ 742 02cd 01       		.byte	1
+ 743 02ce E2       		.byte	-30
+ 744 02cf 0B       		.byte	11
+ 745 02d0 E4       		.byte	-28
+ 746 02d1 01       		.byte	1
+ 747 02d2 E6       		.byte	-26
+ 748 02d3 04       		.byte	4
+ 749 02d4 02       		.byte	2
+ 750 02d5 02       		.byte	2
+ 751 02d6 12       		.byte	18
+ 752 02d7 30       		.byte	48
+ 753 02d8 14       		.byte	20
+ 754 02d9 10       		.byte	16
+ 755 02da 18       		.byte	24
+ 756 02db 0A       		.byte	10
+ 757 02dc 1A       		.byte	26
+ 758 02dd 05       		.byte	5
+ 759 02de 1C       		.byte	28
+ 760 02df 07       		.byte	7
+ 761 02e0 1E       		.byte	30
+ 762 02e1 08       		.byte	8
+ 763 02e2 20       		.byte	32
+ 764 02e3 04       		.byte	4
+ 765 02e4 22       		.byte	34
+ 766 02e5 01       		.byte	1
+ 767 02e6 28       		.byte	40
+ 768 02e7 0F       		.byte	15
+ 769 02e8 2C       		.byte	44
+ 770 02e9 01       		.byte	1
+ 771 02ea 30       		.byte	48
+ 772 02eb 10       		.byte	16
+ 773 02ec 32       		.byte	50
+ 774 02ed 20       		.byte	32
+ 775 02ee 34       		.byte	52
+ 776 02ef 0C       		.byte	12
+ 777 02f0 36       		.byte	54
+ 778 02f1 03       		.byte	3
+ 779 02f2 54       		.byte	84
+ 780 02f3 01       		.byte	1
+ 781 02f4 58       		.byte	88
+ 782 02f5 0F       		.byte	15
+ 783 02f6 59       		.byte	89
+ 784 02f7 04       		.byte	4
+ 785 02f8 5B       		.byte	91
+ 786 02f9 0F       		.byte	15
+ 787 02fa 5C       		.byte	92
+ 788 02fb 11       		.byte	17
+ 789 02fc 5D       		.byte	93
+ 790 02fd 10       		.byte	16
+ 791 02fe 5F       		.byte	95
+ 792 02ff 01       		.byte	1
+ 793 0300 82       		.byte	-126
+ 794 0301 09       		.byte	9
+ 795 0302 84       		.byte	-124
+ 796 0303 04       		.byte	4
+ 797 0304 8A       		.byte	-118
+ 798 0305 02       		.byte	2
+ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccDcP5We.s 			page 15
+
+
+ 799 0306 8F       		.byte	-113
+ 800 0307 01       		.byte	1
+ 801 0308 92       		.byte	-110
+ 802 0309 04       		.byte	4
+ 803 030a 93       		.byte	-109
+ 804 030b 02       		.byte	2
+ 805 030c 94       		.byte	-108
+ 806 030d 08       		.byte	8
+ 807 030e 97       		.byte	-105
+ 808 030f 04       		.byte	4
+ 809 0310 9A       		.byte	-102
+ 810 0311 20       		.byte	32
+ 811 0312 A6       		.byte	-90
+ 812 0313 10       		.byte	16
+ 813 0314 A8       		.byte	-88
+ 814 0315 02       		.byte	2
+ 815 0316 AC       		.byte	-84
+ 816 0317 10       		.byte	16
+ 817 0318 B1       		.byte	-79
+ 818 0319 01       		.byte	1
+ 819 031a B2       		.byte	-78
+ 820 031b 01       		.byte	1
+ 821 031c B3       		.byte	-77
+ 822 031d 02       		.byte	2
+ 823 031e B5       		.byte	-75
+ 824 031f 04       		.byte	4
+ 825 0320 B6       		.byte	-74
+ 826 0321 3E       		.byte	62
+ 827 0322 B8       		.byte	-72
+ 828 0323 80       		.byte	-128
+ 829 0324 BE       		.byte	-66
+ 830 0325 40       		.byte	64
+ 831 0326 D8       		.byte	-40
+ 832 0327 04       		.byte	4
+ 833 0328 D9       		.byte	-39
+ 834 0329 04       		.byte	4
+ 835 032a DC       		.byte	-36
+ 836 032b 11       		.byte	17
+ 837 032c DF       		.byte	-33
+ 838 032d 01       		.byte	1
+ 839 032e 01       		.byte	1
+ 840 032f 02       		.byte	2
+ 841 0330 05       		.byte	5
+ 842 0331 40       		.byte	64
+ 843 0332 07       		.byte	7
+ 844 0333 58       		.byte	88
+ 845 0334 0A       		.byte	10
+ 846 0335 A9       		.byte	-87
+ 847 0336 0C       		.byte	12
+ 848 0337 01       		.byte	1
+ 849 0338 0D       		.byte	13
+ 850 0339 01       		.byte	1
+ 851 033a 0E       		.byte	14
+ 852 033b 26       		.byte	38
+ 853 033c 10       		.byte	16
+ 854 033d 02       		.byte	2
+ 855 033e 11       		.byte	17
+ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccDcP5We.s 			page 16
+
+
+ 856 033f 10       		.byte	16
+ 857 0340 13       		.byte	19
+ 858 0341 01       		.byte	1
+ 859 0342 15       		.byte	21
+ 860 0343 04       		.byte	4
+ 861 0344 16       		.byte	22
+ 862 0345 8A       		.byte	-118
+ 863 0346 19       		.byte	25
+ 864 0347 02       		.byte	2
+ 865 0348 1A       		.byte	26
+ 866 0349 29       		.byte	41
+ 867 034a 1D       		.byte	29
+ 868 034b 44       		.byte	68
+ 869 034c 1E       		.byte	30
+ 870 034d 20       		.byte	32
+ 871 034e 1F       		.byte	31
+ 872 034f C4       		.byte	-60
+ 873 0350 24       		.byte	36
+ 874 0351 08       		.byte	8
+ 875 0352 25       		.byte	37
+ 876 0353 02       		.byte	2
+ 877 0354 26       		.byte	38
+ 878 0355 01       		.byte	1
+ 879 0356 27       		.byte	39
+ 880 0357 10       		.byte	16
+ 881 0358 2B       		.byte	43
+ 882 0359 80       		.byte	-128
+ 883 035a 2E       		.byte	46
+ 884 035b 80       		.byte	-128
+ 885 035c 2F       		.byte	47
+ 886 035d 44       		.byte	68
+ 887 035e 31       		.byte	49
+ 888 035f 06       		.byte	6
+ 889 0360 33       		.byte	51
+ 890 0361 10       		.byte	16
+ 891 0362 34       		.byte	52
+ 892 0363 01       		.byte	1
+ 893 0364 37       		.byte	55
+ 894 0365 18       		.byte	24
+ 895 0366 38       		.byte	56
+ 896 0367 08       		.byte	8
+ 897 0368 3A       		.byte	58
+ 898 0369 8A       		.byte	-118
+ 899 036a 3B       		.byte	59
+ 900 036b 04       		.byte	4
+ 901 036c 3D       		.byte	61
+ 902 036d 60       		.byte	96
+ 903 036e 3E       		.byte	62
+ 904 036f 02       		.byte	2
+ 905 0370 3F       		.byte	63
+ 906 0371 04       		.byte	4
+ 907 0372 5A       		.byte	90
+ 908 0373 40       		.byte	64
+ 909 0374 7B       		.byte	123
+ 910 0375 40       		.byte	64
+ 911 0376 81       		.byte	-127
+ 912 0377 40       		.byte	64
+ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccDcP5We.s 			page 17
+
+
+ 913 0378 84       		.byte	-124
+ 914 0379 02       		.byte	2
+ 915 037a 89       		.byte	-119
+ 916 037b 02       		.byte	2
+ 917 037c 8A       		.byte	-118
+ 918 037d 10       		.byte	16
+ 919 037e 8D       		.byte	-115
+ 920 037f 08       		.byte	8
+ 921 0380 8E       		.byte	-114
+ 922 0381 20       		.byte	32
+ 923 0382 90       		.byte	-112
+ 924 0383 02       		.byte	2
+ 925 0384 91       		.byte	-111
+ 926 0385 56       		.byte	86
+ 927 0386 92       		.byte	-110
+ 928 0387 44       		.byte	68
+ 929 0388 93       		.byte	-109
+ 930 0389 01       		.byte	1
+ 931 038a 94       		.byte	-108
+ 932 038b 08       		.byte	8
+ 933 038c 95       		.byte	-107
+ 934 038d 88       		.byte	-120
+ 935 038e 9A       		.byte	-102
+ 936 038f 82       		.byte	-126
+ 937 0390 9B       		.byte	-101
+ 938 0391 4C       		.byte	76
+ 939 0392 9D       		.byte	-99
+ 940 0393 08       		.byte	8
+ 941 0394 9F       		.byte	-97
+ 942 0395 10       		.byte	16
+ 943 0396 A0       		.byte	-96
+ 944 0397 02       		.byte	2
+ 945 0398 A3       		.byte	-93
+ 946 0399 40       		.byte	64
+ 947 039a A4       		.byte	-92
+ 948 039b 40       		.byte	64
+ 949 039c A5       		.byte	-91
+ 950 039d 02       		.byte	2
+ 951 039e A6       		.byte	-90
+ 952 039f 14       		.byte	20
+ 953 03a0 A7       		.byte	-89
+ 954 03a1 81       		.byte	-127
+ 955 03a2 A8       		.byte	-88
+ 956 03a3 0A       		.byte	10
+ 957 03a4 A9       		.byte	-87
+ 958 03a5 20       		.byte	32
+ 959 03a6 AA       		.byte	-86
+ 960 03a7 40       		.byte	64
+ 961 03a8 AC       		.byte	-84
+ 962 03a9 04       		.byte	4
+ 963 03aa AF       		.byte	-81
+ 964 03ab 40       		.byte	64
+ 965 03ac B2       		.byte	-78
+ 966 03ad 02       		.byte	2
+ 967 03ae B4       		.byte	-76
+ 968 03af 04       		.byte	4
+ 969 03b0 B5       		.byte	-75
+ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccDcP5We.s 			page 18
+
+
+ 970 03b1 10       		.byte	16
+ 971 03b2 B6       		.byte	-74
+ 972 03b3 05       		.byte	5
+ 973 03b4 C0       		.byte	-64
+ 974 03b5 F8       		.byte	-8
+ 975 03b6 C2       		.byte	-62
+ 976 03b7 FF       		.byte	-1
+ 977 03b8 C4       		.byte	-60
+ 978 03b9 FB       		.byte	-5
+ 979 03ba CA       		.byte	-54
+ 980 03bb B1       		.byte	-79
+ 981 03bc CC       		.byte	-52
+ 982 03bd E7       		.byte	-25
+ 983 03be CE       		.byte	-50
+ 984 03bf FB       		.byte	-5
+ 985 03c0 D6       		.byte	-42
+ 986 03c1 08       		.byte	8
+ 987 03c2 DE       		.byte	-34
+ 988 03c3 01       		.byte	1
+ 989 03c4 E0       		.byte	-32
+ 990 03c5 01       		.byte	1
+ 991 03c6 E6       		.byte	-26
+ 992 03c7 02       		.byte	2
+ 993 03c8 EA       		.byte	-22
+ 994 03c9 08       		.byte	8
+ 995 03ca EE       		.byte	-18
+ 996 03cb 07       		.byte	7
+ 997 03cc 00       		.byte	0
+ 998 03cd 9E       		.byte	-98
+ 999 03ce 01       		.byte	1
+ 1000 03cf 01       		.byte	1
+ 1001 03d0 02       		.byte	2
+ 1002 03d1 60       		.byte	96
+ 1003 03d2 03       		.byte	3
+ 1004 03d3 F2       		.byte	-14
+ 1005 03d4 05       		.byte	5
+ 1006 03d5 C0       		.byte	-64
+ 1007 03d6 07       		.byte	7
+ 1008 03d7 24       		.byte	36
+ 1009 03d8 0A       		.byte	10
+ 1010 03d9 0F       		.byte	15
+ 1011 03da 0B       		.byte	11
+ 1012 03db 07       		.byte	7
+ 1013 03dc 14       		.byte	20
+ 1014 03dd 30       		.byte	48
+ 1015 03de 15       		.byte	21
+ 1016 03df 77       		.byte	119
+ 1017 03e0 16       		.byte	22
+ 1018 03e1 C9       		.byte	-55
+ 1019 03e2 18       		.byte	24
+ 1020 03e3 CF       		.byte	-49
+ 1021 03e4 1A       		.byte	26
+ 1022 03e5 30       		.byte	48
+ 1023 03e6 1C       		.byte	28
+ 1024 03e7 94       		.byte	-108
+ 1025 03e8 1D       		.byte	29
+ 1026 03e9 C1       		.byte	-63
+ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccDcP5We.s 			page 19
+
+
+ 1027 03ea 1E       		.byte	30
+ 1028 03eb 60       		.byte	96
+ 1029 03ec 1F       		.byte	31
+ 1030 03ed 12       		.byte	18
+ 1031 03ee 20       		.byte	32
+ 1032 03ef FD       		.byte	-3
+ 1033 03f0 22       		.byte	34
+ 1034 03f1 02       		.byte	2
+ 1035 03f2 23       		.byte	35
+ 1036 03f3 08       		.byte	8
+ 1037 03f4 24       		.byte	36
+ 1038 03f5 73       		.byte	115
+ 1039 03f6 29       		.byte	41
+ 1040 03f7 84       		.byte	-124
+ 1041 03f8 2B       		.byte	43
+ 1042 03f9 10       		.byte	16
+ 1043 03fa 2D       		.byte	45
+ 1044 03fb B7       		.byte	-73
+ 1045 03fc 2F       		.byte	47
+ 1046 03fd 40       		.byte	64
+ 1047 03fe 33       		.byte	51
+ 1048 03ff F0       		.byte	-16
+ 1049 0400 35       		.byte	53
+ 1050 0401 0F       		.byte	15
+ 1051 0402 36       		.byte	54
+ 1052 0403 FF       		.byte	-1
+ 1053 0404 3E       		.byte	62
+ 1054 0405 40       		.byte	64
+ 1055 0406 58       		.byte	88
+ 1056 0407 04       		.byte	4
+ 1057 0408 59       		.byte	89
+ 1058 0409 04       		.byte	4
+ 1059 040a 5F       		.byte	95
+ 1060 040b 01       		.byte	1
+ 1061 040c 83       		.byte	-125
+ 1062 040d 01       		.byte	1
+ 1063 040e 84       		.byte	-124
+ 1064 040f 73       		.byte	115
+ 1065 0410 85       		.byte	-123
+ 1066 0411 2C       		.byte	44
+ 1067 0412 87       		.byte	-121
+ 1068 0413 52       		.byte	82
+ 1069 0414 88       		.byte	-120
+ 1070 0415 CF       		.byte	-49
+ 1071 0416 8A       		.byte	-118
+ 1072 0417 30       		.byte	48
+ 1073 0418 8D       		.byte	-115
+ 1074 0419 02       		.byte	2
+ 1075 041a 8F       		.byte	-113
+ 1076 041b 84       		.byte	-124
+ 1077 041c 90       		.byte	-112
+ 1078 041d 30       		.byte	48
+ 1079 041e 91       		.byte	-111
+ 1080 041f 02       		.byte	2
+ 1081 0420 92       		.byte	-110
+ 1082 0421 C9       		.byte	-55
+ 1083 0422 93       		.byte	-109
+ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccDcP5We.s 			page 20
+
+
+ 1084 0423 04       		.byte	4
+ 1085 0424 94       		.byte	-108
+ 1086 0425 94       		.byte	-108
+ 1087 0426 95       		.byte	-107
+ 1088 0427 38       		.byte	56
+ 1089 0428 96       		.byte	-106
+ 1090 0429 60       		.byte	96
+ 1091 042a 98       		.byte	-104
+ 1092 042b FD       		.byte	-3
+ 1093 042c 9A       		.byte	-102
+ 1094 042d 02       		.byte	2
+ 1095 042e 9D       		.byte	-99
+ 1096 042f 50       		.byte	80
+ 1097 0430 9E       		.byte	-98
+ 1098 0431 0F       		.byte	15
+ 1099 0432 9F       		.byte	-97
+ 1100 0433 28       		.byte	40
+ 1101 0434 A0       		.byte	-96
+ 1102 0435 9E       		.byte	-98
+ 1103 0436 A1       		.byte	-95
+ 1104 0437 78       		.byte	120
+ 1105 0438 A2       		.byte	-94
+ 1106 0439 60       		.byte	96
+ 1107 043a A5       		.byte	-91
+ 1108 043b 60       		.byte	96
+ 1109 043c A7       		.byte	-89
+ 1110 043d 18       		.byte	24
+ 1111 043e A9       		.byte	-87
+ 1112 043f 02       		.byte	2
+ 1113 0440 AB       		.byte	-85
+ 1114 0441 04       		.byte	4
+ 1115 0442 AD       		.byte	-83
+ 1116 0443 18       		.byte	24
+ 1117 0444 AF       		.byte	-81
+ 1118 0445 60       		.byte	96
+ 1119 0446 B0       		.byte	-80
+ 1120 0447 FF       		.byte	-1
+ 1121 0448 B1       		.byte	-79
+ 1122 0449 80       		.byte	-128
+ 1123 044a B3       		.byte	-77
+ 1124 044b 06       		.byte	6
+ 1125 044c B5       		.byte	-75
+ 1126 044d 01       		.byte	1
+ 1127 044e B7       		.byte	-73
+ 1128 044f 78       		.byte	120
+ 1129 0450 BB       		.byte	-69
+ 1130 0451 08       		.byte	8
+ 1131 0452 BE       		.byte	-66
+ 1132 0453 01       		.byte	1
+ 1133 0454 C0       		.byte	-64
+ 1134 0455 16       		.byte	22
+ 1135 0456 C1       		.byte	-63
+ 1136 0457 03       		.byte	3
+ 1137 0458 C5       		.byte	-59
+ 1138 0459 E0       		.byte	-32
+ 1139 045a C6       		.byte	-58
+ 1140 045b 0C       		.byte	12
+ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccDcP5We.s 			page 21
+
+
+ 1141 045c C7       		.byte	-57
+ 1142 045d 0B       		.byte	11
+ 1143 045e C8       		.byte	-56
+ 1144 045f 16       		.byte	22
+ 1145 0460 C9       		.byte	-55
+ 1146 0461 FF       		.byte	-1
+ 1147 0462 CA       		.byte	-54
+ 1148 0463 FF       		.byte	-1
+ 1149 0464 CB       		.byte	-53
+ 1150 0465 FF       		.byte	-1
+ 1151 0466 CE       		.byte	-50
+ 1152 0467 F0       		.byte	-16
+ 1153 0468 CF       		.byte	-49
+ 1154 0469 44       		.byte	68
+ 1155 046a D0       		.byte	-48
+ 1156 046b 0C       		.byte	12
+ 1157 046c D6       		.byte	-42
+ 1158 046d 08       		.byte	8
+ 1159 046e D8       		.byte	-40
+ 1160 046f 04       		.byte	4
+ 1161 0470 D9       		.byte	-39
+ 1162 0471 04       		.byte	4
+ 1163 0472 DA       		.byte	-38
+ 1164 0473 04       		.byte	4
+ 1165 0474 DB       		.byte	-37
+ 1166 0475 04       		.byte	4
+ 1167 0476 DD       		.byte	-35
+ 1168 0477 94       		.byte	-108
+ 1169 0478 DF       		.byte	-33
+ 1170 0479 01       		.byte	1
+ 1171 047a E6       		.byte	-26
+ 1172 047b C0       		.byte	-64
+ 1173 047c EA       		.byte	-22
+ 1174 047d 40       		.byte	64
+ 1175 047e EB       		.byte	-21
+ 1176 047f 02       		.byte	2
+ 1177 0480 00       		.byte	0
+ 1178 0481 20       		.byte	32
+ 1179 0482 01       		.byte	1
+ 1180 0483 08       		.byte	8
+ 1181 0484 04       		.byte	4
+ 1182 0485 02       		.byte	2
+ 1183 0486 07       		.byte	7
+ 1184 0487 48       		.byte	72
+ 1185 0488 08       		.byte	8
+ 1186 0489 08       		.byte	8
+ 1187 048a 09       		.byte	9
+ 1188 048b 80       		.byte	-128
+ 1189 048c 0A       		.byte	10
+ 1190 048d 84       		.byte	-124
+ 1191 048e 0C       		.byte	12
+ 1192 048f 08       		.byte	8
+ 1193 0490 0D       		.byte	13
+ 1194 0491 04       		.byte	4
+ 1195 0492 0E       		.byte	14
+ 1196 0493 08       		.byte	8
+ 1197 0494 0F       		.byte	15
+ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccDcP5We.s 			page 22
+
+
+ 1198 0495 02       		.byte	2
+ 1199 0496 12       		.byte	18
+ 1200 0497 80       		.byte	-128
+ 1201 0498 14       		.byte	20
+ 1202 0499 40       		.byte	64
+ 1203 049a 17       		.byte	23
+ 1204 049b 04       		.byte	4
+ 1205 049c 19       		.byte	25
+ 1206 049d 01       		.byte	1
+ 1207 049e 1F       		.byte	31
+ 1208 049f 80       		.byte	-128
+ 1209 04a0 21       		.byte	33
+ 1210 04a1 54       		.byte	84
+ 1211 04a2 22       		.byte	34
+ 1212 04a3 12       		.byte	18
+ 1213 04a4 25       		.byte	37
+ 1214 04a5 14       		.byte	20
+ 1215 04a6 26       		.byte	38
+ 1216 04a7 04       		.byte	4
+ 1217 04a8 27       		.byte	39
+ 1218 04a9 08       		.byte	8
+ 1219 04aa 28       		.byte	40
+ 1220 04ab 40       		.byte	64
+ 1221 04ac 2A       		.byte	42
+ 1222 04ad 08       		.byte	8
+ 1223 04ae 2B       		.byte	43
+ 1224 04af 05       		.byte	5
+ 1225 04b0 2C       		.byte	44
+ 1226 04b1 08       		.byte	8
+ 1227 04b2 2F       		.byte	47
+ 1228 04b3 82       		.byte	-126
+ 1229 04b4 32       		.byte	50
+ 1230 04b5 02       		.byte	2
+ 1231 04b6 33       		.byte	51
+ 1232 04b7 44       		.byte	68
+ 1233 04b8 37       		.byte	55
+ 1234 04b9 44       		.byte	68
+ 1235 04ba 39       		.byte	57
+ 1236 04bb 08       		.byte	8
+ 1237 04bc 3B       		.byte	59
+ 1238 04bd 41       		.byte	65
+ 1239 04be 3D       		.byte	61
+ 1240 04bf 28       		.byte	40
+ 1241 04c0 3E       		.byte	62
+ 1242 04c1 08       		.byte	8
+ 1243 04c2 3F       		.byte	63
+ 1244 04c3 02       		.byte	2
+ 1245 04c4 40       		.byte	64
+ 1246 04c5 02       		.byte	2
+ 1247 04c6 42       		.byte	66
+ 1248 04c7 20       		.byte	32
+ 1249 04c8 49       		.byte	73
+ 1250 04c9 22       		.byte	34
+ 1251 04ca 50       		.byte	80
+ 1252 04cb 80       		.byte	-128
+ 1253 04cc 52       		.byte	82
+ 1254 04cd 08       		.byte	8
+ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccDcP5We.s 			page 23
+
+
+ 1255 04ce 59       		.byte	89
+ 1256 04cf 40       		.byte	64
+ 1257 04d0 63       		.byte	99
+ 1258 04d1 01       		.byte	1
+ 1259 04d2 78       		.byte	120
+ 1260 04d3 40       		.byte	64
+ 1261 04d4 79       		.byte	121
+ 1262 04d5 80       		.byte	-128
+ 1263 04d6 7B       		.byte	123
+ 1264 04d7 02       		.byte	2
+ 1265 04d8 81       		.byte	-127
+ 1266 04d9 20       		.byte	32
+ 1267 04da 88       		.byte	-120
+ 1268 04db 84       		.byte	-124
+ 1269 04dc 90       		.byte	-112
+ 1270 04dd 02       		.byte	2
+ 1271 04de 93       		.byte	-109
+ 1272 04df 84       		.byte	-124
+ 1273 04e0 95       		.byte	-107
+ 1274 04e1 88       		.byte	-120
+ 1275 04e2 98       		.byte	-104
+ 1276 04e3 02       		.byte	2
+ 1277 04e4 99       		.byte	-103
+ 1278 04e5 04       		.byte	4
+ 1279 04e6 9A       		.byte	-102
+ 1280 04e7 22       		.byte	34
+ 1281 04e8 9B       		.byte	-101
+ 1282 04e9 14       		.byte	20
+ 1283 04ea 9E       		.byte	-98
+ 1284 04eb 01       		.byte	1
+ 1285 04ec A6       		.byte	-90
+ 1286 04ed 04       		.byte	4
+ 1287 04ee A7       		.byte	-89
+ 1288 04ef 01       		.byte	1
+ 1289 04f0 A9       		.byte	-87
+ 1290 04f1 12       		.byte	18
+ 1291 04f2 AA       		.byte	-86
+ 1292 04f3 41       		.byte	65
+ 1293 04f4 AC       		.byte	-84
+ 1294 04f5 40       		.byte	64
+ 1295 04f6 AE       		.byte	-82
+ 1296 04f7 01       		.byte	1
+ 1297 04f8 C0       		.byte	-64
+ 1298 04f9 56       		.byte	86
+ 1299 04fa C2       		.byte	-62
+ 1300 04fb EF       		.byte	-17
+ 1301 04fc C4       		.byte	-60
+ 1302 04fd 38       		.byte	56
+ 1303 04fe CA       		.byte	-54
+ 1304 04ff BF       		.byte	-65
+ 1305 0500 CC       		.byte	-52
+ 1306 0501 5B       		.byte	91
+ 1307 0502 CE       		.byte	-50
+ 1308 0503 EB       		.byte	-21
+ 1309 0504 D0       		.byte	-48
+ 1310 0505 0A       		.byte	10
+ 1311 0506 D2       		.byte	-46
+ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccDcP5We.s 			page 24
+
+
+ 1312 0507 04       		.byte	4
+ 1313 0508 D6       		.byte	-42
+ 1314 0509 08       		.byte	8
+ 1315 050a D8       		.byte	-40
+ 1316 050b 08       		.byte	8
+ 1317 050c E0       		.byte	-32
+ 1318 050d 80       		.byte	-128
+ 1319 050e E6       		.byte	-26
+ 1320 050f 01       		.byte	1
+ 1321 0510 E8       		.byte	-24
+ 1322 0511 08       		.byte	8
+ 1323 0512 EA       		.byte	-22
+ 1324 0513 02       		.byte	2
+ 1325 0514 EE       		.byte	-18
+ 1326 0515 04       		.byte	4
+ 1327 0516 06       		.byte	6
+ 1328 0517 01       		.byte	1
+ 1329 0518 08       		.byte	8
+ 1330 0519 01       		.byte	1
+ 1331 051a 0C       		.byte	12
+ 1332 051b 0E       		.byte	14
+ 1333 051c 14       		.byte	20
+ 1334 051d 01       		.byte	1
+ 1335 051e 18       		.byte	24
+ 1336 051f 18       		.byte	24
+ 1337 0520 1A       		.byte	26
+ 1338 0521 02       		.byte	2
+ 1339 0522 1C       		.byte	28
+ 1340 0523 18       		.byte	24
+ 1341 0524 1E       		.byte	30
+ 1342 0525 04       		.byte	4
+ 1343 0526 22       		.byte	34
+ 1344 0527 20       		.byte	32
+ 1345 0528 24       		.byte	36
+ 1346 0529 10       		.byte	16
+ 1347 052a 26       		.byte	38
+ 1348 052b 02       		.byte	2
+ 1349 052c 2A       		.byte	42
+ 1350 052d 1E       		.byte	30
+ 1351 052e 2C       		.byte	44
+ 1352 052f 16       		.byte	22
+ 1353 0530 2E       		.byte	46
+ 1354 0531 08       		.byte	8
+ 1355 0532 30       		.byte	48
+ 1356 0533 20       		.byte	32
+ 1357 0534 32       		.byte	50
+ 1358 0535 01       		.byte	1
+ 1359 0536 36       		.byte	54
+ 1360 0537 1E       		.byte	30
+ 1361 0538 3E       		.byte	62
+ 1362 0539 04       		.byte	4
+ 1363 053a 40       		.byte	64
+ 1364 053b 56       		.byte	86
+ 1365 053c 41       		.byte	65
+ 1366 053d 02       		.byte	2
+ 1367 053e 42       		.byte	66
+ 1368 053f 04       		.byte	4
+ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccDcP5We.s 			page 25
+
+
+ 1369 0540 44       		.byte	68
+ 1370 0541 01       		.byte	1
+ 1371 0542 45       		.byte	69
+ 1372 0543 C0       		.byte	-64
+ 1373 0544 46       		.byte	70
+ 1374 0545 0E       		.byte	14
+ 1375 0546 48       		.byte	72
+ 1376 0547 06       		.byte	6
+ 1377 0548 49       		.byte	73
+ 1378 0549 FF       		.byte	-1
+ 1379 054a 4A       		.byte	74
+ 1380 054b FF       		.byte	-1
+ 1381 054c 4B       		.byte	75
+ 1382 054d FF       		.byte	-1
+ 1383 054e 4C       		.byte	76
+ 1384 054f 62       		.byte	98
+ 1385 0550 4D       		.byte	77
+ 1386 0551 A0       		.byte	-96
+ 1387 0552 4E       		.byte	78
+ 1388 0553 F0       		.byte	-16
+ 1389 0554 4F       		.byte	79
+ 1390 0555 41       		.byte	65
+ 1391 0556 50       		.byte	80
+ 1392 0557 0C       		.byte	12
+ 1393 0558 56       		.byte	86
+ 1394 0559 08       		.byte	8
+ 1395 055a 58       		.byte	88
+ 1396 055b 04       		.byte	4
+ 1397 055c 59       		.byte	89
+ 1398 055d 04       		.byte	4
+ 1399 055e 5A       		.byte	90
+ 1400 055f 04       		.byte	4
+ 1401 0560 5B       		.byte	91
+ 1402 0561 04       		.byte	4
+ 1403 0562 5C       		.byte	92
+ 1404 0563 10       		.byte	16
+ 1405 0564 5D       		.byte	93
+ 1406 0565 94       		.byte	-108
+ 1407 0566 5F       		.byte	95
+ 1408 0567 01       		.byte	1
+ 1409 0568 66       		.byte	102
+ 1410 0569 40       		.byte	64
+ 1411 056a 67       		.byte	103
+ 1412 056b 02       		.byte	2
+ 1413 056c 69       		.byte	105
+ 1414 056d 10       		.byte	16
+ 1415 056e 6A       		.byte	106
+ 1416 056f 30       		.byte	48
+ 1417 0570 6B       		.byte	107
+ 1418 0571 10       		.byte	16
+ 1419 0572 6D       		.byte	109
+ 1420 0573 10       		.byte	16
+ 1421 0574 6E       		.byte	110
+ 1422 0575 10       		.byte	16
+ 1423 0576 6F       		.byte	111
+ 1424 0577 12       		.byte	18
+ 1425 0578 C0       		.byte	-64
+ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccDcP5We.s 			page 26
+
+
+ 1426 0579 03       		.byte	3
+ 1427 057a C7       		.byte	-57
+ 1428 057b 04       		.byte	4
+ 1429 057c C9       		.byte	-55
+ 1430 057d FF       		.byte	-1
+ 1431 057e CA       		.byte	-54
+ 1432 057f 07       		.byte	7
+ 1433 0580 CB       		.byte	-53
+ 1434 0581 FF       		.byte	-1
+ 1435 0582 CC       		.byte	-52
+ 1436 0583 40       		.byte	64
+ 1437 0584 CD       		.byte	-51
+ 1438 0585 20       		.byte	32
+ 1439 0586 CE       		.byte	-50
+ 1440 0587 F0       		.byte	-16
+ 1441 0588 CF       		.byte	-49
+ 1442 0589 05       		.byte	5
+ 1443 058a D0       		.byte	-48
+ 1444 058b 08       		.byte	8
+ 1445 058c D8       		.byte	-40
+ 1446 058d 04       		.byte	4
+ 1447 058e D9       		.byte	-39
+ 1448 058f 04       		.byte	4
+ 1449 0590 DA       		.byte	-38
+ 1450 0591 04       		.byte	4
+ 1451 0592 DC       		.byte	-36
+ 1452 0593 11       		.byte	17
+ 1453 0594 DD       		.byte	-35
+ 1454 0595 04       		.byte	4
+ 1455 0596 DF       		.byte	-33
+ 1456 0597 01       		.byte	1
+ 1457 0598 E0       		.byte	-32
+ 1458 0599 40       		.byte	64
+ 1459 059a E1       		.byte	-31
+ 1460 059b A8       		.byte	-88
+ 1461 059c E2       		.byte	-30
+ 1462 059d 40       		.byte	64
+ 1463 059e E3       		.byte	-29
+ 1464 059f 20       		.byte	32
+ 1465 05a0 02       		.byte	2
+ 1466 05a1 80       		.byte	-128
+ 1467 05a2 03       		.byte	3
+ 1468 05a3 08       		.byte	8
+ 1469 05a4 04       		.byte	4
+ 1470 05a5 24       		.byte	36
+ 1471 05a6 07       		.byte	7
+ 1472 05a7 02       		.byte	2
+ 1473 05a8 08       		.byte	8
+ 1474 05a9 C5       		.byte	-59
+ 1475 05aa 0A       		.byte	10
+ 1476 05ab 04       		.byte	4
+ 1477 05ac 0C       		.byte	12
+ 1478 05ad 10       		.byte	16
+ 1479 05ae 0E       		.byte	14
+ 1480 05af 02       		.byte	2
+ 1481 05b0 0F       		.byte	15
+ 1482 05b1 20       		.byte	32
+ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccDcP5We.s 			page 27
+
+
+ 1483 05b2 10       		.byte	16
+ 1484 05b3 80       		.byte	-128
+ 1485 05b4 12       		.byte	18
+ 1486 05b5 40       		.byte	64
+ 1487 05b6 15       		.byte	21
+ 1488 05b7 02       		.byte	2
+ 1489 05b8 16       		.byte	22
+ 1490 05b9 26       		.byte	38
+ 1491 05ba 1E       		.byte	30
+ 1492 05bb 12       		.byte	18
+ 1493 05bc 1F       		.byte	31
+ 1494 05bd 81       		.byte	-127
+ 1495 05be 28       		.byte	40
+ 1496 05bf 85       		.byte	-123
+ 1497 05c0 29       		.byte	41
+ 1498 05c1 08       		.byte	8
+ 1499 05c2 2A       		.byte	42
+ 1500 05c3 08       		.byte	8
+ 1501 05c4 2C       		.byte	44
+ 1502 05c5 80       		.byte	-128
+ 1503 05c6 2F       		.byte	47
+ 1504 05c7 08       		.byte	8
+ 1505 05c8 30       		.byte	48
+ 1506 05c9 80       		.byte	-128
+ 1507 05ca 31       		.byte	49
+ 1508 05cb 10       		.byte	16
+ 1509 05cc 32       		.byte	50
+ 1510 05cd 04       		.byte	4
+ 1511 05ce 33       		.byte	51
+ 1512 05cf 08       		.byte	8
+ 1513 05d0 34       		.byte	52
+ 1514 05d1 85       		.byte	-123
+ 1515 05d2 35       		.byte	53
+ 1516 05d3 10       		.byte	16
+ 1517 05d4 3D       		.byte	61
+ 1518 05d5 08       		.byte	8
+ 1519 05d6 3E       		.byte	62
+ 1520 05d7 0C       		.byte	12
+ 1521 05d8 41       		.byte	65
+ 1522 05d9 04       		.byte	4
+ 1523 05da 45       		.byte	69
+ 1524 05db 22       		.byte	34
+ 1525 05dc 47       		.byte	71
+ 1526 05dd 40       		.byte	64
+ 1527 05de 49       		.byte	73
+ 1528 05df 04       		.byte	4
+ 1529 05e0 4C       		.byte	76
+ 1530 05e1 05       		.byte	5
+ 1531 05e2 4D       		.byte	77
+ 1532 05e3 01       		.byte	1
+ 1533 05e4 51       		.byte	81
+ 1534 05e5 08       		.byte	8
+ 1535 05e6 55       		.byte	85
+ 1536 05e7 40       		.byte	64
+ 1537 05e8 5C       		.byte	92
+ 1538 05e9 40       		.byte	64
+ 1539 05ea 5E       		.byte	94
+ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccDcP5We.s 			page 28
+
+
+ 1540 05eb 20       		.byte	32
+ 1541 05ec 64       		.byte	100
+ 1542 05ed 02       		.byte	2
+ 1543 05ee 67       		.byte	103
+ 1544 05ef 0C       		.byte	12
+ 1545 05f0 6F       		.byte	111
+ 1546 05f1 03       		.byte	3
+ 1547 05f2 81       		.byte	-127
+ 1548 05f3 04       		.byte	4
+ 1549 05f4 88       		.byte	-120
+ 1550 05f5 04       		.byte	4
+ 1551 05f6 89       		.byte	-119
+ 1552 05f7 40       		.byte	64
+ 1553 05f8 8B       		.byte	-117
+ 1554 05f9 40       		.byte	64
+ 1555 05fa 90       		.byte	-112
+ 1556 05fb 4A       		.byte	74
+ 1557 05fc 91       		.byte	-111
+ 1558 05fd 08       		.byte	8
+ 1559 05fe 92       		.byte	-110
+ 1560 05ff 08       		.byte	8
+ 1561 0600 94       		.byte	-108
+ 1562 0601 01       		.byte	1
+ 1563 0602 95       		.byte	-107
+ 1564 0603 01       		.byte	1
+ 1565 0604 97       		.byte	-105
+ 1566 0605 8C       		.byte	-116
+ 1567 0606 98       		.byte	-104
+ 1568 0607 81       		.byte	-127
+ 1569 0608 9B       		.byte	-101
+ 1570 0609 40       		.byte	64
+ 1571 060a 9C       		.byte	-100
+ 1572 060b 02       		.byte	2
+ 1573 060c 9D       		.byte	-99
+ 1574 060d 44       		.byte	68
+ 1575 060e 9E       		.byte	-98
+ 1576 060f 40       		.byte	64
+ 1577 0610 9F       		.byte	-97
+ 1578 0611 01       		.byte	1
+ 1579 0612 A0       		.byte	-96
+ 1580 0613 04       		.byte	4
+ 1581 0614 A1       		.byte	-95
+ 1582 0615 26       		.byte	38
+ 1583 0616 A3       		.byte	-93
+ 1584 0617 40       		.byte	64
+ 1585 0618 A4       		.byte	-92
+ 1586 0619 10       		.byte	16
+ 1587 061a A5       		.byte	-91
+ 1588 061b 48       		.byte	72
+ 1589 061c A7       		.byte	-89
+ 1590 061d 02       		.byte	2
+ 1591 061e AD       		.byte	-83
+ 1592 061f 40       		.byte	64
+ 1593 0620 C0       		.byte	-64
+ 1594 0621 EA       		.byte	-22
+ 1595 0622 C2       		.byte	-62
+ 1596 0623 EF       		.byte	-17
+ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccDcP5We.s 			page 29
+
+
+ 1597 0624 C4       		.byte	-60
+ 1598 0625 F8       		.byte	-8
+ 1599 0626 CA       		.byte	-54
+ 1600 0627 AF       		.byte	-81
+ 1601 0628 CC       		.byte	-52
+ 1602 0629 FE       		.byte	-2
+ 1603 062a CE       		.byte	-50
+ 1604 062b 40       		.byte	64
+ 1605 062c D0       		.byte	-48
+ 1606 062d B2       		.byte	-78
+ 1607 062e D2       		.byte	-46
+ 1608 062f 30       		.byte	48
+ 1609 0630 D6       		.byte	-42
+ 1610 0631 30       		.byte	48
+ 1611 0632 D8       		.byte	-40
+ 1612 0633 30       		.byte	48
+ 1613 0634 E0       		.byte	-32
+ 1614 0635 80       		.byte	-128
+ 1615 0636 E4       		.byte	-28
+ 1616 0637 80       		.byte	-128
+ 1617 0638 E8       		.byte	-24
+ 1618 0639 08       		.byte	8
+ 1619 063a EE       		.byte	-18
+ 1620 063b 04       		.byte	4
+ 1621 063c 01       		.byte	1
+ 1622 063d 33       		.byte	51
+ 1623 063e 03       		.byte	3
+ 1624 063f 0C       		.byte	12
+ 1625 0640 0A       		.byte	10
+ 1626 0641 1C       		.byte	28
+ 1627 0642 0C       		.byte	12
+ 1628 0643 A1       		.byte	-95
+ 1629 0644 0D       		.byte	13
+ 1630 0645 03       		.byte	3
+ 1631 0646 0E       		.byte	14
+ 1632 0647 16       		.byte	22
+ 1633 0648 0F       		.byte	15
+ 1634 0649 04       		.byte	4
+ 1635 064a 12       		.byte	18
+ 1636 064b 80       		.byte	-128
+ 1637 064c 16       		.byte	22
+ 1638 064d 08       		.byte	8
+ 1639 064e 17       		.byte	23
+ 1640 064f 15       		.byte	21
+ 1641 0650 18       		.byte	24
+ 1642 0651 1C       		.byte	28
+ 1643 0652 19       		.byte	25
+ 1644 0653 2A       		.byte	42
+ 1645 0654 1A       		.byte	26
+ 1646 0655 A3       		.byte	-93
+ 1647 0656 1B       		.byte	27
+ 1648 0657 04       		.byte	4
+ 1649 0658 1C       		.byte	28
+ 1650 0659 A1       		.byte	-95
+ 1651 065a 1E       		.byte	30
+ 1652 065b 0E       		.byte	14
+ 1653 065c 21       		.byte	33
+ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccDcP5We.s 			page 30
+
+
+ 1654 065d 33       		.byte	51
+ 1655 065e 23       		.byte	35
+ 1656 065f 04       		.byte	4
+ 1657 0660 28       		.byte	40
+ 1658 0661 40       		.byte	64
+ 1659 0662 2A       		.byte	42
+ 1660 0663 83       		.byte	-125
+ 1661 0664 2B       		.byte	43
+ 1662 0665 08       		.byte	8
+ 1663 0666 2D       		.byte	45
+ 1664 0667 40       		.byte	64
+ 1665 0668 30       		.byte	48
+ 1666 0669 1A       		.byte	26
+ 1667 066a 31       		.byte	49
+ 1668 066b 0F       		.byte	15
+ 1669 066c 32       		.byte	50
+ 1670 066d 60       		.byte	96
+ 1671 066e 33       		.byte	51
+ 1672 066f 30       		.byte	48
+ 1673 0670 34       		.byte	52
+ 1674 0671 0F       		.byte	15
+ 1675 0672 35       		.byte	53
+ 1676 0673 40       		.byte	64
+ 1677 0674 36       		.byte	54
+ 1678 0675 80       		.byte	-128
+ 1679 0676 38       		.byte	56
+ 1680 0677 08       		.byte	8
+ 1681 0678 39       		.byte	57
+ 1682 0679 08       		.byte	8
+ 1683 067a 3A       		.byte	58
+ 1684 067b 22       		.byte	34
+ 1685 067c 3B       		.byte	59
+ 1686 067d 02       		.byte	2
+ 1687 067e 3E       		.byte	62
+ 1688 067f 40       		.byte	64
+ 1689 0680 3F       		.byte	63
+ 1690 0681 14       		.byte	20
+ 1691 0682 58       		.byte	88
+ 1692 0683 04       		.byte	4
+ 1693 0684 59       		.byte	89
+ 1694 0685 04       		.byte	4
+ 1695 0686 5C       		.byte	92
+ 1696 0687 44       		.byte	68
+ 1697 0688 5F       		.byte	95
+ 1698 0689 01       		.byte	1
+ 1699 068a 81       		.byte	-127
+ 1700 068b 10       		.byte	16
+ 1701 068c 83       		.byte	-125
+ 1702 068d 0C       		.byte	12
+ 1703 068e 85       		.byte	-123
+ 1704 068f 1C       		.byte	28
+ 1705 0690 87       		.byte	-121
+ 1706 0691 02       		.byte	2
+ 1707 0692 88       		.byte	-120
+ 1708 0693 F3       		.byte	-13
+ 1709 0694 89       		.byte	-119
+ 1710 0695 14       		.byte	20
+ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccDcP5We.s 			page 31
+
+
+ 1711 0696 8A       		.byte	-118
+ 1712 0697 04       		.byte	4
+ 1713 0698 8C       		.byte	-116
+ 1714 0699 51       		.byte	81
+ 1715 069a 8D       		.byte	-115
+ 1716 069b 0C       		.byte	12
+ 1717 069c 8E       		.byte	-114
+ 1718 069d A2       		.byte	-94
+ 1719 069e 8F       		.byte	-113
+ 1720 069f 11       		.byte	17
+ 1721 06a0 93       		.byte	-109
+ 1722 06a1 40       		.byte	64
+ 1723 06a2 94       		.byte	-108
+ 1724 06a3 30       		.byte	48
+ 1725 06a4 95       		.byte	-107
+ 1726 06a5 10       		.byte	16
+ 1727 06a6 96       		.byte	-106
+ 1728 06a7 C3       		.byte	-61
+ 1729 06a8 98       		.byte	-104
+ 1730 06a9 80       		.byte	-128
+ 1731 06aa 9A       		.byte	-102
+ 1732 06ab 22       		.byte	34
+ 1733 06ac 9B       		.byte	-101
+ 1734 06ad C0       		.byte	-64
+ 1735 06ae 9E       		.byte	-98
+ 1736 06af 0C       		.byte	12
+ 1737 06b0 9F       		.byte	-97
+ 1738 06b1 03       		.byte	3
+ 1739 06b2 A3       		.byte	-93
+ 1740 06b3 20       		.byte	32
+ 1741 06b4 A4       		.byte	-92
+ 1742 06b5 F3       		.byte	-13
+ 1743 06b6 A5       		.byte	-91
+ 1744 06b7 09       		.byte	9
+ 1745 06b8 A6       		.byte	-90
+ 1746 06b9 08       		.byte	8
+ 1747 06ba A7       		.byte	-89
+ 1748 06bb 10       		.byte	16
+ 1749 06bc AB       		.byte	-85
+ 1750 06bd 80       		.byte	-128
+ 1751 06be AC       		.byte	-84
+ 1752 06bf 40       		.byte	64
+ 1753 06c0 AD       		.byte	-83
+ 1754 06c1 40       		.byte	64
+ 1755 06c2 AE       		.byte	-82
+ 1756 06c3 11       		.byte	17
+ 1757 06c4 AF       		.byte	-81
+ 1758 06c5 80       		.byte	-128
+ 1759 06c6 B1       		.byte	-79
+ 1760 06c7 E0       		.byte	-32
+ 1761 06c8 B2       		.byte	-78
+ 1762 06c9 F0       		.byte	-16
+ 1763 06ca B6       		.byte	-74
+ 1764 06cb 0F       		.byte	15
+ 1765 06cc B7       		.byte	-73
+ 1766 06cd 1F       		.byte	31
+ 1767 06ce BA       		.byte	-70
+ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccDcP5We.s 			page 32
+
+
+ 1768 06cf A0       		.byte	-96
+ 1769 06d0 BF       		.byte	-65
+ 1770 06d1 01       		.byte	1
+ 1771 06d2 D4       		.byte	-44
+ 1772 06d3 0F       		.byte	15
+ 1773 06d4 D8       		.byte	-40
+ 1774 06d5 04       		.byte	4
+ 1775 06d6 D9       		.byte	-39
+ 1776 06d7 04       		.byte	4
+ 1777 06d8 DB       		.byte	-37
+ 1778 06d9 04       		.byte	4
+ 1779 06da DC       		.byte	-36
+ 1780 06db 44       		.byte	68
+ 1781 06dc DF       		.byte	-33
+ 1782 06dd 01       		.byte	1
+ 1783 06de 00       		.byte	0
+ 1784 06df 80       		.byte	-128
+ 1785 06e0 03       		.byte	3
+ 1786 06e1 08       		.byte	8
+ 1787 06e2 05       		.byte	5
+ 1788 06e3 20       		.byte	32
+ 1789 06e4 07       		.byte	7
+ 1790 06e5 01       		.byte	1
+ 1791 06e6 08       		.byte	8
+ 1792 06e7 44       		.byte	68
+ 1793 06e8 09       		.byte	9
+ 1794 06e9 08       		.byte	8
+ 1795 06ea 0A       		.byte	10
+ 1796 06eb 04       		.byte	4
+ 1797 06ec 0B       		.byte	11
+ 1798 06ed 80       		.byte	-128
+ 1799 06ee 0E       		.byte	14
+ 1800 06ef 22       		.byte	34
+ 1801 06f0 0F       		.byte	15
+ 1802 06f1 04       		.byte	4
+ 1803 06f2 12       		.byte	18
+ 1804 06f3 08       		.byte	8
+ 1805 06f4 14       		.byte	20
+ 1806 06f5 02       		.byte	2
+ 1807 06f6 17       		.byte	23
+ 1808 06f7 04       		.byte	4
+ 1809 06f8 19       		.byte	25
+ 1810 06f9 19       		.byte	25
+ 1811 06fa 1A       		.byte	26
+ 1812 06fb 44       		.byte	68
+ 1813 06fc 1B       		.byte	27
+ 1814 06fd 48       		.byte	72
+ 1815 06fe 1D       		.byte	29
+ 1816 06ff 20       		.byte	32
+ 1817 0700 1E       		.byte	30
+ 1818 0701 22       		.byte	34
+ 1819 0702 1F       		.byte	31
+ 1820 0703 A0       		.byte	-96
+ 1821 0704 20       		.byte	32
+ 1822 0705 88       		.byte	-120
+ 1823 0706 21       		.byte	33
+ 1824 0707 05       		.byte	5
+ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccDcP5We.s 			page 33
+
+
+ 1825 0708 26       		.byte	38
+ 1826 0709 80       		.byte	-128
+ 1827 070a 27       		.byte	39
+ 1828 070b 40       		.byte	64
+ 1829 070c 28       		.byte	40
+ 1830 070d 40       		.byte	64
+ 1831 070e 29       		.byte	41
+ 1832 070f 41       		.byte	65
+ 1833 0710 2B       		.byte	43
+ 1834 0711 08       		.byte	8
+ 1835 0712 2D       		.byte	45
+ 1836 0713 08       		.byte	8
+ 1837 0714 2F       		.byte	47
+ 1838 0715 86       		.byte	-122
+ 1839 0716 31       		.byte	49
+ 1840 0717 14       		.byte	20
+ 1841 0718 32       		.byte	50
+ 1842 0719 08       		.byte	8
+ 1843 071a 34       		.byte	52
+ 1844 071b 06       		.byte	6
+ 1845 071c 36       		.byte	54
+ 1846 071d 90       		.byte	-112
+ 1847 071e 39       		.byte	57
+ 1848 071f 02       		.byte	2
+ 1849 0720 3A       		.byte	58
+ 1850 0721 02       		.byte	2
+ 1851 0722 3B       		.byte	59
+ 1852 0723 80       		.byte	-128
+ 1853 0724 3C       		.byte	60
+ 1854 0725 20       		.byte	32
+ 1855 0726 3E       		.byte	62
+ 1856 0727 46       		.byte	70
+ 1857 0728 5D       		.byte	93
+ 1858 0729 14       		.byte	20
+ 1859 072a 5F       		.byte	95
+ 1860 072b 41       		.byte	65
+ 1861 072c 83       		.byte	-125
+ 1862 072d 01       		.byte	1
+ 1863 072e 85       		.byte	-123
+ 1864 072f 01       		.byte	1
+ 1865 0730 88       		.byte	-120
+ 1866 0731 01       		.byte	1
+ 1867 0732 8A       		.byte	-118
+ 1868 0733 04       		.byte	4
+ 1869 0734 8D       		.byte	-115
+ 1870 0735 03       		.byte	3
+ 1871 0736 8F       		.byte	-113
+ 1872 0737 20       		.byte	32
+ 1873 0738 90       		.byte	-112
+ 1874 0739 4A       		.byte	74
+ 1875 073a 91       		.byte	-111
+ 1876 073b 14       		.byte	20
+ 1877 073c 93       		.byte	-109
+ 1878 073d 40       		.byte	64
+ 1879 073e 94       		.byte	-108
+ 1880 073f 01       		.byte	1
+ 1881 0740 95       		.byte	-107
+ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccDcP5We.s 			page 34
+
+
+ 1882 0741 01       		.byte	1
+ 1883 0742 96       		.byte	-106
+ 1884 0743 08       		.byte	8
+ 1885 0744 97       		.byte	-105
+ 1886 0745 0C       		.byte	12
+ 1887 0746 98       		.byte	-104
+ 1888 0747 80       		.byte	-128
+ 1889 0748 99       		.byte	-103
+ 1890 0749 20       		.byte	32
+ 1891 074a 9B       		.byte	-101
+ 1892 074b 04       		.byte	4
+ 1893 074c 9C       		.byte	-100
+ 1894 074d 03       		.byte	3
+ 1895 074e 9D       		.byte	-99
+ 1896 074f 02       		.byte	2
+ 1897 0750 9E       		.byte	-98
+ 1898 0751 40       		.byte	64
+ 1899 0752 9F       		.byte	-97
+ 1900 0753 41       		.byte	65
+ 1901 0754 A1       		.byte	-95
+ 1902 0755 06       		.byte	6
+ 1903 0756 A6       		.byte	-90
+ 1904 0757 80       		.byte	-128
+ 1905 0758 A7       		.byte	-89
+ 1906 0759 22       		.byte	34
+ 1907 075a A8       		.byte	-88
+ 1908 075b 01       		.byte	1
+ 1909 075c A9       		.byte	-87
+ 1910 075d 01       		.byte	1
+ 1911 075e AC       		.byte	-84
+ 1912 075f 10       		.byte	16
+ 1913 0760 AD       		.byte	-83
+ 1914 0761 01       		.byte	1
+ 1915 0762 AF       		.byte	-81
+ 1916 0763 10       		.byte	16
+ 1917 0764 B0       		.byte	-80
+ 1918 0765 40       		.byte	64
+ 1919 0766 B1       		.byte	-79
+ 1920 0767 40       		.byte	64
+ 1921 0768 B2       		.byte	-78
+ 1922 0769 10       		.byte	16
+ 1923 076a B4       		.byte	-76
+ 1924 076b 40       		.byte	64
+ 1925 076c B6       		.byte	-74
+ 1926 076d 38       		.byte	56
+ 1927 076e C0       		.byte	-64
+ 1928 076f C3       		.byte	-61
+ 1929 0770 C2       		.byte	-62
+ 1930 0771 EF       		.byte	-17
+ 1931 0772 C4       		.byte	-60
+ 1932 0773 A2       		.byte	-94
+ 1933 0774 CA       		.byte	-54
+ 1934 0775 FD       		.byte	-3
+ 1935 0776 CC       		.byte	-52
+ 1936 0777 F6       		.byte	-10
+ 1937 0778 CE       		.byte	-50
+ 1938 0779 F9       		.byte	-7
+ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccDcP5We.s 			page 35
+
+
+ 1939 077a D6       		.byte	-42
+ 1940 077b F0       		.byte	-16
+ 1941 077c E0       		.byte	-32
+ 1942 077d 80       		.byte	-128
+ 1943 077e E2       		.byte	-30
+ 1944 077f 40       		.byte	64
+ 1945 0780 E4       		.byte	-28
+ 1946 0781 20       		.byte	32
+ 1947 0782 E6       		.byte	-26
+ 1948 0783 40       		.byte	64
+ 1949 0784 E8       		.byte	-24
+ 1950 0785 90       		.byte	-112
+ 1951 0786 EC       		.byte	-20
+ 1952 0787 10       		.byte	16
+ 1953 0788 EE       		.byte	-18
+ 1954 0789 40       		.byte	64
+ 1955 078a 00       		.byte	0
+ 1956 078b FF       		.byte	-1
+ 1957 078c 01       		.byte	1
+ 1958 078d 06       		.byte	6
+ 1959 078e 03       		.byte	3
+ 1960 078f 31       		.byte	49
+ 1961 0790 05       		.byte	5
+ 1962 0791 02       		.byte	2
+ 1963 0792 06       		.byte	6
+ 1964 0793 C3       		.byte	-61
+ 1965 0794 09       		.byte	9
+ 1966 0795 06       		.byte	6
+ 1967 0796 0A       		.byte	10
+ 1968 0797 0C       		.byte	12
+ 1969 0798 0C       		.byte	12
+ 1970 0799 CF       		.byte	-49
+ 1971 079a 0E       		.byte	14
+ 1972 079b 30       		.byte	48
+ 1973 079c 0F       		.byte	15
+ 1974 079d 11       		.byte	17
+ 1975 079e 10       		.byte	16
+ 1976 079f 7C       		.byte	124
+ 1977 07a0 11       		.byte	17
+ 1978 07a1 31       		.byte	49
+ 1979 07a2 12       		.byte	18
+ 1980 07a3 82       		.byte	-126
+ 1981 07a4 13       		.byte	19
+ 1982 07a5 06       		.byte	6
+ 1983 07a6 14       		.byte	20
+ 1984 07a7 3C       		.byte	60
+ 1985 07a8 15       		.byte	21
+ 1986 07a9 08       		.byte	8
+ 1987 07aa 16       		.byte	22
+ 1988 07ab C1       		.byte	-63
+ 1989 07ac 18       		.byte	24
+ 1990 07ad 08       		.byte	8
+ 1991 07ae 19       		.byte	25
+ 1992 07af 08       		.byte	8
+ 1993 07b0 1C       		.byte	28
+ 1994 07b1 20       		.byte	32
+ 1995 07b2 1D       		.byte	29
+ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccDcP5We.s 			page 36
+
+
+ 1996 07b3 11       		.byte	17
+ 1997 07b4 20       		.byte	32
+ 1998 07b5 04       		.byte	4
+ 1999 07b6 21       		.byte	33
+ 2000 07b7 04       		.byte	4
+ 2001 07b8 22       		.byte	34
+ 2002 07b9 08       		.byte	8
+ 2003 07ba 24       		.byte	36
+ 2004 07bb 10       		.byte	16
+ 2005 07bc 25       		.byte	37
+ 2006 07bd 37       		.byte	55
+ 2007 07be 28       		.byte	40
+ 2008 07bf 30       		.byte	48
+ 2009 07c0 29       		.byte	41
+ 2010 07c1 07       		.byte	7
+ 2011 07c2 2B       		.byte	43
+ 2012 07c3 30       		.byte	48
+ 2013 07c4 2C       		.byte	44
+ 2014 07c5 04       		.byte	4
+ 2015 07c6 2D       		.byte	45
+ 2016 07c7 08       		.byte	8
+ 2017 07c8 30       		.byte	48
+ 2018 07c9 70       		.byte	112
+ 2019 07ca 31       		.byte	49
+ 2020 07cb 10       		.byte	16
+ 2021 07cc 32       		.byte	50
+ 2022 07cd B0       		.byte	-80
+ 2023 07ce 33       		.byte	51
+ 2024 07cf 20       		.byte	32
+ 2025 07d0 34       		.byte	52
+ 2026 07d1 3F       		.byte	63
+ 2027 07d2 35       		.byte	53
+ 2028 07d3 08       		.byte	8
+ 2029 07d4 37       		.byte	55
+ 2030 07d5 07       		.byte	7
+ 2031 07d6 39       		.byte	57
+ 2032 07d7 08       		.byte	8
+ 2033 07d8 3A       		.byte	58
+ 2034 07d9 28       		.byte	40
+ 2035 07da 3B       		.byte	59
+ 2036 07db 80       		.byte	-128
+ 2037 07dc 56       		.byte	86
+ 2038 07dd 02       		.byte	2
+ 2039 07de 57       		.byte	87
+ 2040 07df 13       		.byte	19
+ 2041 07e0 58       		.byte	88
+ 2042 07e1 04       		.byte	4
+ 2043 07e2 59       		.byte	89
+ 2044 07e3 04       		.byte	4
+ 2045 07e4 5B       		.byte	91
+ 2046 07e5 04       		.byte	4
+ 2047 07e6 5C       		.byte	92
+ 2048 07e7 44       		.byte	68
+ 2049 07e8 5D       		.byte	93
+ 2050 07e9 40       		.byte	64
+ 2051 07ea 5F       		.byte	95
+ 2052 07eb 01       		.byte	1
+ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccDcP5We.s 			page 37
+
+
+ 2053 07ec D8       		.byte	-40
+ 2054 07ed 04       		.byte	4
+ 2055 07ee D9       		.byte	-39
+ 2056 07ef 04       		.byte	4
+ 2057 07f0 DC       		.byte	-36
+ 2058 07f1 11       		.byte	17
+ 2059 07f2 DF       		.byte	-33
+ 2060 07f3 01       		.byte	1
+ 2061 07f4 02       		.byte	2
+ 2062 07f5 60       		.byte	96
+ 2063 07f6 04       		.byte	4
+ 2064 07f7 28       		.byte	40
+ 2065 07f8 05       		.byte	5
+ 2066 07f9 02       		.byte	2
+ 2067 07fa 06       		.byte	6
+ 2068 07fb 10       		.byte	16
+ 2069 07fc 07       		.byte	7
+ 2070 07fd 02       		.byte	2
+ 2071 07fe 08       		.byte	8
+ 2072 07ff 89       		.byte	-119
+ 2073 0800 09       		.byte	9
+ 2074 0801 04       		.byte	4
+ 2075 0802 0A       		.byte	10
+ 2076 0803 08       		.byte	8
+ 2077 0804 0C       		.byte	12
+ 2078 0805 84       		.byte	-124
+ 2079 0806 0D       		.byte	13
+ 2080 0807 01       		.byte	1
+ 2081 0808 0F       		.byte	15
+ 2082 0809 04       		.byte	4
+ 2083 080a 10       		.byte	16
+ 2084 080b 40       		.byte	64
+ 2085 080c 14       		.byte	20
+ 2086 080d 02       		.byte	2
+ 2087 080e 17       		.byte	23
+ 2088 080f 19       		.byte	25
+ 2089 0810 1C       		.byte	28
+ 2090 0811 20       		.byte	32
+ 2091 0812 1D       		.byte	29
+ 2092 0813 02       		.byte	2
+ 2093 0814 1F       		.byte	31
+ 2094 0815 18       		.byte	24
+ 2095 0816 24       		.byte	36
+ 2096 0817 0A       		.byte	10
+ 2097 0818 25       		.byte	37
+ 2098 0819 01       		.byte	1
+ 2099 081a 26       		.byte	38
+ 2100 081b 08       		.byte	8
+ 2101 081c 27       		.byte	39
+ 2102 081d 02       		.byte	2
+ 2103 081e 28       		.byte	40
+ 2104 081f 89       		.byte	-119
+ 2105 0820 2B       		.byte	43
+ 2106 0821 40       		.byte	64
+ 2107 0822 2C       		.byte	44
+ 2108 0823 84       		.byte	-124
+ 2109 0824 2E       		.byte	46
+ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccDcP5We.s 			page 38
+
+
+ 2110 0825 40       		.byte	64
+ 2111 0826 2F       		.byte	47
+ 2112 0827 28       		.byte	40
+ 2113 0828 30       		.byte	48
+ 2114 0829 40       		.byte	64
+ 2115 082a 32       		.byte	50
+ 2116 082b 24       		.byte	36
+ 2117 082c 35       		.byte	53
+ 2118 082d 10       		.byte	16
+ 2119 082e 37       		.byte	55
+ 2120 082f 46       		.byte	70
+ 2121 0830 39       		.byte	57
+ 2122 0831 06       		.byte	6
+ 2123 0832 3A       		.byte	58
+ 2124 0833 46       		.byte	70
+ 2125 0834 3D       		.byte	61
+ 2126 0835 80       		.byte	-128
+ 2127 0836 3E       		.byte	62
+ 2128 0837 2A       		.byte	42
+ 2129 0838 49       		.byte	73
+ 2130 0839 30       		.byte	48
+ 2131 083a 4A       		.byte	74
+ 2132 083b 04       		.byte	4
+ 2133 083c 5E       		.byte	94
+ 2134 083d 01       		.byte	1
+ 2135 083e 6E       		.byte	110
+ 2136 083f 48       		.byte	72
+ 2137 0840 6F       		.byte	111
+ 2138 0841 04       		.byte	4
+ 2139 0842 74       		.byte	116
+ 2140 0843 80       		.byte	-128
+ 2141 0844 76       		.byte	118
+ 2142 0845 28       		.byte	40
+ 2143 0846 77       		.byte	119
+ 2144 0847 18       		.byte	24
+ 2145 0848 82       		.byte	-126
+ 2146 0849 80       		.byte	-128
+ 2147 084a 85       		.byte	-123
+ 2148 084b 01       		.byte	1
+ 2149 084c 89       		.byte	-119
+ 2150 084d 02       		.byte	2
+ 2151 084e 8A       		.byte	-118
+ 2152 084f 01       		.byte	1
+ 2153 0850 8E       		.byte	-114
+ 2154 0851 04       		.byte	4
+ 2155 0852 8F       		.byte	-113
+ 2156 0853 40       		.byte	64
+ 2157 0854 90       		.byte	-112
+ 2158 0855 20       		.byte	32
+ 2159 0856 91       		.byte	-111
+ 2160 0857 10       		.byte	16
+ 2161 0858 93       		.byte	-109
+ 2162 0859 40       		.byte	64
+ 2163 085a 94       		.byte	-108
+ 2164 085b 01       		.byte	1
+ 2165 085c 95       		.byte	-107
+ 2166 085d 04       		.byte	4
+ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccDcP5We.s 			page 39
+
+
+ 2167 085e 96       		.byte	-106
+ 2168 085f 10       		.byte	16
+ 2169 0860 97       		.byte	-105
+ 2170 0861 08       		.byte	8
+ 2171 0862 9C       		.byte	-100
+ 2172 0863 02       		.byte	2
+ 2173 0864 9E       		.byte	-98
+ 2174 0865 04       		.byte	4
+ 2175 0866 A1       		.byte	-95
+ 2176 0867 04       		.byte	4
+ 2177 0868 A7       		.byte	-89
+ 2178 0869 02       		.byte	2
+ 2179 086a C0       		.byte	-64
+ 2180 086b FC       		.byte	-4
+ 2181 086c C2       		.byte	-62
+ 2182 086d FF       		.byte	-1
+ 2183 086e C4       		.byte	-60
+ 2184 086f F8       		.byte	-8
+ 2185 0870 CA       		.byte	-54
+ 2186 0871 FD       		.byte	-3
+ 2187 0872 CC       		.byte	-52
+ 2188 0873 FE       		.byte	-2
+ 2189 0874 CE       		.byte	-50
+ 2190 0875 F8       		.byte	-8
+ 2191 0876 D6       		.byte	-42
+ 2192 0877 80       		.byte	-128
+ 2193 0878 E2       		.byte	-30
+ 2194 0879 13       		.byte	19
+ 2195 087a E4       		.byte	-28
+ 2196 087b D1       		.byte	-47
+ 2197 087c E6       		.byte	-26
+ 2198 087d 20       		.byte	32
+ 2199 087e 08       		.byte	8
+ 2200 087f 02       		.byte	2
+ 2201 0880 0B       		.byte	11
+ 2202 0881 03       		.byte	3
+ 2203 0882 11       		.byte	17
+ 2204 0883 02       		.byte	2
+ 2205 0884 12       		.byte	18
+ 2206 0885 02       		.byte	2
+ 2207 0886 16       		.byte	22
+ 2208 0887 06       		.byte	6
+ 2209 0888 22       		.byte	34
+ 2210 0889 01       		.byte	1
+ 2211 088a 30       		.byte	48
+ 2212 088b 01       		.byte	1
+ 2213 088c 31       		.byte	49
+ 2214 088d 01       		.byte	1
+ 2215 088e 32       		.byte	50
+ 2216 088f 04       		.byte	4
+ 2217 0890 34       		.byte	52
+ 2218 0891 02       		.byte	2
+ 2219 0892 37       		.byte	55
+ 2220 0893 02       		.byte	2
+ 2221 0894 3E       		.byte	62
+ 2222 0895 10       		.byte	16
+ 2223 0896 3F       		.byte	63
+ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccDcP5We.s 			page 40
+
+
+ 2224 0897 40       		.byte	64
+ 2225 0898 40       		.byte	64
+ 2226 0899 23       		.byte	35
+ 2227 089a 41       		.byte	65
+ 2228 089b 01       		.byte	1
+ 2229 089c 49       		.byte	73
+ 2230 089d FF       		.byte	-1
+ 2231 089e 4A       		.byte	74
+ 2232 089f FF       		.byte	-1
+ 2233 08a0 4B       		.byte	75
+ 2234 08a1 FF       		.byte	-1
+ 2235 08a2 4D       		.byte	77
+ 2236 08a3 A0       		.byte	-96
+ 2237 08a4 4F       		.byte	79
+ 2238 08a5 01       		.byte	1
+ 2239 08a6 50       		.byte	80
+ 2240 08a7 18       		.byte	24
+ 2241 08a8 52       		.byte	82
+ 2242 08a9 80       		.byte	-128
+ 2243 08aa 58       		.byte	88
+ 2244 08ab 04       		.byte	4
+ 2245 08ac 59       		.byte	89
+ 2246 08ad 04       		.byte	4
+ 2247 08ae 5A       		.byte	90
+ 2248 08af 04       		.byte	4
+ 2249 08b0 5B       		.byte	91
+ 2250 08b1 04       		.byte	4
+ 2251 08b2 5F       		.byte	95
+ 2252 08b3 01       		.byte	1
+ 2253 08b4 60       		.byte	96
+ 2254 08b5 40       		.byte	64
+ 2255 08b6 62       		.byte	98
+ 2256 08b7 80       		.byte	-128
+ 2257 08b8 64       		.byte	100
+ 2258 08b9 40       		.byte	64
+ 2259 08ba 65       		.byte	101
+ 2260 08bb 40       		.byte	64
+ 2261 08bc 66       		.byte	102
+ 2262 08bd 80       		.byte	-128
+ 2263 08be 68       		.byte	104
+ 2264 08bf 40       		.byte	64
+ 2265 08c0 6A       		.byte	106
+ 2266 08c1 80       		.byte	-128
+ 2267 08c2 6C       		.byte	108
+ 2268 08c3 40       		.byte	64
+ 2269 08c4 6D       		.byte	109
+ 2270 08c5 20       		.byte	32
+ 2271 08c6 6E       		.byte	110
+ 2272 08c7 80       		.byte	-128
+ 2273 08c8 81       		.byte	-127
+ 2274 08c9 1C       		.byte	28
+ 2275 08ca 8C       		.byte	-116
+ 2276 08cb 01       		.byte	1
+ 2277 08cc 8F       		.byte	-113
+ 2278 08cd 04       		.byte	4
+ 2279 08ce 93       		.byte	-109
+ 2280 08cf 01       		.byte	1
+ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccDcP5We.s 			page 41
+
+
+ 2281 08d0 9D       		.byte	-99
+ 2282 08d1 10       		.byte	16
+ 2283 08d2 9F       		.byte	-97
+ 2284 08d3 08       		.byte	8
+ 2285 08d4 A3       		.byte	-93
+ 2286 08d5 18       		.byte	24
+ 2287 08d6 A4       		.byte	-92
+ 2288 08d7 0A       		.byte	10
+ 2289 08d8 A8       		.byte	-88
+ 2290 08d9 08       		.byte	8
+ 2291 08da AB       		.byte	-85
+ 2292 08db 02       		.byte	2
+ 2293 08dc AC       		.byte	-84
+ 2294 08dd 0A       		.byte	10
+ 2295 08de AD       		.byte	-83
+ 2296 08df 01       		.byte	1
+ 2297 08e0 AE       		.byte	-82
+ 2298 08e1 05       		.byte	5
+ 2299 08e2 AF       		.byte	-81
+ 2300 08e3 02       		.byte	2
+ 2301 08e4 B0       		.byte	-80
+ 2302 08e5 04       		.byte	4
+ 2303 08e6 B1       		.byte	-79
+ 2304 08e7 08       		.byte	8
+ 2305 08e8 B2       		.byte	-78
+ 2306 08e9 08       		.byte	8
+ 2307 08ea B3       		.byte	-77
+ 2308 08eb 03       		.byte	3
+ 2309 08ec B4       		.byte	-76
+ 2310 08ed 01       		.byte	1
+ 2311 08ee B5       		.byte	-75
+ 2312 08ef 10       		.byte	16
+ 2313 08f0 B6       		.byte	-74
+ 2314 08f1 02       		.byte	2
+ 2315 08f2 B7       		.byte	-73
+ 2316 08f3 04       		.byte	4
+ 2317 08f4 B8       		.byte	-72
+ 2318 08f5 88       		.byte	-120
+ 2319 08f6 BE       		.byte	-66
+ 2320 08f7 14       		.byte	20
+ 2321 08f8 BF       		.byte	-65
+ 2322 08f9 51       		.byte	81
+ 2323 08fa C0       		.byte	-64
+ 2324 08fb 62       		.byte	98
+ 2325 08fc C1       		.byte	-63
+ 2326 08fd 01       		.byte	1
+ 2327 08fe C5       		.byte	-59
+ 2328 08ff 4C       		.byte	76
+ 2329 0900 C6       		.byte	-58
+ 2330 0901 24       		.byte	36
+ 2331 0902 C7       		.byte	-57
+ 2332 0903 3E       		.byte	62
+ 2333 0904 C8       		.byte	-56
+ 2334 0905 3F       		.byte	63
+ 2335 0906 C9       		.byte	-55
+ 2336 0907 FF       		.byte	-1
+ 2337 0908 CA       		.byte	-54
+ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccDcP5We.s 			page 42
+
+
+ 2338 0909 FF       		.byte	-1
+ 2339 090a CB       		.byte	-53
+ 2340 090b FF       		.byte	-1
+ 2341 090c CD       		.byte	-51
+ 2342 090d AF       		.byte	-81
+ 2343 090e CE       		.byte	-50
+ 2344 090f 07       		.byte	7
+ 2345 0910 CF       		.byte	-49
+ 2346 0911 01       		.byte	1
+ 2347 0912 D0       		.byte	-48
+ 2348 0913 18       		.byte	24
+ 2349 0914 D4       		.byte	-44
+ 2350 0915 0F       		.byte	15
+ 2351 0916 D8       		.byte	-40
+ 2352 0917 04       		.byte	4
+ 2353 0918 D9       		.byte	-39
+ 2354 0919 04       		.byte	4
+ 2355 091a DA       		.byte	-38
+ 2356 091b 04       		.byte	4
+ 2357 091c DB       		.byte	-37
+ 2358 091d 04       		.byte	4
+ 2359 091e DC       		.byte	-36
+ 2360 091f 40       		.byte	64
+ 2361 0920 DF       		.byte	-33
+ 2362 0921 05       		.byte	5
+ 2363 0922 E0       		.byte	-32
+ 2364 0923 40       		.byte	64
+ 2365 0924 E2       		.byte	-30
+ 2366 0925 80       		.byte	-128
+ 2367 0926 E4       		.byte	-28
+ 2368 0927 40       		.byte	64
+ 2369 0928 E5       		.byte	-27
+ 2370 0929 40       		.byte	64
+ 2371 092a E6       		.byte	-26
+ 2372 092b 80       		.byte	-128
+ 2373 092c E8       		.byte	-24
+ 2374 092d 40       		.byte	64
+ 2375 092e EA       		.byte	-22
+ 2376 092f 80       		.byte	-128
+ 2377 0930 EC       		.byte	-20
+ 2378 0931 40       		.byte	64
+ 2379 0932 ED       		.byte	-19
+ 2380 0933 20       		.byte	32
+ 2381 0934 EE       		.byte	-18
+ 2382 0935 80       		.byte	-128
+ 2383 0936 00       		.byte	0
+ 2384 0937 10       		.byte	16
+ 2385 0938 04       		.byte	4
+ 2386 0939 40       		.byte	64
+ 2387 093a 0A       		.byte	10
+ 2388 093b 50       		.byte	80
+ 2389 093c 10       		.byte	16
+ 2390 093d 80       		.byte	-128
+ 2391 093e 11       		.byte	17
+ 2392 093f 30       		.byte	48
+ 2393 0940 12       		.byte	18
+ 2394 0941 02       		.byte	2
+ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccDcP5We.s 			page 43
+
+
+ 2395 0942 13       		.byte	19
+ 2396 0943 40       		.byte	64
+ 2397 0944 16       		.byte	22
+ 2398 0945 26       		.byte	38
+ 2399 0946 18       		.byte	24
+ 2400 0947 14       		.byte	20
+ 2401 0948 1A       		.byte	26
+ 2402 0949 08       		.byte	8
+ 2403 094a 1B       		.byte	27
+ 2404 094b 01       		.byte	1
+ 2405 094c 1C       		.byte	28
+ 2406 094d 40       		.byte	64
+ 2407 094e 1D       		.byte	29
+ 2408 094f 08       		.byte	8
+ 2409 0950 1E       		.byte	30
+ 2410 0951 04       		.byte	4
+ 2411 0952 1F       		.byte	31
+ 2412 0953 40       		.byte	64
+ 2413 0954 21       		.byte	33
+ 2414 0955 02       		.byte	2
+ 2415 0956 23       		.byte	35
+ 2416 0957 02       		.byte	2
+ 2417 0958 24       		.byte	36
+ 2418 0959 20       		.byte	32
+ 2419 095a 25       		.byte	37
+ 2420 095b 10       		.byte	16
+ 2421 095c 26       		.byte	38
+ 2422 095d 42       		.byte	66
+ 2423 095e 2F       		.byte	47
+ 2424 095f 46       		.byte	70
+ 2425 0960 30       		.byte	48
+ 2426 0961 04       		.byte	4
+ 2427 0962 31       		.byte	49
+ 2428 0963 0A       		.byte	10
+ 2429 0964 34       		.byte	52
+ 2430 0965 02       		.byte	2
+ 2431 0966 37       		.byte	55
+ 2432 0967 40       		.byte	64
+ 2433 0968 3A       		.byte	58
+ 2434 0969 20       		.byte	32
+ 2435 096a 3B       		.byte	59
+ 2436 096b 10       		.byte	16
+ 2437 096c 3F       		.byte	63
+ 2438 096d 82       		.byte	-126
+ 2439 096e 40       		.byte	64
+ 2440 096f 05       		.byte	5
+ 2441 0970 41       		.byte	65
+ 2442 0971 08       		.byte	8
+ 2443 0972 43       		.byte	67
+ 2444 0973 40       		.byte	64
+ 2445 0974 44       		.byte	68
+ 2446 0975 04       		.byte	4
+ 2447 0976 47       		.byte	71
+ 2448 0977 40       		.byte	64
+ 2449 0978 4C       		.byte	76
+ 2450 0979 80       		.byte	-128
+ 2451 097a 4E       		.byte	78
+ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccDcP5We.s 			page 44
+
+
+ 2452 097b 04       		.byte	4
+ 2453 097c 4F       		.byte	79
+ 2454 097d 04       		.byte	4
+ 2455 097e 56       		.byte	86
+ 2456 097f 2A       		.byte	42
+ 2457 0980 57       		.byte	87
+ 2458 0981 40       		.byte	64
+ 2459 0982 5E       		.byte	94
+ 2460 0983 84       		.byte	-124
+ 2461 0984 5F       		.byte	95
+ 2462 0985 12       		.byte	18
+ 2463 0986 66       		.byte	102
+ 2464 0987 08       		.byte	8
+ 2465 0988 67       		.byte	103
+ 2466 0989 04       		.byte	4
+ 2467 098a 72       		.byte	114
+ 2468 098b 40       		.byte	64
+ 2469 098c 7D       		.byte	125
+ 2470 098d 04       		.byte	4
+ 2471 098e 81       		.byte	-127
+ 2472 098f 04       		.byte	4
+ 2473 0990 C0       		.byte	-64
+ 2474 0991 82       		.byte	-126
+ 2475 0992 C2       		.byte	-62
+ 2476 0993 0C       		.byte	12
+ 2477 0994 C4       		.byte	-60
+ 2478 0995 E8       		.byte	-24
+ 2479 0996 CA       		.byte	-54
+ 2480 0997 B0       		.byte	-80
+ 2481 0998 CC       		.byte	-52
+ 2482 0999 91       		.byte	-111
+ 2483 099a CE       		.byte	-50
+ 2484 099b 94       		.byte	-108
+ 2485 099c D0       		.byte	-48
+ 2486 099d 3E       		.byte	62
+ 2487 099e D2       		.byte	-46
+ 2488 099f 20       		.byte	32
+ 2489 09a0 D6       		.byte	-42
+ 2490 09a1 F0       		.byte	-16
+ 2491 09a2 D8       		.byte	-40
+ 2492 09a3 60       		.byte	96
+ 2493 09a4 DE       		.byte	-34
+ 2494 09a5 40       		.byte	64
+ 2495 09a6 E6       		.byte	-26
+ 2496 09a7 04       		.byte	4
+ 2497 09a8 00       		.byte	0
+ 2498 09a9 02       		.byte	2
+ 2499 09aa 01       		.byte	1
+ 2500 09ab 10       		.byte	16
+ 2501 09ac 02       		.byte	2
+ 2502 09ad 01       		.byte	1
+ 2503 09ae 03       		.byte	3
+ 2504 09af 20       		.byte	32
+ 2505 09b0 04       		.byte	4
+ 2506 09b1 80       		.byte	-128
+ 2507 09b2 06       		.byte	6
+ 2508 09b3 40       		.byte	64
+ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccDcP5We.s 			page 45
+
+
+ 2509 09b4 07       		.byte	7
+ 2510 09b5 0F       		.byte	15
+ 2511 09b6 08       		.byte	8
+ 2512 09b7 28       		.byte	40
+ 2513 09b8 09       		.byte	9
+ 2514 09b9 10       		.byte	16
+ 2515 09ba 0B       		.byte	11
+ 2516 09bb 20       		.byte	32
+ 2517 09bc 0C       		.byte	12
+ 2518 09bd 30       		.byte	48
+ 2519 09be 0D       		.byte	13
+ 2520 09bf 0C       		.byte	12
+ 2521 09c0 0F       		.byte	15
+ 2522 09c1 01       		.byte	1
+ 2523 09c2 10       		.byte	16
+ 2524 09c3 18       		.byte	24
+ 2525 09c4 13       		.byte	19
+ 2526 09c5 80       		.byte	-128
+ 2527 09c6 14       		.byte	20
+ 2528 09c7 01       		.byte	1
+ 2529 09c8 15       		.byte	21
+ 2530 09c9 0C       		.byte	12
+ 2531 09ca 16       		.byte	22
+ 2532 09cb 02       		.byte	2
+ 2533 09cc 17       		.byte	23
+ 2534 09cd 02       		.byte	2
+ 2535 09ce 18       		.byte	24
+ 2536 09cf 40       		.byte	64
+ 2537 09d0 19       		.byte	25
+ 2538 09d1 0B       		.byte	11
+ 2539 09d2 1A       		.byte	26
+ 2540 09d3 80       		.byte	-128
+ 2541 09d4 1B       		.byte	27
+ 2542 09d5 04       		.byte	4
+ 2543 09d6 1C       		.byte	28
+ 2544 09d7 01       		.byte	1
+ 2545 09d8 1D       		.byte	29
+ 2546 09d9 28       		.byte	40
+ 2547 09da 1E       		.byte	30
+ 2548 09db 02       		.byte	2
+ 2549 09dc 1F       		.byte	31
+ 2550 09dd 11       		.byte	17
+ 2551 09de 20       		.byte	32
+ 2552 09df 40       		.byte	64
+ 2553 09e0 21       		.byte	33
+ 2554 09e1 10       		.byte	16
+ 2555 09e2 22       		.byte	34
+ 2556 09e3 84       		.byte	-124
+ 2557 09e4 23       		.byte	35
+ 2558 09e5 20       		.byte	32
+ 2559 09e6 24       		.byte	36
+ 2560 09e7 01       		.byte	1
+ 2561 09e8 26       		.byte	38
+ 2562 09e9 02       		.byte	2
+ 2563 09ea 28       		.byte	40
+ 2564 09eb 30       		.byte	48
+ 2565 09ec 29       		.byte	41
+ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccDcP5We.s 			page 46
+
+
+ 2566 09ed 07       		.byte	7
+ 2567 09ee 2C       		.byte	44
+ 2568 09ef 40       		.byte	64
+ 2569 09f0 2E       		.byte	46
+ 2570 09f1 80       		.byte	-128
+ 2571 09f2 2F       		.byte	47
+ 2572 09f3 40       		.byte	64
+ 2573 09f4 30       		.byte	48
+ 2574 09f5 03       		.byte	3
+ 2575 09f6 31       		.byte	49
+ 2576 09f7 40       		.byte	64
+ 2577 09f8 32       		.byte	50
+ 2578 09f9 38       		.byte	56
+ 2579 09fa 33       		.byte	51
+ 2580 09fb 0F       		.byte	15
+ 2581 09fc 34       		.byte	52
+ 2582 09fd C0       		.byte	-64
+ 2583 09fe 35       		.byte	53
+ 2584 09ff 80       		.byte	-128
+ 2585 0a00 36       		.byte	54
+ 2586 0a01 04       		.byte	4
+ 2587 0a02 37       		.byte	55
+ 2588 0a03 30       		.byte	48
+ 2589 0a04 38       		.byte	56
+ 2590 0a05 08       		.byte	8
+ 2591 0a06 3A       		.byte	58
+ 2592 0a07 22       		.byte	34
+ 2593 0a08 3B       		.byte	59
+ 2594 0a09 80       		.byte	-128
+ 2595 0a0a 58       		.byte	88
+ 2596 0a0b 04       		.byte	4
+ 2597 0a0c 59       		.byte	89
+ 2598 0a0d 04       		.byte	4
+ 2599 0a0e 5B       		.byte	91
+ 2600 0a0f 04       		.byte	4
+ 2601 0a10 5F       		.byte	95
+ 2602 0a11 01       		.byte	1
+ 2603 0a12 D6       		.byte	-42
+ 2604 0a13 08       		.byte	8
+ 2605 0a14 D8       		.byte	-40
+ 2606 0a15 04       		.byte	4
+ 2607 0a16 D9       		.byte	-39
+ 2608 0a17 04       		.byte	4
+ 2609 0a18 DB       		.byte	-37
+ 2610 0a19 04       		.byte	4
+ 2611 0a1a DC       		.byte	-36
+ 2612 0a1b 11       		.byte	17
+ 2613 0a1c DD       		.byte	-35
+ 2614 0a1d 90       		.byte	-112
+ 2615 0a1e DF       		.byte	-33
+ 2616 0a1f 01       		.byte	1
+ 2617 0a20 00       		.byte	0
+ 2618 0a21 44       		.byte	68
+ 2619 0a22 01       		.byte	1
+ 2620 0a23 22       		.byte	34
+ 2621 0a24 06       		.byte	6
+ 2622 0a25 82       		.byte	-126
+ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccDcP5We.s 			page 47
+
+
+ 2623 0a26 07       		.byte	7
+ 2624 0a27 04       		.byte	4
+ 2625 0a28 08       		.byte	8
+ 2626 0a29 02       		.byte	2
+ 2627 0a2a 09       		.byte	9
+ 2628 0a2b 20       		.byte	32
+ 2629 0a2c 0A       		.byte	10
+ 2630 0a2d 21       		.byte	33
+ 2631 0a2e 0F       		.byte	15
+ 2632 0a2f 04       		.byte	4
+ 2633 0a30 10       		.byte	16
+ 2634 0a31 02       		.byte	2
+ 2635 0a32 12       		.byte	18
+ 2636 0a33 A8       		.byte	-88
+ 2637 0a34 17       		.byte	23
+ 2638 0a35 19       		.byte	25
+ 2639 0a36 18       		.byte	24
+ 2640 0a37 04       		.byte	4
+ 2641 0a38 19       		.byte	25
+ 2642 0a39 0A       		.byte	10
+ 2643 0a3a 1A       		.byte	26
+ 2644 0a3b 02       		.byte	2
+ 2645 0a3c 1B       		.byte	27
+ 2646 0a3d 09       		.byte	9
+ 2647 0a3e 20       		.byte	32
+ 2648 0a3f 20       		.byte	32
+ 2649 0a40 21       		.byte	33
+ 2650 0a41 61       		.byte	97
+ 2651 0a42 22       		.byte	34
+ 2652 0a43 4A       		.byte	74
+ 2653 0a44 28       		.byte	40
+ 2654 0a45 81       		.byte	-127
+ 2655 0a46 2B       		.byte	43
+ 2656 0a47 08       		.byte	8
+ 2657 0a48 2E       		.byte	46
+ 2658 0a49 80       		.byte	-128
+ 2659 0a4a 2F       		.byte	47
+ 2660 0a4b 41       		.byte	65
+ 2661 0a4c 30       		.byte	48
+ 2662 0a4d 02       		.byte	2
+ 2663 0a4e 31       		.byte	49
+ 2664 0a4f 10       		.byte	16
+ 2665 0a50 32       		.byte	50
+ 2666 0a51 49       		.byte	73
+ 2667 0a52 35       		.byte	53
+ 2668 0a53 04       		.byte	4
+ 2669 0a54 37       		.byte	55
+ 2670 0a55 14       		.byte	20
+ 2671 0a56 38       		.byte	56
+ 2672 0a57 44       		.byte	68
+ 2673 0a58 39       		.byte	57
+ 2674 0a59 02       		.byte	2
+ 2675 0a5a 3B       		.byte	59
+ 2676 0a5b 20       		.byte	32
+ 2677 0a5c 3C       		.byte	60
+ 2678 0a5d 80       		.byte	-128
+ 2679 0a5e 3E       		.byte	62
+ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccDcP5We.s 			page 48
+
+
+ 2680 0a5f 02       		.byte	2
+ 2681 0a60 3F       		.byte	63
+ 2682 0a61 04       		.byte	4
+ 2683 0a62 5D       		.byte	93
+ 2684 0a63 80       		.byte	-128
+ 2685 0a64 64       		.byte	100
+ 2686 0a65 01       		.byte	1
+ 2687 0a66 68       		.byte	104
+ 2688 0a67 01       		.byte	1
+ 2689 0a68 69       		.byte	105
+ 2690 0a69 10       		.byte	16
+ 2691 0a6a 7C       		.byte	124
+ 2692 0a6b 0C       		.byte	12
+ 2693 0a6c 80       		.byte	-128
+ 2694 0a6d 80       		.byte	-128
+ 2695 0a6e 81       		.byte	-127
+ 2696 0a6f 80       		.byte	-128
+ 2697 0a70 84       		.byte	-124
+ 2698 0a71 51       		.byte	81
+ 2699 0a72 87       		.byte	-121
+ 2700 0a73 11       		.byte	17
+ 2701 0a74 88       		.byte	-120
+ 2702 0a75 02       		.byte	2
+ 2703 0a76 89       		.byte	-119
+ 2704 0a77 10       		.byte	16
+ 2705 0a78 8A       		.byte	-118
+ 2706 0a79 02       		.byte	2
+ 2707 0a7a 8B       		.byte	-117
+ 2708 0a7b 08       		.byte	8
+ 2709 0a7c 8C       		.byte	-116
+ 2710 0a7d 04       		.byte	4
+ 2711 0a7e 8D       		.byte	-115
+ 2712 0a7f 40       		.byte	64
+ 2713 0a80 8E       		.byte	-114
+ 2714 0a81 80       		.byte	-128
+ 2715 0a82 90       		.byte	-112
+ 2716 0a83 40       		.byte	64
+ 2717 0a84 92       		.byte	-110
+ 2718 0a85 21       		.byte	33
+ 2719 0a86 93       		.byte	-109
+ 2720 0a87 86       		.byte	-122
+ 2721 0a88 96       		.byte	-106
+ 2722 0a89 80       		.byte	-128
+ 2723 0a8a 99       		.byte	-103
+ 2724 0a8b 34       		.byte	52
+ 2725 0a8c 9A       		.byte	-102
+ 2726 0a8d 02       		.byte	2
+ 2727 0a8e 9B       		.byte	-101
+ 2728 0a8f 18       		.byte	24
+ 2729 0a90 9C       		.byte	-100
+ 2730 0a91 08       		.byte	8
+ 2731 0a92 9D       		.byte	-99
+ 2732 0a93 08       		.byte	8
+ 2733 0a94 9F       		.byte	-97
+ 2734 0a95 01       		.byte	1
+ 2735 0a96 A2       		.byte	-94
+ 2736 0a97 20       		.byte	32
+ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccDcP5We.s 			page 49
+
+
+ 2737 0a98 A4       		.byte	-92
+ 2738 0a99 50       		.byte	80
+ 2739 0a9a A7       		.byte	-89
+ 2740 0a9b 01       		.byte	1
+ 2741 0a9c A9       		.byte	-87
+ 2742 0a9d 80       		.byte	-128
+ 2743 0a9e B4       		.byte	-76
+ 2744 0a9f 02       		.byte	2
+ 2745 0aa0 B5       		.byte	-75
+ 2746 0aa1 90       		.byte	-112
+ 2747 0aa2 B6       		.byte	-74
+ 2748 0aa3 40       		.byte	64
+ 2749 0aa4 C0       		.byte	-64
+ 2750 0aa5 DF       		.byte	-33
+ 2751 0aa6 C2       		.byte	-62
+ 2752 0aa7 4F       		.byte	79
+ 2753 0aa8 C4       		.byte	-60
+ 2754 0aa9 7F       		.byte	127
+ 2755 0aaa CA       		.byte	-54
+ 2756 0aab 9D       		.byte	-99
+ 2757 0aac CC       		.byte	-52
+ 2758 0aad 6F       		.byte	111
+ 2759 0aae CE       		.byte	-50
+ 2760 0aaf DF       		.byte	-33
+ 2761 0ab0 D6       		.byte	-42
+ 2762 0ab1 10       		.byte	16
+ 2763 0ab2 D8       		.byte	-40
+ 2764 0ab3 10       		.byte	16
+ 2765 0ab4 E0       		.byte	-32
+ 2766 0ab5 08       		.byte	8
+ 2767 0ab6 E2       		.byte	-30
+ 2768 0ab7 02       		.byte	2
+ 2769 0ab8 E6       		.byte	-26
+ 2770 0ab9 07       		.byte	7
+ 2771 0aba EA       		.byte	-22
+ 2772 0abb 01       		.byte	1
+ 2773 0abc EC       		.byte	-20
+ 2774 0abd 20       		.byte	32
+ 2775 0abe 56       		.byte	86
+ 2776 0abf 08       		.byte	8
+ 2777 0ac0 58       		.byte	88
+ 2778 0ac1 04       		.byte	4
+ 2779 0ac2 59       		.byte	89
+ 2780 0ac3 04       		.byte	4
+ 2781 0ac4 5B       		.byte	91
+ 2782 0ac5 04       		.byte	4
+ 2783 0ac6 5C       		.byte	92
+ 2784 0ac7 11       		.byte	17
+ 2785 0ac8 5D       		.byte	93
+ 2786 0ac9 90       		.byte	-112
+ 2787 0aca 5F       		.byte	95
+ 2788 0acb 01       		.byte	1
+ 2789 0acc 80       		.byte	-128
+ 2790 0acd 20       		.byte	32
+ 2791 0ace 84       		.byte	-124
+ 2792 0acf 07       		.byte	7
+ 2793 0ad0 87       		.byte	-121
+ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccDcP5We.s 			page 50
+
+
+ 2794 0ad1 40       		.byte	64
+ 2795 0ad2 88       		.byte	-120
+ 2796 0ad3 0C       		.byte	12
+ 2797 0ad4 8A       		.byte	-118
+ 2798 0ad5 03       		.byte	3
+ 2799 0ad6 8B       		.byte	-117
+ 2800 0ad7 01       		.byte	1
+ 2801 0ad8 8C       		.byte	-116
+ 2802 0ad9 0A       		.byte	10
+ 2803 0ada 8D       		.byte	-115
+ 2804 0adb 02       		.byte	2
+ 2805 0adc 8E       		.byte	-114
+ 2806 0add 05       		.byte	5
+ 2807 0ade 8F       		.byte	-113
+ 2808 0adf 04       		.byte	4
+ 2809 0ae0 90       		.byte	-112
+ 2810 0ae1 05       		.byte	5
+ 2811 0ae2 92       		.byte	-110
+ 2812 0ae3 0A       		.byte	10
+ 2813 0ae4 93       		.byte	-109
+ 2814 0ae5 10       		.byte	16
+ 2815 0ae6 94       		.byte	-108
+ 2816 0ae7 03       		.byte	3
+ 2817 0ae8 96       		.byte	-106
+ 2818 0ae9 0C       		.byte	12
+ 2819 0aea 97       		.byte	-105
+ 2820 0aeb 08       		.byte	8
+ 2821 0aec 98       		.byte	-104
+ 2822 0aed 0F       		.byte	15
+ 2823 0aee 99       		.byte	-103
+ 2824 0aef 0E       		.byte	14
+ 2825 0af0 9D       		.byte	-99
+ 2826 0af1 08       		.byte	8
+ 2827 0af2 9E       		.byte	-98
+ 2828 0af3 10       		.byte	16
+ 2829 0af4 A1       		.byte	-95
+ 2830 0af5 20       		.byte	32
+ 2831 0af6 A5       		.byte	-91
+ 2832 0af7 0E       		.byte	14
+ 2833 0af8 A6       		.byte	-90
+ 2834 0af9 40       		.byte	64
+ 2835 0afa A9       		.byte	-87
+ 2836 0afb 02       		.byte	2
+ 2837 0afc AB       		.byte	-85
+ 2838 0afd 04       		.byte	4
+ 2839 0afe AF       		.byte	-81
+ 2840 0aff 0E       		.byte	14
+ 2841 0b00 B0       		.byte	-80
+ 2842 0b01 20       		.byte	32
+ 2843 0b02 B1       		.byte	-79
+ 2844 0b03 40       		.byte	64
+ 2845 0b04 B2       		.byte	-78
+ 2846 0b05 10       		.byte	16
+ 2847 0b06 B3       		.byte	-77
+ 2848 0b07 20       		.byte	32
+ 2849 0b08 B4       		.byte	-76
+ 2850 0b09 0F       		.byte	15
+ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccDcP5We.s 			page 51
+
+
+ 2851 0b0a B5       		.byte	-75
+ 2852 0b0b 01       		.byte	1
+ 2853 0b0c B6       		.byte	-74
+ 2854 0b0d 40       		.byte	64
+ 2855 0b0e B7       		.byte	-73
+ 2856 0b0f 1E       		.byte	30
+ 2857 0b10 BE       		.byte	-66
+ 2858 0b11 01       		.byte	1
+ 2859 0b12 BF       		.byte	-65
+ 2860 0b13 04       		.byte	4
+ 2861 0b14 D4       		.byte	-44
+ 2862 0b15 01       		.byte	1
+ 2863 0b16 D6       		.byte	-42
+ 2864 0b17 04       		.byte	4
+ 2865 0b18 D8       		.byte	-40
+ 2866 0b19 04       		.byte	4
+ 2867 0b1a D9       		.byte	-39
+ 2868 0b1b 04       		.byte	4
+ 2869 0b1c DB       		.byte	-37
+ 2870 0b1d 04       		.byte	4
+ 2871 0b1e DD       		.byte	-35
+ 2872 0b1f 40       		.byte	64
+ 2873 0b20 DF       		.byte	-33
+ 2874 0b21 01       		.byte	1
+ 2875 0b22 00       		.byte	0
+ 2876 0b23 60       		.byte	96
+ 2877 0b24 01       		.byte	1
+ 2878 0b25 08       		.byte	8
+ 2879 0b26 02       		.byte	2
+ 2880 0b27 08       		.byte	8
+ 2881 0b28 03       		.byte	3
+ 2882 0b29 80       		.byte	-128
+ 2883 0b2a 06       		.byte	6
+ 2884 0b2b 02       		.byte	2
+ 2885 0b2c 07       		.byte	7
+ 2886 0b2d 08       		.byte	8
+ 2887 0b2e 08       		.byte	8
+ 2888 0b2f 08       		.byte	8
+ 2889 0b30 0A       		.byte	10
+ 2890 0b31 84       		.byte	-124
+ 2891 0b32 0B       		.byte	11
+ 2892 0b33 01       		.byte	1
+ 2893 0b34 0C       		.byte	12
+ 2894 0b35 40       		.byte	64
+ 2895 0b36 0E       		.byte	14
+ 2896 0b37 08       		.byte	8
+ 2897 0b38 12       		.byte	18
+ 2898 0b39 20       		.byte	32
+ 2899 0b3a 15       		.byte	21
+ 2900 0b3b 04       		.byte	4
+ 2901 0b3c 17       		.byte	23
+ 2902 0b3d 11       		.byte	17
+ 2903 0b3e 19       		.byte	25
+ 2904 0b3f 30       		.byte	48
+ 2905 0b40 1A       		.byte	26
+ 2906 0b41 05       		.byte	5
+ 2907 0b42 1B       		.byte	27
+ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccDcP5We.s 			page 52
+
+
+ 2908 0b43 06       		.byte	6
+ 2909 0b44 21       		.byte	33
+ 2910 0b45 80       		.byte	-128
+ 2911 0b46 22       		.byte	34
+ 2912 0b47 24       		.byte	36
+ 2913 0b48 23       		.byte	35
+ 2914 0b49 40       		.byte	64
+ 2915 0b4a 28       		.byte	40
+ 2916 0b4b 0A       		.byte	10
+ 2917 0b4c 29       		.byte	41
+ 2918 0b4d 0A       		.byte	10
+ 2919 0b4e 2F       		.byte	47
+ 2920 0b4f 40       		.byte	64
+ 2921 0b50 31       		.byte	49
+ 2922 0b51 11       		.byte	17
+ 2923 0b52 32       		.byte	50
+ 2924 0b53 48       		.byte	72
+ 2925 0b54 34       		.byte	52
+ 2926 0b55 40       		.byte	64
+ 2927 0b56 35       		.byte	53
+ 2928 0b57 04       		.byte	4
+ 2929 0b58 36       		.byte	54
+ 2930 0b59 84       		.byte	-124
+ 2931 0b5a 37       		.byte	55
+ 2932 0b5b 10       		.byte	16
+ 2933 0b5c 38       		.byte	56
+ 2934 0b5d 44       		.byte	68
+ 2935 0b5e 39       		.byte	57
+ 2936 0b5f 20       		.byte	32
+ 2937 0b60 3C       		.byte	60
+ 2938 0b61 80       		.byte	-128
+ 2939 0b62 3D       		.byte	61
+ 2940 0b63 04       		.byte	4
+ 2941 0b64 3E       		.byte	62
+ 2942 0b65 02       		.byte	2
+ 2943 0b66 3F       		.byte	63
+ 2944 0b67 04       		.byte	4
+ 2945 0b68 44       		.byte	68
+ 2946 0b69 04       		.byte	4
+ 2947 0b6a 47       		.byte	71
+ 2948 0b6b 20       		.byte	32
+ 2949 0b6c 59       		.byte	89
+ 2950 0b6d 02       		.byte	2
+ 2951 0b6e 5A       		.byte	90
+ 2952 0b6f 48       		.byte	72
+ 2953 0b70 5B       		.byte	91
+ 2954 0b71 20       		.byte	32
+ 2955 0b72 5D       		.byte	93
+ 2956 0b73 80       		.byte	-128
+ 2957 0b74 60       		.byte	96
+ 2958 0b75 04       		.byte	4
+ 2959 0b76 62       		.byte	98
+ 2960 0b77 01       		.byte	1
+ 2961 0b78 63       		.byte	99
+ 2962 0b79 08       		.byte	8
+ 2963 0b7a 67       		.byte	103
+ 2964 0b7b 01       		.byte	1
+ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccDcP5We.s 			page 53
+
+
+ 2965 0b7c 82       		.byte	-126
+ 2966 0b7d 80       		.byte	-128
+ 2967 0b7e 83       		.byte	-125
+ 2968 0b7f 03       		.byte	3
+ 2969 0b80 87       		.byte	-121
+ 2970 0b81 04       		.byte	4
+ 2971 0b82 8B       		.byte	-117
+ 2972 0b83 C8       		.byte	-56
+ 2973 0b84 90       		.byte	-112
+ 2974 0b85 40       		.byte	64
+ 2975 0b86 91       		.byte	-111
+ 2976 0b87 20       		.byte	32
+ 2977 0b88 92       		.byte	-110
+ 2978 0b89 20       		.byte	32
+ 2979 0b8a 93       		.byte	-109
+ 2980 0b8b 84       		.byte	-124
+ 2981 0b8c 96       		.byte	-106
+ 2982 0b8d 84       		.byte	-124
+ 2983 0b8e 97       		.byte	-105
+ 2984 0b8f 40       		.byte	64
+ 2985 0b90 98       		.byte	-104
+ 2986 0b91 04       		.byte	4
+ 2987 0b92 99       		.byte	-103
+ 2988 0b93 07       		.byte	7
+ 2989 0b94 9A       		.byte	-102
+ 2990 0b95 02       		.byte	2
+ 2991 0b96 9B       		.byte	-101
+ 2992 0b97 10       		.byte	16
+ 2993 0b98 9C       		.byte	-100
+ 2994 0b99 08       		.byte	8
+ 2995 0b9a 9D       		.byte	-99
+ 2996 0b9b 08       		.byte	8
+ 2997 0b9c 9E       		.byte	-98
+ 2998 0b9d 01       		.byte	1
+ 2999 0b9e A4       		.byte	-92
+ 3000 0b9f 10       		.byte	16
+ 3001 0ba0 A5       		.byte	-91
+ 3002 0ba1 80       		.byte	-128
+ 3003 0ba2 A7       		.byte	-89
+ 3004 0ba3 05       		.byte	5
+ 3005 0ba4 A8       		.byte	-88
+ 3006 0ba5 40       		.byte	64
+ 3007 0ba6 AA       		.byte	-86
+ 3008 0ba7 80       		.byte	-128
+ 3009 0ba8 AE       		.byte	-82
+ 3010 0ba9 08       		.byte	8
+ 3011 0baa B1       		.byte	-79
+ 3012 0bab 40       		.byte	64
+ 3013 0bac B5       		.byte	-75
+ 3014 0bad 10       		.byte	16
+ 3015 0bae B6       		.byte	-74
+ 3016 0baf 02       		.byte	2
+ 3017 0bb0 C0       		.byte	-64
+ 3018 0bb1 CF       		.byte	-49
+ 3019 0bb2 C2       		.byte	-62
+ 3020 0bb3 CF       		.byte	-49
+ 3021 0bb4 C4       		.byte	-60
+ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccDcP5We.s 			page 54
+
+
+ 3022 0bb5 74       		.byte	116
+ 3023 0bb6 CA       		.byte	-54
+ 3024 0bb7 8F       		.byte	-113
+ 3025 0bb8 CC       		.byte	-52
+ 3026 0bb9 7F       		.byte	127
+ 3027 0bba CE       		.byte	-50
+ 3028 0bbb DE       		.byte	-34
+ 3029 0bbc D6       		.byte	-42
+ 3030 0bbd 1F       		.byte	31
+ 3031 0bbe D8       		.byte	-40
+ 3032 0bbf 11       		.byte	17
+ 3033 0bc0 E0       		.byte	-32
+ 3034 0bc1 82       		.byte	-126
+ 3035 0bc2 E6       		.byte	-26
+ 3036 0bc3 0C       		.byte	12
+ 3037 0bc4 E8       		.byte	-24
+ 3038 0bc5 88       		.byte	-120
+ 3039 0bc6 EE       		.byte	-18
+ 3040 0bc7 06       		.byte	6
+ 3041 0bc8 04       		.byte	4
+ 3042 0bc9 0E       		.byte	14
+ 3043 0bca 06       		.byte	6
+ 3044 0bcb F0       		.byte	-16
+ 3045 0bcc 07       		.byte	7
+ 3046 0bcd 01       		.byte	1
+ 3047 0bce 08       		.byte	8
+ 3048 0bcf 96       		.byte	-106
+ 3049 0bd0 0A       		.byte	10
+ 3050 0bd1 68       		.byte	104
+ 3051 0bd2 0B       		.byte	11
+ 3052 0bd3 01       		.byte	1
+ 3053 0bd4 0C       		.byte	12
+ 3054 0bd5 7F       		.byte	127
+ 3055 0bd6 0D       		.byte	13
+ 3056 0bd7 02       		.byte	2
+ 3057 0bd8 13       		.byte	19
+ 3058 0bd9 08       		.byte	8
+ 3059 0bda 14       		.byte	20
+ 3060 0bdb A3       		.byte	-93
+ 3061 0bdc 16       		.byte	22
+ 3062 0bdd 5C       		.byte	92
+ 3063 0bde 18       		.byte	24
+ 3064 0bdf FE       		.byte	-2
+ 3065 0be0 19       		.byte	25
+ 3066 0be1 01       		.byte	1
+ 3067 0be2 1A       		.byte	26
+ 3068 0be3 01       		.byte	1
+ 3069 0be4 1C       		.byte	28
+ 3070 0be5 C5       		.byte	-59
+ 3071 0be6 1E       		.byte	30
+ 3072 0be7 3A       		.byte	58
+ 3073 0be8 1F       		.byte	31
+ 3074 0be9 04       		.byte	4
+ 3075 0bea 23       		.byte	35
+ 3076 0beb 02       		.byte	2
+ 3077 0bec 26       		.byte	38
+ 3078 0bed 01       		.byte	1
+ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccDcP5We.s 			page 55
+
+
+ 3079 0bee 27       		.byte	39
+ 3080 0bef 02       		.byte	2
+ 3081 0bf0 2D       		.byte	45
+ 3082 0bf1 08       		.byte	8
+ 3083 0bf2 30       		.byte	48
+ 3084 0bf3 FF       		.byte	-1
+ 3085 0bf4 31       		.byte	49
+ 3086 0bf5 02       		.byte	2
+ 3087 0bf6 33       		.byte	51
+ 3088 0bf7 04       		.byte	4
+ 3089 0bf8 35       		.byte	53
+ 3090 0bf9 08       		.byte	8
+ 3091 0bfa 37       		.byte	55
+ 3092 0bfb 01       		.byte	1
+ 3093 0bfc 38       		.byte	56
+ 3094 0bfd 80       		.byte	-128
+ 3095 0bfe 3E       		.byte	62
+ 3096 0bff 41       		.byte	65
+ 3097 0c00 3F       		.byte	63
+ 3098 0c01 51       		.byte	81
+ 3099 0c02 40       		.byte	64
+ 3100 0c03 43       		.byte	67
+ 3101 0c04 41       		.byte	65
+ 3102 0c05 06       		.byte	6
+ 3103 0c06 49       		.byte	73
+ 3104 0c07 FF       		.byte	-1
+ 3105 0c08 4A       		.byte	74
+ 3106 0c09 FF       		.byte	-1
+ 3107 0c0a 4B       		.byte	75
+ 3108 0c0b FF       		.byte	-1
+ 3109 0c0c 4D       		.byte	77
+ 3110 0c0d A0       		.byte	-96
+ 3111 0c0e 4F       		.byte	79
+ 3112 0c0f 01       		.byte	1
+ 3113 0c10 50       		.byte	80
+ 3114 0c11 18       		.byte	24
+ 3115 0c12 52       		.byte	82
+ 3116 0c13 80       		.byte	-128
+ 3117 0c14 54       		.byte	84
+ 3118 0c15 0F       		.byte	15
+ 3119 0c16 58       		.byte	88
+ 3120 0c17 04       		.byte	4
+ 3121 0c18 59       		.byte	89
+ 3122 0c19 04       		.byte	4
+ 3123 0c1a 5A       		.byte	90
+ 3124 0c1b 04       		.byte	4
+ 3125 0c1c 5B       		.byte	91
+ 3126 0c1d 04       		.byte	4
+ 3127 0c1e 5F       		.byte	95
+ 3128 0c1f 01       		.byte	1
+ 3129 0c20 60       		.byte	96
+ 3130 0c21 40       		.byte	64
+ 3131 0c22 62       		.byte	98
+ 3132 0c23 80       		.byte	-128
+ 3133 0c24 64       		.byte	100
+ 3134 0c25 40       		.byte	64
+ 3135 0c26 65       		.byte	101
+ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccDcP5We.s 			page 56
+
+
+ 3136 0c27 40       		.byte	64
+ 3137 0c28 66       		.byte	102
+ 3138 0c29 80       		.byte	-128
+ 3139 0c2a 68       		.byte	104
+ 3140 0c2b 40       		.byte	64
+ 3141 0c2c 6A       		.byte	106
+ 3142 0c2d 80       		.byte	-128
+ 3143 0c2e 6C       		.byte	108
+ 3144 0c2f 40       		.byte	64
+ 3145 0c30 6D       		.byte	109
+ 3146 0c31 20       		.byte	32
+ 3147 0c32 6E       		.byte	110
+ 3148 0c33 80       		.byte	-128
+ 3149 0c34 91       		.byte	-111
+ 3150 0c35 02       		.byte	2
+ 3151 0c36 9B       		.byte	-101
+ 3152 0c37 01       		.byte	1
+ 3153 0c38 9D       		.byte	-99
+ 3154 0c39 02       		.byte	2
+ 3155 0c3a B1       		.byte	-79
+ 3156 0c3b 01       		.byte	1
+ 3157 0c3c B5       		.byte	-75
+ 3158 0c3d 02       		.byte	2
+ 3159 0c3e B9       		.byte	-71
+ 3160 0c3f 20       		.byte	32
+ 3161 0c40 C0       		.byte	-64
+ 3162 0c41 43       		.byte	67
+ 3163 0c42 C1       		.byte	-63
+ 3164 0c43 02       		.byte	2
+ 3165 0c44 C5       		.byte	-59
+ 3166 0c45 0E       		.byte	14
+ 3167 0c46 C6       		.byte	-58
+ 3168 0c47 C2       		.byte	-62
+ 3169 0c48 C7       		.byte	-57
+ 3170 0c49 34       		.byte	52
+ 3171 0c4a C8       		.byte	-56
+ 3172 0c4b 3D       		.byte	61
+ 3173 0c4c C9       		.byte	-55
+ 3174 0c4d FF       		.byte	-1
+ 3175 0c4e CA       		.byte	-54
+ 3176 0c4f FF       		.byte	-1
+ 3177 0c50 CB       		.byte	-53
+ 3178 0c51 FF       		.byte	-1
+ 3179 0c52 CD       		.byte	-51
+ 3180 0c53 AF       		.byte	-81
+ 3181 0c54 CE       		.byte	-50
+ 3182 0c55 07       		.byte	7
+ 3183 0c56 CF       		.byte	-49
+ 3184 0c57 01       		.byte	1
+ 3185 0c58 D0       		.byte	-48
+ 3186 0c59 18       		.byte	24
+ 3187 0c5a D8       		.byte	-40
+ 3188 0c5b 04       		.byte	4
+ 3189 0c5c D9       		.byte	-39
+ 3190 0c5d 04       		.byte	4
+ 3191 0c5e DA       		.byte	-38
+ 3192 0c5f 04       		.byte	4
+ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccDcP5We.s 			page 57
+
+
+ 3193 0c60 DC       		.byte	-36
+ 3194 0c61 01       		.byte	1
+ 3195 0c62 DF       		.byte	-33
+ 3196 0c63 01       		.byte	1
+ 3197 0c64 E0       		.byte	-32
+ 3198 0c65 40       		.byte	64
+ 3199 0c66 E2       		.byte	-30
+ 3200 0c67 80       		.byte	-128
+ 3201 0c68 E4       		.byte	-28
+ 3202 0c69 40       		.byte	64
+ 3203 0c6a E5       		.byte	-27
+ 3204 0c6b 40       		.byte	64
+ 3205 0c6c E6       		.byte	-26
+ 3206 0c6d 80       		.byte	-128
+ 3207 0c6e E8       		.byte	-24
+ 3208 0c6f 40       		.byte	64
+ 3209 0c70 EA       		.byte	-22
+ 3210 0c71 80       		.byte	-128
+ 3211 0c72 EC       		.byte	-20
+ 3212 0c73 40       		.byte	64
+ 3213 0c74 ED       		.byte	-19
+ 3214 0c75 20       		.byte	32
+ 3215 0c76 EE       		.byte	-18
+ 3216 0c77 80       		.byte	-128
+ 3217 0c78 01       		.byte	1
+ 3218 0c79 08       		.byte	8
+ 3219 0c7a 03       		.byte	3
+ 3220 0c7b 01       		.byte	1
+ 3221 0c7c 06       		.byte	6
+ 3222 0c7d 24       		.byte	36
+ 3223 0c7e 07       		.byte	7
+ 3224 0c7f 02       		.byte	2
+ 3225 0c80 08       		.byte	8
+ 3226 0c81 49       		.byte	73
+ 3227 0c82 0A       		.byte	10
+ 3228 0c83 08       		.byte	8
+ 3229 0c84 0E       		.byte	14
+ 3230 0c85 02       		.byte	2
+ 3231 0c86 0F       		.byte	15
+ 3232 0c87 18       		.byte	24
+ 3233 0c88 10       		.byte	16
+ 3234 0c89 80       		.byte	-128
+ 3235 0c8a 15       		.byte	21
+ 3236 0c8b 04       		.byte	4
+ 3237 0c8c 1E       		.byte	30
+ 3238 0c8d 40       		.byte	64
+ 3239 0c8e 1F       		.byte	31
+ 3240 0c8f 80       		.byte	-128
+ 3241 0c90 20       		.byte	32
+ 3242 0c91 84       		.byte	-124
+ 3243 0c92 25       		.byte	37
+ 3244 0c93 02       		.byte	2
+ 3245 0c94 26       		.byte	38
+ 3246 0c95 44       		.byte	68
+ 3247 0c96 27       		.byte	39
+ 3248 0c97 08       		.byte	8
+ 3249 0c98 2D       		.byte	45
+ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccDcP5We.s 			page 58
+
+
+ 3250 0c99 06       		.byte	6
+ 3251 0c9a 2F       		.byte	47
+ 3252 0c9b 21       		.byte	33
+ 3253 0c9c 32       		.byte	50
+ 3254 0c9d 82       		.byte	-126
+ 3255 0c9e 33       		.byte	51
+ 3256 0c9f 20       		.byte	32
+ 3257 0ca0 36       		.byte	54
+ 3258 0ca1 82       		.byte	-126
+ 3259 0ca2 37       		.byte	55
+ 3260 0ca3 10       		.byte	16
+ 3261 0ca4 3C       		.byte	60
+ 3262 0ca5 84       		.byte	-124
+ 3263 0ca6 3F       		.byte	63
+ 3264 0ca7 20       		.byte	32
+ 3265 0ca8 41       		.byte	65
+ 3266 0ca9 02       		.byte	2
+ 3267 0caa 42       		.byte	66
+ 3268 0cab 0B       		.byte	11
+ 3269 0cac 43       		.byte	67
+ 3270 0cad 04       		.byte	4
+ 3271 0cae 45       		.byte	69
+ 3272 0caf 02       		.byte	2
+ 3273 0cb0 47       		.byte	71
+ 3274 0cb1 04       		.byte	4
+ 3275 0cb2 49       		.byte	73
+ 3276 0cb3 04       		.byte	4
+ 3277 0cb4 4F       		.byte	79
+ 3278 0cb5 20       		.byte	32
+ 3279 0cb6 50       		.byte	80
+ 3280 0cb7 04       		.byte	4
+ 3281 0cb8 51       		.byte	81
+ 3282 0cb9 01       		.byte	1
+ 3283 0cba 52       		.byte	82
+ 3284 0cbb D2       		.byte	-46
+ 3285 0cbc 53       		.byte	83
+ 3286 0cbd 02       		.byte	2
+ 3287 0cbe 5E       		.byte	94
+ 3288 0cbf 91       		.byte	-111
+ 3289 0cc0 5F       		.byte	95
+ 3290 0cc1 04       		.byte	4
+ 3291 0cc2 64       		.byte	100
+ 3292 0cc3 10       		.byte	16
+ 3293 0cc4 67       		.byte	103
+ 3294 0cc5 10       		.byte	16
+ 3295 0cc6 75       		.byte	117
+ 3296 0cc7 02       		.byte	2
+ 3297 0cc8 81       		.byte	-127
+ 3298 0cc9 08       		.byte	8
+ 3299 0cca 84       		.byte	-124
+ 3300 0ccb 08       		.byte	8
+ 3301 0ccc 87       		.byte	-121
+ 3302 0ccd 81       		.byte	-127
+ 3303 0cce 88       		.byte	-120
+ 3304 0ccf 80       		.byte	-128
+ 3305 0cd0 89       		.byte	-119
+ 3306 0cd1 10       		.byte	16
+ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccDcP5We.s 			page 59
+
+
+ 3307 0cd2 8A       		.byte	-118
+ 3308 0cd3 80       		.byte	-128
+ 3309 0cd4 92       		.byte	-110
+ 3310 0cd5 18       		.byte	24
+ 3311 0cd6 93       		.byte	-109
+ 3312 0cd7 02       		.byte	2
+ 3313 0cd8 94       		.byte	-108
+ 3314 0cd9 24       		.byte	36
+ 3315 0cda 95       		.byte	-107
+ 3316 0cdb 02       		.byte	2
+ 3317 0cdc 98       		.byte	-104
+ 3318 0cdd 49       		.byte	73
+ 3319 0cde 99       		.byte	-103
+ 3320 0cdf 08       		.byte	8
+ 3321 0ce0 9C       		.byte	-100
+ 3322 0ce1 14       		.byte	20
+ 3323 0ce2 9E       		.byte	-98
+ 3324 0ce3 26       		.byte	38
+ 3325 0ce4 9F       		.byte	-97
+ 3326 0ce5 02       		.byte	2
+ 3327 0ce6 A2       		.byte	-94
+ 3328 0ce7 01       		.byte	1
+ 3329 0ce8 A3       		.byte	-93
+ 3330 0ce9 40       		.byte	64
+ 3331 0cea A4       		.byte	-92
+ 3332 0ceb 80       		.byte	-128
+ 3333 0cec A7       		.byte	-89
+ 3334 0ced 10       		.byte	16
+ 3335 0cee AB       		.byte	-85
+ 3336 0cef 80       		.byte	-128
+ 3337 0cf0 AC       		.byte	-84
+ 3338 0cf1 10       		.byte	16
+ 3339 0cf2 AE       		.byte	-82
+ 3340 0cf3 10       		.byte	16
+ 3341 0cf4 B4       		.byte	-76
+ 3342 0cf5 09       		.byte	9
+ 3343 0cf6 B5       		.byte	-75
+ 3344 0cf7 10       		.byte	16
+ 3345 0cf8 B6       		.byte	-74
+ 3346 0cf9 80       		.byte	-128
+ 3347 0cfa C0       		.byte	-64
+ 3348 0cfb E5       		.byte	-27
+ 3349 0cfc C2       		.byte	-62
+ 3350 0cfd EF       		.byte	-17
+ 3351 0cfe C4       		.byte	-60
+ 3352 0cff 28       		.byte	40
+ 3353 0d00 CA       		.byte	-54
+ 3354 0d01 D0       		.byte	-48
+ 3355 0d02 CC       		.byte	-52
+ 3356 0d03 BD       		.byte	-67
+ 3357 0d04 CE       		.byte	-50
+ 3358 0d05 70       		.byte	112
+ 3359 0d06 D0       		.byte	-48
+ 3360 0d07 C7       		.byte	-57
+ 3361 0d08 D2       		.byte	-46
+ 3362 0d09 20       		.byte	32
+ 3363 0d0a D6       		.byte	-42
+ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccDcP5We.s 			page 60
+
+
+ 3364 0d0b F0       		.byte	-16
+ 3365 0d0c E4       		.byte	-28
+ 3366 0d0d 80       		.byte	-128
+ 3367 0d0e E8       		.byte	-24
+ 3368 0d0f 40       		.byte	64
+ 3369 0d10 EC       		.byte	-20
+ 3370 0d11 10       		.byte	16
+ 3371 0d12 EE       		.byte	-18
+ 3372 0d13 0A       		.byte	10
+ 3373 0d14 56       		.byte	86
+ 3374 0d15 08       		.byte	8
+ 3375 0d16 58       		.byte	88
+ 3376 0d17 04       		.byte	4
+ 3377 0d18 59       		.byte	89
+ 3378 0d19 04       		.byte	4
+ 3379 0d1a 5B       		.byte	91
+ 3380 0d1b 04       		.byte	4
+ 3381 0d1c 5C       		.byte	92
+ 3382 0d1d 11       		.byte	17
+ 3383 0d1e 5D       		.byte	93
+ 3384 0d1f 90       		.byte	-112
+ 3385 0d20 5F       		.byte	95
+ 3386 0d21 01       		.byte	1
+ 3387 0d22 82       		.byte	-126
+ 3388 0d23 01       		.byte	1
+ 3389 0d24 85       		.byte	-123
+ 3390 0d25 08       		.byte	8
+ 3391 0d26 86       		.byte	-122
+ 3392 0d27 10       		.byte	16
+ 3393 0d28 88       		.byte	-120
+ 3394 0d29 10       		.byte	16
+ 3395 0d2a 8C       		.byte	-116
+ 3396 0d2b 02       		.byte	2
+ 3397 0d2c 92       		.byte	-110
+ 3398 0d2d 04       		.byte	4
+ 3399 0d2e 93       		.byte	-109
+ 3400 0d2f 01       		.byte	1
+ 3401 0d30 94       		.byte	-108
+ 3402 0d31 02       		.byte	2
+ 3403 0d32 98       		.byte	-104
+ 3404 0d33 01       		.byte	1
+ 3405 0d34 9B       		.byte	-101
+ 3406 0d35 02       		.byte	2
+ 3407 0d36 9C       		.byte	-100
+ 3408 0d37 02       		.byte	2
+ 3409 0d38 9D       		.byte	-99
+ 3410 0d39 08       		.byte	8
+ 3411 0d3a A2       		.byte	-94
+ 3412 0d3b 08       		.byte	8
+ 3413 0d3c A3       		.byte	-93
+ 3414 0d3d 04       		.byte	4
+ 3415 0d3e A4       		.byte	-92
+ 3416 0d3f 02       		.byte	2
+ 3417 0d40 AA       		.byte	-86
+ 3418 0d41 02       		.byte	2
+ 3419 0d42 AD       		.byte	-83
+ 3420 0d43 08       		.byte	8
+ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccDcP5We.s 			page 61
+
+
+ 3421 0d44 B0       		.byte	-80
+ 3422 0d45 10       		.byte	16
+ 3423 0d46 B1       		.byte	-79
+ 3424 0d47 04       		.byte	4
+ 3425 0d48 B2       		.byte	-78
+ 3426 0d49 01       		.byte	1
+ 3427 0d4a B3       		.byte	-77
+ 3428 0d4b 02       		.byte	2
+ 3429 0d4c B4       		.byte	-76
+ 3430 0d4d 06       		.byte	6
+ 3431 0d4e B5       		.byte	-75
+ 3432 0d4f 08       		.byte	8
+ 3433 0d50 B6       		.byte	-74
+ 3434 0d51 08       		.byte	8
+ 3435 0d52 B7       		.byte	-73
+ 3436 0d53 01       		.byte	1
+ 3437 0d54 B9       		.byte	-71
+ 3438 0d55 20       		.byte	32
+ 3439 0d56 BE       		.byte	-66
+ 3440 0d57 05       		.byte	5
+ 3441 0d58 BF       		.byte	-65
+ 3442 0d59 10       		.byte	16
+ 3443 0d5a D4       		.byte	-44
+ 3444 0d5b 0F       		.byte	15
+ 3445 0d5c D8       		.byte	-40
+ 3446 0d5d 04       		.byte	4
+ 3447 0d5e D9       		.byte	-39
+ 3448 0d5f 04       		.byte	4
+ 3449 0d60 DB       		.byte	-37
+ 3450 0d61 04       		.byte	4
+ 3451 0d62 DF       		.byte	-33
+ 3452 0d63 05       		.byte	5
+ 3453 0d64 01       		.byte	1
+ 3454 0d65 08       		.byte	8
+ 3455 0d66 04       		.byte	4
+ 3456 0d67 28       		.byte	40
+ 3457 0d68 06       		.byte	6
+ 3458 0d69 42       		.byte	66
+ 3459 0d6a 07       		.byte	7
+ 3460 0d6b 20       		.byte	32
+ 3461 0d6c 08       		.byte	8
+ 3462 0d6d 49       		.byte	73
+ 3463 0d6e 0A       		.byte	10
+ 3464 0d6f 28       		.byte	40
+ 3465 0d70 0E       		.byte	14
+ 3466 0d71 4A       		.byte	74
+ 3467 0d72 0F       		.byte	15
+ 3468 0d73 10       		.byte	16
+ 3469 0d74 10       		.byte	16
+ 3470 0d75 8C       		.byte	-116
+ 3471 0d76 16       		.byte	22
+ 3472 0d77 24       		.byte	36
+ 3473 0d78 17       		.byte	23
+ 3474 0d79 01       		.byte	1
+ 3475 0d7a 1C       		.byte	28
+ 3476 0d7b 60       		.byte	96
+ 3477 0d7c 1D       		.byte	29
+ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccDcP5We.s 			page 62
+
+
+ 3478 0d7d 80       		.byte	-128
+ 3479 0d7e 1F       		.byte	31
+ 3480 0d7f 60       		.byte	96
+ 3481 0d80 24       		.byte	36
+ 3482 0d81 22       		.byte	34
+ 3483 0d82 27       		.byte	39
+ 3484 0d83 54       		.byte	84
+ 3485 0d84 28       		.byte	40
+ 3486 0d85 45       		.byte	69
+ 3487 0d86 29       		.byte	41
+ 3488 0d87 08       		.byte	8
+ 3489 0d88 2F       		.byte	47
+ 3490 0d89 42       		.byte	66
+ 3491 0d8a 30       		.byte	48
+ 3492 0d8b 80       		.byte	-128
+ 3493 0d8c 32       		.byte	50
+ 3494 0d8d 14       		.byte	20
+ 3495 0d8e 34       		.byte	52
+ 3496 0d8f 02       		.byte	2
+ 3497 0d90 36       		.byte	54
+ 3498 0d91 80       		.byte	-128
+ 3499 0d92 37       		.byte	55
+ 3500 0d93 20       		.byte	32
+ 3501 0d94 3D       		.byte	61
+ 3502 0d95 08       		.byte	8
+ 3503 0d96 3E       		.byte	62
+ 3504 0d97 08       		.byte	8
+ 3505 0d98 3F       		.byte	63
+ 3506 0d99 04       		.byte	4
+ 3507 0d9a 58       		.byte	88
+ 3508 0d9b 80       		.byte	-128
+ 3509 0d9c 5C       		.byte	92
+ 3510 0d9d 40       		.byte	64
+ 3511 0d9e 5D       		.byte	93
+ 3512 0d9f 10       		.byte	16
+ 3513 0da0 5E       		.byte	94
+ 3514 0da1 01       		.byte	1
+ 3515 0da2 5F       		.byte	95
+ 3516 0da3 08       		.byte	8
+ 3517 0da4 60       		.byte	96
+ 3518 0da5 02       		.byte	2
+ 3519 0da6 65       		.byte	101
+ 3520 0da7 04       		.byte	4
+ 3521 0da8 66       		.byte	102
+ 3522 0da9 10       		.byte	16
+ 3523 0daa 7D       		.byte	125
+ 3524 0dab 08       		.byte	8
+ 3525 0dac 83       		.byte	-125
+ 3526 0dad 40       		.byte	64
+ 3527 0dae 84       		.byte	-124
+ 3528 0daf 01       		.byte	1
+ 3529 0db0 85       		.byte	-123
+ 3530 0db1 80       		.byte	-128
+ 3531 0db2 87       		.byte	-121
+ 3532 0db3 10       		.byte	16
+ 3533 0db4 88       		.byte	-120
+ 3534 0db5 10       		.byte	16
+ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccDcP5We.s 			page 63
+
+
+ 3535 0db6 8A       		.byte	-118
+ 3536 0db7 09       		.byte	9
+ 3537 0db8 8B       		.byte	-117
+ 3538 0db9 03       		.byte	3
+ 3539 0dba 8C       		.byte	-116
+ 3540 0dbb 81       		.byte	-127
+ 3541 0dbc 8E       		.byte	-114
+ 3542 0dbd 24       		.byte	36
+ 3543 0dbe 90       		.byte	-112
+ 3544 0dbf 08       		.byte	8
+ 3545 0dc0 91       		.byte	-111
+ 3546 0dc1 10       		.byte	16
+ 3547 0dc2 92       		.byte	-110
+ 3548 0dc3 48       		.byte	72
+ 3549 0dc4 94       		.byte	-108
+ 3550 0dc5 20       		.byte	32
+ 3551 0dc6 97       		.byte	-105
+ 3552 0dc7 14       		.byte	20
+ 3553 0dc8 98       		.byte	-104
+ 3554 0dc9 49       		.byte	73
+ 3555 0dca 99       		.byte	-103
+ 3556 0dcb 0C       		.byte	12
+ 3557 0dcc 9A       		.byte	-102
+ 3558 0dcd 52       		.byte	82
+ 3559 0dce 9B       		.byte	-101
+ 3560 0dcf 08       		.byte	8
+ 3561 0dd0 9C       		.byte	-100
+ 3562 0dd1 04       		.byte	4
+ 3563 0dd2 9E       		.byte	-98
+ 3564 0dd3 24       		.byte	36
+ 3565 0dd4 9F       		.byte	-97
+ 3566 0dd5 16       		.byte	22
+ 3567 0dd6 A0       		.byte	-96
+ 3568 0dd7 88       		.byte	-120
+ 3569 0dd8 A2       		.byte	-94
+ 3570 0dd9 85       		.byte	-123
+ 3571 0dda A3       		.byte	-93
+ 3572 0ddb 02       		.byte	2
+ 3573 0ddc A7       		.byte	-89
+ 3574 0ddd 20       		.byte	32
+ 3575 0dde B6       		.byte	-74
+ 3576 0ddf 0A       		.byte	10
+ 3577 0de0 B7       		.byte	-73
+ 3578 0de1 54       		.byte	84
+ 3579 0de2 C0       		.byte	-64
+ 3580 0de3 F4       		.byte	-12
+ 3581 0de4 C2       		.byte	-62
+ 3582 0de5 FF       		.byte	-1
+ 3583 0de6 C4       		.byte	-60
+ 3584 0de7 7A       		.byte	122
+ 3585 0de8 CA       		.byte	-54
+ 3586 0de9 9F       		.byte	-97
+ 3587 0dea CC       		.byte	-52
+ 3588 0deb BE       		.byte	-66
+ 3589 0dec CE       		.byte	-50
+ 3590 0ded 40       		.byte	64
+ 3591 0dee D6       		.byte	-42
+ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccDcP5We.s 			page 64
+
+
+ 3592 0def F8       		.byte	-8
+ 3593 0df0 D8       		.byte	-40
+ 3594 0df1 68       		.byte	104
+ 3595 0df2 DE       		.byte	-34
+ 3596 0df3 40       		.byte	64
+ 3597 0df4 E0       		.byte	-32
+ 3598 0df5 A0       		.byte	-96
+ 3599 0df6 E2       		.byte	-30
+ 3600 0df7 40       		.byte	64
+ 3601 0df8 E4       		.byte	-28
+ 3602 0df9 70       		.byte	112
+ 3603 0dfa E6       		.byte	-26
+ 3604 0dfb 04       		.byte	4
+ 3605 0dfc E8       		.byte	-24
+ 3606 0dfd 50       		.byte	80
+ 3607 0dfe EA       		.byte	-22
+ 3608 0dff 01       		.byte	1
+ 3609 0e00 EC       		.byte	-20
+ 3610 0e01 20       		.byte	32
+ 3611 0e02 EE       		.byte	-18
+ 3612 0e03 40       		.byte	64
+ 3613 0e04 10       		.byte	16
+ 3614 0e05 40       		.byte	64
+ 3615 0e06 16       		.byte	22
+ 3616 0e07 80       		.byte	-128
+ 3617 0e08 32       		.byte	50
+ 3618 0e09 22       		.byte	34
+ 3619 0e0a 35       		.byte	53
+ 3620 0e0b 08       		.byte	8
+ 3621 0e0c 36       		.byte	54
+ 3622 0e0d 40       		.byte	64
+ 3623 0e0e 38       		.byte	56
+ 3624 0e0f 01       		.byte	1
+ 3625 0e10 3B       		.byte	59
+ 3626 0e11 40       		.byte	64
+ 3627 0e12 3E       		.byte	62
+ 3628 0e13 80       		.byte	-128
+ 3629 0e14 81       		.byte	-127
+ 3630 0e15 08       		.byte	8
+ 3631 0e16 83       		.byte	-125
+ 3632 0e17 02       		.byte	2
+ 3633 0e18 C4       		.byte	-60
+ 3634 0e19 30       		.byte	48
+ 3635 0e1a CC       		.byte	-52
+ 3636 0e1b F0       		.byte	-16
+ 3637 0e1c CE       		.byte	-50
+ 3638 0e1d 70       		.byte	112
+ 3639 0e1e E6       		.byte	-26
+ 3640 0e1f A0       		.byte	-96
+ 3641 0e20 01       		.byte	1
+ 3642 0e21 02       		.byte	2
+ 3643 0e22 06       		.byte	6
+ 3644 0e23 02       		.byte	2
+ 3645 0e24 07       		.byte	7
+ 3646 0e25 10       		.byte	16
+ 3647 0e26 0F       		.byte	15
+ 3648 0e27 08       		.byte	8
+ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccDcP5We.s 			page 65
+
+
+ 3649 0e28 30       		.byte	48
+ 3650 0e29 82       		.byte	-126
+ 3651 0e2a 37       		.byte	55
+ 3652 0e2b 40       		.byte	64
+ 3653 0e2c 52       		.byte	82
+ 3654 0e2d 08       		.byte	8
+ 3655 0e2e 5F       		.byte	95
+ 3656 0e2f 02       		.byte	2
+ 3657 0e30 80       		.byte	-128
+ 3658 0e31 01       		.byte	1
+ 3659 0e32 86       		.byte	-122
+ 3660 0e33 02       		.byte	2
+ 3661 0e34 87       		.byte	-121
+ 3662 0e35 40       		.byte	64
+ 3663 0e36 94       		.byte	-108
+ 3664 0e37 01       		.byte	1
+ 3665 0e38 97       		.byte	-105
+ 3666 0e39 40       		.byte	64
+ 3667 0e3a 9B       		.byte	-101
+ 3668 0e3b 02       		.byte	2
+ 3669 0e3c A6       		.byte	-90
+ 3670 0e3d 42       		.byte	66
+ 3671 0e3e AC       		.byte	-84
+ 3672 0e3f 40       		.byte	64
+ 3673 0e40 AE       		.byte	-82
+ 3674 0e41 20       		.byte	32
+ 3675 0e42 C0       		.byte	-64
+ 3676 0e43 B0       		.byte	-80
+ 3677 0e44 C2       		.byte	-62
+ 3678 0e45 80       		.byte	-128
+ 3679 0e46 CC       		.byte	-52
+ 3680 0e47 70       		.byte	112
+ 3681 0e48 D4       		.byte	-44
+ 3682 0e49 20       		.byte	32
+ 3683 0e4a D6       		.byte	-42
+ 3684 0e4b 80       		.byte	-128
+ 3685 0e4c E2       		.byte	-30
+ 3686 0e4d C0       		.byte	-64
+ 3687 0e4e E6       		.byte	-26
+ 3688 0e4f 40       		.byte	64
+ 3689 0e50 EC       		.byte	-20
+ 3690 0e51 10       		.byte	16
+ 3691 0e52 EE       		.byte	-18
+ 3692 0e53 40       		.byte	64
+ 3693 0e54 04       		.byte	4
+ 3694 0e55 04       		.byte	4
+ 3695 0e56 12       		.byte	18
+ 3696 0e57 08       		.byte	8
+ 3697 0e58 17       		.byte	23
+ 3698 0e59 40       		.byte	64
+ 3699 0e5a 52       		.byte	82
+ 3700 0e5b 80       		.byte	-128
+ 3701 0e5c 57       		.byte	87
+ 3702 0e5d 04       		.byte	4
+ 3703 0e5e 99       		.byte	-103
+ 3704 0e5f 02       		.byte	2
+ 3705 0e60 9A       		.byte	-102
+ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccDcP5We.s 			page 66
+
+
+ 3706 0e61 02       		.byte	2
+ 3707 0e62 9B       		.byte	-101
+ 3708 0e63 10       		.byte	16
+ 3709 0e64 9F       		.byte	-97
+ 3710 0e65 40       		.byte	64
+ 3711 0e66 A3       		.byte	-93
+ 3712 0e67 04       		.byte	4
+ 3713 0e68 A4       		.byte	-92
+ 3714 0e69 80       		.byte	-128
+ 3715 0e6a A6       		.byte	-90
+ 3716 0e6b 48       		.byte	72
+ 3717 0e6c A8       		.byte	-88
+ 3718 0e6d 02       		.byte	2
+ 3719 0e6e C0       		.byte	-64
+ 3720 0e6f 20       		.byte	32
+ 3721 0e70 C4       		.byte	-60
+ 3722 0e71 C0       		.byte	-64
+ 3723 0e72 D4       		.byte	-44
+ 3724 0e73 60       		.byte	96
+ 3725 0e74 EA       		.byte	-22
+ 3726 0e75 20       		.byte	32
+ 3727 0e76 1B       		.byte	27
+ 3728 0e77 01       		.byte	1
+ 3729 0e78 1E       		.byte	30
+ 3730 0e79 20       		.byte	32
+ 3731 0e7a 8A       		.byte	-118
+ 3732 0e7b 10       		.byte	16
+ 3733 0e7c 90       		.byte	-112
+ 3734 0e7d 04       		.byte	4
+ 3735 0e7e 99       		.byte	-103
+ 3736 0e7f 02       		.byte	2
+ 3737 0e80 9A       		.byte	-102
+ 3738 0e81 02       		.byte	2
+ 3739 0e82 9B       		.byte	-101
+ 3740 0e83 10       		.byte	16
+ 3741 0e84 A6       		.byte	-90
+ 3742 0e85 40       		.byte	64
+ 3743 0e86 A8       		.byte	-88
+ 3744 0e87 80       		.byte	-128
+ 3745 0e88 AA       		.byte	-86
+ 3746 0e89 80       		.byte	-128
+ 3747 0e8a AB       		.byte	-85
+ 3748 0e8b 40       		.byte	64
+ 3749 0e8c C6       		.byte	-58
+ 3750 0e8d 30       		.byte	48
+ 3751 0e8e EA       		.byte	-22
+ 3752 0e8f 20       		.byte	32
+ 3753 0e90 EC       		.byte	-20
+ 3754 0e91 80       		.byte	-128
+ 3755 0e92 EE       		.byte	-18
+ 3756 0e93 20       		.byte	32
+ 3757 0e94 83       		.byte	-125
+ 3758 0e95 01       		.byte	1
+ 3759 0e96 01       		.byte	1
+ 3760 0e97 40       		.byte	64
+ 3761 0e98 08       		.byte	8
+ 3762 0e99 08       		.byte	8
+ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccDcP5We.s 			page 67
+
+
+ 3763 0e9a 0F       		.byte	15
+ 3764 0e9b 08       		.byte	8
+ 3765 0e9c 50       		.byte	80
+ 3766 0e9d 04       		.byte	4
+ 3767 0e9e 80       		.byte	-128
+ 3768 0e9f 44       		.byte	68
+ 3769 0ea0 84       		.byte	-124
+ 3770 0ea1 08       		.byte	8
+ 3771 0ea2 8E       		.byte	-114
+ 3772 0ea3 01       		.byte	1
+ 3773 0ea4 97       		.byte	-105
+ 3774 0ea5 02       		.byte	2
+ 3775 0ea6 C0       		.byte	-64
+ 3776 0ea7 02       		.byte	2
+ 3777 0ea8 C2       		.byte	-62
+ 3778 0ea9 09       		.byte	9
+ 3779 0eaa D4       		.byte	-44
+ 3780 0eab 04       		.byte	4
+ 3781 0eac E2       		.byte	-30
+ 3782 0ead 08       		.byte	8
+ 3783 0eae 18       		.byte	24
+ 3784 0eaf 80       		.byte	-128
+ 3785 0eb0 26       		.byte	38
+ 3786 0eb1 01       		.byte	1
+ 3787 0eb2 94       		.byte	-108
+ 3788 0eb3 80       		.byte	-128
+ 3789 0eb4 97       		.byte	-105
+ 3790 0eb5 02       		.byte	2
+ 3791 0eb6 98       		.byte	-104
+ 3792 0eb7 08       		.byte	8
+ 3793 0eb8 A3       		.byte	-93
+ 3794 0eb9 04       		.byte	4
+ 3795 0eba A4       		.byte	-92
+ 3796 0ebb 08       		.byte	8
+ 3797 0ebc A6       		.byte	-90
+ 3798 0ebd 01       		.byte	1
+ 3799 0ebe B5       		.byte	-75
+ 3800 0ebf 40       		.byte	64
+ 3801 0ec0 C6       		.byte	-58
+ 3802 0ec1 08       		.byte	8
+ 3803 0ec2 C8       		.byte	-56
+ 3804 0ec3 01       		.byte	1
+ 3805 0ec4 EA       		.byte	-22
+ 3806 0ec5 02       		.byte	2
+ 3807 0ec6 0B       		.byte	11
+ 3808 0ec7 42       		.byte	66
+ 3809 0ec8 0C       		.byte	12
+ 3810 0ec9 08       		.byte	8
+ 3811 0eca 41       		.byte	65
+ 3812 0ecb 04       		.byte	4
+ 3813 0ecc 44       		.byte	68
+ 3814 0ecd 01       		.byte	1
+ 3815 0ece 88       		.byte	-120
+ 3816 0ecf 10       		.byte	16
+ 3817 0ed0 8B       		.byte	-117
+ 3818 0ed1 01       		.byte	1
+ 3819 0ed2 91       		.byte	-111
+ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccDcP5We.s 			page 68
+
+
+ 3820 0ed3 08       		.byte	8
+ 3821 0ed4 97       		.byte	-105
+ 3822 0ed5 02       		.byte	2
+ 3823 0ed6 98       		.byte	-104
+ 3824 0ed7 08       		.byte	8
+ 3825 0ed8 A4       		.byte	-92
+ 3826 0ed9 08       		.byte	8
+ 3827 0eda AB       		.byte	-85
+ 3828 0edb 04       		.byte	4
+ 3829 0edc AD       		.byte	-83
+ 3830 0edd 04       		.byte	4
+ 3831 0ede C2       		.byte	-62
+ 3832 0edf 0E       		.byte	14
+ 3833 0ee0 D0       		.byte	-48
+ 3834 0ee1 06       		.byte	6
+ 3835 0ee2 E0       		.byte	-32
+ 3836 0ee3 05       		.byte	5
+ 3837 0ee4 20       		.byte	32
+ 3838 0ee5 80       		.byte	-128
+ 3839 0ee6 50       		.byte	80
+ 3840 0ee7 04       		.byte	4
+ 3841 0ee8 55       		.byte	85
+ 3842 0ee9 08       		.byte	8
+ 3843 0eea 56       		.byte	86
+ 3844 0eeb 02       		.byte	2
+ 3845 0eec 5B       		.byte	91
+ 3846 0eed 40       		.byte	64
+ 3847 0eee 67       		.byte	103
+ 3848 0eef 08       		.byte	8
+ 3849 0ef0 68       		.byte	104
+ 3850 0ef1 01       		.byte	1
+ 3851 0ef2 6E       		.byte	110
+ 3852 0ef3 20       		.byte	32
+ 3853 0ef4 71       		.byte	113
+ 3854 0ef5 40       		.byte	64
+ 3855 0ef6 82       		.byte	-126
+ 3856 0ef7 01       		.byte	1
+ 3857 0ef8 84       		.byte	-124
+ 3858 0ef9 01       		.byte	1
+ 3859 0efa 85       		.byte	-123
+ 3860 0efb 40       		.byte	64
+ 3861 0efc 86       		.byte	-122
+ 3862 0efd 10       		.byte	16
+ 3863 0efe 87       		.byte	-121
+ 3864 0eff 04       		.byte	4
+ 3865 0f00 8B       		.byte	-117
+ 3866 0f01 01       		.byte	1
+ 3867 0f02 90       		.byte	-112
+ 3868 0f03 04       		.byte	4
+ 3869 0f04 9A       		.byte	-102
+ 3870 0f05 02       		.byte	2
+ 3871 0f06 9B       		.byte	-101
+ 3872 0f07 10       		.byte	16
+ 3873 0f08 A3       		.byte	-93
+ 3874 0f09 01       		.byte	1
+ 3875 0f0a AE       		.byte	-82
+ 3876 0f0b 40       		.byte	64
+ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccDcP5We.s 			page 69
+
+
+ 3877 0f0c B1       		.byte	-79
+ 3878 0f0d 02       		.byte	2
+ 3879 0f0e C8       		.byte	-56
+ 3880 0f0f 40       		.byte	64
+ 3881 0f10 D4       		.byte	-44
+ 3882 0f11 E0       		.byte	-32
+ 3883 0f12 D6       		.byte	-42
+ 3884 0f13 20       		.byte	32
+ 3885 0f14 D8       		.byte	-40
+ 3886 0f15 80       		.byte	-128
+ 3887 0f16 DA       		.byte	-38
+ 3888 0f17 C0       		.byte	-64
+ 3889 0f18 DC       		.byte	-36
+ 3890 0f19 20       		.byte	32
+ 3891 0f1a E2       		.byte	-30
+ 3892 0f1b 20       		.byte	32
+ 3893 0f1c E6       		.byte	-26
+ 3894 0f1d 10       		.byte	16
+ 3895 0f1e EE       		.byte	-18
+ 3896 0f1f 40       		.byte	64
+ 3897 0f20 03       		.byte	3
+ 3898 0f21 40       		.byte	64
+ 3899 0f22 04       		.byte	4
+ 3900 0f23 08       		.byte	8
+ 3901 0f24 58       		.byte	88
+ 3902 0f25 40       		.byte	64
+ 3903 0f26 63       		.byte	99
+ 3904 0f27 02       		.byte	2
+ 3905 0f28 66       		.byte	102
+ 3906 0f29 01       		.byte	1
+ 3907 0f2a 75       		.byte	117
+ 3908 0f2b 02       		.byte	2
+ 3909 0f2c 80       		.byte	-128
+ 3910 0f2d 04       		.byte	4
+ 3911 0f2e 81       		.byte	-127
+ 3912 0f2f 02       		.byte	2
+ 3913 0f30 84       		.byte	-124
+ 3914 0f31 40       		.byte	64
+ 3915 0f32 90       		.byte	-112
+ 3916 0f33 04       		.byte	4
+ 3917 0f34 94       		.byte	-108
+ 3918 0f35 08       		.byte	8
+ 3919 0f36 9A       		.byte	-102
+ 3920 0f37 01       		.byte	1
+ 3921 0f38 9F       		.byte	-97
+ 3922 0f39 40       		.byte	64
+ 3923 0f3a A3       		.byte	-93
+ 3924 0f3b 01       		.byte	1
+ 3925 0f3c A9       		.byte	-87
+ 3926 0f3d 08       		.byte	8
+ 3927 0f3e AB       		.byte	-85
+ 3928 0f3f 10       		.byte	16
+ 3929 0f40 B0       		.byte	-80
+ 3930 0f41 40       		.byte	64
+ 3931 0f42 C0       		.byte	-64
+ 3932 0f43 30       		.byte	48
+ 3933 0f44 D4       		.byte	-44
+ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccDcP5We.s 			page 70
+
+
+ 3934 0f45 80       		.byte	-128
+ 3935 0f46 D6       		.byte	-42
+ 3936 0f47 40       		.byte	64
+ 3937 0f48 D8       		.byte	-40
+ 3938 0f49 80       		.byte	-128
+ 3939 0f4a DE       		.byte	-34
+ 3940 0f4b 20       		.byte	32
+ 3941 0f4c E0       		.byte	-32
+ 3942 0f4d 20       		.byte	32
+ 3943 0f4e E6       		.byte	-26
+ 3944 0f4f 30       		.byte	48
+ 3945 0f50 E8       		.byte	-24
+ 3946 0f51 20       		.byte	32
+ 3947 0f52 EA       		.byte	-22
+ 3948 0f53 80       		.byte	-128
+ 3949 0f54 08       		.byte	8
+ 3950 0f55 20       		.byte	32
+ 3951 0f56 0F       		.byte	15
+ 3952 0f57 01       		.byte	1
+ 3953 0f58 57       		.byte	87
+ 3954 0f59 20       		.byte	32
+ 3955 0f5a 63       		.byte	99
+ 3956 0f5b 02       		.byte	2
+ 3957 0f5c 64       		.byte	100
+ 3958 0f5d 10       		.byte	16
+ 3959 0f5e 98       		.byte	-104
+ 3960 0f5f 10       		.byte	16
+ 3961 0f60 9C       		.byte	-100
+ 3962 0f61 01       		.byte	1
+ 3963 0f62 A3       		.byte	-93
+ 3964 0f63 01       		.byte	1
+ 3965 0f64 AC       		.byte	-84
+ 3966 0f65 08       		.byte	8
+ 3967 0f66 AF       		.byte	-81
+ 3968 0f67 40       		.byte	64
+ 3969 0f68 C2       		.byte	-62
+ 3970 0f69 03       		.byte	3
+ 3971 0f6a D4       		.byte	-44
+ 3972 0f6b 02       		.byte	2
+ 3973 0f6c D6       		.byte	-42
+ 3974 0f6d 02       		.byte	2
+ 3975 0f6e D8       		.byte	-40
+ 3976 0f6f 01       		.byte	1
+ 3977 0f70 12       		.byte	18
+ 3978 0f71 20       		.byte	32
+ 3979 0f72 80       		.byte	-128
+ 3980 0f73 20       		.byte	32
+ 3981 0f74 8B       		.byte	-117
+ 3982 0f75 20       		.byte	32
+ 3983 0f76 8E       		.byte	-114
+ 3984 0f77 20       		.byte	32
+ 3985 0f78 98       		.byte	-104
+ 3986 0f79 20       		.byte	32
+ 3987 0f7a A7       		.byte	-89
+ 3988 0f7b 20       		.byte	32
+ 3989 0f7c AB       		.byte	-85
+ 3990 0f7d 01       		.byte	1
+ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccDcP5We.s 			page 71
+
+
+ 3991 0f7e B0       		.byte	-80
+ 3992 0f7f 01       		.byte	1
+ 3993 0f80 C4       		.byte	-60
+ 3994 0f81 08       		.byte	8
+ 3995 0f82 E0       		.byte	-32
+ 3996 0f83 01       		.byte	1
+ 3997 0f84 E2       		.byte	-30
+ 3998 0f85 08       		.byte	8
+ 3999 0f86 EC       		.byte	-20
+ 4000 0f87 04       		.byte	4
+ 4001 0f88 10       		.byte	16
+ 4002 0f89 13       		.byte	19
+ 4003 0f8a 11       		.byte	17
+ 4004 0f8b 01       		.byte	1
+ 4005 0f8c 1A       		.byte	26
+ 4006 0f8d 13       		.byte	19
+ 4007 0f8e 1B       		.byte	27
+ 4008 0f8f 01       		.byte	1
+ 4009 0f90 1C       		.byte	28
+ 4010 0f91 03       		.byte	3
+ 4011 0f92 1D       		.byte	29
+ 4012 0f93 01       		.byte	1
+ 4013 0f94 00       		.byte	0
+ 4014 0f95 AB       		.byte	-85
+ 4015 0f96 01       		.byte	1
+ 4016 0f97 FF       		.byte	-1
+ 4017 0f98 10       		.byte	16
+ 4018 0f99 0A       		.byte	10
+ 4019 0f9a 00       		.byte	0
+ 4020 0f9b 00       		.byte	0
+ 4021 0f9c 13       		.byte	19
+ 4022 0f9d 01       		.byte	1
+ 4023 0f9e 00       		.byte	0
+ 4024 0f9f 00       		.byte	0
+ 4025 0fa0 00       		.byte	0
+ 4026 0fa1 00       		.byte	0
+ 4027 0fa2 00       		.byte	0
+ 4028 0fa3 00       		.byte	0
+ 4029 0fa4 13       		.byte	19
+ 4030 0fa5 01       		.byte	1
+ 4031 0fa6 13       		.byte	19
+ 4032 0fa7 01       		.byte	1
+ 4033 0fa8 13       		.byte	19
+ 4034 0fa9 01       		.byte	1
+ 4035 0faa 13       		.byte	19
+ 4036 0fab 00       		.byte	0
+ 4037 0fac 08       		.byte	8
+ 4038 0fad 00       		.byte	0
+ 4039 0fae 83       		.byte	-125
+ 4040 0faf 0C       		.byte	12
+ 4041 0fb0 04       		.byte	4
+ 4042 0fb1 00       		.byte	0
+ 4043 0fb2 04       		.byte	4
+ 4044 0fb3 20       		.byte	32
+ 4045 0fb4 70       		.byte	112
+ 4046 0fb5 00       		.byte	0
+ 4047 0fb6 00       		.byte	0
+ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccDcP5We.s 			page 72
+
+
+ 4048 0fb7 00       		.byte	0
+ 4049 0fb8 48       		.byte	72
+ 4050 0fb9 37       		.byte	55
+ 4051 0fba 37       		.byte	55
+ 4052 0fbb 00       		.byte	0
+ 4053 0fbc 07       		.byte	7
+ 4054 0fbd 00       		.byte	0
+ 4055 0fbe 00       		.byte	0
+ 4056 0fbf 00       		.byte	0
+ 4057 0fc0 40       		.byte	64
+ 4058 0fc1 00       		.byte	0
+ 4059 0fc2 00       		.byte	0
+ 4060 0fc3 0F       		.byte	15
+ 4061 0fc4 0F       		.byte	15
+ 4062 0fc5 00       		.byte	0
+ 4063 0fc6 0F       		.byte	15
+ 4064 0fc7 00       		.byte	0
+ 4065 0fc8 F0       		.byte	-16
+ 4066 0fc9 00       		.byte	0
+ 4067 0fca 00       		.byte	0
+ 4068 0fcb 00       		.byte	0
+ 4069 0fcc C0       		.byte	-64
+ 4070 0fcd 3F       		.byte	63
+ 4071 0fce 3F       		.byte	63
+ 4072 0fcf 00       		.byte	0
+ 4073 0fd0 34       		.byte	52
+ 4074 0fd1 00       		.byte	0
+ 4075 0fd2 00       		.byte	0
+ 4076 0fd3 00       		.byte	0
+ 4077 0fd4 08       		.byte	8
+ 4078 0fd5 00       		.byte	0
+ 4079 0fd6 94       		.byte	-108
+ 4080 0fd7 0A       		.byte	10
+ 4081 0fd8 0A       		.byte	10
+ 4082 0fd9 00       		.byte	0
+ 4083 0fda 08       		.byte	8
+ 4084 0fdb 00       		.byte	0
+ 4085 0fdc 61       		.byte	97
+ 4086 0fdd 00       		.byte	0
+ 4087 0fde 00       		.byte	0
+ 4088 0fdf 00       		.byte	0
+ 4089 0fe0 03       		.byte	3
+ 4090 0fe1 F8       		.byte	-8
+ 4091 0fe2 F8       		.byte	-8
+ 4092 0fe3 00       		.byte	0
+ 4093 0fe4 38       		.byte	56
+ 4094 0fe5 00       		.byte	0
+ 4095 0fe6 04       		.byte	4
+ 4096 0fe7 00       		.byte	0
+ 4097 0fe8 00       		.byte	0
+ 4098 0fe9 01       		.byte	1
+ 4099 0fea 00       		.byte	0
+ 4100 0feb 00       		.byte	0
+ 4101              		.global	cy_meta_custnvl
+ 4102              		.section	.cycustnvl,"a",%progbits
+ 4103              		.align	2
+ 4104              		.type	cy_meta_custnvl, %object
+ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccDcP5We.s 			page 73
+
+
+ 4105              		.size	cy_meta_custnvl, 4
+ 4106              	cy_meta_custnvl:
+ 4107 0000 00       		.byte	0
+ 4108 0001 00       		.byte	0
+ 4109 0002 40       		.byte	64
+ 4110 0003 05       		.byte	5
+ 4111              		.global	cy_meta_wonvl
+ 4112              		.section	.cywolatch,"a",%progbits
+ 4113              		.align	2
+ 4114              		.type	cy_meta_wonvl, %object
+ 4115              		.size	cy_meta_wonvl, 4
+ 4116              	cy_meta_wonvl:
+ 4117 0000 BC       		.byte	-68
+ 4118 0001 90       		.byte	-112
+ 4119 0002 AC       		.byte	-84
+ 4120 0003 AF       		.byte	-81
+ 4121              		.global	cy_meta_flashprotect
+ 4122              		.section	.cyflashprotect,"a",%progbits
+ 4123              		.align	2
+ 4124              		.type	cy_meta_flashprotect, %object
+ 4125              		.size	cy_meta_flashprotect, 256
+ 4126              	cy_meta_flashprotect:
+ 4127 0000 00000000 		.space	256
+ 4127      00000000 
+ 4127      00000000 
+ 4127      00000000 
+ 4127      00000000 
+ 4128              		.global	cy_metadata
+ 4129              		.section	.cymeta,"a",%progbits
+ 4130              		.align	2
+ 4131              		.type	cy_metadata, %object
+ 4132              		.size	cy_metadata, 12
+ 4133              	cy_metadata:
+ 4134 0000 00       		.byte	0
+ 4135 0001 01       		.byte	1
+ 4136 0002 2E       		.byte	46
+ 4137 0003 16       		.byte	22
+ 4138 0004 10       		.byte	16
+ 4139 0005 69       		.byte	105
+ 4140 0006 00       		.byte	0
+ 4141 0007 01       		.byte	1
+ 4142 0008 00       		.byte	0
+ 4143 0009 00       		.byte	0
+ 4144 000a 00       		.byte	0
+ 4145 000b 00       		.byte	0
+ 4146              		.text
+ 4147              	.Letext0:
+ 4148              		.file 1 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ 4149              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ 4150              		.file 3 "Generated_Source\\PSoC5\\cymetadata.c"
+ 4151              		.section	.debug_info,"",%progbits
+ 4152              	.Ldebug_info0:
+ 4153 0000 35010000 		.4byte	0x135
+ 4154 0004 0400     		.2byte	0x4
+ 4155 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 4156 000a 04       		.byte	0x4
+ 4157 000b 01       		.uleb128 0x1
+ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccDcP5We.s 			page 74
+
+
+ 4158 000c 0A000000 		.4byte	.LASF17
+ 4159 0010 0C       		.byte	0xc
+ 4160 0011 F3010000 		.4byte	.LASF18
+ 4161 0015 72010000 		.4byte	.LASF19
+ 4162 0019 00000000 		.4byte	.Ldebug_line0
+ 4163 001d 02       		.uleb128 0x2
+ 4164 001e 01       		.byte	0x1
+ 4165 001f 06       		.byte	0x6
+ 4166 0020 E7010000 		.4byte	.LASF0
+ 4167 0024 03       		.uleb128 0x3
+ 4168 0025 00000000 		.4byte	.LASF9
+ 4169 0029 01       		.byte	0x1
+ 4170 002a 1D       		.byte	0x1d
+ 4171 002b 2F000000 		.4byte	0x2f
+ 4172 002f 02       		.uleb128 0x2
+ 4173 0030 01       		.byte	0x1
+ 4174 0031 08       		.byte	0x8
+ 4175 0032 A4000000 		.4byte	.LASF1
+ 4176 0036 02       		.uleb128 0x2
+ 4177 0037 02       		.byte	0x2
+ 4178 0038 05       		.byte	0x5
+ 4179 0039 5F010000 		.4byte	.LASF2
+ 4180 003d 02       		.uleb128 0x2
+ 4181 003e 02       		.byte	0x2
+ 4182 003f 07       		.byte	0x7
+ 4183 0040 C4000000 		.4byte	.LASF3
+ 4184 0044 02       		.uleb128 0x2
+ 4185 0045 04       		.byte	0x4
+ 4186 0046 05       		.byte	0x5
+ 4187 0047 69010000 		.4byte	.LASF4
+ 4188 004b 02       		.uleb128 0x2
+ 4189 004c 04       		.byte	0x4
+ 4190 004d 07       		.byte	0x7
+ 4191 004e B2000000 		.4byte	.LASF5
+ 4192 0052 02       		.uleb128 0x2
+ 4193 0053 08       		.byte	0x8
+ 4194 0054 05       		.byte	0x5
+ 4195 0055 51010000 		.4byte	.LASF6
+ 4196 0059 02       		.uleb128 0x2
+ 4197 005a 08       		.byte	0x8
+ 4198 005b 07       		.byte	0x7
+ 4199 005c 06010000 		.4byte	.LASF7
+ 4200 0060 04       		.uleb128 0x4
+ 4201 0061 04       		.byte	0x4
+ 4202 0062 05       		.byte	0x5
+ 4203 0063 696E7400 		.ascii	"int\000"
+ 4204 0067 02       		.uleb128 0x2
+ 4205 0068 04       		.byte	0x4
+ 4206 0069 07       		.byte	0x7
+ 4207 006a F9000000 		.4byte	.LASF8
+ 4208 006e 03       		.uleb128 0x3
+ 4209 006f 1D010000 		.4byte	.LASF10
+ 4210 0073 02       		.byte	0x2
+ 4211 0074 18       		.byte	0x18
+ 4212 0075 24000000 		.4byte	0x24
+ 4213 0079 05       		.uleb128 0x5
+ 4214 007a 91000000 		.4byte	0x91
+ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccDcP5We.s 			page 75
+
+
+ 4215 007e 8A000000 		.4byte	0x8a
+ 4216 0082 06       		.uleb128 0x6
+ 4217 0083 8A000000 		.4byte	0x8a
+ 4218 0087 EB0F     		.2byte	0xfeb
+ 4219 0089 00       		.byte	0
+ 4220 008a 02       		.uleb128 0x2
+ 4221 008b 04       		.byte	0x4
+ 4222 008c 07       		.byte	0x7
+ 4223 008d 48010000 		.4byte	.LASF11
+ 4224 0091 07       		.uleb128 0x7
+ 4225 0092 6E000000 		.4byte	0x6e
+ 4226 0096 08       		.uleb128 0x8
+ 4227 0097 E7000000 		.4byte	.LASF12
+ 4228 009b 03       		.byte	0x3
+ 4229 009c 1F       		.byte	0x1f
+ 4230 009d A7000000 		.4byte	0xa7
+ 4231 00a1 05       		.uleb128 0x5
+ 4232 00a2 03       		.byte	0x3
+ 4233 00a3 00000000 		.4byte	cy_meta_configecc
+ 4234 00a7 07       		.uleb128 0x7
+ 4235 00a8 79000000 		.4byte	0x79
+ 4236 00ac 05       		.uleb128 0x5
+ 4237 00ad 91000000 		.4byte	0x91
+ 4238 00b1 BC000000 		.4byte	0xbc
+ 4239 00b5 09       		.uleb128 0x9
+ 4240 00b6 8A000000 		.4byte	0x8a
+ 4241 00ba 03       		.byte	0x3
+ 4242 00bb 00       		.byte	0
+ 4243 00bc 0A       		.uleb128 0xa
+ 4244 00bd D7000000 		.4byte	.LASF13
+ 4245 00c1 03       		.byte	0x3
+ 4246 00c2 2A02     		.2byte	0x22a
+ 4247 00c4 CE000000 		.4byte	0xce
+ 4248 00c8 05       		.uleb128 0x5
+ 4249 00c9 03       		.byte	0x3
+ 4250 00ca 00000000 		.4byte	cy_meta_custnvl
+ 4251 00ce 07       		.uleb128 0x7
+ 4252 00cf AC000000 		.4byte	0xac
+ 4253 00d3 0A       		.uleb128 0xa
+ 4254 00d4 3A010000 		.4byte	.LASF14
+ 4255 00d8 03       		.byte	0x3
+ 4256 00d9 3802     		.2byte	0x238
+ 4257 00db E5000000 		.4byte	0xe5
+ 4258 00df 05       		.uleb128 0x5
+ 4259 00e0 03       		.byte	0x3
+ 4260 00e1 00000000 		.4byte	cy_meta_wonvl
+ 4261 00e5 07       		.uleb128 0x7
+ 4262 00e6 AC000000 		.4byte	0xac
+ 4263 00ea 05       		.uleb128 0x5
+ 4264 00eb 91000000 		.4byte	0x91
+ 4265 00ef FA000000 		.4byte	0xfa
+ 4266 00f3 09       		.uleb128 0x9
+ 4267 00f4 8A000000 		.4byte	0x8a
+ 4268 00f8 FF       		.byte	0xff
+ 4269 00f9 00       		.byte	0
+ 4270 00fa 0A       		.uleb128 0xa
+ 4271 00fb 25010000 		.4byte	.LASF15
+ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccDcP5We.s 			page 76
+
+
+ 4272 00ff 03       		.byte	0x3
+ 4273 0100 4602     		.2byte	0x246
+ 4274 0102 0C010000 		.4byte	0x10c
+ 4275 0106 05       		.uleb128 0x5
+ 4276 0107 03       		.byte	0x3
+ 4277 0108 00000000 		.4byte	cy_meta_flashprotect
+ 4278 010c 07       		.uleb128 0x7
+ 4279 010d EA000000 		.4byte	0xea
+ 4280 0111 05       		.uleb128 0x5
+ 4281 0112 91000000 		.4byte	0x91
+ 4282 0116 21010000 		.4byte	0x121
+ 4283 011a 09       		.uleb128 0x9
+ 4284 011b 8A000000 		.4byte	0x8a
+ 4285 011f 0B       		.byte	0xb
+ 4286 0120 00       		.byte	0
+ 4287 0121 0A       		.uleb128 0xa
+ 4288 0122 98000000 		.4byte	.LASF16
+ 4289 0126 03       		.byte	0x3
+ 4290 0127 7302     		.2byte	0x273
+ 4291 0129 33010000 		.4byte	0x133
+ 4292 012d 05       		.uleb128 0x5
+ 4293 012e 03       		.byte	0x3
+ 4294 012f 00000000 		.4byte	cy_metadata
+ 4295 0133 07       		.uleb128 0x7
+ 4296 0134 11010000 		.4byte	0x111
+ 4297 0138 00       		.byte	0
+ 4298              		.section	.debug_abbrev,"",%progbits
+ 4299              	.Ldebug_abbrev0:
+ 4300 0000 01       		.uleb128 0x1
+ 4301 0001 11       		.uleb128 0x11
+ 4302 0002 01       		.byte	0x1
+ 4303 0003 25       		.uleb128 0x25
+ 4304 0004 0E       		.uleb128 0xe
+ 4305 0005 13       		.uleb128 0x13
+ 4306 0006 0B       		.uleb128 0xb
+ 4307 0007 03       		.uleb128 0x3
+ 4308 0008 0E       		.uleb128 0xe
+ 4309 0009 1B       		.uleb128 0x1b
+ 4310 000a 0E       		.uleb128 0xe
+ 4311 000b 10       		.uleb128 0x10
+ 4312 000c 17       		.uleb128 0x17
+ 4313 000d 00       		.byte	0
+ 4314 000e 00       		.byte	0
+ 4315 000f 02       		.uleb128 0x2
+ 4316 0010 24       		.uleb128 0x24
+ 4317 0011 00       		.byte	0
+ 4318 0012 0B       		.uleb128 0xb
+ 4319 0013 0B       		.uleb128 0xb
+ 4320 0014 3E       		.uleb128 0x3e
+ 4321 0015 0B       		.uleb128 0xb
+ 4322 0016 03       		.uleb128 0x3
+ 4323 0017 0E       		.uleb128 0xe
+ 4324 0018 00       		.byte	0
+ 4325 0019 00       		.byte	0
+ 4326 001a 03       		.uleb128 0x3
+ 4327 001b 16       		.uleb128 0x16
+ 4328 001c 00       		.byte	0
+ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccDcP5We.s 			page 77
+
+
+ 4329 001d 03       		.uleb128 0x3
+ 4330 001e 0E       		.uleb128 0xe
+ 4331 001f 3A       		.uleb128 0x3a
+ 4332 0020 0B       		.uleb128 0xb
+ 4333 0021 3B       		.uleb128 0x3b
+ 4334 0022 0B       		.uleb128 0xb
+ 4335 0023 49       		.uleb128 0x49
+ 4336 0024 13       		.uleb128 0x13
+ 4337 0025 00       		.byte	0
+ 4338 0026 00       		.byte	0
+ 4339 0027 04       		.uleb128 0x4
+ 4340 0028 24       		.uleb128 0x24
+ 4341 0029 00       		.byte	0
+ 4342 002a 0B       		.uleb128 0xb
+ 4343 002b 0B       		.uleb128 0xb
+ 4344 002c 3E       		.uleb128 0x3e
+ 4345 002d 0B       		.uleb128 0xb
+ 4346 002e 03       		.uleb128 0x3
+ 4347 002f 08       		.uleb128 0x8
+ 4348 0030 00       		.byte	0
+ 4349 0031 00       		.byte	0
+ 4350 0032 05       		.uleb128 0x5
+ 4351 0033 01       		.uleb128 0x1
+ 4352 0034 01       		.byte	0x1
+ 4353 0035 49       		.uleb128 0x49
+ 4354 0036 13       		.uleb128 0x13
+ 4355 0037 01       		.uleb128 0x1
+ 4356 0038 13       		.uleb128 0x13
+ 4357 0039 00       		.byte	0
+ 4358 003a 00       		.byte	0
+ 4359 003b 06       		.uleb128 0x6
+ 4360 003c 21       		.uleb128 0x21
+ 4361 003d 00       		.byte	0
+ 4362 003e 49       		.uleb128 0x49
+ 4363 003f 13       		.uleb128 0x13
+ 4364 0040 2F       		.uleb128 0x2f
+ 4365 0041 05       		.uleb128 0x5
+ 4366 0042 00       		.byte	0
+ 4367 0043 00       		.byte	0
+ 4368 0044 07       		.uleb128 0x7
+ 4369 0045 26       		.uleb128 0x26
+ 4370 0046 00       		.byte	0
+ 4371 0047 49       		.uleb128 0x49
+ 4372 0048 13       		.uleb128 0x13
+ 4373 0049 00       		.byte	0
+ 4374 004a 00       		.byte	0
+ 4375 004b 08       		.uleb128 0x8
+ 4376 004c 34       		.uleb128 0x34
+ 4377 004d 00       		.byte	0
+ 4378 004e 03       		.uleb128 0x3
+ 4379 004f 0E       		.uleb128 0xe
+ 4380 0050 3A       		.uleb128 0x3a
+ 4381 0051 0B       		.uleb128 0xb
+ 4382 0052 3B       		.uleb128 0x3b
+ 4383 0053 0B       		.uleb128 0xb
+ 4384 0054 49       		.uleb128 0x49
+ 4385 0055 13       		.uleb128 0x13
+ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccDcP5We.s 			page 78
+
+
+ 4386 0056 3F       		.uleb128 0x3f
+ 4387 0057 19       		.uleb128 0x19
+ 4388 0058 02       		.uleb128 0x2
+ 4389 0059 18       		.uleb128 0x18
+ 4390 005a 00       		.byte	0
+ 4391 005b 00       		.byte	0
+ 4392 005c 09       		.uleb128 0x9
+ 4393 005d 21       		.uleb128 0x21
+ 4394 005e 00       		.byte	0
+ 4395 005f 49       		.uleb128 0x49
+ 4396 0060 13       		.uleb128 0x13
+ 4397 0061 2F       		.uleb128 0x2f
+ 4398 0062 0B       		.uleb128 0xb
+ 4399 0063 00       		.byte	0
+ 4400 0064 00       		.byte	0
+ 4401 0065 0A       		.uleb128 0xa
+ 4402 0066 34       		.uleb128 0x34
+ 4403 0067 00       		.byte	0
+ 4404 0068 03       		.uleb128 0x3
+ 4405 0069 0E       		.uleb128 0xe
+ 4406 006a 3A       		.uleb128 0x3a
+ 4407 006b 0B       		.uleb128 0xb
+ 4408 006c 3B       		.uleb128 0x3b
+ 4409 006d 05       		.uleb128 0x5
+ 4410 006e 49       		.uleb128 0x49
+ 4411 006f 13       		.uleb128 0x13
+ 4412 0070 3F       		.uleb128 0x3f
+ 4413 0071 19       		.uleb128 0x19
+ 4414 0072 02       		.uleb128 0x2
+ 4415 0073 18       		.uleb128 0x18
+ 4416 0074 00       		.byte	0
+ 4417 0075 00       		.byte	0
+ 4418 0076 00       		.byte	0
+ 4419              		.section	.debug_aranges,"",%progbits
+ 4420 0000 14000000 		.4byte	0x14
+ 4421 0004 0200     		.2byte	0x2
+ 4422 0006 00000000 		.4byte	.Ldebug_info0
+ 4423 000a 04       		.byte	0x4
+ 4424 000b 00       		.byte	0
+ 4425 000c 0000     		.2byte	0
+ 4426 000e 0000     		.2byte	0
+ 4427 0010 00000000 		.4byte	0
+ 4428 0014 00000000 		.4byte	0
+ 4429              		.section	.debug_line,"",%progbits
+ 4430              	.Ldebug_line0:
+ 4431 0000 3D010000 		.section	.debug_str,"MS",%progbits,1
+ 4431      02003701 
+ 4431      00000201 
+ 4431      FB0E0D00 
+ 4431      01010101 
+ 4432              	.LASF9:
+ 4433 0000 5F5F7569 		.ascii	"__uint8_t\000"
+ 4433      6E74385F 
+ 4433      7400
+ 4434              	.LASF17:
+ 4435 000a 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 4435      43313120 
+ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccDcP5We.s 			page 79
+
+
+ 4435      352E342E 
+ 4435      31203230 
+ 4435      31363036 
+ 4436 003d 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 4436      20726576 
+ 4436      6973696F 
+ 4436      6E203233 
+ 4436      37373135 
+ 4437 0070 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
+ 4437      66756E63 
+ 4437      74696F6E 
+ 4437      2D736563 
+ 4437      74696F6E 
+ 4438              	.LASF16:
+ 4439 0098 63795F6D 		.ascii	"cy_metadata\000"
+ 4439      65746164 
+ 4439      61746100 
+ 4440              	.LASF1:
+ 4441 00a4 756E7369 		.ascii	"unsigned char\000"
+ 4441      676E6564 
+ 4441      20636861 
+ 4441      7200
+ 4442              	.LASF5:
+ 4443 00b2 6C6F6E67 		.ascii	"long unsigned int\000"
+ 4443      20756E73 
+ 4443      69676E65 
+ 4443      6420696E 
+ 4443      7400
+ 4444              	.LASF3:
+ 4445 00c4 73686F72 		.ascii	"short unsigned int\000"
+ 4445      7420756E 
+ 4445      7369676E 
+ 4445      65642069 
+ 4445      6E7400
+ 4446              	.LASF13:
+ 4447 00d7 63795F6D 		.ascii	"cy_meta_custnvl\000"
+ 4447      6574615F 
+ 4447      63757374 
+ 4447      6E766C00 
+ 4448              	.LASF12:
+ 4449 00e7 63795F6D 		.ascii	"cy_meta_configecc\000"
+ 4449      6574615F 
+ 4449      636F6E66 
+ 4449      69676563 
+ 4449      6300
+ 4450              	.LASF8:
+ 4451 00f9 756E7369 		.ascii	"unsigned int\000"
+ 4451      676E6564 
+ 4451      20696E74 
+ 4451      00
+ 4452              	.LASF7:
+ 4453 0106 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 4453      206C6F6E 
+ 4453      6720756E 
+ 4453      7369676E 
+ 4453      65642069 
+ 4454              	.LASF10:
+ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccDcP5We.s 			page 80
+
+
+ 4455 011d 75696E74 		.ascii	"uint8_t\000"
+ 4455      385F7400 
+ 4456              	.LASF15:
+ 4457 0125 63795F6D 		.ascii	"cy_meta_flashprotect\000"
+ 4457      6574615F 
+ 4457      666C6173 
+ 4457      6870726F 
+ 4457      74656374 
+ 4458              	.LASF14:
+ 4459 013a 63795F6D 		.ascii	"cy_meta_wonvl\000"
+ 4459      6574615F 
+ 4459      776F6E76 
+ 4459      6C00
+ 4460              	.LASF11:
+ 4461 0148 73697A65 		.ascii	"sizetype\000"
+ 4461      74797065 
+ 4461      00
+ 4462              	.LASF6:
+ 4463 0151 6C6F6E67 		.ascii	"long long int\000"
+ 4463      206C6F6E 
+ 4463      6720696E 
+ 4463      7400
+ 4464              	.LASF2:
+ 4465 015f 73686F72 		.ascii	"short int\000"
+ 4465      7420696E 
+ 4465      7400
+ 4466              	.LASF4:
+ 4467 0169 6C6F6E67 		.ascii	"long int\000"
+ 4467      20696E74 
+ 4467      00
+ 4468              	.LASF19:
+ 4469 0172 433A5C55 		.ascii	"C:\\Users\\schoo\\302OffOnedrive\\301 Project\\12_C"
+ 4469      73657273 
+ 4469      5C736368 
+ 4469      6F6F5C33 
+ 4469      30324F66 
+ 4470 01a0 79707265 		.ascii	"ypress_LineFollowingRobot\\Final_implementation\\Te"
+ 4470      73735F4C 
+ 4470      696E6546 
+ 4470      6F6C6C6F 
+ 4470      77696E67 
+ 4471 01d1 616D3132 		.ascii	"am12_PsoC_final.cydsn\000"
+ 4471      5F50736F 
+ 4471      435F6669 
+ 4471      6E616C2E 
+ 4471      63796473 
+ 4472              	.LASF0:
+ 4473 01e7 7369676E 		.ascii	"signed char\000"
+ 4473      65642063 
+ 4473      68617200 
+ 4474              	.LASF18:
+ 4475 01f3 47656E65 		.ascii	"Generated_Source\\PSoC5\\cymetadata.c\000"
+ 4475      72617465 
+ 4475      645F536F 
+ 4475      75726365 
+ 4475      5C50536F 
+ 4476              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
+ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccDcP5We.s 			page 81
+
+

@@ -51,7 +51,7 @@ void get_speed()
 //    speed = pl - posL;
 //    if ((state & QuadDec_M1_COUNTER_OVERFLOW) != 0x00)
 //        speed += 32767;
-//    
+//    z
 //    if ((state & QuadDec_M1_COUNTER_UNDERFLOW) != 0x00)
 //        speed += -32768;
 //    speedL = speed;

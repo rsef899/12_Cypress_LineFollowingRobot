@@ -1,0 +1,15 @@
+Added Pin To Net: NetName=+5V Pin=J13-8
+Added Pin To Net: NetName=+5V Pin=J18-6
+Added Pin To Net: NetName=NetJ18_9 Pin=J18-9
+Added Pin To Net: NetName=NetJ18_9 Pin=P1-2
+Added Net: Name=NetJ18_9
+Added Pin To Net: NetName=NetJ18_10 Pin=J18-10
+Added Pin To Net: NetName=NetJ18_10 Pin=P1-1
+Added Net: Name=NetJ18_10
+Added Pin To Net: NetName=NetP15_5 Pin=P15-5
+Added Pin To Net: NetName=NetP15_5 Pin=P15-8
+Added Net: Name=NetP15_5
+Added Pin To Net: NetName=NetP15_6 Pin=P15-6
+Added Pin To Net: NetName=NetP15_6 Pin=P15-7
+Added Net: Name=NetP15_6
+Added Member To Class: ClassName=Sensors Member=Component U3 LM324DR2G

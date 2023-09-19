@@ -1,0 +1,29 @@
+Change Component Comment : Designator=J1 Old Comment=MTSW-109-22-G-S-440 New Comment=9 Pin Header
+Added Component: Designator=J?(SAMTEC_TSW-106-07-H-S)
+Add component (AddParameter): Name = "Availability"; Value = "In Stock"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Check_prices"; Value = "https://www.snapeda.com/parts/TSW-106-07-H-S/Samtec/view-part/?ref=eda"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MF"; Value = "Samtec"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MP"; Value = "TSW-106-07-H-S"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Price"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Purchase-URL"; Value = "https://pricing.snapeda.com/search/part/TSW-106-07-H-S/?ref=eda"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "SnapEDA_Link"; Value = "https://www.snapeda.com/parts/TSW-106-07-H-S/Samtec/view-part/?ref=snap"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Pin To Net: NetName=0.0 Pin=J?-01
+Added Pin To Net: NetName=0.0 Pin=P0-1
+Added Net: Name=0.0
+Added Pin To Net: NetName=0.1 Pin=J?-02
+Added Pin To Net: NetName=0.1 Pin=P0-2
+Added Net: Name=0.1
+Added Pin To Net: NetName=0.2 Pin=J?-03
+Added Pin To Net: NetName=0.2 Pin=P0-3
+Added Net: Name=0.2
+Added Pin To Net: NetName=0.4 Pin=J?-04
+Added Pin To Net: NetName=0.4 Pin=P0-5
+Added Net: Name=0.4
+Added Pin To Net: NetName=0.5 Pin=J?-05
+Added Pin To Net: NetName=0.5 Pin=P0-6
+Added Net: Name=0.5
+Added Pin To Net: NetName=0.6 Pin=J?-06
+Added Pin To Net: NetName=0.6 Pin=P0-7
+Added Net: Name=0.6

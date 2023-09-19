@@ -1,0 +1,6 @@
+Added Pin To Net: NetName=SLW1 Pin=J1-05
+Added Pin To Net: NetName=SLW1 Pin=J13-6
+Added Net: Name=SLW1
+Added Pin To Net: NetName=SLW2 Pin=J4-01
+Added Pin To Net: NetName=SLW2 Pin=J18-4
+Added Net: Name=SLW2

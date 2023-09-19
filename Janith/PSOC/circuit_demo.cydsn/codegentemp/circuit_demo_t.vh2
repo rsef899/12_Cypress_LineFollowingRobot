@@ -1,5 +1,5 @@
 -- Project:   D:\Documents\UOA\2023\Semester 2\COMPSYS301\repos\12_Cypress_LineFollowingRobot\Janith\PSOC\circuit_demo.cydsn\circuit_demo.cyprj
--- Generated: 08/24/2023 15:06:11
+-- Generated: 08/26/2023 18:44:38
 -- PSoC Creator  4.2
 
 ENTITY circuit_demo IS
@@ -33,8 +33,6 @@ ARCHITECTURE __DEFAULT__ OF circuit_demo IS
     SIGNAL ClockBlock_XTAL_32KHZ : bit;
     SIGNAL LED1(0)__PA : bit;
     SIGNAL LED2(0)__PA : bit;
-    SIGNAL Net_125 : bit;
-    SIGNAL Net_126 : bit;
     SIGNAL SENS1(0)__PA : bit;
     SIGNAL SENS2(0)__PA : bit;
     SIGNAL __ONE__ : bit;
@@ -47,15 +45,13 @@ ARCHITECTURE __DEFAULT__ OF circuit_demo IS
     ATTRIBUTE GROUND OF zero : SIGNAL IS true;
     ATTRIBUTE Location OF ClockBlock : LABEL IS "F(Clock,0)";
     ATTRIBUTE lib_model OF LED1(0) : LABEL IS "iocell1";
-    ATTRIBUTE Location OF LED1(0) : LABEL IS "P15[0]";
+    ATTRIBUTE Location OF LED1(0) : LABEL IS "P3[2]";
     ATTRIBUTE lib_model OF SENS2(0) : LABEL IS "iocell2";
-    ATTRIBUTE Location OF SENS2(0) : LABEL IS "P15[3]";
+    ATTRIBUTE Location OF SENS2(0) : LABEL IS "P3[1]";
     ATTRIBUTE lib_model OF LED2(0) : LABEL IS "iocell3";
-    ATTRIBUTE Location OF LED2(0) : LABEL IS "P15[1]";
+    ATTRIBUTE Location OF LED2(0) : LABEL IS "P3[0]";
     ATTRIBUTE lib_model OF SENS1(0) : LABEL IS "iocell4";
-    ATTRIBUTE Location OF SENS1(0) : LABEL IS "P15[2]";
-    ATTRIBUTE Location OF isr_sens1 : LABEL IS "[IntrContainer=(0)][IntrId=(0)]";
-    ATTRIBUTE Location OF isr_sens2 : LABEL IS "[IntrContainer=(0)][IntrId=(1)]";
+    ATTRIBUTE Location OF SENS1(0) : LABEL IS "P3[3]";
     COMPONENT clockblockcell
         PORT (
             dclk_0 : OUT std_ulogic;
@@ -135,11 +131,6 @@ ARCHITECTURE __DEFAULT__ OF circuit_demo IS
             dclk_glb_ff_5 : OUT std_ulogic;
             dclk_glb_ff_6 : OUT std_ulogic;
             dclk_glb_ff_7 : OUT std_ulogic);
-    END COMPONENT;
-    COMPONENT interrupt
-        PORT (
-            interrupt : IN std_ulogic;
-            clock : IN std_ulogic);
     END COMPONENT;
     COMPONENT iocell
         PORT (
@@ -355,11 +346,10 @@ BEGIN
             oe_sync_mode => 0,
             logicalport => "SENS2",
             logicalport_pin_id => 0,
-            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000101")
+            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000001")
         PORT MAP(
             pa_out => SENS2(0)__PA,
             oe => open,
-            fb => Net_126,
             pad_in => SENS2(0)_PAD,
             in_clock => open,
             in_clock_en => '1',
@@ -536,11 +526,10 @@ BEGIN
             oe_sync_mode => 0,
             logicalport => "SENS1",
             logicalport_pin_id => 0,
-            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000101")
+            io_capabilities => "0000000000000000000000000000000000000000000000000000000000000001")
         PORT MAP(
             pa_out => SENS1(0)__PA,
             oe => open,
-            fb => Net_125,
             pad_in => SENS1(0)_PAD,
             in_clock => open,
             in_clock_en => '1',
@@ -548,21 +537,5 @@ BEGIN
             out_clock => open,
             out_clock_en => '1',
             out_reset => '0');
-
-    isr_sens1:interrupt
-        GENERIC MAP(
-            int_type => "10",
-            is_nmi => 0)
-        PORT MAP(
-            interrupt => Net_125,
-            clock => ClockBlock_BUS_CLK);
-
-    isr_sens2:interrupt
-        GENERIC MAP(
-            int_type => "10",
-            is_nmi => 0)
-        PORT MAP(
-            interrupt => Net_126,
-            clock => ClockBlock_BUS_CLK);
 
 END __DEFAULT__;

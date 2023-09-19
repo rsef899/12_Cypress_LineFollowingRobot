@@ -1,0 +1,4 @@
+Change Component Designator: OldDesignator=Q6 NewDesignator=Q7
+Change Component Designator: OldDesignator=Q7 NewDesignator=Q6
+Change Net Name : Old Net Name=NetQ6_E New Net Name=NetQ7_E
+Change Net Name : Old Net Name=NetQ7_E New Net Name=NetQ6_E

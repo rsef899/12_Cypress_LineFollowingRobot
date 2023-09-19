@@ -27,8 +27,6 @@
 #include "LED2.h"
 #include "SENS1_aliases.h"
 #include "SENS1.h"
-#include "isr_sens1.h"
-#include "isr_sens2.h"
 #include "cy_em_eeprom.h"
 #include "core_cm3_psoc5.h"
 #include "CyDmac.h"

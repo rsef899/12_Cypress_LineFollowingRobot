@@ -1,0 +1,80 @@
+Change Component Footprint: Designator=Q4 Old Footprint=VEMT3700 New Footprint=XDCR_TEMT6200FX01
+Change Component Comment : Designator=Q4 Old Comment=VEMT3700 New Comment=TEMT6200FX01
+Added Component: Designator=Q1(VEMT3700)
+Add component (AddParameter): Name = "Availability"; Value = "Good"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Check_prices"; Value = "https://www.snapeda.com/parts/TEMT6200FX01/Vishay%20Semiconductor%20Opto%20Division/view-part/43955/?ref=eda"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MF"; Value = "Vishay Semiconductor"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MP"; Value = "TEMT6200FX01"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "0805 Vishay Semiconductor"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Price"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Purchase-URL"; Value = "https://pricing.snapeda.com/search/part/TEMT6200FX01/?ref=eda"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "SnapEDA_Link"; Value = "https://www.snapeda.com/parts/TEMT6200FX01/Vishay%20Semiconductor%20Opto%20Division/view-part/43955/?ref=snap"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=Q2(VEMT3700)
+Add component (AddParameter): Name = "Availability"; Value = "Good"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Check_prices"; Value = "https://www.snapeda.com/parts/TEMT6200FX01/Vishay%20Semiconductor%20Opto%20Division/view-part/43955/?ref=eda"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MF"; Value = "Vishay Semiconductor"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MP"; Value = "TEMT6200FX01"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "0805 Vishay Semiconductor"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Price"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Purchase-URL"; Value = "https://pricing.snapeda.com/search/part/TEMT6200FX01/?ref=eda"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "SnapEDA_Link"; Value = "https://www.snapeda.com/parts/TEMT6200FX01/Vishay%20Semiconductor%20Opto%20Division/view-part/43955/?ref=snap"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=Q3(XDCR_TEMT6200FX01)
+Add component (AddParameter): Name = "Availability"; Value = "Good"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Check_prices"; Value = "https://www.snapeda.com/parts/TEMT6200FX01/Vishay%20Semiconductor%20Opto%20Division/view-part/43955/?ref=eda"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MF"; Value = "Vishay Semiconductor"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MP"; Value = "TEMT6200FX01"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "0805 Vishay Semiconductor"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Price"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Purchase-URL"; Value = "https://pricing.snapeda.com/search/part/TEMT6200FX01/?ref=eda"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "SnapEDA_Link"; Value = "https://www.snapeda.com/parts/TEMT6200FX01/Vishay%20Semiconductor%20Opto%20Division/view-part/43955/?ref=snap"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=Q5(XDCR_TEMT6200FX01)
+Add component (AddParameter): Name = "Availability"; Value = "Good"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Check_prices"; Value = "https://www.snapeda.com/parts/TEMT6200FX01/Vishay%20Semiconductor%20Opto%20Division/view-part/43955/?ref=eda"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MF"; Value = "Vishay Semiconductor"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MP"; Value = "TEMT6200FX01"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "0805 Vishay Semiconductor"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Price"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Purchase-URL"; Value = "https://pricing.snapeda.com/search/part/TEMT6200FX01/?ref=eda"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "SnapEDA_Link"; Value = "https://www.snapeda.com/parts/TEMT6200FX01/Vishay%20Semiconductor%20Opto%20Division/view-part/43955/?ref=snap"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=Q6(XDCR_TEMT6200FX01)
+Add component (AddParameter): Name = "Availability"; Value = "Good"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Check_prices"; Value = "https://www.snapeda.com/parts/TEMT6200FX01/Vishay%20Semiconductor%20Opto%20Division/view-part/43955/?ref=eda"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MF"; Value = "Vishay Semiconductor"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MP"; Value = "TEMT6200FX01"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "0805 Vishay Semiconductor"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Price"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Purchase-URL"; Value = "https://pricing.snapeda.com/search/part/TEMT6200FX01/?ref=eda"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "SnapEDA_Link"; Value = "https://www.snapeda.com/parts/TEMT6200FX01/Vishay%20Semiconductor%20Opto%20Division/view-part/43955/?ref=snap"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=Q7(XDCR_TEMT6200FX01)
+Add component (AddParameter): Name = "Availability"; Value = "Good"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Check_prices"; Value = "https://www.snapeda.com/parts/TEMT6200FX01/Vishay%20Semiconductor%20Opto%20Division/view-part/43955/?ref=eda"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MF"; Value = "Vishay Semiconductor"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MP"; Value = "TEMT6200FX01"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "0805 Vishay Semiconductor"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Price"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Purchase-URL"; Value = "https://pricing.snapeda.com/search/part/TEMT6200FX01/?ref=eda"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "SnapEDA_Link"; Value = "https://www.snapeda.com/parts/TEMT6200FX01/Vishay%20Semiconductor%20Opto%20Division/view-part/43955/?ref=snap"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Add Pin To Net: Unknown Pin: Pin Q1-C
+Add Pin To Net: Unknown Pin: Pin Q1-E
+Add Pin To Net: Unknown Pin: Pin Q2-C
+Add Pin To Net: Unknown Pin: Pin Q2-E
+Added Pin To Net: NetName=+5V Pin=Q3-C
+Added Pin To Net: NetName=NetQ3_E Pin=Q3-E
+Added Pin To Net: NetName=+5V Pin=Q4-C
+Added Pin To Net: NetName=NetQ4_E Pin=Q4-E
+Added Pin To Net: NetName=+5V Pin=Q5-C
+Added Pin To Net: NetName=NetQ5_E Pin=Q5-E
+Added Pin To Net: NetName=+5V Pin=Q6-C
+Added Pin To Net: NetName=NetQ6_E Pin=Q6-E
+Added Pin To Net: NetName=+5V Pin=Q7-C
+Added Pin To Net: NetName=NetQ7_E Pin=Q7-E
+Added Member To Class: ClassName=Sensors Member=Component Q3 TEMT6200FX01
+Added Member To Class: ClassName=Sensors Member=Component Q5 TEMT6200FX01
+Added Member To Class: ClassName=Sensors Member=Component Q6 TEMT6200FX01
+Added Member To Class: ClassName=Sensors Member=Component Q7 TEMT6200FX01
