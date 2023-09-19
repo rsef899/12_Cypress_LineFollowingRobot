@@ -44,8 +44,6 @@
 <v>Hardware_Task2-001\Hardware_Task2\Generated_Source\PSoC5</v>
 </ExpandedNodeIds>
 <VisibleNodeIds>
-<v>Hardware_Task2-001</v>
-<v>Hardware_Task2-001\Hardware_Task2</v>
 <v>Hardware_Task2-001\Hardware_Task2\TopDesign</v>
 <v>Hardware_Task2-001\Hardware_Task2\Hardware_Task2.cydwr</v>
 <v>Hardware_Task2-001\Hardware_Task2\Hardware_Task2.cydwr\Pins</v>
@@ -87,6 +85,9 @@
 <v>Hardware_Task2-001\Hardware_Task2\Generated_Source\PSoC5\CONTROL</v>
 <v>Hardware_Task2-001\Hardware_Task2\Generated_Source\PSoC5\cy_boot</v>
 <v>Hardware_Task2-001\Hardware_Task2\Generated_Source\PSoC5\DB0</v>
+<v>Hardware_Task2-001\Hardware_Task2\Generated_Source\PSoC5\DB1</v>
+<v>Hardware_Task2-001\Hardware_Task2\Generated_Source\PSoC5\DB2</v>
+<v>Hardware_Task2-001\Hardware_Task2\Generated_Source\PSoC5\Em_EEPROM_Dynamic</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
@@ -263,6 +264,7 @@
 <v>Hardware_Task2-001\Hardware_Task2\CortexM3\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
 <v>Hardware_Task2-001\Hardware_Task2\CortexM3\ARM_GCC_541\Debug\Listing Files\DB0.lst</v>
 <v>Hardware_Task2-001\Hardware_Task2\CortexM3\ARM_GCC_541\Debug\Listing Files\DB1.lst</v>
+<v>Hardware_Task2-001\Hardware_Task2\CortexM3\ARM_GCC_541\Debug\Listing Files\DB2.lst</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStates>
@@ -353,7 +355,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="910, 613" SelectedTabbedMdiWindow="f62f8420-b0e0-433a-b0e7-0f04f775895f"><DocumentWindow Key="C:\Users\schoo\302OffOnedrive\301 Project\12_Cypress_LineFollowingRobot\Robert\HArdware_Task2\Hardware_Task2.cydsn\main.c" Guid="f62f8420-b0e0-433a-b0e7-0f04f775895f" /><DocumentWindow Key="C:\Users\schoo\302OffOnedrive\301 Project\12_Cypress_LineFollowingRobot\Robert\HArdware_Task2\Hardware_Task2.cydsn\Hardware_Task2.cydwr" Guid="74073ddb-d3fc-4468-ac3d-6a47a55a35e4" /><DocumentWindow Key="C:\Users\schoo\302OffOnedrive\301 Project\12_Cypress_LineFollowingRobot\Robert\HArdware_Task2\Hardware_Task2.cydsn\TopDesign\TopDesign.cysch" Guid="42a3566e-861e-4ec5-b2ad-1cc617a599c2" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1031, 613" SelectedTabbedMdiWindow="74073ddb-d3fc-4468-ac3d-6a47a55a35e4"><DocumentWindow Key="C:\Users\schoo\302OffOnedrive\301 Project\12_Cypress_LineFollowingRobot\Robert\HArdware_Task2\Hardware_Task2.cydsn\main.c" Guid="f62f8420-b0e0-433a-b0e7-0f04f775895f" /><DocumentWindow Key="C:\Users\schoo\302OffOnedrive\301 Project\12_Cypress_LineFollowingRobot\Robert\HArdware_Task2\Hardware_Task2.cydsn\Hardware_Task2.cydwr" Guid="74073ddb-d3fc-4468-ac3d-6a47a55a35e4" /><DocumentWindow Key="C:\Users\schoo\302OffOnedrive\301 Project\12_Cypress_LineFollowingRobot\Robert\HArdware_Task2\Hardware_Task2.cydsn\TopDesign\TopDesign.cysch" Guid="42a3566e-861e-4ec5-b2ad-1cc617a599c2" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>

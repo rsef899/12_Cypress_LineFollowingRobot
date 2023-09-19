@@ -46,53 +46,52 @@ int main(){
     PWM_2_Start();   
     
     controlWheels(STOP, STOP);
+    int front_sensor = 1;
     
     for(;;){ 
-        /*
+        
+        //stop all
         if (Q1_Read() && Q2_Read() && Q3_Read() && Q4_Read() && Q5_Read() && Q6_Read() && Q7_Read()){
             controlWheels(STOP, STOP);
         }
-        else if (!(Q1_Read() && Q2_Read() && Q3_Read() && Q4_Read() && Q5_Read() && Q6_Read() && Q7_Read())){
-            controlWheels(STOP, STOP);
-        }
-        */
-        // GO STRAIGHT CODE //
-        if ((!Q2_Read() && !Q7_Read()) || (!Q7_Read() && !Q6_Read()) || (!Q7_Read() && !Q6_Read() && !Q2_Read())){
+        else if (!Q7_Read() && Q1_Read()&& Q2_Read() && Q3_Read()){
+            front_sensor = 0;
             controlWheels(MEDIUM_FORWARD, MEDIUM_FORWARD);
-              
-        }
-        // TURNING CODE //
-        else if (!Q7_Read() && !Q4_Read() && !Q6_Read()){
-            while (Q2_Read()){              
-                controlWheels(MEDIUM_FORWARD, MEDIUM_REVERSE);
-                if (!Q1_Read()){
-                    break;
-                }
+            //turn left
+            if (!Q5_Read() && !Q7_Read() && !Q6_Read()){
+                controlWheels(STOP, STOP);
+                //controlWheels(MEDIUM_REVERSE, MEDIUM_FORWARD);
+            }
+            else if (!Q4_Read() && !Q7_Read() && !Q6_Read()){
+                controlWheels(STOP, STOP);
+                //controlWheels(MEDIUM_FORWARD, MEDIUM_REVERSE);
             }
         }
-        else if (!Q7_Read() && !Q5_Read() && !Q6_Read()){
-            while (Q2_Read()){
-                controlWheels(MEDIUM_REVERSE, MEDIUM_FORWARD);
-                if (!Q1_Read()){
-                    break;
-                }
-            }
+        else if (!Q2_Read()){
+            front_sensor = 1;
+            controlWheels(MEDIUM_FORWARD, MEDIUM_FORWARD);  
         }
-        // CORRECTION CODE //
-        else if (Q2_Read() && !Q3_Read()){
-            controlWheels(MEDIUM_FORWARD, SLOW_FORWARD);
-        }
-        else if (Q2_Read() && !Q1_Read()){
-            controlWheels(SLOW_FORWARD, MEDIUM_FORWARD);
-        }
-        // ELSE //
         else {
-            controlWheels(STOP, STOP);
+            while (!(Q1_Read() && Q3_Read() & Q5_Read() & Q4_Read())){
+                if (front_sensor == 1){
+                    if (!Q3_Read()){
+                        controlWheels(MEDIUM_FORWARD, SLOW_FORWARD);
+                    }
+                    if (!Q1_Read()){
+                        controlWheels(SLOW_FORWARD, MEDIUM_FORWARD);
+                    }
+                }
+                else if (front_sensor == 0) {
+                    if (!Q4_Read()){
+                        controlWheels(MEDIUM_FORWARD, SLOW_FORWARD);
+                    }
+                    if (!Q5_Read()){
+                        controlWheels(SLOW_FORWARD, MEDIUM_FORWARD);
+                    }
+                }
+            }
         }
-        
-        
-        
-        
+    
         
         
     }  
