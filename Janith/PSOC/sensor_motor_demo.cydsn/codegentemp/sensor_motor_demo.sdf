@@ -1,6 +1,6 @@
 (DELAYFILE
  (SDFVERSION "IEEE 1497 4.0")
- (DATE "2023-09-17T12:36:21Z")
+ (DATE "2023-09-19T00:07:35Z")
  (DESIGN "sensor_motor_demo")
  (VENDOR "Cypress Semiconductor")
  (PROGRAM "PSoC Creator")

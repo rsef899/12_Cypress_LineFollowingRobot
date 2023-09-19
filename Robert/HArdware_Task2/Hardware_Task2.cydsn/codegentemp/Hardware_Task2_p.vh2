@@ -1,5 +1,5 @@
 -- Project:   Hardware_Task2
--- Generated: 09/13/2023 17:55:23
+-- Generated: 09/19/2023 14:52:57
 -- PSoC Creator  4.2
 
 ENTITY Hardware_Task2 IS
@@ -419,7 +419,7 @@ ARCHITECTURE __DEFAULT__ OF Hardware_Task2 IS
     SIGNAL tmpOE__M1_IN1_net_0 : bit;
     ATTRIBUTE POWER OF tmpOE__M1_IN1_net_0 : SIGNAL IS true;
     SIGNAL \ClockBlock.dclk_glb_ff_2__sig\ : bit;
-    SIGNAL \ClockBlock.dclk_glb_ff_3__sig\ : bit;
+    SIGNAL \ClockBlock.dclk_glb_ff_4__sig\ : bit;
     SIGNAL \ClockBlock.dclk_glb_ff_5__sig\ : bit;
     SIGNAL \QuadDec_M1:Cnt16:CounterUDB:sC16:counterdp:u0.ce0__sig\ : bit;
     SIGNAL \QuadDec_M1:Cnt16:CounterUDB:sC16:counterdp:u0.cl0__sig\ : bit;
@@ -458,13 +458,13 @@ ARCHITECTURE __DEFAULT__ OF Hardware_Task2 IS
     ATTRIBUTE lib_model OF M2_D1(0) : LABEL IS "iocell5";
     ATTRIBUTE Location OF M2_D1(0) : LABEL IS "P1[2]";
     ATTRIBUTE lib_model OF M1_QA(0) : LABEL IS "iocell6";
-    ATTRIBUTE Location OF M1_QA(0) : LABEL IS "P15[1]";
+    ATTRIBUTE Location OF M1_QA(0) : LABEL IS "P15[4]";
     ATTRIBUTE lib_model OF M1_QB(0) : LABEL IS "iocell7";
-    ATTRIBUTE Location OF M1_QB(0) : LABEL IS "P15[2]";
+    ATTRIBUTE Location OF M1_QB(0) : LABEL IS "P15[5]";
     ATTRIBUTE lib_model OF M2_QA(0) : LABEL IS "iocell8";
-    ATTRIBUTE Location OF M2_QA(0) : LABEL IS "P0[0]";
+    ATTRIBUTE Location OF M2_QA(0) : LABEL IS "P12[3]";
     ATTRIBUTE lib_model OF M2_QB(0) : LABEL IS "iocell9";
-    ATTRIBUTE Location OF M2_QB(0) : LABEL IS "P0[1]";
+    ATTRIBUTE Location OF M2_QB(0) : LABEL IS "P12[4]";
     ATTRIBUTE lib_model OF A0(0) : LABEL IS "iocell10";
     ATTRIBUTE Location OF A0(0) : LABEL IS "P0[5]";
     ATTRIBUTE lib_model OF \ADC:SAR:Bypass(0)\ : LABEL IS "iocell11";
@@ -474,11 +474,11 @@ ARCHITECTURE __DEFAULT__ OF Hardware_Task2 IS
     ATTRIBUTE lib_model OF A2(0) : LABEL IS "iocell13";
     ATTRIBUTE Location OF A2(0) : LABEL IS "P0[7]";
     ATTRIBUTE lib_model OF A3(0) : LABEL IS "iocell14";
-    ATTRIBUTE Location OF A3(0) : LABEL IS "P15[5]";
+    ATTRIBUTE Location OF A3(0) : LABEL IS "P2[6]";
     ATTRIBUTE lib_model OF A4(0) : LABEL IS "iocell15";
-    ATTRIBUTE Location OF A4(0) : LABEL IS "P15[3]";
+    ATTRIBUTE Location OF A4(0) : LABEL IS "P2[5]";
     ATTRIBUTE lib_model OF A5(0) : LABEL IS "iocell16";
-    ATTRIBUTE Location OF A5(0) : LABEL IS "P0[3]";
+    ATTRIBUTE Location OF A5(0) : LABEL IS "P15[1]";
     ATTRIBUTE lib_model OF A6(0) : LABEL IS "iocell17";
     ATTRIBUTE Location OF A6(0) : LABEL IS "P1[6]";
     ATTRIBUTE lib_model OF \USBUART:Dm(0)\ : LABEL IS "iocell18";
@@ -502,13 +502,13 @@ ARCHITECTURE __DEFAULT__ OF Hardware_Task2 IS
     ATTRIBUTE lib_model OF Rx_2(0) : LABEL IS "iocell27";
     ATTRIBUTE Location OF Rx_2(0) : LABEL IS "P2[4]";
     ATTRIBUTE lib_model OF A7(0) : LABEL IS "iocell28";
-    ATTRIBUTE Location OF A7(0) : LABEL IS "P2[5]";
+    ATTRIBUTE Location OF A7(0) : LABEL IS "P2[0]";
     ATTRIBUTE lib_model OF TestPin(0) : LABEL IS "iocell29";
     ATTRIBUTE Location OF TestPin(0) : LABEL IS "P0[2]";
     ATTRIBUTE lib_model OF M1_INV(0) : LABEL IS "iocell30";
     ATTRIBUTE Location OF M1_INV(0) : LABEL IS "P3[7]";
     ATTRIBUTE lib_model OF M2_INV(0) : LABEL IS "iocell31";
-    ATTRIBUTE Location OF M2_INV(0) : LABEL IS "P1[7]";
+    ATTRIBUTE Location OF M2_INV(0) : LABEL IS "P1[3]";
     ATTRIBUTE lib_model OF \QuadDec_M1:Cnt16:CounterUDB:reload\ : LABEL IS "macrocell2";
     ATTRIBUTE lib_model OF \QuadDec_M1:Cnt16:CounterUDB:status_0\ : LABEL IS "macrocell3";
     ATTRIBUTE lib_model OF \QuadDec_M1:Cnt16:CounterUDB:status_2\ : LABEL IS "macrocell4";
@@ -1176,14 +1176,14 @@ BEGIN
             dclk_1 => \ADC:clock_local\,
             dclk_glb_2 => CLK24M,
             dclk_2 => CLK24M_local,
-            dclk_glb_3 => Net_10,
-            dclk_3 => Net_10_local,
-            dclk_glb_4 => \UART:Net_9\,
-            dclk_4 => \UART:Net_9_local\,
-            dclk_glb_5 => Net_4468,
-            dclk_5 => Net_4468_local,
+            dclk_glb_3 => \UART:Net_9\,
+            dclk_3 => \UART:Net_9_local\,
+            dclk_glb_4 => Net_4468,
+            dclk_4 => Net_4468_local,
+            dclk_glb_5 => Net_10,
+            dclk_5 => Net_10_local,
             dclk_glb_ff_2 => \ClockBlock.dclk_glb_ff_2__sig\,
-            dclk_glb_ff_3 => \ClockBlock.dclk_glb_ff_3__sig\,
+            dclk_glb_ff_4 => \ClockBlock.dclk_glb_ff_4__sig\,
             dclk_glb_ff_5 => \ClockBlock.dclk_glb_ff_5__sig\);
 
     M1_IN1:logicalport
@@ -4889,7 +4889,7 @@ BEGIN
         GENERIC MAP(
             cy_registers => "")
         PORT MAP(
-            clock => \ClockBlock.dclk_glb_ff_3__sig\,
+            clock => \ClockBlock.dclk_glb_ff_5__sig\,
             kill => open,
             enable => __ONE__,
             capture => open,
@@ -5264,7 +5264,7 @@ BEGIN
         GENERIC MAP(
             cy_registers => "")
         PORT MAP(
-            clock => \ClockBlock.dclk_glb_ff_5__sig\,
+            clock => \ClockBlock.dclk_glb_ff_4__sig\,
             kill => open,
             enable => __ONE__,
             capture => open,

@@ -1,5 +1,5 @@
 # sensor_motor_demo
-# 2023-09-17 12:36:19Z
+# 2023-09-19 00:07:24Z
 
 set_io "M1_IN1(0)" iocell 3 4
 set_io "M1_IN2(0)" iocell 3 5

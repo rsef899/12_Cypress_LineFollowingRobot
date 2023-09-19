@@ -1,5 +1,5 @@
--- Project:   D:\Documents\UOA\2023\Semester 2\COMPSYS301\repos\12_Cypress_LineFollowingRobot\Janith\PSOC\sensor_motor_demo.cydsn\sensor_motor_demo.cyprj
--- Generated: 09/18/2023 00:36:21
+-- Project:   H:\Documents\12_Cypress_LineFollowingRobot\Janith\PSOC\sensor_motor_demo.cydsn\sensor_motor_demo.cyprj
+-- Generated: 09/19/2023 12:07:35
 -- PSoC Creator  4.2
 
 ENTITY sensor_motor_demo IS
