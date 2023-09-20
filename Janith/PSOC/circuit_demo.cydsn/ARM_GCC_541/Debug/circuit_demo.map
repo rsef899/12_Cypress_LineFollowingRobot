@@ -755,7 +755,7 @@ END GROUP
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0x381c
+.debug_info     0x00000000     0x37f7
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000      0x120 .\ARM_GCC_541\Debug\main.o
  .debug_info    0x00000120      0x399 .\ARM_GCC_541\Debug\cyfitter_cfg.o
@@ -767,9 +767,9 @@ END GROUP
  .debug_info    0x00002865      0x11f .\ARM_GCC_541\Debug\circuit_demo.a(SENS2.o)
  .debug_info    0x00002984      0x11f .\ARM_GCC_541\Debug\circuit_demo.a(LED2.o)
  .debug_info    0x00002aa3      0x11f .\ARM_GCC_541\Debug\circuit_demo.a(SENS1.o)
- .debug_info    0x00002bc2       0xbd .\ARM_GCC_541\Debug\circuit_demo.a(CyBootAsmGnu.o)
- .debug_info    0x00002c7f      0x64d .\ARM_GCC_541\Debug\circuit_demo.a(CyFlash.o)
- .debug_info    0x000032cc      0x550 .\ARM_GCC_541\Debug\circuit_demo.a(CySpc.o)
+ .debug_info    0x00002bc2       0x98 .\ARM_GCC_541\Debug\circuit_demo.a(CyBootAsmGnu.o)
+ .debug_info    0x00002c5a      0x64d .\ARM_GCC_541\Debug\circuit_demo.a(CyFlash.o)
+ .debug_info    0x000032a7      0x550 .\ARM_GCC_541\Debug\circuit_demo.a(CySpc.o)
 
 .debug_abbrev   0x00000000      0xdf7
  *(.debug_abbrev)
@@ -822,32 +822,32 @@ END GROUP
  .debug_frame   0x00000f84       0x28 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memcpy-stub.o)
  .debug_frame   0x00000fac       0x20 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memset.o)
 
-.debug_str      0x00000000     0x1400
+.debug_str      0x00000000     0x13db
  *(.debug_str)
- .debug_str     0x00000000      0x1b7 .\ARM_GCC_541\Debug\main.o
-                                0x1ff (size before relaxing)
- .debug_str     0x000001b7      0x112 .\ARM_GCC_541\Debug\cyfitter_cfg.o
-                                0x2c7 (size before relaxing)
- .debug_str     0x000002c9       0x7f .\ARM_GCC_541\Debug\cymetadata.o
-                                0x211 (size before relaxing)
- .debug_str     0x00000348      0x14a .\ARM_GCC_541\Debug\Cm3Start.o
-                                0x337 (size before relaxing)
- .debug_str     0x00000492      0x85a .\ARM_GCC_541\Debug\circuit_demo.a(CyLib.o)
-                                0xa74 (size before relaxing)
- .debug_str     0x00000cec      0x365 .\ARM_GCC_541\Debug\circuit_demo.a(cyPm.o)
-                                0x760 (size before relaxing)
- .debug_str     0x00001051       0x56 .\ARM_GCC_541\Debug\circuit_demo.a(LED1.o)
-                                0x20a (size before relaxing)
- .debug_str     0x000010a7       0x50 .\ARM_GCC_541\Debug\circuit_demo.a(SENS2.o)
-                                0x20f (size before relaxing)
- .debug_str     0x000010f7       0x4b .\ARM_GCC_541\Debug\circuit_demo.a(LED2.o)
-                                0x20a (size before relaxing)
- .debug_str     0x00001142       0x50 .\ARM_GCC_541\Debug\circuit_demo.a(SENS1.o)
-                                0x20f (size before relaxing)
- .debug_str     0x00001192      0x1bb .\ARM_GCC_541\Debug\circuit_demo.a(CyFlash.o)
-                                0x3ed (size before relaxing)
- .debug_str     0x0000134d       0xb3 .\ARM_GCC_541\Debug\circuit_demo.a(CySpc.o)
-                                0x365 (size before relaxing)
+ .debug_str     0x00000000      0x192 .\ARM_GCC_541\Debug\main.o
+                                0x1da (size before relaxing)
+ .debug_str     0x00000192      0x112 .\ARM_GCC_541\Debug\cyfitter_cfg.o
+                                0x2a2 (size before relaxing)
+ .debug_str     0x000002a4       0x7f .\ARM_GCC_541\Debug\cymetadata.o
+                                0x1ec (size before relaxing)
+ .debug_str     0x00000323      0x14a .\ARM_GCC_541\Debug\Cm3Start.o
+                                0x312 (size before relaxing)
+ .debug_str     0x0000046d      0x85a .\ARM_GCC_541\Debug\circuit_demo.a(CyLib.o)
+                                0xa4f (size before relaxing)
+ .debug_str     0x00000cc7      0x365 .\ARM_GCC_541\Debug\circuit_demo.a(cyPm.o)
+                                0x73b (size before relaxing)
+ .debug_str     0x0000102c       0x56 .\ARM_GCC_541\Debug\circuit_demo.a(LED1.o)
+                                0x1e5 (size before relaxing)
+ .debug_str     0x00001082       0x50 .\ARM_GCC_541\Debug\circuit_demo.a(SENS2.o)
+                                0x1ea (size before relaxing)
+ .debug_str     0x000010d2       0x4b .\ARM_GCC_541\Debug\circuit_demo.a(LED2.o)
+                                0x1e5 (size before relaxing)
+ .debug_str     0x0000111d       0x50 .\ARM_GCC_541\Debug\circuit_demo.a(SENS1.o)
+                                0x1ea (size before relaxing)
+ .debug_str     0x0000116d      0x1bb .\ARM_GCC_541\Debug\circuit_demo.a(CyFlash.o)
+                                0x3c8 (size before relaxing)
+ .debug_str     0x00001328       0xb3 .\ARM_GCC_541\Debug\circuit_demo.a(CySpc.o)
+                                0x340 (size before relaxing)
 
 .debug_loc      0x00000000     0x1a60
  *(.debug_loc)
@@ -963,4 +963,4 @@ END GROUP
 
 /DISCARD/
  *(.note.GNU-stack)
-OUTPUT(D:\Documents\UOA\2023\Semester 2\COMPSYS301\repos\12_Cypress_LineFollowingRobot\Janith\PSOC\circuit_demo.cydsn\ARM_GCC_541\Debug\circuit_demo.elf elf32-littlearm)
+OUTPUT(H:\Documents\12_Cypress_LineFollowingRobot\Janith\PSOC\circuit_demo.cydsn\ARM_GCC_541\Debug\circuit_demo.elf elf32-littlearm)

@@ -13,60 +13,60 @@
 #include <project.h>
 #include "defines.h"
 
-extern int16 speedL, speedR;
-extern int16 posL, posR;
+//extern int16 speedL, speedR;
+//extern int16 posL, posR;
+#include "tacho.h"
 
-
-void get_position(void);
-void get_speed(void);
+//void get_position();
+//void get_speed();
 
 //------------------------------------------------------
-void get_position()
-{
-    int pl, pr;
+//void get_pos()
+//{
+  //  int pl, pr;
 
-    pl = QuadDec_M1_GetCounter();
-    pr = QuadDec_M2_GetCounter();
+   // pl = QuadDec_M1_GetCounter();
+  //  pr = QuadDec_M2_GetCounter();
 
-    posL = pl;
-    posR = pr;
-}
+  //  posL = pl;
+   // posR = pr;
+//}
 //------------------------------------------------------
-void get_speed()
-{
-    int16 pl, pr;
+//void get_speed()
+//{
+  //  int16 pl, pr;
     
     // get current position.
-    pl = QuadDec_M1_GetCounter();
-    pr = QuadDec_M2_GetCounter();
+    //pl = QuadDec_M1_GetCounter();
+    //pr = QuadDec_M2_GetCounter();
     
-    speedL = pl - posL;
-    speedR = pr - posR;
-    posL = pl;
-    posR = pr;
+   // speedL = pl - posL;
+   // speedR = pr - posR;
+   // posL = pl;
+   // posR = pr;
     
     
-//    // Speed of Motor 1
-//    state = QuadDec_M1_GetEvents();
-//    speed = pl - posL;
-//    if ((state & QuadDec_M1_COUNTER_OVERFLOW) != 0x00)
-//        speed += 32767;
-//    z
-//    if ((state & QuadDec_M1_COUNTER_UNDERFLOW) != 0x00)
-//        speed += -32768;
-//    speedL = speed;
-//    posL = pl;
-//    
-//    // Speed of Motor 2
-//    state = QuadDec_M2_GetEvents();
-//    speed = pr - posR;
-//    if ((state & QuadDec_M2_COUNTER_OVERFLOW) != 0x00)
-//        speed += 32767;
-//    
-//    if ((state & QuadDec_M2_COUNTER_UNDERFLOW) != 0x00)
-//        speed += -32768;
-//    speedR = speed;    
-//    posR = pr;
-}
+    // Speed of Motor 1
+   // uint8_t state = QuadDec_M1_GetEvents();
+   // uint8_t speed = pl - posL;
+   // if ((state & QuadDec_M1_COUNTER_OVERFLOW) != 0x00)
+   //     speed += 32767;
+    
+   // if ((state & QuadDec_M1_COUNTER_UNDERFLOW) != 0x00)
+   //     speed += -32768;
+   // speedL = speed;
+   // posL = pl;
+    
+    // Speed of Motor 2
+  //  state = QuadDec_M2_GetEvents();
+   // speed = pr - posR;
+  //  if ((state & QuadDec_M2_COUNTER_OVERFLOW) != 0x00)
+   //     speed += 32767;
+    
+   // if ((state & QuadDec_M2_COUNTER_UNDERFLOW) != 0x00)
+ //       speed += -32768;
+//    speedR = speed;//
+//posR = pr;
+//}
 //------------------------------------------------------
 /* [] END OF FILE */

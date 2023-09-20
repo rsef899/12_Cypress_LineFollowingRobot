@@ -29,29 +29,76 @@ void checkPWMCommand(const char *input);
 void setPWMDuty(int duty);
 void setPWMFreq(int peri);
 //* ========================================
-
-
+uint16_t printSpeed = 0;
+uint16_t m1 = 0;
+uint16_t m2 = 0;
+CY_ISR(garb) {
+   m1 = QuadDec_M1_GetCounter();
+   m2 = QuadDec_M2_GetCounter();
+    
+    QuadDec_M1_Stop();
+    QuadDec_M2_Stop();
+    QuadDec_M1_SetCounter(0);
+    QuadDec_M2_SetCounter(0);
+    Timer_1_ReadStatusRegister();
+}
+CY_ISR(printUart) {
+    printSpeed = 1; // Print the speed every like 200ms
+    
+    
+    QuadDec_M1_SetCounter(0);
+    QuadDec_M2_SetCounter(0);
+    
+    //stop = 1;
+    Timer_TS_ReadStatusRegister();      
+}
 int main()
 {
+    PWM_1_WritePeriod(255);
+    PWM_1_Start();
+    PWM_1_WriteCompare(170);
+    QuadDec_M1_Start();
+    QuadDec_M2_Start();
+    
+    PWM_2_WritePeriod(255);
+    PWM_2_Start();
+    PWM_2_WriteCompare(170);
     LED_Write(1);
 
 // --------------------------------    
 // ----- INITIALIZATIONS ----------
     CYGlobalIntEnable;
+    
 
 // ------USB SETUP ----------------    
 #ifdef USE_USB    
     USBUART_Start(0,USBUART_5V_OPERATION);
 #endif        
-        
+    M2_INV_Write(1);
     RF_BT_SELECT_Write(0);
     //usbPutString(displaystring);
-    
+    isr_TS_StartEx(printUart);
+    Timer_TS_Start();
     PWM_1_Start();
     PWM_2_Start();
-    
+    isr_ValCheck_StartEx(garb);
+    Timer_1_Start();
     for(;;)
     {
+        char buffer[64];
+        if (printSpeed == 1) {
+            usbPutString("\r\n M1:");
+            itoa((float) m1, buffer, 10);
+            usbPutString(buffer);
+            usbPutString("\r\n");
+            usbPutString("\r\n M2:");
+            itoa((float) m2, buffer, 10);
+            usbPutString(buffer);
+            usbPutString("\r\n end \r\n");
+            QuadDec_M1_Start();
+            QuadDec_M2_Start();
+            printSpeed = 0;
+        } 
         /* Place your application code here. */
         /*handle_usb();
         if (flag_KB_string == 1 && line[0] != '\0')

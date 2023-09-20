@@ -13,7 +13,7 @@
 <v>Output</v>
 </TreeKeys>
 <TreeStates>
-<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="Hardware_Task2-001\Hardware_Task2">
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="Hardware_Task2-001\Hardware_Task2\Source Files\tacho.c">
 <ExpandedNodeIds>
 <v>Hardware_Task2-001</v>
 <v>Hardware_Task2-001\Hardware_Task2</v>
@@ -30,6 +30,7 @@
 <v>Hardware_Task2-001\Hardware_Task2\Hardware_Task2.cydwr\EEPROM</v>
 <v>Hardware_Task2-001\Hardware_Task2\Header Files</v>
 <v>Hardware_Task2-001\Hardware_Task2\Header Files\defines.h</v>
+<v>Hardware_Task2-001\Hardware_Task2\Header Files\tacho.h</v>
 <v>Hardware_Task2-001\Hardware_Task2\Header Files\vars.h</v>
 <v>Hardware_Task2-001\Hardware_Task2\Source Files</v>
 <v>Hardware_Task2-001\Hardware_Task2\Source Files\main.c</v>
@@ -53,6 +54,7 @@
 <v>Hardware_Task2-001\Hardware_Task2\Hardware_Task2.cydwr\EEPROM</v>
 <v>Hardware_Task2-001\Hardware_Task2\Header Files</v>
 <v>Hardware_Task2-001\Hardware_Task2\Header Files\defines.h</v>
+<v>Hardware_Task2-001\Hardware_Task2\Header Files\tacho.h</v>
 <v>Hardware_Task2-001\Hardware_Task2\Header Files\vars.h</v>
 <v>Hardware_Task2-001\Hardware_Task2\Source Files</v>
 <v>Hardware_Task2-001\Hardware_Task2\Source Files\main.c</v>
@@ -84,12 +86,6 @@
 <v>Hardware_Task2-001\Hardware_Task2\CortexM3\ARM_GCC_541\Debug</v>
 <v>Hardware_Task2-001\Hardware_Task2\CortexM3\ARM_GCC_541\Debug\Listing Files</v>
 <v>Hardware_Task2-001\Hardware_Task2\CortexM3\ARM_GCC_541\Debug\Listing Files\A0.lst</v>
-<v>Hardware_Task2-001\Hardware_Task2\CortexM3\ARM_GCC_541\Debug\Listing Files\A1.lst</v>
-<v>Hardware_Task2-001\Hardware_Task2\CortexM3\ARM_GCC_541\Debug\Listing Files\A2.lst</v>
-<v>Hardware_Task2-001\Hardware_Task2\CortexM3\ARM_GCC_541\Debug\Listing Files\A3.lst</v>
-<v>Hardware_Task2-001\Hardware_Task2\CortexM3\ARM_GCC_541\Debug\Listing Files\A4.lst</v>
-<v>Hardware_Task2-001\Hardware_Task2\CortexM3\ARM_GCC_541\Debug\Listing Files\A5.lst</v>
-<v>Hardware_Task2-001\Hardware_Task2\CortexM3\ARM_GCC_541\Debug\Listing Files\A6.lst</v>
 <v>Hardware_Task2-001\Hardware_Task2\CortexM3\ARM_GCC_541\Debug\Listing Files\A7.lst</v>
 <v>Hardware_Task2-001\Hardware_Task2\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC.lst</v>
 <v>Hardware_Task2-001\Hardware_Task2\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_FinalBuf_dma.lst</v>
@@ -150,10 +146,14 @@
 <v>Hardware_Task2-001\Hardware_Task2\CortexM3\ARM_GCC_541\Debug\Listing Files\QuadDec_M1.lst</v>
 <v>Hardware_Task2-001\Hardware_Task2\CortexM3\ARM_GCC_541\Debug\Listing Files\QuadDec_M1_Cnt16.lst</v>
 <v>Hardware_Task2-001\Hardware_Task2\CortexM3\ARM_GCC_541\Debug\Listing Files\QuadDec_M1_Cnt16_PM.lst</v>
+<v>Hardware_Task2-001\Hardware_Task2\CortexM3\ARM_GCC_541\Debug\Listing Files\QuadDec_M1_INT.lst</v>
+<v>Hardware_Task2-001\Hardware_Task2\CortexM3\ARM_GCC_541\Debug\Listing Files\QuadDec_M1_isr.lst</v>
 <v>Hardware_Task2-001\Hardware_Task2\CortexM3\ARM_GCC_541\Debug\Listing Files\QuadDec_M1_PM.lst</v>
 <v>Hardware_Task2-001\Hardware_Task2\CortexM3\ARM_GCC_541\Debug\Listing Files\QuadDec_M2.lst</v>
 <v>Hardware_Task2-001\Hardware_Task2\CortexM3\ARM_GCC_541\Debug\Listing Files\QuadDec_M2_Cnt16.lst</v>
 <v>Hardware_Task2-001\Hardware_Task2\CortexM3\ARM_GCC_541\Debug\Listing Files\QuadDec_M2_Cnt16_PM.lst</v>
+<v>Hardware_Task2-001\Hardware_Task2\CortexM3\ARM_GCC_541\Debug\Listing Files\QuadDec_M2_INT.lst</v>
+<v>Hardware_Task2-001\Hardware_Task2\CortexM3\ARM_GCC_541\Debug\Listing Files\QuadDec_M2_isr.lst</v>
 <v>Hardware_Task2-001\Hardware_Task2\CortexM3\ARM_GCC_541\Debug\Listing Files\QuadDec_M2_PM.lst</v>
 <v>Hardware_Task2-001\Hardware_Task2\CortexM3\ARM_GCC_541\Debug\Listing Files\RF_BT_SELECT.lst</v>
 <v>Hardware_Task2-001\Hardware_Task2\CortexM3\ARM_GCC_541\Debug\Listing Files\RF_BT_SELECT_PM.lst</v>
@@ -194,52 +194,6 @@
 <VisibleNodeIds>
 <v>Hardware_Task2-001</v>
 <v>Hardware_Task2-001\Hardware_Task2</v>
-<v>Hardware_Task2-001\Hardware_Task2\CortexM3</v>
-<v>Hardware_Task2-001\Hardware_Task2\CortexM3\ARM_GCC_541</v>
-<v>Hardware_Task2-001\Hardware_Task2\CortexM3\ARM_GCC_541\Debug</v>
-<v>Hardware_Task2-001\Hardware_Task2\CortexM3\ARM_GCC_541\Debug\Listing Files</v>
-<v>Hardware_Task2-001\Hardware_Task2\CortexM3\ARM_GCC_541\Debug\Listing Files\A0.lst</v>
-<v>Hardware_Task2-001\Hardware_Task2\CortexM3\ARM_GCC_541\Debug\Listing Files\A1.lst</v>
-<v>Hardware_Task2-001\Hardware_Task2\CortexM3\ARM_GCC_541\Debug\Listing Files\A2.lst</v>
-<v>Hardware_Task2-001\Hardware_Task2\CortexM3\ARM_GCC_541\Debug\Listing Files\A3.lst</v>
-<v>Hardware_Task2-001\Hardware_Task2\CortexM3\ARM_GCC_541\Debug\Listing Files\A4.lst</v>
-<v>Hardware_Task2-001\Hardware_Task2\CortexM3\ARM_GCC_541\Debug\Listing Files\A5.lst</v>
-<v>Hardware_Task2-001\Hardware_Task2\CortexM3\ARM_GCC_541\Debug\Listing Files\A6.lst</v>
-<v>Hardware_Task2-001\Hardware_Task2\CortexM3\ARM_GCC_541\Debug\Listing Files\A7.lst</v>
-<v>Hardware_Task2-001\Hardware_Task2\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC.lst</v>
-<v>Hardware_Task2-001\Hardware_Task2\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_FinalBuf_dma.lst</v>
-<v>Hardware_Task2-001\Hardware_Task2\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_INT.lst</v>
-<v>Hardware_Task2-001\Hardware_Task2\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_IntClock.lst</v>
-<v>Hardware_Task2-001\Hardware_Task2\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_IRQ.lst</v>
-<v>Hardware_Task2-001\Hardware_Task2\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_PM.lst</v>
-<v>Hardware_Task2-001\Hardware_Task2\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_SAR.lst</v>
-<v>Hardware_Task2-001\Hardware_Task2\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_SAR_Bypass.lst</v>
-<v>Hardware_Task2-001\Hardware_Task2\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_SAR_INT.lst</v>
-<v>Hardware_Task2-001\Hardware_Task2\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_SAR_PM.lst</v>
-<v>Hardware_Task2-001\Hardware_Task2\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_TempBuf_dma.lst</v>
-<v>Hardware_Task2-001\Hardware_Task2\CortexM3\ARM_GCC_541\Debug\Listing Files\Clock_PWM.lst</v>
-<v>Hardware_Task2-001\Hardware_Task2\CortexM3\ARM_GCC_541\Debug\Listing Files\Clock_QENC.lst</v>
-<v>Hardware_Task2-001\Hardware_Task2\CortexM3\ARM_GCC_541\Debug\Listing Files\Clock2.lst</v>
-<v>Hardware_Task2-001\Hardware_Task2\CortexM3\ARM_GCC_541\Debug\Listing Files\Cm3Start.lst</v>
-<v>Hardware_Task2-001\Hardware_Task2\CortexM3\ARM_GCC_541\Debug\Listing Files\CONTROL.lst</v>
-<v>Hardware_Task2-001\Hardware_Task2\CortexM3\ARM_GCC_541\Debug\Listing Files\CONTROL_PM.lst</v>
-<v>Hardware_Task2-001\Hardware_Task2\CortexM3\ARM_GCC_541\Debug\Listing Files\cy_em_eeprom.lst</v>
-<v>Hardware_Task2-001\Hardware_Task2\CortexM3\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
-<v>Hardware_Task2-001\Hardware_Task2\CortexM3\ARM_GCC_541\Debug\Listing Files\CyDmac.lst</v>
-<v>Hardware_Task2-001\Hardware_Task2\CortexM3\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
-<v>Hardware_Task2-001\Hardware_Task2\CortexM3\ARM_GCC_541\Debug\Listing Files\CyFlash.lst</v>
-<v>Hardware_Task2-001\Hardware_Task2\CortexM3\ARM_GCC_541\Debug\Listing Files\CyLib.lst</v>
-<v>Hardware_Task2-001\Hardware_Task2\CortexM3\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
-<v>Hardware_Task2-001\Hardware_Task2\CortexM3\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
-<v>Hardware_Task2-001\Hardware_Task2\CortexM3\ARM_GCC_541\Debug\Listing Files\CySpc.lst</v>
-<v>Hardware_Task2-001\Hardware_Task2\CortexM3\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
-<v>Hardware_Task2-001\Hardware_Task2\CortexM3\ARM_GCC_541\Debug\Listing Files\DB0.lst</v>
-<v>Hardware_Task2-001\Hardware_Task2\CortexM3\ARM_GCC_541\Debug\Listing Files\DB1.lst</v>
-<v>Hardware_Task2-001\Hardware_Task2\CortexM3\ARM_GCC_541\Debug\Listing Files\DB2.lst</v>
-<v>Hardware_Task2-001\Hardware_Task2\CortexM3\ARM_GCC_541\Debug\Listing Files\isr_eoc.lst</v>
-<v>Hardware_Task2-001\Hardware_Task2\CortexM3\ARM_GCC_541\Debug\Listing Files\isr_quad_timer.lst</v>
-<v>Hardware_Task2-001\Hardware_Task2\CortexM3\ARM_GCC_541\Debug\Listing Files\isr_TS.lst</v>
-<v>Hardware_Task2-001\Hardware_Task2\CortexM3\ARM_GCC_541\Debug\Listing Files\isrRF_RX.lst</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStates>
@@ -326,8 +280,8 @@
 <Unloaded />
 <OpenDocs>
 <name v=".\tacho.c" />
-<name v=".\main.c" />
 <name v=".\TopDesign\TopDesign.cysch" />
+<name v=".\main.c" />
 <name v=".\Hardware_Task2.cydwr" />
 <name v=".\defines.h" />
 </OpenDocs>
@@ -337,7 +291,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1439, 711" SelectedTabbedMdiWindow="afbea882-a819-44c6-8ffa-ee3e6cc0321a"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="763d6372-0165-420b-91f8-85929b1e4f55" /><DocumentWindow Key="H:\Documents\12_Cypress_LineFollowingRobot\Robert\HArdware_Task2\Hardware_Task2.cydsn\tacho.c" Guid="34e644a0-45a1-48f0-b8a5-3a7165da4f2b" /><DocumentWindow Key="H:\Documents\12_Cypress_LineFollowingRobot\Robert\HArdware_Task2\Hardware_Task2.cydsn\main.c" Guid="acc861b1-1d5c-4c02-a026-51d73d8a1b43" /><DocumentWindow Key="H:\Documents\12_Cypress_LineFollowingRobot\Robert\HArdware_Task2\Hardware_Task2.cydsn\TopDesign\TopDesign.cysch" Guid="afbea882-a819-44c6-8ffa-ee3e6cc0321a" /><DocumentWindow Key="H:\Documents\12_Cypress_LineFollowingRobot\Robert\HArdware_Task2\Hardware_Task2.cydsn\Hardware_Task2.cydwr" Guid="3e9a8dc2-c56d-4859-b1bb-f0a4e034ddca" /><DocumentWindow Key="H:\Documents\12_Cypress_LineFollowingRobot\Robert\HArdware_Task2\Hardware_Task2.cydsn\defines.h" Guid="0905f25f-2c4c-4dcf-918a-339fdb31e6d0" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1439, 711" SelectedTabbedMdiWindow="afbea882-a819-44c6-8ffa-ee3e6cc0321a"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="763d6372-0165-420b-91f8-85929b1e4f55" /><DocumentWindow Key="H:\Documents\12_Cypress_LineFollowingRobot\Robert\HArdware_Task2\Hardware_Task2.cydsn\tacho.c" Guid="34e644a0-45a1-48f0-b8a5-3a7165da4f2b" /><DocumentWindow Key="H:\Documents\12_Cypress_LineFollowingRobot\Robert\HArdware_Task2\Hardware_Task2.cydsn\TopDesign\TopDesign.cysch" Guid="afbea882-a819-44c6-8ffa-ee3e6cc0321a" /><DocumentWindow Key="H:\Documents\12_Cypress_LineFollowingRobot\Robert\HArdware_Task2\Hardware_Task2.cydsn\main.c" Guid="acc861b1-1d5c-4c02-a026-51d73d8a1b43" /><DocumentWindow Key="H:\Documents\12_Cypress_LineFollowingRobot\Robert\HArdware_Task2\Hardware_Task2.cydsn\Hardware_Task2.cydwr" Guid="3e9a8dc2-c56d-4859-b1bb-f0a4e034ddca" /><DocumentWindow Key="H:\Documents\12_Cypress_LineFollowingRobot\Robert\HArdware_Task2\Hardware_Task2.cydsn\defines.h" Guid="0905f25f-2c4c-4dcf-918a-339fdb31e6d0" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>

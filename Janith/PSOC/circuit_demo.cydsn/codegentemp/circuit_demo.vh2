@@ -2,7 +2,7 @@
 --	Conversion of circuit_demo.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Sat Aug 26 18:44:36 2023
+--	Thu Sep 21 01:50:52 2023
 --
 
 USE cypress.cypress.all;
