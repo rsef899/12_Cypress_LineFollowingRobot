@@ -242,6 +242,47 @@
 <VisibleNodeIds>
 <v>Team12_PsoC_benchmark_test-000</v>
 <v>Team12_PsoC_benchmark_test-000\Team12_PsoC_benchmark_test</v>
+<v>Team12_PsoC_benchmark_test-000\Team12_PsoC_benchmark_test\CortexM3</v>
+<v>Team12_PsoC_benchmark_test-000\Team12_PsoC_benchmark_test\CortexM3\ARM_GCC_541</v>
+<v>Team12_PsoC_benchmark_test-000\Team12_PsoC_benchmark_test\CortexM3\ARM_GCC_541\Debug</v>
+<v>Team12_PsoC_benchmark_test-000\Team12_PsoC_benchmark_test\CortexM3\ARM_GCC_541\Debug\Listing Files</v>
+<v>Team12_PsoC_benchmark_test-000\Team12_PsoC_benchmark_test\CortexM3\ARM_GCC_541\Debug\Listing Files\A0.lst</v>
+<v>Team12_PsoC_benchmark_test-000\Team12_PsoC_benchmark_test\CortexM3\ARM_GCC_541\Debug\Listing Files\A1.lst</v>
+<v>Team12_PsoC_benchmark_test-000\Team12_PsoC_benchmark_test\CortexM3\ARM_GCC_541\Debug\Listing Files\A2.lst</v>
+<v>Team12_PsoC_benchmark_test-000\Team12_PsoC_benchmark_test\CortexM3\ARM_GCC_541\Debug\Listing Files\A3.lst</v>
+<v>Team12_PsoC_benchmark_test-000\Team12_PsoC_benchmark_test\CortexM3\ARM_GCC_541\Debug\Listing Files\A4.lst</v>
+<v>Team12_PsoC_benchmark_test-000\Team12_PsoC_benchmark_test\CortexM3\ARM_GCC_541\Debug\Listing Files\A5.lst</v>
+<v>Team12_PsoC_benchmark_test-000\Team12_PsoC_benchmark_test\CortexM3\ARM_GCC_541\Debug\Listing Files\A6.lst</v>
+<v>Team12_PsoC_benchmark_test-000\Team12_PsoC_benchmark_test\CortexM3\ARM_GCC_541\Debug\Listing Files\A7.lst</v>
+<v>Team12_PsoC_benchmark_test-000\Team12_PsoC_benchmark_test\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC.lst</v>
+<v>Team12_PsoC_benchmark_test-000\Team12_PsoC_benchmark_test\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_FinalBuf_dma.lst</v>
+<v>Team12_PsoC_benchmark_test-000\Team12_PsoC_benchmark_test\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_INT.lst</v>
+<v>Team12_PsoC_benchmark_test-000\Team12_PsoC_benchmark_test\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_IntClock.lst</v>
+<v>Team12_PsoC_benchmark_test-000\Team12_PsoC_benchmark_test\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_IRQ.lst</v>
+<v>Team12_PsoC_benchmark_test-000\Team12_PsoC_benchmark_test\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_PM.lst</v>
+<v>Team12_PsoC_benchmark_test-000\Team12_PsoC_benchmark_test\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_SAR.lst</v>
+<v>Team12_PsoC_benchmark_test-000\Team12_PsoC_benchmark_test\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_SAR_Bypass.lst</v>
+<v>Team12_PsoC_benchmark_test-000\Team12_PsoC_benchmark_test\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_SAR_INT.lst</v>
+<v>Team12_PsoC_benchmark_test-000\Team12_PsoC_benchmark_test\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_SAR_PM.lst</v>
+<v>Team12_PsoC_benchmark_test-000\Team12_PsoC_benchmark_test\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_TempBuf_dma.lst</v>
+<v>Team12_PsoC_benchmark_test-000\Team12_PsoC_benchmark_test\CortexM3\ARM_GCC_541\Debug\Listing Files\Clock_PWM.lst</v>
+<v>Team12_PsoC_benchmark_test-000\Team12_PsoC_benchmark_test\CortexM3\ARM_GCC_541\Debug\Listing Files\Clock_QENC.lst</v>
+<v>Team12_PsoC_benchmark_test-000\Team12_PsoC_benchmark_test\CortexM3\ARM_GCC_541\Debug\Listing Files\Clock2.lst</v>
+<v>Team12_PsoC_benchmark_test-000\Team12_PsoC_benchmark_test\CortexM3\ARM_GCC_541\Debug\Listing Files\Cm3Start.lst</v>
+<v>Team12_PsoC_benchmark_test-000\Team12_PsoC_benchmark_test\CortexM3\ARM_GCC_541\Debug\Listing Files\CONTROL.lst</v>
+<v>Team12_PsoC_benchmark_test-000\Team12_PsoC_benchmark_test\CortexM3\ARM_GCC_541\Debug\Listing Files\CONTROL_PM.lst</v>
+<v>Team12_PsoC_benchmark_test-000\Team12_PsoC_benchmark_test\CortexM3\ARM_GCC_541\Debug\Listing Files\cy_em_eeprom.lst</v>
+<v>Team12_PsoC_benchmark_test-000\Team12_PsoC_benchmark_test\CortexM3\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
+<v>Team12_PsoC_benchmark_test-000\Team12_PsoC_benchmark_test\CortexM3\ARM_GCC_541\Debug\Listing Files\CyDmac.lst</v>
+<v>Team12_PsoC_benchmark_test-000\Team12_PsoC_benchmark_test\CortexM3\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
+<v>Team12_PsoC_benchmark_test-000\Team12_PsoC_benchmark_test\CortexM3\ARM_GCC_541\Debug\Listing Files\CyFlash.lst</v>
+<v>Team12_PsoC_benchmark_test-000\Team12_PsoC_benchmark_test\CortexM3\ARM_GCC_541\Debug\Listing Files\CyLib.lst</v>
+<v>Team12_PsoC_benchmark_test-000\Team12_PsoC_benchmark_test\CortexM3\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
+<v>Team12_PsoC_benchmark_test-000\Team12_PsoC_benchmark_test\CortexM3\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
+<v>Team12_PsoC_benchmark_test-000\Team12_PsoC_benchmark_test\CortexM3\ARM_GCC_541\Debug\Listing Files\CySpc.lst</v>
+<v>Team12_PsoC_benchmark_test-000\Team12_PsoC_benchmark_test\CortexM3\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
+<v>Team12_PsoC_benchmark_test-000\Team12_PsoC_benchmark_test\CortexM3\ARM_GCC_541\Debug\Listing Files\D11.lst</v>
+<v>Team12_PsoC_benchmark_test-000\Team12_PsoC_benchmark_test\CortexM3\ARM_GCC_541\Debug\Listing Files\D12.lst</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStates>
@@ -321,7 +362,19 @@
 </userData>
 </CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
 <Unloaded />
-<OpenDocs />
+<OpenDocs>
+<name v=".\main.c" />
+<name v=".\Team12_PsoC_benchmark_test.cydwr" />
+<name v=".\TopDesign\TopDesign.cysch" />
+<name v=".\movement.h" />
+</OpenDocs>
+<OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
+
+  Actipro Docking/MDI for WinForms
+  Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
+  http://www.actiprosoftware.com
+
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="789, 613" SelectedTabbedMdiWindow="33b9efc5-228f-4716-b798-02ac26c2656c"><DocumentWindow Key="C:\Users\schoo\302OffOnedrive\301 Project\12_Cypress_LineFollowingRobot\Final_implementation\Team12_PsoC_benchmark_test.cydsn\main.c" Guid="33b9efc5-228f-4716-b798-02ac26c2656c" /><DocumentWindow Key="C:\Users\schoo\302OffOnedrive\301 Project\12_Cypress_LineFollowingRobot\Final_implementation\Team12_PsoC_benchmark_test.cydsn\Team12_PsoC_benchmark_test.cydwr" Guid="0efa9424-6113-4664-918a-7d4d09519758" /><DocumentWindow Key="C:\Users\schoo\302OffOnedrive\301 Project\12_Cypress_LineFollowingRobot\Final_implementation\Team12_PsoC_benchmark_test.cydsn\TopDesign\TopDesign.cysch" Guid="59a69ea2-3eac-4aa7-83bf-a37bc2cb9269" /><DocumentWindow Key="C:\Users\schoo\302OffOnedrive\301 Project\12_Cypress_LineFollowingRobot\Final_implementation\Team12_PsoC_benchmark_test.cydsn\movement.h" Guid="9b1c0455-b9d1-4e07-97a8-f7d0113e22d0" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>

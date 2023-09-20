@@ -33,7 +33,7 @@ void setPWMFreq(int peri);
 
 int main()
 {
-    
+    LED_Write(1);
 
 // --------------------------------    
 // ----- INITIALIZATIONS ----------
@@ -45,7 +45,7 @@ int main()
 #endif        
         
     RF_BT_SELECT_Write(0);
-    usbPutString(displaystring);
+    //usbPutString(displaystring);
     
     PWM_1_Start();
     PWM_2_Start();
@@ -53,7 +53,7 @@ int main()
     for(;;)
     {
         /* Place your application code here. */
-        handle_usb();
+        /*handle_usb();
         if (flag_KB_string == 1 && line[0] != '\0')
         {
             char msg[BUF_SIZE];
@@ -64,7 +64,7 @@ int main()
             usbPutString(msg);
             checkPWMCommand(line);
             flag_KB_string = 0;
-        }        
+        }     */   
     }   
 }
 

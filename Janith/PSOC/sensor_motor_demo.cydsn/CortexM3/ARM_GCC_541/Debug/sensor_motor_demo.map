@@ -858,7 +858,7 @@ END GROUP
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0x2e4e
+.debug_info     0x00000000     0x2e29
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000      0x35a .\CortexM3\ARM_GCC_541\Debug\main.o
  .debug_info    0x0000035a      0x18a .\CortexM3\ARM_GCC_541\Debug\tacho.o
@@ -869,9 +869,9 @@ END GROUP
  .debug_info    0x00001b2f      0x57a .\CortexM3\ARM_GCC_541\Debug\sensor_motor_demo.a(cyPm.o)
  .debug_info    0x000020a9      0x235 .\CortexM3\ARM_GCC_541\Debug\sensor_motor_demo.a(PWM_1.o)
  .debug_info    0x000022de      0x235 .\CortexM3\ARM_GCC_541\Debug\sensor_motor_demo.a(PWM_2.o)
- .debug_info    0x00002513       0xc2 .\CortexM3\ARM_GCC_541\Debug\sensor_motor_demo.a(CyBootAsmGnu.o)
- .debug_info    0x000025d5      0x3b9 .\CortexM3\ARM_GCC_541\Debug\sensor_motor_demo.a(CyFlash.o)
- .debug_info    0x0000298e      0x4c0 .\CortexM3\ARM_GCC_541\Debug\sensor_motor_demo.a(CySpc.o)
+ .debug_info    0x00002513       0x9d .\CortexM3\ARM_GCC_541\Debug\sensor_motor_demo.a(CyBootAsmGnu.o)
+ .debug_info    0x000025b0      0x3b9 .\CortexM3\ARM_GCC_541\Debug\sensor_motor_demo.a(CyFlash.o)
+ .debug_info    0x00002969      0x4c0 .\CortexM3\ARM_GCC_541\Debug\sensor_motor_demo.a(CySpc.o)
 
 .debug_abbrev   0x00000000      0xdf6
  *(.debug_abbrev)
@@ -921,30 +921,30 @@ END GROUP
  .debug_frame   0x000019b0       0x28 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memcpy-stub.o)
  .debug_frame   0x000019d8       0x20 c:/program files (x86)/cypress/psoc creator/4.2/psoc creator/import/gnu/arm/5.4.1/bin/../lib/gcc/arm-none-eabi/5.4.1/../../../../arm-none-eabi/lib/armv7-m\libg_nano.a(lib_a-memset.o)
 
-.debug_str      0x00000000     0x16be
+.debug_str      0x00000000     0x1699
  *(.debug_str)
- .debug_str     0x00000000      0x30e .\CortexM3\ARM_GCC_541\Debug\main.o
-                                0x38b (size before relaxing)
- .debug_str     0x0000030e       0x63 .\CortexM3\ARM_GCC_541\Debug\tacho.o
-                                0x235 (size before relaxing)
- .debug_str     0x00000371      0x16e .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
-                                0x335 (size before relaxing)
- .debug_str     0x000004df       0x7f .\CortexM3\ARM_GCC_541\Debug\cymetadata.o
-                                0x216 (size before relaxing)
- .debug_str     0x0000055e      0x123 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
-                                0x309 (size before relaxing)
- .debug_str     0x00000681      0x806 .\CortexM3\ARM_GCC_541\Debug\sensor_motor_demo.a(CyLib.o)
-                                0xa1c (size before relaxing)
- .debug_str     0x00000e87      0x371 .\CortexM3\ARM_GCC_541\Debug\sensor_motor_demo.a(cyPm.o)
-                                0x575 (size before relaxing)
- .debug_str     0x000011f8      0x13a .\CortexM3\ARM_GCC_541\Debug\sensor_motor_demo.a(PWM_1.o)
-                                0x2ff (size before relaxing)
- .debug_str     0x00001332      0x109 .\CortexM3\ARM_GCC_541\Debug\sensor_motor_demo.a(PWM_2.o)
-                                0x2ff (size before relaxing)
- .debug_str     0x0000143b      0x156 .\CortexM3\ARM_GCC_541\Debug\sensor_motor_demo.a(CyFlash.o)
-                                0x339 (size before relaxing)
- .debug_str     0x00001591      0x12d .\CortexM3\ARM_GCC_541\Debug\sensor_motor_demo.a(CySpc.o)
-                                0x333 (size before relaxing)
+ .debug_str     0x00000000      0x2e9 .\CortexM3\ARM_GCC_541\Debug\main.o
+                                0x366 (size before relaxing)
+ .debug_str     0x000002e9       0x63 .\CortexM3\ARM_GCC_541\Debug\tacho.o
+                                0x210 (size before relaxing)
+ .debug_str     0x0000034c      0x16e .\CortexM3\ARM_GCC_541\Debug\cyfitter_cfg.o
+                                0x310 (size before relaxing)
+ .debug_str     0x000004ba       0x7f .\CortexM3\ARM_GCC_541\Debug\cymetadata.o
+                                0x1f1 (size before relaxing)
+ .debug_str     0x00000539      0x123 .\CortexM3\ARM_GCC_541\Debug\Cm3Start.o
+                                0x2e4 (size before relaxing)
+ .debug_str     0x0000065c      0x806 .\CortexM3\ARM_GCC_541\Debug\sensor_motor_demo.a(CyLib.o)
+                                0x9f7 (size before relaxing)
+ .debug_str     0x00000e62      0x371 .\CortexM3\ARM_GCC_541\Debug\sensor_motor_demo.a(cyPm.o)
+                                0x550 (size before relaxing)
+ .debug_str     0x000011d3      0x13a .\CortexM3\ARM_GCC_541\Debug\sensor_motor_demo.a(PWM_1.o)
+                                0x2da (size before relaxing)
+ .debug_str     0x0000130d      0x109 .\CortexM3\ARM_GCC_541\Debug\sensor_motor_demo.a(PWM_2.o)
+                                0x2da (size before relaxing)
+ .debug_str     0x00001416      0x156 .\CortexM3\ARM_GCC_541\Debug\sensor_motor_demo.a(CyFlash.o)
+                                0x314 (size before relaxing)
+ .debug_str     0x0000156c      0x12d .\CortexM3\ARM_GCC_541\Debug\sensor_motor_demo.a(CySpc.o)
+                                0x30e (size before relaxing)
 
 .debug_loc
  *(.debug_loc)
@@ -1056,4 +1056,4 @@ END GROUP
 
 /DISCARD/
  *(.note.GNU-stack)
-OUTPUT(D:\Documents\UOA\2023\Semester 2\COMPSYS301\repos\12_Cypress_LineFollowingRobot\Janith\PSOC\sensor_motor_demo.cydsn\CortexM3\ARM_GCC_541\Debug\sensor_motor_demo.elf elf32-littlearm)
+OUTPUT(H:\Documents\12_Cypress_LineFollowingRobot\Janith\PSOC\sensor_motor_demo.cydsn\CortexM3\ARM_GCC_541\Debug\sensor_motor_demo.elf elf32-littlearm)

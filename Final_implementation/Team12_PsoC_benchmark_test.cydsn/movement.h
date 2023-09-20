@@ -22,8 +22,8 @@
 #define FULL_REVERSE 0
 #define MEDIUM_FORWARD 65
 #define MEDIUM_REVERSE 35
-#define SLOW_FORWARD 60
-#define SLOW_REVERSE 40
+#define SLOW_FORWARD 55
+#define SLOW_REVERSE 45
     
 #define TURN_RIGHT 1
 #define TURN_LEFT 2

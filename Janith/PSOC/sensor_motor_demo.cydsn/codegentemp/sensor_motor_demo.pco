@@ -1,5 +1,5 @@
 # sensor_motor_demo
-# 2023-09-17 12:36:20Z
+# 2023-09-19 00:07:33Z
 
 set_location "ClockBlock" clockblockcell -1 -1 0
 set_io "M1_IN1(0)" iocell 3 4
