@@ -20,9 +20,9 @@
 #define STOP 50 //stopping duty cycle
 #define FULL_FORWARD 100
 #define FULL_REVERSE 0
-#define MEDIUM_FORWARD 65
-#define MEDIUM_REVERSE 35
-#define SLOW_FORWARD 55
+#define MEDIUM_FORWARD 63
+#define MEDIUM_REVERSE 30
+#define SLOW_FORWARD 56
 #define SLOW_REVERSE 45
     
 #define TURN_RIGHT 1
