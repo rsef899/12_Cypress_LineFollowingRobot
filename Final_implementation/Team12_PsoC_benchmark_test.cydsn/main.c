@@ -46,77 +46,75 @@ int main(){
     PWM_2_Start();   
     
     controlWheels(STOP, STOP);
-    int front_sensor = 0;
+    int error_flag = 0;
     
-    for(;;){ 
-        controlWheels(64, 65);
+    for(;;){
         //stop all
         if (Q1_Read() && Q2_Read() && Q3_Read() && Q4_Read() && Q5_Read() && Q6_Read() && Q7_Read()){
             controlWheels(STOP, STOP);
         }
-        else if (Q1_Read()&& Q2_Read() && Q3_Read()){
-            front_sensor = 0;
-            controlWheels(64, MEDIUM_FORWARD);
-            
-            //If a left turn is detected
-            if (!Q5_Read()){
-                while(TRUE){
-                    if (!Q3_Read() || (!Q5_Read() && Q6_Read() && !Q2_Read())){
-                        break;
-                    }
-                    controlWheels(MEDIUM_REVERSE, MEDIUM_FORWARD);
-                }
-                controlWheels(64, MEDIUM_FORWARD);
-                //controlWheels(MEDIUM_REVERSE, MEDIUM_FORWARD);
-            }
-            //If a right turn is detected
-            else if (!Q4_Read()){
-                while(TRUE){
-                    if (!Q1_Read() || ((!Q4_Read()) && Q6_Read() && !Q2_Read())){
-                        break;
-                    }
-                    controlWheels(64, MEDIUM_REVERSE);
-                }
-                controlWheels(64, MEDIUM_FORWARD);
-                //controlWheels(MEDIUM_FORWARD, MEDIUM_REVERSE);
-            }
-        }
         // If the top middle sensor is on the line, set the front sensor flag and drive the wheels.
-        else if (!Q2_Read()){
-            front_sensor = 1;
-            controlWheels(64, MEDIUM_FORWARD);
-        }
-        else {
+        else if (!Q2_Read() || !Q7_Read()){
+            controlWheels(63, MEDIUM_FORWARD);
+                
+            if (Q1_Read()&& Q2_Read() && Q3_Read()){
+                controlWheels(63, MEDIUM_FORWARD);
+                
+                //If a left turn is detected
+                if (!Q5_Read()){
+                    error_flag = 0;
+                    while(TRUE){
+                        if (!Q3_Read() || (!Q5_Read() && Q6_Read() && !Q2_Read())){
+                            break;
+                        }
+                        controlWheels(MEDIUM_REVERSE, MEDIUM_FORWARD);
+                        if (Q6_Read()){
+                            error_flag = 1;
+                        }
+                        if (!Q6_Read() && error_flag && Q5_Read()){
+                            while(TRUE){
+                                controlWheels(MEDIUM_FORWARD, MEDIUM_REVERSE);
+                                if (!Q3_Read()){
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                    controlWheels(63, MEDIUM_FORWARD);
+                    //controlWheels(MEDIUM_REVERSE, MEDIUM_FORWARD);
+                }
+                //If a right turn is detected
+                else if (!Q4_Read()){
+                    error_flag = 0;
+                    while(TRUE){
+                        if (!Q1_Read() || ((!Q4_Read()) && Q6_Read() && !Q2_Read())){
+                            break;
+                        }
+                        controlWheels(MEDIUM_FORWARD, MEDIUM_REVERSE);
+                        if (Q6_Read()){
+                            error_flag = 1;
+                        }
+                        if (!Q6_Read() && error_flag && Q4_Read()){
+                            while(TRUE){
+                                controlWheels(MEDIUM_REVERSE, MEDIUM_FORWARD);
+                                if (!Q1_Read()){
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                    controlWheels(63, MEDIUM_FORWARD);
+                    //controlWheels(MEDIUM_FORWARD, MEDIUM_REVERSE);
+                }
+            }
+            
             // While the line is not in between the four surrounding sensors
             // run correction code
             while (!(Q1_Read() && Q3_Read() & Q5_Read() & Q4_Read())){
-                /*
-                // Use front sensors for calibration when not at a corner
-                if (front_sensor == 1){
-                    // right correction
-                    if (!Q3_Read()){
-                        controlWheels(MEDIUM_FORWARD, SLOW_FORWARD);
-                    }
-                    // left correction
-                    if (!Q1_Read()){
-                        controlWheels(SLOW_FORWARD, MEDIUM_FORWARD);  
-                    }
-                }    
-                // Use middle sensors for calibration when approaching a corner
-                if (front_sensor == 0) {
-                    // right correction
-                    if (!Q4_Read()){
-                        controlWheels(MEDIUM_FORWARD, SLOW_FORWARD);
-                    }
-                    // left correction
-                    if (!Q5_Read()){
-                        controlWheels(SLOW_FORWARD, MEDIUM_FORWARD);
-                    }
-                }
-                */
+
                 // right correction
                 if (!Q3_Read()){
-                        controlWheels(MEDIUM_FORWARD, SLOW_FORWARD);
+                    controlWheels(MEDIUM_FORWARD, SLOW_FORWARD);
                 }
                 // left correction
                 if (!Q1_Read()){
