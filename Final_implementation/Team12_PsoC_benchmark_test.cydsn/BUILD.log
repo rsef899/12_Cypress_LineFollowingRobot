@@ -1,4 +1,4 @@
---------------- Build Started: 09/22/2023 17:38:57 Project: Team12_PsoC_benchmark_test, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
+--------------- Build Started: 09/22/2023 20:14:54 Project: Team12_PsoC_benchmark_test, Configuration: ARM GCC 5.4-2016-q2-update Debug ---------------
 The code generation step is up to date.
 arm-none-eabi-gcc.exe -mcpu=cortex-m3 -mthumb -I. -IGenerated_Source\PSoC5 -Wa,-alh=.\CortexM3\ARM_GCC_541\Debug/main.lst -g -D DEBUG -Wall -ffunction-sections -ffat-lto-objects -O0 -c main.c -o .\CortexM3\ARM_GCC_541\Debug\main.o
 main.c: In function 'main':
@@ -13,6 +13,6 @@ No ELF section .cychecksum found, creating one
 Application checksum calculated and stored in ELF section .cychecksum
 Checksum calculated and stored in ELF section .cymeta
 cyelftool.exe -S "C:\Users\schoo\302OffOnedrive\301 Project\12_Cypress_LineFollowingRobot\Final_implementation\Team12_PsoC_benchmark_test.cydsn\CortexM3\ARM_GCC_541\Debug\Team12_PsoC_benchmark_test.elf"
-Flash used: 6406 of 262144 bytes (2.4%).
+Flash used: 6550 of 262144 bytes (2.5%).
 SRAM used: 2533 of 65536 bytes (3.9%). Stack: 2048 bytes. Heap: 128 bytes.
---------------- Build Succeeded: 09/22/2023 17:38:58 ---------------
+--------------- Build Succeeded: 09/22/2023 20:14:57 ---------------

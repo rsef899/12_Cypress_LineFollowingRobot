@@ -47,6 +47,7 @@ int main(){
     
     controlWheels(STOP, STOP);
     int front_sensor = 0;
+    int dontCalibrate = 0;
     
     for(;;){ 
         controlWheels(64, 65);
@@ -54,19 +55,24 @@ int main(){
         if (Q1_Read() && Q2_Read() && Q3_Read() && Q4_Read() && Q5_Read() && Q6_Read() && Q7_Read()){
             controlWheels(STOP, STOP);
         }
-        else if (Q1_Read() && Q2_Read() && Q3_Read()){
-            front_sensor = 0;
-            controlWheels(64, MEDIUM_FORWARD);
+   
+        else if ((Q1_Read() && Q2_Read() && Q3_Read())){
+            LED_Write(0);
+            dontCalibrate = 1;
             
+            front_sensor = 0;
+                   
             //If a left turn is detected
             if (!Q5_Read()){
                 while(TRUE){
                     //if (!Q3_Read() || (!Q5_Read() && Q6_Read() && !Q2_Read())){
                     if (!Q2_Read()){
                         controlWheels(STOP, STOP);
+                        dontCalibrate = 0;
                         break;
                     }
                     controlWheels(MEDIUM_REVERSE, MEDIUM_FORWARD);
+                   
                 }
                 controlWheels(64, MEDIUM_FORWARD);
                 //controlWheels(MEDIUM_REVERSE, MEDIUM_FORWARD);
@@ -78,10 +84,13 @@ int main(){
                     if (!Q2_Read()){
                     //if (!Q1_Read() || ((!Q4_Read()) && Q6_Read() && !Q2_Read())){
                         controlWheels(STOP, STOP);
+                        dontCalibrate = 0;
                         break;
                     }
+                    
                 }
                 controlWheels(64, MEDIUM_FORWARD);
+                
                 //controlWheels(MEDIUM_FORWARD, MEDIUM_REVERSE);
             }
         }
@@ -90,20 +99,26 @@ int main(){
             front_sensor = 1;
             controlWheels(64, MEDIUM_FORWARD);
         }
-        else {
+        else if((((Q1_Read() && Q2_Read()) || (Q2_Read() && Q3_Read())) && dontCalibrate == 0)){
+            LED_Write(1);
             // While the line is not in between the four surrounding sensors
             // run correction code
-            while ((Q1_Read() && Q2_Read()) || (Q2_Read() && Q3_Read())){
+            if (((Q1_Read() && Q2_Read()) || (Q2_Read() && Q3_Read()))){
                 
                 // right correction
-                if (!Q3_Read()){
-                        controlWheels(MEDIUM_FORWARD, SLOW_FORWARD);
+                while (!Q3_Read()){
+                        controlWheels(MEDIUM_FORWARD, SLOW_FORWARD);                       
                 }
                 // left correction
-                if (!Q1_Read()){
+                while (!Q1_Read()){
                     controlWheels(SLOW_FORWARD, MEDIUM_FORWARD);  
+                    
                 }
+                LED_Write(0);
+                
+                
             }
+            controlWheels(MEDIUM_FORWARD, MEDIUM_FORWARD);  
         }
     }  
 }//End main
