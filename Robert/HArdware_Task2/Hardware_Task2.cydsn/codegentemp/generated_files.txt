@@ -156,6 +156,48 @@
   <file name="H:\Documents\12_Cypress_LineFollowingRobot\Robert\HArdware_Task2\Hardware_Task2.cydsn\codegentemp\M2_INV_aliases.h" value="HEADER;;;;;M2_INV" />
   <file name="H:\Documents\12_Cypress_LineFollowingRobot\Robert\HArdware_Task2\Hardware_Task2.cydsn\codegentemp\M2_INV.c" value="SOURCE_C;CortexM3;;;;M2_INV" />
   <file name="H:\Documents\12_Cypress_LineFollowingRobot\Robert\HArdware_Task2\Hardware_Task2.cydsn\codegentemp\M2_INV.h" value="HEADER;;;;;M2_INV" />
+  <file name="H:\Documents\12_Cypress_LineFollowingRobot\Robert\HArdware_Task2\Hardware_Task2.cydsn\codegentemp\Q1_aliases.h" value="HEADER;;;;;Q1" />
+  <file name="H:\Documents\12_Cypress_LineFollowingRobot\Robert\HArdware_Task2\Hardware_Task2.cydsn\codegentemp\Q1.c" value="SOURCE_C;CortexM3;;;;Q1" />
+  <file name="H:\Documents\12_Cypress_LineFollowingRobot\Robert\HArdware_Task2\Hardware_Task2.cydsn\codegentemp\Q1.h" value="HEADER;;;;;Q1" />
+  <file name="H:\Documents\12_Cypress_LineFollowingRobot\Robert\HArdware_Task2\Hardware_Task2.cydsn\codegentemp\Q2_aliases.h" value="HEADER;;;;;Q2" />
+  <file name="H:\Documents\12_Cypress_LineFollowingRobot\Robert\HArdware_Task2\Hardware_Task2.cydsn\codegentemp\Q2.c" value="SOURCE_C;CortexM3;;;;Q2" />
+  <file name="H:\Documents\12_Cypress_LineFollowingRobot\Robert\HArdware_Task2\Hardware_Task2.cydsn\codegentemp\Q2.h" value="HEADER;;;;;Q2" />
+  <file name="H:\Documents\12_Cypress_LineFollowingRobot\Robert\HArdware_Task2\Hardware_Task2.cydsn\codegentemp\Q5_aliases.h" value="HEADER;;;;;Q5" />
+  <file name="H:\Documents\12_Cypress_LineFollowingRobot\Robert\HArdware_Task2\Hardware_Task2.cydsn\codegentemp\Q5.c" value="SOURCE_C;CortexM3;;;;Q5" />
+  <file name="H:\Documents\12_Cypress_LineFollowingRobot\Robert\HArdware_Task2\Hardware_Task2.cydsn\codegentemp\Q5.h" value="HEADER;;;;;Q5" />
+  <file name="H:\Documents\12_Cypress_LineFollowingRobot\Robert\HArdware_Task2\Hardware_Task2.cydsn\codegentemp\Q7_aliases.h" value="HEADER;;;;;Q7" />
+  <file name="H:\Documents\12_Cypress_LineFollowingRobot\Robert\HArdware_Task2\Hardware_Task2.cydsn\codegentemp\Q7.c" value="SOURCE_C;CortexM3;;;;Q7" />
+  <file name="H:\Documents\12_Cypress_LineFollowingRobot\Robert\HArdware_Task2\Hardware_Task2.cydsn\codegentemp\Q7.h" value="HEADER;;;;;Q7" />
+  <file name="H:\Documents\12_Cypress_LineFollowingRobot\Robert\HArdware_Task2\Hardware_Task2.cydsn\codegentemp\Q6_aliases.h" value="HEADER;;;;;Q6" />
+  <file name="H:\Documents\12_Cypress_LineFollowingRobot\Robert\HArdware_Task2\Hardware_Task2.cydsn\codegentemp\Q6.c" value="SOURCE_C;CortexM3;;;;Q6" />
+  <file name="H:\Documents\12_Cypress_LineFollowingRobot\Robert\HArdware_Task2\Hardware_Task2.cydsn\codegentemp\Q6.h" value="HEADER;;;;;Q6" />
+  <file name="H:\Documents\12_Cypress_LineFollowingRobot\Robert\HArdware_Task2\Hardware_Task2.cydsn\codegentemp\Q4_aliases.h" value="HEADER;;;;;Q4" />
+  <file name="H:\Documents\12_Cypress_LineFollowingRobot\Robert\HArdware_Task2\Hardware_Task2.cydsn\codegentemp\Q4.c" value="SOURCE_C;CortexM3;;;;Q4" />
+  <file name="H:\Documents\12_Cypress_LineFollowingRobot\Robert\HArdware_Task2\Hardware_Task2.cydsn\codegentemp\Q4.h" value="HEADER;;;;;Q4" />
+  <file name="H:\Documents\12_Cypress_LineFollowingRobot\Robert\HArdware_Task2\Hardware_Task2.cydsn\codegentemp\Q3_aliases.h" value="HEADER;;;;;Q3" />
+  <file name="H:\Documents\12_Cypress_LineFollowingRobot\Robert\HArdware_Task2\Hardware_Task2.cydsn\codegentemp\Q3.c" value="SOURCE_C;CortexM3;;;;Q3" />
+  <file name="H:\Documents\12_Cypress_LineFollowingRobot\Robert\HArdware_Task2\Hardware_Task2.cydsn\codegentemp\Q3.h" value="HEADER;;;;;Q3" />
+  <file name="H:\Documents\12_Cypress_LineFollowingRobot\Robert\HArdware_Task2\Hardware_Task2.cydsn\codegentemp\D16_aliases.h" value="HEADER;;;;;D16" />
+  <file name="H:\Documents\12_Cypress_LineFollowingRobot\Robert\HArdware_Task2\Hardware_Task2.cydsn\codegentemp\D16.c" value="SOURCE_C;CortexM3;;;;D16" />
+  <file name="H:\Documents\12_Cypress_LineFollowingRobot\Robert\HArdware_Task2\Hardware_Task2.cydsn\codegentemp\D16.h" value="HEADER;;;;;D16" />
+  <file name="H:\Documents\12_Cypress_LineFollowingRobot\Robert\HArdware_Task2\Hardware_Task2.cydsn\codegentemp\D11_aliases.h" value="HEADER;;;;;D11" />
+  <file name="H:\Documents\12_Cypress_LineFollowingRobot\Robert\HArdware_Task2\Hardware_Task2.cydsn\codegentemp\D11.c" value="SOURCE_C;CortexM3;;;;D11" />
+  <file name="H:\Documents\12_Cypress_LineFollowingRobot\Robert\HArdware_Task2\Hardware_Task2.cydsn\codegentemp\D11.h" value="HEADER;;;;;D11" />
+  <file name="H:\Documents\12_Cypress_LineFollowingRobot\Robert\HArdware_Task2\Hardware_Task2.cydsn\codegentemp\D13_aliases.h" value="HEADER;;;;;D13" />
+  <file name="H:\Documents\12_Cypress_LineFollowingRobot\Robert\HArdware_Task2\Hardware_Task2.cydsn\codegentemp\D13.c" value="SOURCE_C;CortexM3;;;;D13" />
+  <file name="H:\Documents\12_Cypress_LineFollowingRobot\Robert\HArdware_Task2\Hardware_Task2.cydsn\codegentemp\D13.h" value="HEADER;;;;;D13" />
+  <file name="H:\Documents\12_Cypress_LineFollowingRobot\Robert\HArdware_Task2\Hardware_Task2.cydsn\codegentemp\D17_aliases.h" value="HEADER;;;;;D17" />
+  <file name="H:\Documents\12_Cypress_LineFollowingRobot\Robert\HArdware_Task2\Hardware_Task2.cydsn\codegentemp\D17.c" value="SOURCE_C;CortexM3;;;;D17" />
+  <file name="H:\Documents\12_Cypress_LineFollowingRobot\Robert\HArdware_Task2\Hardware_Task2.cydsn\codegentemp\D17.h" value="HEADER;;;;;D17" />
+  <file name="H:\Documents\12_Cypress_LineFollowingRobot\Robert\HArdware_Task2\Hardware_Task2.cydsn\codegentemp\D14_aliases.h" value="HEADER;;;;;D14" />
+  <file name="H:\Documents\12_Cypress_LineFollowingRobot\Robert\HArdware_Task2\Hardware_Task2.cydsn\codegentemp\D14.c" value="SOURCE_C;CortexM3;;;;D14" />
+  <file name="H:\Documents\12_Cypress_LineFollowingRobot\Robert\HArdware_Task2\Hardware_Task2.cydsn\codegentemp\D14.h" value="HEADER;;;;;D14" />
+  <file name="H:\Documents\12_Cypress_LineFollowingRobot\Robert\HArdware_Task2\Hardware_Task2.cydsn\codegentemp\D15_aliases.h" value="HEADER;;;;;D15" />
+  <file name="H:\Documents\12_Cypress_LineFollowingRobot\Robert\HArdware_Task2\Hardware_Task2.cydsn\codegentemp\D15.c" value="SOURCE_C;CortexM3;;;;D15" />
+  <file name="H:\Documents\12_Cypress_LineFollowingRobot\Robert\HArdware_Task2\Hardware_Task2.cydsn\codegentemp\D15.h" value="HEADER;;;;;D15" />
+  <file name="H:\Documents\12_Cypress_LineFollowingRobot\Robert\HArdware_Task2\Hardware_Task2.cydsn\codegentemp\D12_aliases.h" value="HEADER;;;;;D12" />
+  <file name="H:\Documents\12_Cypress_LineFollowingRobot\Robert\HArdware_Task2\Hardware_Task2.cydsn\codegentemp\D12.c" value="SOURCE_C;CortexM3;;;;D12" />
+  <file name="H:\Documents\12_Cypress_LineFollowingRobot\Robert\HArdware_Task2\Hardware_Task2.cydsn\codegentemp\D12.h" value="HEADER;;;;;D12" />
   <file name="H:\Documents\12_Cypress_LineFollowingRobot\Robert\HArdware_Task2\Hardware_Task2.cydsn\codegentemp\QuadDec_M1_isr.c" value="SOURCE_C;CortexM3;;;;QuadDec_M1_isr" />
   <file name="H:\Documents\12_Cypress_LineFollowingRobot\Robert\HArdware_Task2\Hardware_Task2.cydsn\codegentemp\QuadDec_M1_isr.h" value="HEADER;;;;;QuadDec_M1_isr" />
   <file name="H:\Documents\12_Cypress_LineFollowingRobot\Robert\HArdware_Task2\Hardware_Task2.cydsn\codegentemp\QuadDec_M1_Cnt16.c" value="SOURCE_C;CortexM3;;;;QuadDec_M1_Cnt16" />
