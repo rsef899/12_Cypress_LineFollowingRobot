@@ -46,23 +46,21 @@ int main(){
     PWM_2_Start();   
     
     controlWheels(STOP, STOP);
-    int front_sensor = 0;
     
     for(;;){ 
-        controlWheels(64, 65);
         //stop all
         if (Q1_Read() && Q2_Read() && Q3_Read() && Q4_Read() && Q5_Read() && Q6_Read() && Q7_Read()){
             controlWheels(STOP, STOP);
         }
         else if (Q1_Read() && Q2_Read() && Q3_Read()){
-            front_sensor = 0;
+            LED_Write(0);
             controlWheels(64, MEDIUM_FORWARD);
             
             //If a left turn is detected
             if (!Q5_Read()){
                 while(TRUE){
                     //if (!Q3_Read() || (!Q5_Read() && Q6_Read() && !Q2_Read())){
-                    if (!Q2_Read()){
+                    if (!Q2_Read() || !Q3_Read()){
                         controlWheels(STOP, STOP);
                         break;
                     }
@@ -75,7 +73,7 @@ int main(){
             else if (!Q4_Read()){
                 while(TRUE){
                     controlWheels(64, MEDIUM_REVERSE);
-                    if (!Q2_Read()){
+                    if (!Q2_Read() || !Q1_Read()){
                     //if (!Q1_Read() || ((!Q4_Read()) && Q6_Read() && !Q2_Read())){
                         controlWheels(STOP, STOP);
                         break;
@@ -85,16 +83,15 @@ int main(){
                 //controlWheels(MEDIUM_FORWARD, MEDIUM_REVERSE);
             }
         }
-        // If the top middle sensor is on the line, set the front sensor flag and drive the wheels.
-        else if (!Q2_Read()){
-            front_sensor = 1;
+        else if (!(Q1_Read() && Q2_Read() && Q3_Read())) {
             controlWheels(64, MEDIUM_FORWARD);
-        }
-        else {
+            LED_Write(1);
             // While the line is not in between the four surrounding sensors
             // run correction code
             while ((Q1_Read() && Q2_Read()) || (Q2_Read() && Q3_Read())){
-                
+                if (Q1_Read() && Q2_Read() && Q3_Read()){
+                    break;
+                }
                 // right correction
                 if (!Q3_Read()){
                         controlWheels(MEDIUM_FORWARD, SLOW_FORWARD);

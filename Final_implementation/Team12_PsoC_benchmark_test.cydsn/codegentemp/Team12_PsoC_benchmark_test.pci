@@ -1,5 +1,5 @@
 # Team12_PsoC_benchmark_test
-# 2023-09-19 01:58:18Z
+# 2023-09-24 23:30:40Z
 
 set_io "M1_IN1(0)" iocell 3 4
 set_io "M1_IN2(0)" iocell 3 5
