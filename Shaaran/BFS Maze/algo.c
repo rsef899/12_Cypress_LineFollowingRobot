@@ -88,8 +88,12 @@ size_t bfs(const uint8_t map[MAP_HEIGHT][MAP_WIDTH], Point start,
           Point shortestPath[MAP_HEIGHT*MAP_WIDTH];
           size_t shortestPathIndex = 0;
           Point traceBack = curr;
-
+          uint8_t finalFound = 0;
           while (!point_eq(traceBack, newStart)) {
+            if (traceBack.essentialNode == 1 && finalFound == 0) {
+              traceBack.finalNode = 1;
+              finalFound = 1;
+            }
             shortestPath[shortestPathIndex++] = traceBack;
             traceBack = visited[traceBack.y][traceBack.x];
           }
@@ -123,26 +127,44 @@ size_t bfs(const uint8_t map[MAP_HEIGHT][MAP_WIDTH], Point start,
           }
         }
     dummyMap[curr.y][curr.x] = 1;
+    uint8_t pointsValid = 0;
     if (isValid(left, dummyMap)) {
       left.direction = LEFTTURN;
+      pointsValid++;
       enqueue(left);
+      if (pointsValid >= 2 || (curr.direction != LEFTTURN)) { // If more than two points valid it is a node
+        curr.essentialNode = 1;
+      }
       visited[left.y][left.x] = curr; // Store the parent
     }
     if (isValid(right, dummyMap)) {
       right.direction = RIGHTTURN;
+      pointsValid++;
+      if (pointsValid >= 2 || (curr.direction != RIGHTTURN)) { // If more than two points valid it is a node
+        curr.essentialNode = 1;
+      }
       enqueue(right);
       visited[right.y][right.x] = curr; // Store the parent
     }
     if (isValid(above, dummyMap)) {
       above.direction = UPTURN;
+      pointsValid++;
+      if (pointsValid >= 2 || (curr.direction != UPTURN)) { // If more than two points valid it is a node
+        curr.essentialNode = 1;
+      }
       enqueue(above);
       visited[above.y][above.x] = curr; // Store the parent
     }
     if (isValid(below, dummyMap)) {
       below.direction = DOWNTURN;
+      pointsValid++;
+      if (pointsValid >= 2 || (curr.direction != DOWNTURN)) { // If more than two points valid it is a node
+        curr.essentialNode = 1;
+      }
       enqueue(below);
       visited[below.y][below.x] = curr; // Store the parent
     }
+    
 
     
   }
