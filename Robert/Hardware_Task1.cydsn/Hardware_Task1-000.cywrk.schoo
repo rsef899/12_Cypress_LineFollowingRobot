@@ -207,6 +207,7 @@
 <v>Hardware_Task1-000\Hardware_Task1\CortexM3\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
 <v>Hardware_Task1-000\Hardware_Task1\CortexM3\ARM_GCC_541\Debug\Listing Files\DB0.lst</v>
 <v>Hardware_Task1-000\Hardware_Task1\CortexM3\ARM_GCC_541\Debug\Listing Files\DB1.lst</v>
+<v>Hardware_Task1-000\Hardware_Task1\CortexM3\ARM_GCC_541\Debug\Listing Files\DB2.lst</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStates>
@@ -265,7 +266,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="910, 631" SelectedTabbedMdiWindow="bae636cf-1194-4367-904b-026eeb3f1b37"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="36eb70d5-c0e2-4956-9dc3-293dd4423901" /><DocumentWindow Key="C:\Users\schoo\302OffOnedrive\301 Project\12_Cypress_LineFollowingRobot\Robert\Hardware_Task1.cydsn\main.c" Guid="bae636cf-1194-4367-904b-026eeb3f1b37" /><DocumentWindow Key="C:\Users\schoo\302OffOnedrive\301 Project\12_Cypress_LineFollowingRobot\Robert\Hardware_Task1.cydsn\TopDesign\TopDesign.cysch" Guid="53bae7c0-8ff5-4743-b414-9a3d2f0b6bc9" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="905, 613" SelectedTabbedMdiWindow="9bb91960-183e-44f2-b5cf-195bbb50b9c5"><DocumentWindow Key="C:\Users\schoo\OneDrive\Desktop\12_Cypress_LineFollowingRobot\Robert\Hardware_Task1.cydsn\main.c" Guid="9bb91960-183e-44f2-b5cf-195bbb50b9c5" /><DocumentWindow Key="C:\Users\schoo\OneDrive\Desktop\12_Cypress_LineFollowingRobot\Robert\Hardware_Task1.cydsn\TopDesign\TopDesign.cysch" Guid="ffd9a79d-5912-4d97-923e-64195e75b3a3" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>
