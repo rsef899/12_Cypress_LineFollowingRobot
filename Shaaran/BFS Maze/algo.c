@@ -1,4 +1,3 @@
-
 // finds shortes path from start to first endpoint
 #include "algo.h"
 #include "defs.h"
@@ -82,19 +81,39 @@ size_t bfs(const uint8_t map[MAP_HEIGHT][MAP_WIDTH], Point start,
     Point right = RIGHT(curr);
     Point above = ABOVE(curr);
     Point below = BELOW(curr);
+    // left.direction = (curr.direction == RIGHTTURN) ? DOWNTURN : (curr.direction == LEFTTURN) ? UPTURN : (curr.direction == UPTURN) ? LEFTTURN : RIGHTTURN;
+
+    // right.direction = (curr.direction == RIGHTTURN) ? UPTURN : (curr.direction == LEFTTURN) ? DOWNTURN : (curr.direction == UPTURN) ? RIGHTTURN : LEFTTURN;
+    // above.direction = (curr.direction == RIGHTTURN) ? LEFTTURN : (curr.direction == LEFTTURN) ? RIGHTTURN : (curr.direction == UPTURN) ? UPTURN : DOWNTURN;
+    // below.direction = (curr.direction == RIGHTTURN) ? RIGHTTURN : (curr.direction == LEFTTURN) ? LEFTTURN : (curr.direction == UPTURN) ? DOWNTURN : UPTURN;
+
     
       if (point_eq(curr, ends[foundEndsCount])) {
           // Reconstruct the path to the endpoint
           Point shortestPath[MAP_HEIGHT*MAP_WIDTH];
           size_t shortestPathIndex = 0;
           Point traceBack = curr;
+          traceBack.foodPoint = 1; // Saying it is a foodpoint
           uint8_t finalFound = 0;
+          uint8_t steps = 0;
           while (!point_eq(traceBack, newStart)) {
-            if (traceBack.essentialNode == 1 && finalFound == 0) {
-              traceBack.finalNode = 1;
+            
+            if (traceBack.node == 1 && finalFound == 0) {
+              traceBack.steps = steps;
+              traceBack.finalTurn = 1;
               finalFound = 1;
             }
-            shortestPath[shortestPathIndex++] = traceBack;
+            if (finalFound==0) {
+              steps++;
+              if (point_eq(curr,traceBack)) {
+                shortestPath[shortestPathIndex++] = traceBack;
+              }
+              //shortestPath[shortestPathIndex++] = traceBack;
+              
+            } else if (traceBack.node ==1) {
+
+              shortestPath[shortestPathIndex++] = traceBack;
+            }
             traceBack = visited[traceBack.y][traceBack.x];
           }
 
@@ -102,7 +121,27 @@ size_t bfs(const uint8_t map[MAP_HEIGHT][MAP_WIDTH], Point start,
 
           // Copy the reconstructed path to the 'out' array
           for (int i = shortestPathIndex - 1; i >= 0; i--) {
+            uint8_t direction = 0;
+            if (i != 0) {
+              
+              if (shortestPath[i-1].direction == LEFTTURN) {
+                printf("here\n");
+                direction = (shortestPath[i].direction == RIGHTTURN) ? DOWNTURN : (shortestPath[i].direction == LEFTTURN) ? UPTURN : (shortestPath[i].direction == UPTURN) ? LEFTTURN : RIGHTTURN;
+              } else if (shortestPath[i-1].direction==RIGHTTURN) {
+                direction = (shortestPath[i].direction == RIGHTTURN) ? UPTURN : (shortestPath[i].direction == LEFTTURN) ? DOWNTURN : (shortestPath[i].direction == UPTURN) ? RIGHTTURN : LEFTTURN;
+              } else if (shortestPath[i-1].direction==UPTURN) {
+                direction = (shortestPath[i].direction == RIGHTTURN) ? LEFTTURN : (shortestPath[i].direction == LEFTTURN) ? RIGHTTURN : (shortestPath[i].direction == UPTURN) ? UPTURN : DOWNTURN;
+              } else {
+                direction = (shortestPath[i].direction == RIGHTTURN) ? RIGHTTURN : (shortestPath[i].direction == LEFTTURN) ? LEFTTURN : (shortestPath[i].direction == UPTURN) ? DOWNTURN : UPTURN;
+              }
+              shortestPath[i].direction = direction;
+            }
+
+            
             out[pathIndex++] = shortestPath[i];
+            
+            
+
           }
 
           // Reset visited array for the next search
@@ -133,7 +172,7 @@ size_t bfs(const uint8_t map[MAP_HEIGHT][MAP_WIDTH], Point start,
       pointsValid++;
       enqueue(left);
       if (pointsValid >= 2 || (curr.direction != LEFTTURN)) { // If more than two points valid it is a node
-        curr.essentialNode = 1;
+        curr.node = 1;
       }
       visited[left.y][left.x] = curr; // Store the parent
     }
@@ -141,7 +180,7 @@ size_t bfs(const uint8_t map[MAP_HEIGHT][MAP_WIDTH], Point start,
       right.direction = RIGHTTURN;
       pointsValid++;
       if (pointsValid >= 2 || (curr.direction != RIGHTTURN)) { // If more than two points valid it is a node
-        curr.essentialNode = 1;
+        curr.node = 1;
       }
       enqueue(right);
       visited[right.y][right.x] = curr; // Store the parent
@@ -150,7 +189,7 @@ size_t bfs(const uint8_t map[MAP_HEIGHT][MAP_WIDTH], Point start,
       above.direction = UPTURN;
       pointsValid++;
       if (pointsValid >= 2 || (curr.direction != UPTURN)) { // If more than two points valid it is a node
-        curr.essentialNode = 1;
+        curr.node = 1;
       }
       enqueue(above);
       visited[above.y][above.x] = curr; // Store the parent
@@ -159,7 +198,7 @@ size_t bfs(const uint8_t map[MAP_HEIGHT][MAP_WIDTH], Point start,
       below.direction = DOWNTURN;
       pointsValid++;
       if (pointsValid >= 2 || (curr.direction != DOWNTURN)) { // If more than two points valid it is a node
-        curr.essentialNode = 1;
+        curr.node = 1;
       }
       enqueue(below);
       visited[below.y][below.x] = curr; // Store the parent
@@ -171,11 +210,24 @@ size_t bfs(const uint8_t map[MAP_HEIGHT][MAP_WIDTH], Point start,
   return 0;
 }
 
-AlgoResult run_algo(const uint8_t map[MAP_HEIGHT][MAP_WIDTH], Point start,
+size_t run_algo(const uint8_t map[MAP_HEIGHT][MAP_WIDTH], Point start,
                     const Point *ends, size_t endCount, Point *out) {
-  size_t pathLength = bfs(map, start, ends, endCount, out);
-  return (AlgoResult){.pathLength = pathLength};
+  return bfs(map, start, ends, endCount, out);
+
+}
+
+uint8_t whichDirection(Point a, Point b) { // a is current, b is where we are going
+  if (a.x > b.x) {
+    return LEFTTURN;
+  } else if (b.x>a.x) {
+    return RIGHTTURN;
+  } else if (b.y > a.y) {
+    return UPTURN;
+  } else {
+    return DOWNTURN;
+  }
 }
 
 // Don't need to modify this
+
 uint8_t point_eq(Point a, Point b) { return a.x == b.x && a.y == b.y; }

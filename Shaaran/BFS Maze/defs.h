@@ -14,7 +14,7 @@
 #define RIGHTTURN 4
 
 typedef struct Point {
-  uint8_t x, y,direction,essentialNode,finalNode;
+  uint8_t x, y,direction,node,finalTurn,foodPoint,steps;
 } Point;
 
 #endif // _MAP_H

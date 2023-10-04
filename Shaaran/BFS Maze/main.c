@@ -63,27 +63,59 @@
 /*     {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1}, */
 /*     {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}, */
 /* }; */
+
+// ********** ACTUAL *****************//
+// static uint8_t map[15][19] = {
+// {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+// {1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1},
+// {1,1,1,1,1,0,1,0,1,1,1,1,1,1,1,0,1,0,1},
+// {1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,1},
+// {1,0,1,0,1,1,1,1,1,0,1,0,1,1,1,0,1,0,1},
+// {1,0,1,0,0,0,1,0,0,0,1,0,1,0,0,0,1,0,1},
+// {1,0,1,1,1,0,1,0,1,0,1,0,1,0,1,1,1,0,1},
+// {1,0,0,0,0,0,1,0,1,0,1,0,1,0,1,0,0,0,1},
+// {1,0,1,1,1,1,1,0,1,0,1,1,1,0,1,0,1,1,1},
+// {1,0,0,0,0,0,0,0,1,0,0,0,1,0,1,0,0,0,1},
+// {1,1,1,1,1,1,1,0,1,1,1,0,1,0,1,1,1,0,1},
+// {1,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,1},
+// {1,0,1,1,1,1,1,1,1,0,1,0,1,1,1,1,1,0,1},
+// {1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,1},
+// {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},};
+
+
 static uint8_t map[15][19] = {
 {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
-{1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1},
-{1,1,1,1,1,0,1,0,1,1,1,1,1,1,1,0,1,0,1},
-{1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,1},
-{1,0,1,0,1,1,1,1,1,0,1,0,1,1,1,0,1,0,1},
-{1,0,1,0,0,0,1,0,0,0,1,0,1,0,0,0,1,0,1},
+{1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+{1,0,1,0,1,1,1,1,1,0,1,1,1,0,1,1,1,0,1},
+{1,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,1,0,1},
+{1,1,1,0,1,0,1,0,1,1,1,0,1,0,1,1,1,0,1},
+{1,0,0,0,1,0,1,0,0,0,1,0,1,0,0,0,0,0,1},
 {1,0,1,1,1,0,1,0,1,0,1,0,1,0,1,1,1,0,1},
-{1,0,0,0,0,0,1,0,1,0,1,0,1,0,1,0,0,0,1},
-{1,0,1,1,1,1,1,0,1,0,1,1,1,0,1,0,1,1,1},
-{1,0,0,0,0,0,0,0,1,0,0,0,1,0,1,0,0,0,1},
-{1,1,1,1,1,1,1,0,1,1,1,0,1,0,1,1,1,0,1},
-{1,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,1},
-{1,0,1,1,1,1,1,1,1,0,1,0,1,1,1,1,1,0,1},
+{1,0,1,0,1,0,0,0,1,0,1,0,1,0,1,0,0,0,1},
+{1,0,1,0,1,0,1,1,1,0,1,0,1,0,1,0,1,1,1},
+{1,0,0,0,1,0,1,0,0,0,1,0,0,0,1,0,0,0,1},
+{1,1,1,0,1,0,1,1,1,1,1,1,1,1,1,1,1,0,1},
+{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+{1,0,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1},
 {1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,1},
-{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},};
+{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+};
+
+
+static Point food_list[]= {
+{1,9},
+{5,5},
+{7,1},
+{13,5},
+{9,9}
+};
 
 
 
-static Point food_list[] = {{1, 9}, {5, 5}, {7, 1}, {13, 5}, {9, 9}};
-//static Point food_list[] = {{17,9}};
+// ********* ACTUAL ***********//
+//static Point food_list[] = {{1, 9}, {5, 5}, {7, 1}, {13, 5}, {9, 9}};
+
+
 
 // Pre-declaration for functions defined later on
 void visualise_map(uint8_t map[MAP_HEIGHT][MAP_WIDTH], int startx, int starty);
@@ -92,8 +124,8 @@ AlgoResult find_full_path(Point start, Point *out, size_t outCap);
 
 void printPoints(const Point *arr, size_t length) {
     for (size_t i = 0; i < length; i++) {
-        printf("Point %zu: x = %d, y = %d, direction = %d, essentialNode = %d finalNode? = %d\n",
-               i, arr[i].x, arr[i].y, arr[i].direction,arr[i].essentialNode,arr[i].finalNode);
+        printf("Point %zu: x = %d, y = %d, direction = %d, node= %d finalTurn = %d,food=%d,steps = %d\n",
+               i, arr[i].x, arr[i].y, arr[i].direction,arr[i].node,arr[i].finalTurn,arr[i].foodPoint,arr[i].steps);
     }
 }
 
@@ -109,10 +141,10 @@ int main(int argc, char **argv) {
   static Point pathArray[MAX_PATH_SIZE];
 
   // Find the quickest path to the first piece of food
-  AlgoResult result = run_algo(map, start, food_list, COUNT_OF(food_list), pathArray);
+  size_t result = run_algo(map, start, food_list, COUNT_OF(food_list), pathArray);
   // Print the 'out' array
-  printf("Path Length: %zu\n", result.pathLength);
-  printPoints(pathArray, result.pathLength);
+  printf("Path Length: %zu\n", result);
+  printPoints(pathArray, result);
   
 
   // Event loop
@@ -131,10 +163,10 @@ int main(int argc, char **argv) {
     }
     // Display path length
     char buffer[255];
-    snprintf(buffer, sizeof(buffer), "Path Length: %ld", result.pathLength);
+    snprintf(buffer, sizeof(buffer), "Path Length: %ld", result);
     DrawText(buffer, 20, 40 + T(MAP_HEIGHT), 15, WHITE);
 
-    draw_path(pathArray, result.pathLength, 20, 20);
+    draw_path(pathArray, result, 20, 20);
 
     EndDrawing();
   }
