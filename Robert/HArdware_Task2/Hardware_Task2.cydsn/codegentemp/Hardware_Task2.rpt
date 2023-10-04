@@ -1,4 +1,4 @@
-Loading plugins phase: Elapsed time ==> 0s.201ms
+Loading plugins phase: Elapsed time ==> 0s.155ms
 <CYPRESSTAG name="CyDsfit arguments...">
 cydsfit arguments: -.fdsnotice -.fdswarpdepfile=warp_dependencies.txt -.fdselabdepfile=elab_dependencies.txt -.fdsbldfile=generated_files.txt -.fdsreffile=referenced_files.txt -p H:\Documents\12_Cypress_LineFollowingRobot\Robert\HArdware_Task2\Hardware_Task2.cydsn\Hardware_Task2.cyprj -d CY8C5888LTI-LP097 -s H:\Documents\12_Cypress_LineFollowingRobot\Robert\HArdware_Task2\Hardware_Task2.cydsn\Generated_Source\PSoC5 -- -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE
 </CYPRESSTAG>
@@ -9,10 +9,10 @@ ADD: sdb.M0065: information: Analog terminal "vdac_ref" on ADC_SAR_SEQ_v2_10 is 
  * C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyComponentLibrary\CyComponentLibrary.cylib\ADC_SAR_SEQ_v2_10\PSoC5\ADC_SAR_SEQ_v2_10.cysch (Shape_885)
 
 </CYPRESSTAG>
-Elaboration phase: Elapsed time ==> 1s.394ms
+Elaboration phase: Elapsed time ==> 1s.399ms
 <CYPRESSTAG name="HDL generation results...">
 </CYPRESSTAG>
-HDL generation phase: Elapsed time ==> 0s.139ms
+HDL generation phase: Elapsed time ==> 0s.129ms
 <CYPRESSTAG name="Synthesis results...">
 
      | | | | | | |
@@ -46,7 +46,7 @@ Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=H:\Documents\1
 ======================================================================
 
 vlogfe V6.3 IR 41:  Verilog parser
-Fri Sep 22 16:46:11 2023
+Tue Oct 03 13:18:59 2023
 
 
 ======================================================================
@@ -56,7 +56,7 @@ Options  :    -yv2 -q10 Hardware_Task2.v
 ======================================================================
 
 vpp V6.3 IR 41:  Verilog Pre-Processor
-Fri Sep 22 16:46:11 2023
+Tue Oct 03 13:18:59 2023
 
 Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_constant_v1_0\cy_constant_v1_0.v'
 Flattening file 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\CyPrimitives\cyprimitives.cylib\cy_virtualmux_v1_0\cy_virtualmux_v1_0.v'
@@ -121,7 +121,7 @@ Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=H:\Documents\1
 ======================================================================
 
 tovif V6.3 IR 41:  High-level synthesis
-Fri Sep 22 16:46:11 2023
+Tue Oct 03 13:19:00 2023
 
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\std.vhd'.
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\cypress.vhd'.
@@ -168,7 +168,7 @@ Options  :    -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=H:\Documents\1
 ======================================================================
 
 topld V6.3 IR 41:  Synthesis and optimization
-Fri Sep 22 16:46:12 2023
+Tue Oct 03 13:19:00 2023
 
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\std.vhd'.
 Linking 'C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\lib\common\cypress.vhd'.
@@ -1386,14 +1386,14 @@ CYPRESS_DIR    : C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\wa
 Warp Program   : C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\warp\bin\warp.exe
 Warp Arguments : -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=H:\Documents\12_Cypress_LineFollowingRobot\Robert\HArdware_Task2\Hardware_Task2.cydsn\Hardware_Task2.cyprj -dcpsoc3 Hardware_Task2.v -verilog
 </CYPRESSTAG>
-Warp synthesis phase: Elapsed time ==> 3s.499ms
+Warp synthesis phase: Elapsed time ==> 3s.176ms
 <CYPRESSTAG name="Fitter results...">
 <CYPRESSTAG name="Fitter startup details...">
-cyp3fit: V4.2.0.641, Family: PSoC3, Started at: Friday, 22 September 2023 16:46:14
+cyp3fit: V4.2.0.641, Family: PSoC3, Started at: Tuesday, 03 October 2023 13:19:02
 Options: -yv2 -q10 -ygs -o2 -v3 -.fftcfgtype=LE -ya -.fftprj=H:\Documents\12_Cypress_LineFollowingRobot\Robert\HArdware_Task2\Hardware_Task2.cydsn\Hardware_Task2.cyprj -d CY8C5888LTI-LP097 Hardware_Task2.v -verilog
 </CYPRESSTAG>
 <CYPRESSTAG name="Design parsing">
-Design parsing phase: Elapsed time ==> 0s.071ms
+Design parsing phase: Elapsed time ==> 0s.067ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Tech Mapping">
 <CYPRESSTAG name="Initial Mapping" icon="FILE_RPT_TECHM">
@@ -6660,8 +6660,8 @@ Analog (SC/CT) Blocks         :    0 :    4 :    4 :  0.00 %
 DAC                           :      :      :      :        
   VIDAC                       :    1 :    3 :    4 : 25.00 %
 </CYPRESSTAG>
-Technology Mapping: Elapsed time ==> 58s.249ms
-Tech Mapping phase: Elapsed time ==> 58s.351ms
+Technology Mapping: Elapsed time ==> 48s.984ms
+Tech Mapping phase: Elapsed time ==> 49s.072ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Analog Placement">
 Info: apr.M0002: Analog signal "Net_4347" is connected to one terminal only. (App=cydsfit)
@@ -6814,10 +6814,10 @@ Vref[3]@[FFB(Vref,3)] : \ADC:SAR:vRef_1024\
 USB[0]@[FFB(USB,0)] : \USBUART:USB\
 VIDAC[2]@[FFB(VIDAC,2)] : \VDAC8:viDAC8\
 
-Analog Placement phase: Elapsed time ==> 0s.469ms
+Analog Placement phase: Elapsed time ==> 0s.468ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Analog Routing">
-Analog Routing phase: Elapsed time ==> 0s.017ms
+Analog Routing phase: Elapsed time ==> 0s.012ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Analog Code Generation">
 ============ Analog Final Answer Routes ============
@@ -7474,11 +7474,11 @@ Dump of CyP35AnalogRoutingResultsDB
 IsVddaHalfUsedForComp = False
 IsVddaHalfUsedForSar0 = False
 IsVddaHalfUsedForSar1 = False
-Analog Code Generation phase: Elapsed time ==> 0s.751ms
+Analog Code Generation phase: Elapsed time ==> 0s.632ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Digital Placement">
 <CYPRESSTAG name="Detailed placement messages">
-I2076: Total run-time: 4.0 sec.
+I2076: Total run-time: 3.9 sec.
 
 </CYPRESSTAG>
 <CYPRESSTAG name="PLD Packing">
@@ -7502,14 +7502,14 @@ PLD Packing Summary
 <CYPRESSTAG name="Packed PLD Contents">
 Packed PLD Contents not displayed at this verbose level.</CYPRESSTAG>
 </CYPRESSTAG>
-PLD Packing: Elapsed time ==> 0s.129ms
+PLD Packing: Elapsed time ==> 0s.101ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Partitioning">
 <CYPRESSTAG name="Initial Partitioning Summary">
 Initial Partitioning Summary not displayed at this verbose level.</CYPRESSTAG>
 <CYPRESSTAG name="Final Partitioning Summary">
 Final Partitioning Summary not displayed at this verbose level.</CYPRESSTAG>
-Partitioning: Elapsed time ==> 0s.244ms
+Partitioning: Elapsed time ==> 0s.239ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Final Placement Summary">
 
@@ -13711,34 +13711,34 @@ Port | Pin | Fixed |      Type |       Drive Mode |                Name | Connec
 </CYPRESSTAG>
 </CYPRESSTAG>
 </CYPRESSTAG>
-Digital component placer commit/Report: Elapsed time ==> 60s.727ms
-Digital Placement phase: Elapsed time ==> 65s.679ms
+Digital component placer commit/Report: Elapsed time ==> 49s.965ms
+Digital Placement phase: Elapsed time ==> 54s.835ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Digital Routing">
 "C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\bin/sjrouter.exe" --xml-path "C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\dev\psoc5/psoc5lp/route_arch-rrg.cydata" --vh2-path "Hardware_Task2_r.vh2" --pcf-path "Hardware_Task2.pco" --des-name "Hardware_Task2" --dsf-path "Hardware_Task2.dsf" --sdc-path "Hardware_Task2.sdc" --lib-path "Hardware_Task2_r.lib"
 Routing successful.
-Digital Routing phase: Elapsed time ==> 8s.961ms
+Digital Routing phase: Elapsed time ==> 8s.218ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Bitstream Generation">
-Bitstream Generation phase: Elapsed time ==> 0s.837ms
+Bitstream Generation phase: Elapsed time ==> 1s.204ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Bitstream Verification">
-Bitstream Verification phase: Elapsed time ==> 0s.064ms
+Bitstream Verification phase: Elapsed time ==> 0s.059ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Static timing analysis">
 Warning: sta.M0021: Hardware_Task2_timing.html: Warning-1350: Asynchronous path(s) exist from "ClockBlock/dclk_glb_ff_5" to "ADC_IntClock". See the timing report for details. (File=H:\Documents\12_Cypress_LineFollowingRobot\Robert\HArdware_Task2\Hardware_Task2.cydsn\Hardware_Task2_timing.html)
 Timing report is in Hardware_Task2_timing.html.
-Static timing analysis phase: Elapsed time ==> 0s.897ms
+Static timing analysis phase: Elapsed time ==> 0s.849ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Data reporting">
 Data reporting phase: Elapsed time ==> 0s.004ms
 </CYPRESSTAG>
 <CYPRESSTAG name="Database update...">
-Design database save phase: Elapsed time ==> 0s.207ms
+Design database save phase: Elapsed time ==> 0s.197ms
 </CYPRESSTAG>
-cydsfit: Elapsed time ==> 136s.437ms
+cydsfit: Elapsed time ==> 115s.726ms
 </CYPRESSTAG>
-Fitter phase: Elapsed time ==> 136s.444ms
-API generation phase: Elapsed time ==> 5s.509ms
-Dependency generation phase: Elapsed time ==> 0s.056ms
-Cleanup phase: Elapsed time ==> 0s.020ms
+Fitter phase: Elapsed time ==> 115s.734ms
+API generation phase: Elapsed time ==> 11s.199ms
+Dependency generation phase: Elapsed time ==> 0s.063ms
+Cleanup phase: Elapsed time ==> 0s.026ms

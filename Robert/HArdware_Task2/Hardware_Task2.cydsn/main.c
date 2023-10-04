@@ -26,7 +26,7 @@
 #define GEAR_RATIO 19
 #define PULSES_PER_ROT (GEAR_RATIO * 3 * QuadDec_M1_COUNTER_RESOLUTION)
 #define RADIUS (3.25f)
-#define MOTORSPEED_PER_SECOND ((float) 50/1000.0f) // 100ms is the period we want to be changing the motor speed
+#define MOTORSPEED_PER_SECOND ((float) 50/1000.0f) // 50ms is the period we want to be changing the motor speed
 //* ========================================
 void usbPutString(char *s);
 uint8_t changeDutyCycle(uint8_t dutyValue);
@@ -36,6 +36,9 @@ void handle_usb();
 uint8_t timeIndex = 0;
 float m1motorSpeed =0;
 float m2motorSpeed =0;
+float distanceTravelledM1,distanceTravelledM2,distanceTravelled = 0;
+
+float distanceRequired = 76.5; // This is in cm (i.e 100cm distance(
 
 uint8_t printSpeed = 0;
 volatile uint8_t changeVal = 0;
@@ -49,7 +52,7 @@ float m1Comp,m2Comp;
 CY_ISR(outputUartIsr) {
     //LED_Write(!LED_Read());
     printSpeed = 1; // Print the speed every like 200ms
-    stop = 1;
+    // stop =1;
     Timer_TS_ReadStatusRegister();   
 }
 CY_ISR(QuadDecoderIsr){
@@ -80,6 +83,14 @@ void motorControl(float m1speed, float m2speed) {
     m2motorSpeed = 2 * CY_M_PI * m2motorSpeed / MOTORSPEED_PER_SECOND;
     m2motorSpeed = m2motorSpeed * RADIUS;
     
+    distanceTravelledM1 = distanceTravelledM1 + m1motorSpeed*MOTORSPEED_PER_SECOND;
+    distanceTravelledM2 = distanceTravelledM2 + m2motorSpeed*MOTORSPEED_PER_SECOND;
+    distanceTravelled = (distanceTravelledM1 + distanceTravelledM2 ) / 2.0;
+    if (distanceTravelled >= distanceRequired) {
+        stop = 1;
+        changeDutyCycle(50);
+        return;
+    }
     float m1error = m1speed - m1motorSpeed;
     float m2error = m2speed - m2motorSpeed;
     
@@ -162,12 +173,13 @@ void setupMotor() {
 int main(){
     M2_INV_Write(1);
     setupMotor();
-    float m1speed = 75.0;
-    float m2speed = 75.0;
-    float timer =  100.0/abs(m1speed);
+    float m1speed = 25.0;
+    float m2speed = 25.0;
+    //float timer =  100.0/abs(m1speed);
     isr_TS_StartEx(outputUartIsr);
     Timer_TS_Start();
-    Timer_TS_WritePeriod(timer * 1000.0f);
+    //Timer_TS_WritePeriod(timer * 1000.0f);
+    Timer_TS_WritePeriod(200);
     Timer_TS_WriteCounter(0);
 
     #ifdef USE_USB
@@ -186,6 +198,7 @@ int main(){
         
         motorControl(m1speed,m2speed);
         char buffer [64];
+        
         while (!(Q1_Read() && Q3_Read())) {
             if (!Q3_Read()) {
                 motorControl(m1speed,m2speed-5);
@@ -196,8 +209,8 @@ int main(){
         }
         
        
-        
-        /*if (printSpeed == 1) {
+        /*
+        if (printSpeed == 1) {
             usbPutString("\r\n M1:");
             //itoa((float) m1motorSpeed, buffer, 10);
             itoa((float) m1Comp, buffer, 10);
@@ -215,10 +228,14 @@ int main(){
             usbPutString("-");
             itoa((float) m2motorSpeed, buffer, 10);
             usbPutString(buffer);
+            usbPutString("\r\n");
+            usbPutString("\r\n Distance Travelled:");
+            itoa((float) distanceTravelled,buffer,10);
+            usbPutString(buffer);
             usbPutString("\r\n end \r\n");
             printSpeed = 0;
-        } */
-
+        } 
+        */
     }
     
 }//End main
