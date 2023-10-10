@@ -1,5 +1,5 @@
--- Project:   D:\Documents\UOA\2023\Semester 2\COMPSYS301\repos\12_Cypress_LineFollowingRobot\Janith\PSOC\circuit_demo.cydsn\circuit_demo.cyprj
--- Generated: 08/26/2023 18:44:38
+-- Project:   H:\Documents\12_Cypress_LineFollowingRobot\Janith\PSOC\circuit_demo.cydsn\circuit_demo.cyprj
+-- Generated: 09/21/2023 01:50:59
 -- PSoC Creator  4.2
 
 ENTITY circuit_demo IS

@@ -168,7 +168,7 @@ void Quad_TImer_Wakeup(void)        ;
 *    Initialial Parameter Constants
 ***************************************/
 
-#define Quad_TImer_INIT_PERIOD             1u
+#define Quad_TImer_INIT_PERIOD             49u
 #define Quad_TImer_INIT_CAPTURE_MODE       ((uint8)((uint8)1u << Quad_TImer_CTRL_CAP_MODE_SHIFT))
 #define Quad_TImer_INIT_TRIGGER_MODE       ((uint8)((uint8)0u << Quad_TImer_CTRL_TRIG_MODE_SHIFT))
 #if (Quad_TImer_UsingFixedFunction)

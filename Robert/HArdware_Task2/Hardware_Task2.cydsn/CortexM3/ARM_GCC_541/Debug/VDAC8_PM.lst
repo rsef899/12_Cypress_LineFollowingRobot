@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\schoo\AppData\Local\Temp\cc5DTDtM.s 			page 1
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccDyfiC6.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\schoo\AppData\Local\Temp\cc5DTDtM.s 			page 1
   24:Generated_Source\PSoC5/VDAC8_PM.c **** /*******************************************************************************
   25:Generated_Source\PSoC5/VDAC8_PM.c **** * Function Name: VDAC8_SaveConfig
   26:Generated_Source\PSoC5/VDAC8_PM.c **** ********************************************************************************
-ARM GAS  C:\Users\schoo\AppData\Local\Temp\cc5DTDtM.s 			page 2
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccDyfiC6.s 			page 2
 
 
   27:Generated_Source\PSoC5/VDAC8_PM.c **** * Summary:
@@ -114,11 +114,11 @@ ARM GAS  C:\Users\schoo\AppData\Local\Temp\cc5DTDtM.s 			page 1
   65              	.L5:
   66              		.align	2
   67              	.L4:
-  68 0024 21580040 		.word	1073764385
-  69 0028 805B0040 		.word	1073765248
+  68 0024 29580040 		.word	1073764393
+  69 0028 825B0040 		.word	1073765250
   70 002c 00000000 		.word	VDAC8_backup
   71              		.cfi_endproc
-ARM GAS  C:\Users\schoo\AppData\Local\Temp\cc5DTDtM.s 			page 3
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccDyfiC6.s 			page 3
 
 
   72              	.LFE0:
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\schoo\AppData\Local\Temp\cc5DTDtM.s 			page 1
  105 001e 14D0     		beq	.L8
   65:Generated_Source\PSoC5/VDAC8_PM.c ****         {
   66:Generated_Source\PSoC5/VDAC8_PM.c ****             VDAC8_Strobe &= (uint8)(~VDAC8_STRB_MASK);
-ARM GAS  C:\Users\schoo\AppData\Local\Temp\cc5DTDtM.s 			page 4
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccDyfiC6.s 			page 4
 
 
  106              		.loc 1 66 0
@@ -233,12 +233,12 @@ ARM GAS  C:\Users\schoo\AppData\Local\Temp\cc5DTDtM.s 			page 1
  145              	.L11:
  146 005a 00BF     		.align	2
  147              	.L10:
- 148 005c 21580040 		.word	1073764385
- 149 0060 875A0040 		.word	1073764999
- 150 0064 805B0040 		.word	1073765248
+ 148 005c 29580040 		.word	1073764393
+ 149 0060 975A0040 		.word	1073765015
+ 150 0064 825B0040 		.word	1073765250
  151 0068 00000000 		.word	VDAC8_backup
  152              		.cfi_endproc
-ARM GAS  C:\Users\schoo\AppData\Local\Temp\cc5DTDtM.s 			page 5
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccDyfiC6.s 			page 5
 
 
  153              	.LFE1:
@@ -288,7 +288,7 @@ ARM GAS  C:\Users\schoo\AppData\Local\Temp\cc5DTDtM.s 			page 1
  174 0004 094B     		ldr	r3, .L15
  175 0006 1B78     		ldrb	r3, [r3]
  176 0008 DBB2     		uxtb	r3, r3
- 177 000a 03F00103 		and	r3, r3, #1
+ 177 000a 03F00403 		and	r3, r3, #4
  178 000e 002B     		cmp	r3, #0
  179 0010 03D0     		beq	.L13
   99:Generated_Source\PSoC5/VDAC8_PM.c ****     {
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\schoo\AppData\Local\Temp\cc5DTDtM.s 			page 1
  181 0012 074B     		ldr	r3, .L15+4
  182 0014 0122     		movs	r2, #1
  183 0016 1A70     		strb	r2, [r3]
-ARM GAS  C:\Users\schoo\AppData\Local\Temp\cc5DTDtM.s 			page 6
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccDyfiC6.s 			page 6
 
 
  184 0018 02E0     		b	.L14
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\schoo\AppData\Local\Temp\cc5DTDtM.s 			page 1
  126:Generated_Source\PSoC5/VDAC8_PM.c **** *
  127:Generated_Source\PSoC5/VDAC8_PM.c **** * Global variables:
  128:Generated_Source\PSoC5/VDAC8_PM.c **** *  VDAC8_backup.enableState:  Is used to restore the enable state of 
-ARM GAS  C:\Users\schoo\AppData\Local\Temp\cc5DTDtM.s 			page 7
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccDyfiC6.s 			page 7
 
 
  129:Generated_Source\PSoC5/VDAC8_PM.c **** *  block on wakeup from sleep mode.
@@ -410,7 +410,7 @@ ARM GAS  C:\Users\schoo\AppData\Local\Temp\cc5DTDtM.s 			page 1
  244              		.align	2
  245              	.L20:
  246 0024 00000000 		.word	VDAC8_backup
- 247 0028 805B0040 		.word	1073765248
+ 247 0028 825B0040 		.word	1073765250
  248              		.cfi_endproc
  249              	.LFE3:
  250              		.size	VDAC8_Wakeup, .-VDAC8_Wakeup
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\schoo\AppData\Local\Temp\cc5DTDtM.s 			page 1
  252              	.Letext0:
  253              		.file 2 "Generated_Source\\PSoC5\\cytypes.h"
  254              		.file 3 "Generated_Source\\PSoC5\\VDAC8.h"
-ARM GAS  C:\Users\schoo\AppData\Local\Temp\cc5DTDtM.s 			page 8
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccDyfiC6.s 			page 8
 
 
  255              		.section	.debug_info,"",%progbits
@@ -430,15 +430,15 @@ ARM GAS  C:\Users\schoo\AppData\Local\Temp\cc5DTDtM.s 			page 1
  261 000b 01       		.uleb128 0x1
  262 000c 14000000 		.4byte	.LASF21
  263 0010 0C       		.byte	0xc
- 264 0011 E3010000 		.4byte	.LASF22
- 265 0015 4D010000 		.4byte	.LASF23
+ 264 0011 C6010000 		.4byte	.LASF22
+ 265 0015 08010000 		.4byte	.LASF23
  266 0019 00000000 		.4byte	.Ldebug_ranges0+0
  267 001d 00000000 		.4byte	0
  268 0021 00000000 		.4byte	.Ldebug_line0
  269 0025 02       		.uleb128 0x2
  270 0026 01       		.byte	0x1
  271 0027 06       		.byte	0x6
- 272 0028 1A020000 		.4byte	.LASF0
+ 272 0028 FD010000 		.4byte	.LASF0
  273 002c 02       		.uleb128 0x2
  274 002d 01       		.byte	0x1
  275 002e 08       		.byte	0x8
@@ -446,7 +446,7 @@ ARM GAS  C:\Users\schoo\AppData\Local\Temp\cc5DTDtM.s 			page 1
  277 0033 02       		.uleb128 0x2
  278 0034 02       		.byte	0x2
  279 0035 05       		.byte	0x5
- 280 0036 D3010000 		.4byte	.LASF2
+ 280 0036 B6010000 		.4byte	.LASF2
  281 003a 02       		.uleb128 0x2
  282 003b 02       		.byte	0x2
  283 003c 07       		.byte	0x7
@@ -454,7 +454,7 @@ ARM GAS  C:\Users\schoo\AppData\Local\Temp\cc5DTDtM.s 			page 1
  285 0041 02       		.uleb128 0x2
  286 0042 04       		.byte	0x4
  287 0043 05       		.byte	0x5
- 288 0044 05020000 		.4byte	.LASF4
+ 288 0044 E8010000 		.4byte	.LASF4
  289 0048 02       		.uleb128 0x2
  290 0049 04       		.byte	0x4
  291 004a 07       		.byte	0x7
@@ -462,11 +462,11 @@ ARM GAS  C:\Users\schoo\AppData\Local\Temp\cc5DTDtM.s 			page 1
  293 004f 02       		.uleb128 0x2
  294 0050 08       		.byte	0x8
  295 0051 05       		.byte	0x5
- 296 0052 C0010000 		.4byte	.LASF6
+ 296 0052 A3010000 		.4byte	.LASF6
  297 0056 02       		.uleb128 0x2
  298 0057 08       		.byte	0x8
  299 0058 07       		.byte	0x7
- 300 0059 36010000 		.4byte	.LASF7
+ 300 0059 8C010000 		.4byte	.LASF7
  301 005d 03       		.uleb128 0x3
  302 005e 04       		.byte	0x4
  303 005f 05       		.byte	0x5
@@ -474,11 +474,11 @@ ARM GAS  C:\Users\schoo\AppData\Local\Temp\cc5DTDtM.s 			page 1
  305 0064 02       		.uleb128 0x2
  306 0065 04       		.byte	0x4
  307 0066 07       		.byte	0x7
- 308 0067 1C010000 		.4byte	.LASF8
+ 308 0067 72010000 		.4byte	.LASF8
  309 006b 04       		.uleb128 0x4
- 310 006c DD010000 		.4byte	.LASF12
+ 310 006c C0010000 		.4byte	.LASF12
  311 0070 02       		.byte	0x2
-ARM GAS  C:\Users\schoo\AppData\Local\Temp\cc5DTDtM.s 			page 9
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccDyfiC6.s 			page 9
 
 
  312 0071 E701     		.2byte	0x1e7
@@ -490,11 +490,11 @@ ARM GAS  C:\Users\schoo\AppData\Local\Temp\cc5DTDtM.s 			page 1
  318 007e 02       		.uleb128 0x2
  319 007f 08       		.byte	0x8
  320 0080 04       		.byte	0x4
- 321 0081 08010000 		.4byte	.LASF10
+ 321 0081 5E010000 		.4byte	.LASF10
  322 0085 02       		.uleb128 0x2
  323 0086 01       		.byte	0x1
  324 0087 08       		.byte	0x8
- 325 0088 CE010000 		.4byte	.LASF11
+ 325 0088 B1010000 		.4byte	.LASF11
  326 008c 04       		.uleb128 0x4
  327 008d DE000000 		.4byte	.LASF13
  328 0091 02       		.byte	0x2
@@ -508,7 +508,7 @@ ARM GAS  C:\Users\schoo\AppData\Local\Temp\cc5DTDtM.s 			page 1
  336 00a0 25       		.byte	0x25
  337 00a1 BE000000 		.4byte	0xbe
  338 00a5 07       		.uleb128 0x7
- 339 00a6 0E020000 		.4byte	.LASF14
+ 339 00a6 F1010000 		.4byte	.LASF14
  340 00aa 03       		.byte	0x3
  341 00ab 27       		.byte	0x27
  342 00ac 6B000000 		.4byte	0x6b
@@ -521,7 +521,7 @@ ARM GAS  C:\Users\schoo\AppData\Local\Temp\cc5DTDtM.s 			page 1
  349 00bc 01       		.byte	0x1
  350 00bd 00       		.byte	0
  351 00be 08       		.uleb128 0x8
- 352 00bf 26020000 		.4byte	.LASF16
+ 352 00bf 09020000 		.4byte	.LASF16
  353 00c3 03       		.byte	0x3
  354 00c4 29       		.byte	0x29
  355 00c5 9D000000 		.4byte	0x9d
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\schoo\AppData\Local\Temp\cc5DTDtM.s 			page 1
  366 00df 01       		.byte	0x1
  367 00e0 3C       		.byte	0x3c
  368 00e1 00000000 		.4byte	.LFB1
-ARM GAS  C:\Users\schoo\AppData\Local\Temp\cc5DTDtM.s 			page 10
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccDyfiC6.s 			page 10
 
 
  369 00e5 6C000000 		.4byte	.LFE1-.LFB1
@@ -553,7 +553,7 @@ ARM GAS  C:\Users\schoo\AppData\Local\Temp\cc5DTDtM.s 			page 1
  378 00fa 01       		.uleb128 0x1
  379 00fb 9C       		.byte	0x9c
  380 00fc 0A       		.uleb128 0xa
- 381 00fd 29010000 		.4byte	.LASF20
+ 381 00fd 7F010000 		.4byte	.LASF20
  382 0101 01       		.byte	0x1
  383 0102 84       		.byte	0x84
  384 0103 00000000 		.4byte	.LFB3
@@ -561,7 +561,7 @@ ARM GAS  C:\Users\schoo\AppData\Local\Temp\cc5DTDtM.s 			page 1
  386 010b 01       		.uleb128 0x1
  387 010c 9C       		.byte	0x9c
  388 010d 0B       		.uleb128 0xb
- 389 010e 0F010000 		.4byte	.LASF24
+ 389 010e 65010000 		.4byte	.LASF24
  390 0112 01       		.byte	0x1
  391 0113 15       		.byte	0x15
  392 0114 BE000000 		.4byte	0xbe
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\schoo\AppData\Local\Temp\cc5DTDtM.s 			page 1
  423 0018 3E       		.uleb128 0x3e
  424 0019 0B       		.uleb128 0xb
  425 001a 03       		.uleb128 0x3
-ARM GAS  C:\Users\schoo\AppData\Local\Temp\cc5DTDtM.s 			page 11
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccDyfiC6.s 			page 11
 
 
  426 001b 0E       		.uleb128 0xe
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\schoo\AppData\Local\Temp\cc5DTDtM.s 			page 1
  480 0051 3B       		.uleb128 0x3b
  481 0052 0B       		.uleb128 0xb
  482 0053 49       		.uleb128 0x49
-ARM GAS  C:\Users\schoo\AppData\Local\Temp\cc5DTDtM.s 			page 12
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccDyfiC6.s 			page 12
 
 
  483 0054 13       		.uleb128 0x13
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\schoo\AppData\Local\Temp\cc5DTDtM.s 			page 1
  537 008b 11       		.uleb128 0x11
  538 008c 01       		.uleb128 0x1
  539 008d 12       		.uleb128 0x12
-ARM GAS  C:\Users\schoo\AppData\Local\Temp\cc5DTDtM.s 			page 13
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccDyfiC6.s 			page 13
 
 
  540 008e 06       		.uleb128 0x6
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\schoo\AppData\Local\Temp\cc5DTDtM.s 			page 1
  594              	.Ldebug_line0:
  595 0000 AA000000 		.section	.debug_str,"MS",%progbits,1
  595      02005000 
-ARM GAS  C:\Users\schoo\AppData\Local\Temp\cc5DTDtM.s 			page 14
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccDyfiC6.s 			page 14
 
 
  595      00000201 
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\schoo\AppData\Local\Temp\cc5DTDtM.s 			page 1
  615      6420696E 
  615      7400
  616              	.LASF3:
-ARM GAS  C:\Users\schoo\AppData\Local\Temp\cc5DTDtM.s 			page 15
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccDyfiC6.s 			page 15
 
 
  617 00f5 73686F72 		.ascii	"short unsigned int\000"
@@ -846,86 +846,81 @@ ARM GAS  C:\Users\schoo\AppData\Local\Temp\cc5DTDtM.s 			page 1
  617      7369676E 
  617      65642069 
  617      6E7400
- 618              	.LASF10:
- 619 0108 646F7562 		.ascii	"double\000"
- 619      6C6500
- 620              	.LASF24:
- 621 010f 56444143 		.ascii	"VDAC8_backup\000"
- 621      385F6261 
- 621      636B7570 
- 621      00
- 622              	.LASF8:
- 623 011c 756E7369 		.ascii	"unsigned int\000"
- 623      676E6564 
- 623      20696E74 
- 623      00
- 624              	.LASF20:
- 625 0129 56444143 		.ascii	"VDAC8_Wakeup\000"
- 625      385F5761 
- 625      6B657570 
- 625      00
- 626              	.LASF7:
- 627 0136 6C6F6E67 		.ascii	"long long unsigned int\000"
- 627      206C6F6E 
- 627      6720756E 
- 627      7369676E 
- 627      65642069 
- 628              	.LASF23:
- 629 014d 433A5C55 		.ascii	"C:\\Users\\schoo\\302OffOnedrive\\301 Project\\12_C"
- 629      73657273 
- 629      5C736368 
- 629      6F6F5C33 
- 629      30324F66 
- 630 017b 79707265 		.ascii	"ypress_LineFollowingRobot\\Robert\\HArdware_Task2\\"
- 630      73735F4C 
- 630      696E6546 
- 630      6F6C6C6F 
- 630      77696E67 
- 631 01ab 48617264 		.ascii	"Hardware_Task2.cydsn\000"
- 631      77617265 
- 631      5F546173 
- 631      6B322E63 
- 631      7964736E 
- 632              	.LASF6:
- 633 01c0 6C6F6E67 		.ascii	"long long int\000"
- 633      206C6F6E 
- 633      6720696E 
- 633      7400
- 634              	.LASF11:
- 635 01ce 63686172 		.ascii	"char\000"
- 635      00
- 636              	.LASF2:
- 637 01d3 73686F72 		.ascii	"short int\000"
- 637      7420696E 
- 637      7400
-ARM GAS  C:\Users\schoo\AppData\Local\Temp\cc5DTDtM.s 			page 16
+ 618              	.LASF23:
+ 619 0108 483A5C44 		.ascii	"H:\\Documents\\12_Cypress_LineFollowingRobot\\Rober"
+ 619      6F63756D 
+ 619      656E7473 
+ 619      5C31325F 
+ 619      43797072 
+ 620 0138 745C4841 		.ascii	"t\\HArdware_Task2\\Hardware_Task2.cydsn\000"
+ 620      72647761 
+ 620      72655F54 
+ 620      61736B32 
+ 620      5C486172 
+ 621              	.LASF10:
+ 622 015e 646F7562 		.ascii	"double\000"
+ 622      6C6500
+ 623              	.LASF24:
+ 624 0165 56444143 		.ascii	"VDAC8_backup\000"
+ 624      385F6261 
+ 624      636B7570 
+ 624      00
+ 625              	.LASF8:
+ 626 0172 756E7369 		.ascii	"unsigned int\000"
+ 626      676E6564 
+ 626      20696E74 
+ 626      00
+ 627              	.LASF20:
+ 628 017f 56444143 		.ascii	"VDAC8_Wakeup\000"
+ 628      385F5761 
+ 628      6B657570 
+ 628      00
+ 629              	.LASF7:
+ 630 018c 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 630      206C6F6E 
+ 630      6720756E 
+ 630      7369676E 
+ 630      65642069 
+ 631              	.LASF6:
+ 632 01a3 6C6F6E67 		.ascii	"long long int\000"
+ 632      206C6F6E 
+ 632      6720696E 
+ 632      7400
+ 633              	.LASF11:
+ 634 01b1 63686172 		.ascii	"char\000"
+ 634      00
+ 635              	.LASF2:
+ 636 01b6 73686F72 		.ascii	"short int\000"
+ 636      7420696E 
+ 636      7400
+ 637              	.LASF12:
+ 638 01c0 75696E74 		.ascii	"uint8\000"
+ 638      3800
+ 639              	.LASF22:
+ 640 01c6 47656E65 		.ascii	"Generated_Source\\PSoC5\\VDAC8_PM.c\000"
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccDyfiC6.s 			page 16
 
 
- 638              	.LASF12:
- 639 01dd 75696E74 		.ascii	"uint8\000"
- 639      3800
- 640              	.LASF22:
- 641 01e3 47656E65 		.ascii	"Generated_Source\\PSoC5\\VDAC8_PM.c\000"
- 641      72617465 
- 641      645F536F 
- 641      75726365 
- 641      5C50536F 
- 642              	.LASF4:
- 643 0205 6C6F6E67 		.ascii	"long int\000"
- 643      20696E74 
- 643      00
- 644              	.LASF14:
- 645 020e 656E6162 		.ascii	"enableState\000"
- 645      6C655374 
- 645      61746500 
- 646              	.LASF0:
- 647 021a 7369676E 		.ascii	"signed char\000"
- 647      65642063 
- 647      68617200 
- 648              	.LASF16:
- 649 0226 56444143 		.ascii	"VDAC8_backupStruct\000"
- 649      385F6261 
- 649      636B7570 
- 649      53747275 
- 649      637400
- 650              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
+ 640      72617465 
+ 640      645F536F 
+ 640      75726365 
+ 640      5C50536F 
+ 641              	.LASF4:
+ 642 01e8 6C6F6E67 		.ascii	"long int\000"
+ 642      20696E74 
+ 642      00
+ 643              	.LASF14:
+ 644 01f1 656E6162 		.ascii	"enableState\000"
+ 644      6C655374 
+ 644      61746500 
+ 645              	.LASF0:
+ 646 01fd 7369676E 		.ascii	"signed char\000"
+ 646      65642063 
+ 646      68617200 
+ 647              	.LASF16:
+ 648 0209 56444143 		.ascii	"VDAC8_backupStruct\000"
+ 648      385F6261 
+ 648      636B7570 
+ 648      53747275 
+ 648      637400
+ 649              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

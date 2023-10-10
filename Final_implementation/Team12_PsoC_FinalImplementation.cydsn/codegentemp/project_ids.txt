@@ -1,0 +1,6 @@
+C:\Users\schoo\OneDrive\Desktop\12_Cypress_LineFollowingRobot\Final_implementation\Team12_PsoC_FinalImplementation.cydsn\Team12_PsoC_FinalImplementation.cyprj|64594fdc-9d3b-471c-9b53-a6a34e7d3e33
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|9db23748-ddd1-4fdb-b947-694880fe9594
+C:\Users\schoo\OneDrive\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\Downloads ( 4.2).cyprj|274894f3-126a-4c57-bc7e-3c93f2b7d2de
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|252f7553-e1db-4c33-bd2c-9398f72bc408
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|a05ed6d0-e994-432b-bda1-9a6552db6790
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|9a6ddc3b-544c-4b5a-9d90-41ceb5a86a4a

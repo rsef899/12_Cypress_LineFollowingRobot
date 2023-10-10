@@ -1,0 +1,66 @@
+ARM GAS  C:\Users\Janit\AppData\Local\Temp\ccwdbwlN.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"QuadEncoder.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              	.Letext0:
+  20              		.section	.debug_line,"",%progbits
+  21              	.Ldebug_line0:
+  22              		.section	.debug_str,"MS",%progbits,1
+  23              	.LASF0:
+  24 0000 443A5C44 		.ascii	"D:\\Documents\\UOA\\2023\\Semester 2\\COMPSYS301\\r"
+  24      6F63756D 
+  24      656E7473 
+  24      5C554F41 
+  24      5C323032 
+  25 002d 65706F73 		.ascii	"epos\\12_Cypress_LineFollowingRobot\\Final_implemen"
+  25      5C31325F 
+  25      43797072 
+  25      6573735F 
+  25      4C696E65 
+  26 005e 74617469 		.ascii	"tation\\Team12_PsoC_benchmark_test.cydsn\000"
+  26      6F6E5C54 
+  26      65616D31 
+  26      325F5073 
+  26      6F435F62 
+  27              	.LASF1:
+  28 0086 51756164 		.ascii	"QuadEncoder.c\000"
+  28      456E636F 
+  28      6465722E 
+  28      6300
+  29              	.LASF2:
+  30 0094 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+  30      43313120 
+  30      352E342E 
+  30      31203230 
+  30      31363036 
+  31 00c7 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+  31      20726576 
+  31      6973696F 
+  31      6E203233 
+  31      37373135 
+  32 00fa 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
+  32      66756E63 
+  32      74696F6E 
+ARM GAS  C:\Users\Janit\AppData\Local\Temp\ccwdbwlN.s 			page 2
+
+
+  32      2D736563 
+  32      74696F6E 
+  33              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

@@ -46,6 +46,7 @@
 
 #define PWM_MAX 255     // maximum value of duty cycle
 #define PWM_MIN 0       // minimum value of duty cycle
+#define SPEED_WANTED 25 // 25cm/s wanted
 //* ========================================
 // USBUART
 #define BUF_SIZE 64 // USBUART fixed buffer size

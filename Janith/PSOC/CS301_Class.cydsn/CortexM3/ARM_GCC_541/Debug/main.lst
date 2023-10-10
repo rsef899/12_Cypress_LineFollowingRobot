@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\Janit\AppData\Local\Temp\cctvVDDM.s 			page 1
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccmw0Jyb.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\Janit\AppData\Local\Temp\cctvVDDM.s 			page 1
   55              		.type	flag_ts_update, %object
   56              		.size	flag_ts_update, 1
   57              	flag_ts_update:
-ARM GAS  C:\Users\Janit\AppData\Local\Temp\cctvVDDM.s 			page 2
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccmw0Jyb.s 			page 2
 
 
   58 000b 00       		.space	1
@@ -116,28 +116,37 @@ ARM GAS  C:\Users\Janit\AppData\Local\Temp\cctvVDDM.s 			page 1
  103              		.comm	entry,64,4
  104              		.comm	usbBuffer,64,4
  105              		.comm	system_state,32,4
- 106              		.section	.rodata
- 107              		.align	2
-ARM GAS  C:\Users\Janit\AppData\Local\Temp\cctvVDDM.s 			page 3
+ 106              		.global	printSpeed
+ 107              		.bss
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccmw0Jyb.s 			page 3
 
 
- 108              	.LC1:
- 109 0000 220A0D00 		.ascii	"\"\012\015\000"
- 110              		.align	2
- 111              	.LC0:
- 112 0004 596F7520 		.ascii	"You entered: \"\000"
- 112      656E7465 
- 112      7265643A 
- 112      202200
- 113              		.section	.text.main,"ax",%progbits
- 114              		.align	2
- 115              		.global	main
- 116              		.thumb
- 117              		.thumb_func
- 118              		.type	main, %function
- 119              	main:
- 120              	.LFB64:
- 121              		.file 1 "main.c"
+ 108              		.align	1
+ 109              		.type	printSpeed, %object
+ 110              		.size	printSpeed, 2
+ 111              	printSpeed:
+ 112 0012 0000     		.space	2
+ 113              		.global	m1
+ 114              		.align	1
+ 115              		.type	m1, %object
+ 116              		.size	m1, 2
+ 117              	m1:
+ 118 0014 0000     		.space	2
+ 119              		.global	m2
+ 120              		.align	1
+ 121              		.type	m2, %object
+ 122              		.size	m2, 2
+ 123              	m2:
+ 124 0016 0000     		.space	2
+ 125              		.section	.text.garb,"ax",%progbits
+ 126              		.align	2
+ 127              		.global	garb
+ 128              		.thumb
+ 129              		.thumb_func
+ 130              		.type	garb, %function
+ 131              	garb:
+ 132              	.LFB64:
+ 133              		.file 1 "main.c"
    1:main.c        **** /* ========================================
    2:main.c        ****  * Fully working code: 
    3:main.c        ****  * PWM      : 
@@ -169,2281 +178,2579 @@ ARM GAS  C:\Users\Janit\AppData\Local\Temp\cctvVDDM.s 			page 1
   29:main.c        **** void setPWMDuty(int duty);
   30:main.c        **** void setPWMFreq(int peri);
   31:main.c        **** //* ========================================
-  32:main.c        **** 
-  33:main.c        **** 
-  34:main.c        **** int main()
-  35:main.c        **** {
- 122              		.loc 1 35 0
- 123              		.cfi_startproc
- 124              		@ args = 0, pretend = 0, frame = 80
- 125              		@ frame_needed = 1, uses_anonymous_args = 0
- 126 0000 90B5     		push	{r4, r7, lr}
-ARM GAS  C:\Users\Janit\AppData\Local\Temp\cctvVDDM.s 			page 4
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccmw0Jyb.s 			page 4
 
 
- 127              		.cfi_def_cfa_offset 12
- 128              		.cfi_offset 4, -12
- 129              		.cfi_offset 7, -8
- 130              		.cfi_offset 14, -4
- 131 0002 95B0     		sub	sp, sp, #84
- 132              		.cfi_def_cfa_offset 96
- 133 0004 00AF     		add	r7, sp, #0
- 134              		.cfi_def_cfa_register 7
-  36:main.c        ****     
-  37:main.c        **** 
-  38:main.c        **** // --------------------------------    
-  39:main.c        **** // ----- INITIALIZATIONS ----------
-  40:main.c        ****     CYGlobalIntEnable;
- 135              		.loc 1 40 0
- 136              		.syntax unified
- 137              	@ 40 "main.c" 1
- 138 0006 62B6     		CPSIE   i
- 139              	@ 0 "" 2
-  41:main.c        **** 
-  42:main.c        **** // ------USB SETUP ----------------    
-  43:main.c        **** #ifdef USE_USB    
-  44:main.c        ****     USBUART_Start(0,USBUART_5V_OPERATION);
- 140              		.loc 1 44 0
- 141              		.thumb
- 142              		.syntax unified
- 143 0008 0121     		movs	r1, #1
- 144 000a 0020     		movs	r0, #0
- 145 000c FFF7FEFF 		bl	USBUART_Start
-  45:main.c        **** #endif        
-  46:main.c        ****         
-  47:main.c        ****     RF_BT_SELECT_Write(0);
- 146              		.loc 1 47 0
- 147 0010 0020     		movs	r0, #0
- 148 0012 FFF7FEFF 		bl	RF_BT_SELECT_Write
-  48:main.c        ****     usbPutString(displaystring);
- 149              		.loc 1 48 0
- 150 0016 1C48     		ldr	r0, .L4
- 151 0018 FFF7FEFF 		bl	usbPutString
-  49:main.c        ****     
-  50:main.c        ****     PWM_1_Start();
- 152              		.loc 1 50 0
- 153 001c FFF7FEFF 		bl	PWM_1_Start
-  51:main.c        ****     PWM_2_Start();
- 154              		.loc 1 51 0
- 155 0020 FFF7FEFF 		bl	PWM_2_Start
- 156              	.L3:
-  52:main.c        ****     
-  53:main.c        ****     for(;;)
-  54:main.c        ****     {
-  55:main.c        ****         /* Place your application code here. */
-  56:main.c        ****         handle_usb();
- 157              		.loc 1 56 0
- 158 0024 FFF7FEFF 		bl	handle_usb
-  57:main.c        ****         if (flag_KB_string == 1 && line[0] != '\0')
- 159              		.loc 1 57 0
- 160 0028 184B     		ldr	r3, .L4+4
- 161 002a 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
-ARM GAS  C:\Users\Janit\AppData\Local\Temp\cctvVDDM.s 			page 5
+  32:main.c        **** uint16_t printSpeed = 0;
+  33:main.c        **** uint16_t m1 = 0;
+  34:main.c        **** uint16_t m2 = 0;
+  35:main.c        **** CY_ISR(garb) {
+ 134              		.loc 1 35 0
+ 135              		.cfi_startproc
+ 136              		@ args = 0, pretend = 0, frame = 0
+ 137              		@ frame_needed = 1, uses_anonymous_args = 0
+ 138 0000 80B5     		push	{r7, lr}
+ 139              		.cfi_def_cfa_offset 8
+ 140              		.cfi_offset 7, -8
+ 141              		.cfi_offset 14, -4
+ 142 0002 00AF     		add	r7, sp, #0
+ 143              		.cfi_def_cfa_register 7
+  36:main.c        ****    m1 = QuadDec_M1_GetCounter();
+ 144              		.loc 1 36 0
+ 145 0004 FFF7FEFF 		bl	QuadDec_M1_GetCounter
+ 146 0008 0346     		mov	r3, r0
+ 147 000a 9AB2     		uxth	r2, r3
+ 148 000c 0A4B     		ldr	r3, .L2
+ 149 000e 1A80     		strh	r2, [r3]	@ movhi
+  37:main.c        ****    m2 = QuadDec_M2_GetCounter();
+ 150              		.loc 1 37 0
+ 151 0010 FFF7FEFF 		bl	QuadDec_M2_GetCounter
+ 152 0014 0346     		mov	r3, r0
+ 153 0016 9AB2     		uxth	r2, r3
+ 154 0018 084B     		ldr	r3, .L2+4
+ 155 001a 1A80     		strh	r2, [r3]	@ movhi
+  38:main.c        ****     
+  39:main.c        ****     QuadDec_M1_Stop();
+ 156              		.loc 1 39 0
+ 157 001c FFF7FEFF 		bl	QuadDec_M1_Stop
+  40:main.c        ****     QuadDec_M2_Stop();
+ 158              		.loc 1 40 0
+ 159 0020 FFF7FEFF 		bl	QuadDec_M2_Stop
+  41:main.c        ****     QuadDec_M1_SetCounter(0);
+ 160              		.loc 1 41 0
+ 161 0024 0020     		movs	r0, #0
+ 162 0026 FFF7FEFF 		bl	QuadDec_M1_SetCounter
+  42:main.c        ****     QuadDec_M2_SetCounter(0);
+ 163              		.loc 1 42 0
+ 164 002a 0020     		movs	r0, #0
+ 165 002c FFF7FEFF 		bl	QuadDec_M2_SetCounter
+  43:main.c        ****     Timer_1_ReadStatusRegister();
+ 166              		.loc 1 43 0
+ 167 0030 FFF7FEFF 		bl	Timer_1_ReadStatusRegister
+  44:main.c        **** }
+ 168              		.loc 1 44 0
+ 169 0034 00BF     		nop
+ 170 0036 80BD     		pop	{r7, pc}
+ 171              	.L3:
+ 172              		.align	2
+ 173              	.L2:
+ 174 0038 00000000 		.word	m1
+ 175 003c 00000000 		.word	m2
+ 176              		.cfi_endproc
+ 177              	.LFE64:
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccmw0Jyb.s 			page 5
 
 
- 162 002c 012B     		cmp	r3, #1
- 163 002e F9D1     		bne	.L3
- 164              		.loc 1 57 0 is_stmt 0 discriminator 1
- 165 0030 174B     		ldr	r3, .L4+8
- 166 0032 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 167 0034 002B     		cmp	r3, #0
- 168 0036 F5D0     		beq	.L3
- 169              	.LBB2:
-  58:main.c        ****         {
-  59:main.c        ****             char msg[BUF_SIZE];
-  60:main.c        ****             char textpt[14] = "You entered: \"";
- 170              		.loc 1 60 0 is_stmt 1
- 171 0038 164B     		ldr	r3, .L4+12
- 172 003a 07F14004 		add	r4, r7, #64
- 173 003e 0FCB     		ldmia	r3, {r0, r1, r2, r3}
- 174 0040 07C4     		stmia	r4!, {r0, r1, r2}
- 175 0042 2380     		strh	r3, [r4]	@ movhi
-  61:main.c        ****             strcpy(msg, textpt);
- 176              		.loc 1 61 0
- 177 0044 07F14002 		add	r2, r7, #64
- 178 0048 3B46     		mov	r3, r7
- 179 004a 1146     		mov	r1, r2
- 180 004c 1846     		mov	r0, r3
- 181 004e FFF7FEFF 		bl	strcpy
-  62:main.c        ****             strcat(msg, line);
- 182              		.loc 1 62 0
- 183 0052 3B46     		mov	r3, r7
- 184 0054 0E49     		ldr	r1, .L4+8
- 185 0056 1846     		mov	r0, r3
- 186 0058 FFF7FEFF 		bl	strcat
-  63:main.c        ****             strcat(msg, "\"\n\r");
- 187              		.loc 1 63 0
- 188 005c 3B46     		mov	r3, r7
- 189 005e 1846     		mov	r0, r3
- 190 0060 FFF7FEFF 		bl	strlen
- 191 0064 0346     		mov	r3, r0
- 192 0066 1A46     		mov	r2, r3
- 193 0068 3B46     		mov	r3, r7
- 194 006a 1344     		add	r3, r3, r2
- 195 006c 0A4A     		ldr	r2, .L4+16
- 196 006e 1068     		ldr	r0, [r2]	@ unaligned
- 197 0070 1860     		str	r0, [r3]	@ unaligned
-  64:main.c        ****             usbPutString(msg);
- 198              		.loc 1 64 0
- 199 0072 3B46     		mov	r3, r7
- 200 0074 1846     		mov	r0, r3
- 201 0076 FFF7FEFF 		bl	usbPutString
-  65:main.c        ****             checkPWMCommand(line);
- 202              		.loc 1 65 0
- 203 007a 0548     		ldr	r0, .L4+8
- 204 007c FFF7FEFF 		bl	checkPWMCommand
-  66:main.c        ****             flag_KB_string = 0;
- 205              		.loc 1 66 0
- 206 0080 024B     		ldr	r3, .L4+4
- 207 0082 0022     		movs	r2, #0
- 208 0084 1A70     		strb	r2, [r3]
- 209              	.LBE2:
-ARM GAS  C:\Users\Janit\AppData\Local\Temp\cctvVDDM.s 			page 6
+ 178              		.size	garb, .-garb
+ 179              		.section	.text.printUart,"ax",%progbits
+ 180              		.align	2
+ 181              		.global	printUart
+ 182              		.thumb
+ 183              		.thumb_func
+ 184              		.type	printUart, %function
+ 185              	printUart:
+ 186              	.LFB65:
+  45:main.c        **** CY_ISR(printUart) {
+ 187              		.loc 1 45 0
+ 188              		.cfi_startproc
+ 189              		@ args = 0, pretend = 0, frame = 0
+ 190              		@ frame_needed = 1, uses_anonymous_args = 0
+ 191 0000 80B5     		push	{r7, lr}
+ 192              		.cfi_def_cfa_offset 8
+ 193              		.cfi_offset 7, -8
+ 194              		.cfi_offset 14, -4
+ 195 0002 00AF     		add	r7, sp, #0
+ 196              		.cfi_def_cfa_register 7
+  46:main.c        ****     printSpeed = 1; // Print the speed every like 200ms
+ 197              		.loc 1 46 0
+ 198 0004 064B     		ldr	r3, .L5
+ 199 0006 0122     		movs	r2, #1
+ 200 0008 1A80     		strh	r2, [r3]	@ movhi
+  47:main.c        ****     
+  48:main.c        ****     
+  49:main.c        ****     QuadDec_M1_SetCounter(0);
+ 201              		.loc 1 49 0
+ 202 000a 0020     		movs	r0, #0
+ 203 000c FFF7FEFF 		bl	QuadDec_M1_SetCounter
+  50:main.c        ****     QuadDec_M2_SetCounter(0);
+ 204              		.loc 1 50 0
+ 205 0010 0020     		movs	r0, #0
+ 206 0012 FFF7FEFF 		bl	QuadDec_M2_SetCounter
+  51:main.c        ****     
+  52:main.c        ****     //stop = 1;
+  53:main.c        ****     Timer_TS_ReadStatusRegister();      
+ 207              		.loc 1 53 0
+ 208 0016 FFF7FEFF 		bl	Timer_TS_ReadStatusRegister
+  54:main.c        **** }
+ 209              		.loc 1 54 0
+ 210 001a 00BF     		nop
+ 211 001c 80BD     		pop	{r7, pc}
+ 212              	.L6:
+ 213 001e 00BF     		.align	2
+ 214              	.L5:
+ 215 0020 00000000 		.word	printSpeed
+ 216              		.cfi_endproc
+ 217              	.LFE65:
+ 218              		.size	printUart, .-printUart
+ 219              		.section	.rodata
+ 220              		.align	2
+ 221              	.LC0:
+ 222 0000 0D0A204D 		.ascii	"\015\012 M1:\000"
+ 222      313A00
+ 223              		.global	__aeabi_ui2f
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccmw0Jyb.s 			page 6
 
 
-  67:main.c        ****         }        
-  68:main.c        ****     }   
- 210              		.loc 1 68 0
- 211 0086 CDE7     		b	.L3
- 212              	.L5:
- 213              		.align	2
- 214              	.L4:
- 215 0088 00000000 		.word	displaystring
- 216 008c 00000000 		.word	flag_KB_string
- 217 0090 00000000 		.word	line
- 218 0094 04000000 		.word	.LC0
- 219 0098 00000000 		.word	.LC1
- 220              		.cfi_endproc
- 221              	.LFE64:
- 222              		.size	main, .-main
- 223              		.section	.rodata
- 224 0013 00       		.align	2
- 225              	.LC2:
- 226 0014 454E4420 		.ascii	"END LOOP\012\015\000"
- 226      4C4F4F50 
- 226      0A0D00
- 227 001f 00       		.align	2
- 228              	.LC3:
- 229 0020 4E756D62 		.ascii	"Number too large!\012\015\000"
- 229      65722074 
- 229      6F6F206C 
- 229      61726765 
- 229      210A0D00 
- 230              		.section	.text.checkPWMCommand,"ax",%progbits
- 231              		.align	2
- 232              		.global	checkPWMCommand
- 233              		.thumb
- 234              		.thumb_func
- 235              		.type	checkPWMCommand, %function
- 236              	checkPWMCommand:
- 237              	.LFB65:
-  69:main.c        **** }
-  70:main.c        **** 
-  71:main.c        **** void checkPWMCommand(const char *input){
- 238              		.loc 1 71 0
- 239              		.cfi_startproc
- 240              		@ args = 0, pretend = 0, frame = 32
- 241              		@ frame_needed = 1, uses_anonymous_args = 0
- 242 0000 2DE9F043 		push	{r4, r5, r6, r7, r8, r9, lr}
- 243              		.cfi_def_cfa_offset 28
- 244              		.cfi_offset 4, -28
- 245              		.cfi_offset 5, -24
- 246              		.cfi_offset 6, -20
- 247              		.cfi_offset 7, -16
- 248              		.cfi_offset 8, -12
- 249              		.cfi_offset 9, -8
- 250              		.cfi_offset 14, -4
- 251 0004 89B0     		sub	sp, sp, #36
- 252              		.cfi_def_cfa_offset 64
- 253 0006 00AF     		add	r7, sp, #0
- 254              		.cfi_def_cfa_register 7
- 255 0008 7860     		str	r0, [r7, #4]
-ARM GAS  C:\Users\Janit\AppData\Local\Temp\cctvVDDM.s 			page 7
+ 224              		.global	__aeabi_f2iz
+ 225 0007 00       		.align	2
+ 226              	.LC1:
+ 227 0008 0D0A00   		.ascii	"\015\012\000"
+ 228 000b 00       		.align	2
+ 229              	.LC2:
+ 230 000c 0D0A204D 		.ascii	"\015\012 M2:\000"
+ 230      323A00
+ 231 0013 00       		.align	2
+ 232              	.LC3:
+ 233 0014 0D0A2065 		.ascii	"\015\012 end \015\012\000"
+ 233      6E64200D 
+ 233      0A00
+ 234              		.section	.text.main,"ax",%progbits
+ 235              		.align	2
+ 236              		.global	main
+ 237              		.thumb
+ 238              		.thumb_func
+ 239              		.type	main, %function
+ 240              	main:
+ 241              	.LFB66:
+  55:main.c        **** int main()
+  56:main.c        **** {
+ 242              		.loc 1 56 0
+ 243              		.cfi_startproc
+ 244              		@ args = 0, pretend = 0, frame = 64
+ 245              		@ frame_needed = 1, uses_anonymous_args = 0
+ 246 0000 80B5     		push	{r7, lr}
+ 247              		.cfi_def_cfa_offset 8
+ 248              		.cfi_offset 7, -8
+ 249              		.cfi_offset 14, -4
+ 250 0002 90B0     		sub	sp, sp, #64
+ 251              		.cfi_def_cfa_offset 72
+ 252 0004 00AF     		add	r7, sp, #0
+ 253              		.cfi_def_cfa_register 7
+  57:main.c        ****     PWM_1_WritePeriod(255);
+ 254              		.loc 1 57 0
+ 255 0006 FF20     		movs	r0, #255
+ 256 0008 FFF7FEFF 		bl	PWM_1_WritePeriod
+  58:main.c        ****     PWM_1_Start();
+ 257              		.loc 1 58 0
+ 258 000c FFF7FEFF 		bl	PWM_1_Start
+  59:main.c        ****     PWM_1_WriteCompare(170);
+ 259              		.loc 1 59 0
+ 260 0010 AA20     		movs	r0, #170
+ 261 0012 FFF7FEFF 		bl	PWM_1_WriteCompare
+  60:main.c        ****     QuadDec_M1_Start();
+ 262              		.loc 1 60 0
+ 263 0016 FFF7FEFF 		bl	QuadDec_M1_Start
+  61:main.c        ****     QuadDec_M2_Start();
+ 264              		.loc 1 61 0
+ 265 001a FFF7FEFF 		bl	QuadDec_M2_Start
+  62:main.c        ****     
+  63:main.c        ****     PWM_2_WritePeriod(255);
+ 266              		.loc 1 63 0
+ 267 001e FF20     		movs	r0, #255
+ 268 0020 FFF7FEFF 		bl	PWM_2_WritePeriod
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccmw0Jyb.s 			page 7
 
 
-  72:main.c        ****     char *duty_command_found = strstr(input, "d");
- 256              		.loc 1 72 0
- 257 000a 6421     		movs	r1, #100
- 258 000c 7868     		ldr	r0, [r7, #4]
- 259 000e FFF7FEFF 		bl	strchr
- 260 0012 7861     		str	r0, [r7, #20]
-  73:main.c        ****     char *period_command_found = strstr(input, "p");
- 261              		.loc 1 73 0
- 262 0014 7021     		movs	r1, #112
- 263 0016 7868     		ldr	r0, [r7, #4]
- 264 0018 FFF7FEFF 		bl	strchr
- 265 001c 3861     		str	r0, [r7, #16]
-  74:main.c        ****     
-  75:main.c        ****     if (duty_command_found) {
- 266              		.loc 1 75 0
- 267 001e 7B69     		ldr	r3, [r7, #20]
- 268 0020 002B     		cmp	r3, #0
- 269 0022 56D0     		beq	.L13
- 270              	.LBB3:
-  76:main.c        ****         int count = 1;
- 271              		.loc 1 76 0
- 272 0024 0123     		movs	r3, #1
- 273 0026 FB61     		str	r3, [r7, #28]
-  77:main.c        ****         char currentchar = 'a';
- 274              		.loc 1 77 0
- 275 0028 6123     		movs	r3, #97
- 276 002a FB76     		strb	r3, [r7, #27]
-  78:main.c        ****         while (currentchar != '\0') {
- 277              		.loc 1 78 0
- 278 002c 15E0     		b	.L8
- 279              	.L11:
-  79:main.c        ****             currentchar = input[count];
- 280              		.loc 1 79 0
- 281 002e FB69     		ldr	r3, [r7, #28]
- 282 0030 7A68     		ldr	r2, [r7, #4]
- 283 0032 1344     		add	r3, r3, r2
- 284 0034 1B78     		ldrb	r3, [r3]
- 285 0036 FB76     		strb	r3, [r7, #27]
-  80:main.c        ****             if (!isdigit(currentchar)) {
- 286              		.loc 1 80 0
- 287 0038 294B     		ldr	r3, .L15
- 288 003a 1A68     		ldr	r2, [r3]
- 289 003c FB7E     		ldrb	r3, [r7, #27]	@ zero_extendqisi2
- 290 003e 0133     		adds	r3, r3, #1
- 291 0040 1344     		add	r3, r3, r2
- 292 0042 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 293 0044 03F00403 		and	r3, r3, #4
- 294 0048 002B     		cmp	r3, #0
- 295 004a 44D0     		beq	.L14
-  81:main.c        ****                 return;
-  82:main.c        ****             }
-  83:main.c        ****             count++;
- 296              		.loc 1 83 0
- 297 004c FB69     		ldr	r3, [r7, #28]
- 298 004e 0133     		adds	r3, r3, #1
- 299 0050 FB61     		str	r3, [r7, #28]
-  84:main.c        ****             usbPutChar(currentchar);                                //**//
-ARM GAS  C:\Users\Janit\AppData\Local\Temp\cctvVDDM.s 			page 8
+  64:main.c        ****     PWM_2_Start();
+ 269              		.loc 1 64 0
+ 270 0024 FFF7FEFF 		bl	PWM_2_Start
+  65:main.c        ****     PWM_2_WriteCompare(170);
+ 271              		.loc 1 65 0
+ 272 0028 AA20     		movs	r0, #170
+ 273 002a FFF7FEFF 		bl	PWM_2_WriteCompare
+  66:main.c        ****     LED_Write(1);
+ 274              		.loc 1 66 0
+ 275 002e 0120     		movs	r0, #1
+ 276 0030 FFF7FEFF 		bl	LED_Write
+  67:main.c        **** 
+  68:main.c        **** // --------------------------------    
+  69:main.c        **** // ----- INITIALIZATIONS ----------
+  70:main.c        ****     CYGlobalIntEnable;
+ 277              		.loc 1 70 0
+ 278              		.syntax unified
+ 279              	@ 70 "main.c" 1
+ 280 0034 62B6     		CPSIE   i
+ 281              	@ 0 "" 2
+  71:main.c        ****     
+  72:main.c        **** 
+  73:main.c        **** // ------USB SETUP ----------------    
+  74:main.c        **** #ifdef USE_USB    
+  75:main.c        ****     USBUART_Start(0,USBUART_5V_OPERATION);
+ 282              		.loc 1 75 0
+ 283              		.thumb
+ 284              		.syntax unified
+ 285 0036 0121     		movs	r1, #1
+ 286 0038 0020     		movs	r0, #0
+ 287 003a FFF7FEFF 		bl	USBUART_Start
+  76:main.c        **** #endif        
+  77:main.c        ****     M2_INV_Write(1);
+ 288              		.loc 1 77 0
+ 289 003e 0120     		movs	r0, #1
+ 290 0040 FFF7FEFF 		bl	M2_INV_Write
+  78:main.c        ****     RF_BT_SELECT_Write(0);
+ 291              		.loc 1 78 0
+ 292 0044 0020     		movs	r0, #0
+ 293 0046 FFF7FEFF 		bl	RF_BT_SELECT_Write
+  79:main.c        ****     //usbPutString(displaystring);
+  80:main.c        ****     isr_TS_StartEx(printUart);
+ 294              		.loc 1 80 0
+ 295 004a 2548     		ldr	r0, .L10
+ 296 004c FFF7FEFF 		bl	isr_TS_StartEx
+  81:main.c        ****     Timer_TS_Start();
+ 297              		.loc 1 81 0
+ 298 0050 FFF7FEFF 		bl	Timer_TS_Start
+  82:main.c        ****     PWM_1_Start();
+ 299              		.loc 1 82 0
+ 300 0054 FFF7FEFF 		bl	PWM_1_Start
+  83:main.c        ****     PWM_2_Start();
+ 301              		.loc 1 83 0
+ 302 0058 FFF7FEFF 		bl	PWM_2_Start
+  84:main.c        ****     isr_ValCheck_StartEx(garb);
+ 303              		.loc 1 84 0
+ 304 005c 2148     		ldr	r0, .L10+4
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccmw0Jyb.s 			page 8
 
 
- 300              		.loc 1 84 0
- 301 0052 FB7E     		ldrb	r3, [r7, #27]	@ zero_extendqisi2
- 302 0054 1846     		mov	r0, r3
- 303 0056 FFF7FEFF 		bl	usbPutChar
- 304              	.L8:
-  78:main.c        ****             currentchar = input[count];
- 305              		.loc 1 78 0
- 306 005a FB7E     		ldrb	r3, [r7, #27]	@ zero_extendqisi2
- 307 005c 002B     		cmp	r3, #0
- 308 005e E6D1     		bne	.L11
-  85:main.c        ****         }
-  86:main.c        ****         usbPutString("END LOOP\n\r");                               //**//
- 309              		.loc 1 86 0
- 310 0060 2048     		ldr	r0, .L15+4
- 311 0062 FFF7FEFF 		bl	usbPutString
-  87:main.c        ****         
-  88:main.c        ****         if (count > 3){
- 312              		.loc 1 88 0
- 313 0066 FB69     		ldr	r3, [r7, #28]
- 314 0068 032B     		cmp	r3, #3
- 315 006a 03DD     		ble	.L12
-  89:main.c        ****             usbPutString("Number too large!\n\r");
- 316              		.loc 1 89 0
- 317 006c 1E48     		ldr	r0, .L15+8
- 318 006e FFF7FEFF 		bl	usbPutString
-  90:main.c        ****             return;            
- 319              		.loc 1 90 0
- 320 0072 31E0     		b	.L6
- 321              	.L12:
-  91:main.c        ****         }
-  92:main.c        ****         
-  93:main.c        ****         char char_nums[count-1];
- 322              		.loc 1 93 0
- 323 0074 FB69     		ldr	r3, [r7, #28]
- 324 0076 591E     		subs	r1, r3, #1
- 325 0078 6B46     		mov	r3, sp
- 326 007a 1E46     		mov	r6, r3
- 327 007c 4B1E     		subs	r3, r1, #1
- 328 007e FB60     		str	r3, [r7, #12]
- 329 0080 0B46     		mov	r3, r1
- 330 0082 1A46     		mov	r2, r3
- 331 0084 4FF00003 		mov	r3, #0
- 332 0088 4FEAC309 		lsl	r9, r3, #3
- 333 008c 49EA5279 		orr	r9, r9, r2, lsr #29
- 334 0090 4FEAC208 		lsl	r8, r2, #3
- 335 0094 0B46     		mov	r3, r1
- 336 0096 1A46     		mov	r2, r3
- 337 0098 4FF00003 		mov	r3, #0
- 338 009c DD00     		lsls	r5, r3, #3
- 339 009e 45EA5275 		orr	r5, r5, r2, lsr #29
- 340 00a2 D400     		lsls	r4, r2, #3
- 341 00a4 0B46     		mov	r3, r1
- 342 00a6 0733     		adds	r3, r3, #7
- 343 00a8 DB08     		lsrs	r3, r3, #3
- 344 00aa DB00     		lsls	r3, r3, #3
- 345 00ac ADEB030D 		sub	sp, sp, r3
- 346 00b0 6B46     		mov	r3, sp
-ARM GAS  C:\Users\Janit\AppData\Local\Temp\cctvVDDM.s 			page 9
+ 305 005e FFF7FEFF 		bl	isr_ValCheck_StartEx
+  85:main.c        ****     Timer_1_Start();
+ 306              		.loc 1 85 0
+ 307 0062 FFF7FEFF 		bl	Timer_1_Start
+ 308              	.L9:
+ 309              	.LBB2:
+  86:main.c        ****     for(;;)
+  87:main.c        ****     {
+  88:main.c        ****         char buffer[64];
+  89:main.c        ****         if (printSpeed == 1) {
+ 310              		.loc 1 89 0
+ 311 0066 204B     		ldr	r3, .L10+8
+ 312 0068 1B88     		ldrh	r3, [r3]
+ 313 006a 012B     		cmp	r3, #1
+ 314 006c FBD1     		bne	.L9
+  90:main.c        ****             usbPutString("\r\n M1:");
+ 315              		.loc 1 90 0
+ 316 006e 1F48     		ldr	r0, .L10+12
+ 317 0070 FFF7FEFF 		bl	usbPutString
+  91:main.c        ****             itoa((float) m1, buffer, 10);
+ 318              		.loc 1 91 0
+ 319 0074 1E4B     		ldr	r3, .L10+16
+ 320 0076 1B88     		ldrh	r3, [r3]
+ 321 0078 1846     		mov	r0, r3
+ 322 007a FFF7FEFF 		bl	__aeabi_ui2f
+ 323 007e 0346     		mov	r3, r0
+ 324 0080 1846     		mov	r0, r3
+ 325 0082 FFF7FEFF 		bl	__aeabi_f2iz
+ 326 0086 3B46     		mov	r3, r7
+ 327 0088 0A22     		movs	r2, #10
+ 328 008a 1946     		mov	r1, r3
+ 329 008c FFF7FEFF 		bl	itoa
+  92:main.c        ****             usbPutString(buffer);
+ 330              		.loc 1 92 0
+ 331 0090 3B46     		mov	r3, r7
+ 332 0092 1846     		mov	r0, r3
+ 333 0094 FFF7FEFF 		bl	usbPutString
+  93:main.c        ****             usbPutString("\r\n");
+ 334              		.loc 1 93 0
+ 335 0098 1648     		ldr	r0, .L10+20
+ 336 009a FFF7FEFF 		bl	usbPutString
+  94:main.c        ****             usbPutString("\r\n M2:");
+ 337              		.loc 1 94 0
+ 338 009e 1648     		ldr	r0, .L10+24
+ 339 00a0 FFF7FEFF 		bl	usbPutString
+  95:main.c        ****             itoa((float) m2, buffer, 10);
+ 340              		.loc 1 95 0
+ 341 00a4 154B     		ldr	r3, .L10+28
+ 342 00a6 1B88     		ldrh	r3, [r3]
+ 343 00a8 1846     		mov	r0, r3
+ 344 00aa FFF7FEFF 		bl	__aeabi_ui2f
+ 345 00ae 0346     		mov	r3, r0
+ 346 00b0 1846     		mov	r0, r3
+ 347 00b2 FFF7FEFF 		bl	__aeabi_f2iz
+ 348 00b6 3B46     		mov	r3, r7
+ 349 00b8 0A22     		movs	r2, #10
+ 350 00ba 1946     		mov	r1, r3
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccmw0Jyb.s 			page 9
 
 
- 347 00b2 0033     		adds	r3, r3, #0
- 348 00b4 BB60     		str	r3, [r7, #8]
-  94:main.c        ****         strncpy(char_nums, input+1, count-1);
- 349              		.loc 1 94 0
- 350 00b6 B868     		ldr	r0, [r7, #8]
- 351 00b8 7B68     		ldr	r3, [r7, #4]
- 352 00ba 591C     		adds	r1, r3, #1
- 353 00bc FB69     		ldr	r3, [r7, #28]
- 354 00be 013B     		subs	r3, r3, #1
- 355 00c0 1A46     		mov	r2, r3
- 356 00c2 FFF7FEFF 		bl	strncpy
-  95:main.c        ****         usbPutString(char_nums);                                    //**//
- 357              		.loc 1 95 0
- 358 00c6 BB68     		ldr	r3, [r7, #8]
- 359 00c8 1846     		mov	r0, r3
- 360 00ca FFF7FEFF 		bl	usbPutString
- 361 00ce B546     		mov	sp, r6
- 362              	.LBE3:
-  96:main.c        ****     }
-  97:main.c        ****     return; // Pattern not found
- 363              		.loc 1 97 0
- 364 00d0 00BF     		nop
- 365              	.L13:
- 366 00d2 00BF     		nop
- 367 00d4 00E0     		b	.L6
- 368              	.L14:
- 369              	.LBB4:
-  81:main.c        ****             }
- 370              		.loc 1 81 0
- 371 00d6 00BF     		nop
- 372              	.L6:
- 373              	.LBE4:
-  98:main.c        **** }
- 374              		.loc 1 98 0
- 375 00d8 2437     		adds	r7, r7, #36
- 376              		.cfi_def_cfa_offset 28
- 377 00da BD46     		mov	sp, r7
- 378              		.cfi_def_cfa_register 13
- 379              		@ sp needed
- 380 00dc BDE8F083 		pop	{r4, r5, r6, r7, r8, r9, pc}
- 381              	.L16:
- 382              		.align	2
- 383              	.L15:
- 384 00e0 00000000 		.word	__ctype_ptr__
- 385 00e4 14000000 		.word	.LC2
- 386 00e8 20000000 		.word	.LC3
- 387              		.cfi_endproc
- 388              	.LFE65:
- 389              		.size	checkPWMCommand, .-checkPWMCommand
- 390              		.global	__aeabi_i2f
- 391              		.global	__aeabi_fmul
- 392              		.global	__aeabi_f2d
- 393              		.global	__aeabi_ddiv
- 394              		.global	__aeabi_d2uiz
- 395              		.section	.rodata
- 396              		.align	2
- 397              	.LC4:
-ARM GAS  C:\Users\Janit\AppData\Local\Temp\cctvVDDM.s 			page 10
+ 351 00bc FFF7FEFF 		bl	itoa
+  96:main.c        ****             usbPutString(buffer);
+ 352              		.loc 1 96 0
+ 353 00c0 3B46     		mov	r3, r7
+ 354 00c2 1846     		mov	r0, r3
+ 355 00c4 FFF7FEFF 		bl	usbPutString
+  97:main.c        ****             usbPutString("\r\n end \r\n");
+ 356              		.loc 1 97 0
+ 357 00c8 0D48     		ldr	r0, .L10+32
+ 358 00ca FFF7FEFF 		bl	usbPutString
+  98:main.c        ****             QuadDec_M1_Start();
+ 359              		.loc 1 98 0
+ 360 00ce FFF7FEFF 		bl	QuadDec_M1_Start
+  99:main.c        ****             QuadDec_M2_Start();
+ 361              		.loc 1 99 0
+ 362 00d2 FFF7FEFF 		bl	QuadDec_M2_Start
+ 100:main.c        ****             printSpeed = 0;
+ 363              		.loc 1 100 0
+ 364 00d6 044B     		ldr	r3, .L10+8
+ 365 00d8 0022     		movs	r2, #0
+ 366 00da 1A80     		strh	r2, [r3]	@ movhi
+ 367              	.LBE2:
+ 101:main.c        ****         } 
+ 102:main.c        ****         /* Place your application code here. */
+ 103:main.c        ****         /*handle_usb();
+ 104:main.c        ****         if (flag_KB_string == 1 && line[0] != '\0')
+ 105:main.c        ****         {
+ 106:main.c        ****             char msg[BUF_SIZE];
+ 107:main.c        ****             char textpt[14] = "You entered: \"";
+ 108:main.c        ****             strcpy(msg, textpt);
+ 109:main.c        ****             strcat(msg, line);
+ 110:main.c        ****             strcat(msg, "\"\n\r");
+ 111:main.c        ****             usbPutString(msg);
+ 112:main.c        ****             checkPWMCommand(line);
+ 113:main.c        ****             flag_KB_string = 0;
+ 114:main.c        ****         }     */   
+ 115:main.c        ****     }   
+ 368              		.loc 1 115 0
+ 369 00dc C3E7     		b	.L9
+ 370              	.L11:
+ 371 00de 00BF     		.align	2
+ 372              	.L10:
+ 373 00e0 00000000 		.word	printUart
+ 374 00e4 00000000 		.word	garb
+ 375 00e8 00000000 		.word	printSpeed
+ 376 00ec 00000000 		.word	.LC0
+ 377 00f0 00000000 		.word	m1
+ 378 00f4 08000000 		.word	.LC1
+ 379 00f8 0C000000 		.word	.LC2
+ 380 00fc 00000000 		.word	m2
+ 381 0100 14000000 		.word	.LC3
+ 382              		.cfi_endproc
+ 383              	.LFE66:
+ 384              		.size	main, .-main
+ 385              		.section	.rodata
+ 386 001e 0000     		.align	2
+ 387              	.LC4:
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccmw0Jyb.s 			page 10
 
 
- 398 0034 55706461 		.ascii	"Updated duty cycle!\012\015\000"
- 398      74656420 
- 398      64757479 
- 398      20637963 
- 398      6C65210A 
- 399              		.section	.text.setPWMDuty,"ax",%progbits
- 400              		.align	2
- 401              		.global	setPWMDuty
- 402              		.thumb
- 403              		.thumb_func
- 404              		.type	setPWMDuty, %function
- 405              	setPWMDuty:
- 406              	.LFB66:
-  99:main.c        **** 
- 100:main.c        **** void setPWMDuty(int duty){
- 407              		.loc 1 100 0
- 408              		.cfi_startproc
- 409              		@ args = 0, pretend = 0, frame = 8
- 410              		@ frame_needed = 1, uses_anonymous_args = 0
- 411 0000 90B5     		push	{r4, r7, lr}
- 412              		.cfi_def_cfa_offset 12
- 413              		.cfi_offset 4, -12
- 414              		.cfi_offset 7, -8
- 415              		.cfi_offset 14, -4
- 416 0002 83B0     		sub	sp, sp, #12
- 417              		.cfi_def_cfa_offset 24
- 418 0004 00AF     		add	r7, sp, #0
- 419              		.cfi_def_cfa_register 7
- 420 0006 7860     		str	r0, [r7, #4]
- 101:main.c        ****     PWM_1_WriteCompare(PWM_1_ReadPeriod() * (float)duty/100.00);
- 421              		.loc 1 101 0
- 422 0008 FFF7FEFF 		bl	PWM_1_ReadPeriod
- 423 000c 0346     		mov	r3, r0
- 424 000e 1846     		mov	r0, r3
- 425 0010 FFF7FEFF 		bl	__aeabi_i2f
- 426 0014 0446     		mov	r4, r0
- 427 0016 7868     		ldr	r0, [r7, #4]
- 428 0018 FFF7FEFF 		bl	__aeabi_i2f
- 429 001c 0346     		mov	r3, r0
- 430 001e 1946     		mov	r1, r3
- 431 0020 2046     		mov	r0, r4
- 432 0022 FFF7FEFF 		bl	__aeabi_fmul
- 433 0026 0346     		mov	r3, r0
- 434 0028 1846     		mov	r0, r3
- 435 002a FFF7FEFF 		bl	__aeabi_f2d
- 436 002e 4FF00002 		mov	r2, #0
- 437 0032 1C4B     		ldr	r3, .L19
- 438 0034 FFF7FEFF 		bl	__aeabi_ddiv
- 439 0038 0346     		mov	r3, r0
- 440 003a 0C46     		mov	r4, r1
- 441 003c 1846     		mov	r0, r3
- 442 003e 2146     		mov	r1, r4
- 443 0040 FFF7FEFF 		bl	__aeabi_d2uiz
- 444 0044 0346     		mov	r3, r0
- 445 0046 DBB2     		uxtb	r3, r3
- 446 0048 1846     		mov	r0, r3
- 447 004a FFF7FEFF 		bl	PWM_1_WriteCompare
-ARM GAS  C:\Users\Janit\AppData\Local\Temp\cctvVDDM.s 			page 11
+ 388 0020 454E4420 		.ascii	"END LOOP\012\015\000"
+ 388      4C4F4F50 
+ 388      0A0D00
+ 389 002b 00       		.align	2
+ 390              	.LC5:
+ 391 002c 4E756D62 		.ascii	"Number too large!\012\015\000"
+ 391      65722074 
+ 391      6F6F206C 
+ 391      61726765 
+ 391      210A0D00 
+ 392              		.section	.text.checkPWMCommand,"ax",%progbits
+ 393              		.align	2
+ 394              		.global	checkPWMCommand
+ 395              		.thumb
+ 396              		.thumb_func
+ 397              		.type	checkPWMCommand, %function
+ 398              	checkPWMCommand:
+ 399              	.LFB67:
+ 116:main.c        **** }
+ 117:main.c        **** 
+ 118:main.c        **** void checkPWMCommand(const char *input){
+ 400              		.loc 1 118 0
+ 401              		.cfi_startproc
+ 402              		@ args = 0, pretend = 0, frame = 32
+ 403              		@ frame_needed = 1, uses_anonymous_args = 0
+ 404 0000 2DE9F043 		push	{r4, r5, r6, r7, r8, r9, lr}
+ 405              		.cfi_def_cfa_offset 28
+ 406              		.cfi_offset 4, -28
+ 407              		.cfi_offset 5, -24
+ 408              		.cfi_offset 6, -20
+ 409              		.cfi_offset 7, -16
+ 410              		.cfi_offset 8, -12
+ 411              		.cfi_offset 9, -8
+ 412              		.cfi_offset 14, -4
+ 413 0004 89B0     		sub	sp, sp, #36
+ 414              		.cfi_def_cfa_offset 64
+ 415 0006 00AF     		add	r7, sp, #0
+ 416              		.cfi_def_cfa_register 7
+ 417 0008 7860     		str	r0, [r7, #4]
+ 119:main.c        ****     char *duty_command_found = strstr(input, "d");
+ 418              		.loc 1 119 0
+ 419 000a 6421     		movs	r1, #100
+ 420 000c 7868     		ldr	r0, [r7, #4]
+ 421 000e FFF7FEFF 		bl	strchr
+ 422 0012 7861     		str	r0, [r7, #20]
+ 120:main.c        ****     char *period_command_found = strstr(input, "p");
+ 423              		.loc 1 120 0
+ 424 0014 7021     		movs	r1, #112
+ 425 0016 7868     		ldr	r0, [r7, #4]
+ 426 0018 FFF7FEFF 		bl	strchr
+ 427 001c 3861     		str	r0, [r7, #16]
+ 121:main.c        ****     
+ 122:main.c        ****     if (duty_command_found) {
+ 428              		.loc 1 122 0
+ 429 001e 7B69     		ldr	r3, [r7, #20]
+ 430 0020 002B     		cmp	r3, #0
+ 431 0022 56D0     		beq	.L19
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccmw0Jyb.s 			page 11
 
 
- 102:main.c        ****     PWM_2_WriteCompare(PWM_2_ReadPeriod() * (float)duty/100.00);
- 448              		.loc 1 102 0
- 449 004e FFF7FEFF 		bl	PWM_2_ReadPeriod
- 450 0052 0346     		mov	r3, r0
- 451 0054 1846     		mov	r0, r3
- 452 0056 FFF7FEFF 		bl	__aeabi_i2f
- 453 005a 0446     		mov	r4, r0
- 454 005c 7868     		ldr	r0, [r7, #4]
- 455 005e FFF7FEFF 		bl	__aeabi_i2f
- 456 0062 0346     		mov	r3, r0
- 457 0064 1946     		mov	r1, r3
- 458 0066 2046     		mov	r0, r4
- 459 0068 FFF7FEFF 		bl	__aeabi_fmul
- 460 006c 0346     		mov	r3, r0
- 461 006e 1846     		mov	r0, r3
- 462 0070 FFF7FEFF 		bl	__aeabi_f2d
- 463 0074 4FF00002 		mov	r2, #0
- 464 0078 0A4B     		ldr	r3, .L19
- 465 007a FFF7FEFF 		bl	__aeabi_ddiv
- 466 007e 0346     		mov	r3, r0
- 467 0080 0C46     		mov	r4, r1
- 468 0082 1846     		mov	r0, r3
- 469 0084 2146     		mov	r1, r4
- 470 0086 FFF7FEFF 		bl	__aeabi_d2uiz
- 471 008a 0346     		mov	r3, r0
- 472 008c DBB2     		uxtb	r3, r3
- 473 008e 1846     		mov	r0, r3
- 474 0090 FFF7FEFF 		bl	PWM_2_WriteCompare
- 103:main.c        ****     usbPutString("Updated duty cycle!\n\r");
- 475              		.loc 1 103 0
- 476 0094 0448     		ldr	r0, .L19+4
- 477 0096 FFF7FEFF 		bl	usbPutString
- 104:main.c        ****     return;
- 478              		.loc 1 104 0
- 479 009a 00BF     		nop
- 105:main.c        **** }
- 480              		.loc 1 105 0
- 481 009c 0C37     		adds	r7, r7, #12
- 482              		.cfi_def_cfa_offset 12
- 483 009e BD46     		mov	sp, r7
- 484              		.cfi_def_cfa_register 13
- 485              		@ sp needed
- 486 00a0 90BD     		pop	{r4, r7, pc}
- 487              	.L20:
- 488 00a2 00BF     		.align	2
- 489              	.L19:
- 490 00a4 00005940 		.word	1079574528
- 491 00a8 34000000 		.word	.LC4
- 492              		.cfi_endproc
- 493              	.LFE66:
- 494              		.size	setPWMDuty, .-setPWMDuty
- 495              		.section	.text.usbPutString,"ax",%progbits
- 496              		.align	2
- 497              		.global	usbPutString
- 498              		.thumb
- 499              		.thumb_func
- 500              		.type	usbPutString, %function
-ARM GAS  C:\Users\Janit\AppData\Local\Temp\cctvVDDM.s 			page 12
+ 432              	.LBB3:
+ 123:main.c        ****         int count = 1;
+ 433              		.loc 1 123 0
+ 434 0024 0123     		movs	r3, #1
+ 435 0026 FB61     		str	r3, [r7, #28]
+ 124:main.c        ****         char currentchar = 'a';
+ 436              		.loc 1 124 0
+ 437 0028 6123     		movs	r3, #97
+ 438 002a FB76     		strb	r3, [r7, #27]
+ 125:main.c        ****         while (currentchar != '\0') {
+ 439              		.loc 1 125 0
+ 440 002c 15E0     		b	.L14
+ 441              	.L17:
+ 126:main.c        ****             currentchar = input[count];
+ 442              		.loc 1 126 0
+ 443 002e FB69     		ldr	r3, [r7, #28]
+ 444 0030 7A68     		ldr	r2, [r7, #4]
+ 445 0032 1344     		add	r3, r3, r2
+ 446 0034 1B78     		ldrb	r3, [r3]
+ 447 0036 FB76     		strb	r3, [r7, #27]
+ 127:main.c        ****             if (!isdigit(currentchar)) {
+ 448              		.loc 1 127 0
+ 449 0038 294B     		ldr	r3, .L21
+ 450 003a 1A68     		ldr	r2, [r3]
+ 451 003c FB7E     		ldrb	r3, [r7, #27]	@ zero_extendqisi2
+ 452 003e 0133     		adds	r3, r3, #1
+ 453 0040 1344     		add	r3, r3, r2
+ 454 0042 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 455 0044 03F00403 		and	r3, r3, #4
+ 456 0048 002B     		cmp	r3, #0
+ 457 004a 44D0     		beq	.L20
+ 128:main.c        ****                 return;
+ 129:main.c        ****             }
+ 130:main.c        ****             count++;
+ 458              		.loc 1 130 0
+ 459 004c FB69     		ldr	r3, [r7, #28]
+ 460 004e 0133     		adds	r3, r3, #1
+ 461 0050 FB61     		str	r3, [r7, #28]
+ 131:main.c        ****             usbPutChar(currentchar);                                //**//
+ 462              		.loc 1 131 0
+ 463 0052 FB7E     		ldrb	r3, [r7, #27]	@ zero_extendqisi2
+ 464 0054 1846     		mov	r0, r3
+ 465 0056 FFF7FEFF 		bl	usbPutChar
+ 466              	.L14:
+ 125:main.c        ****             currentchar = input[count];
+ 467              		.loc 1 125 0
+ 468 005a FB7E     		ldrb	r3, [r7, #27]	@ zero_extendqisi2
+ 469 005c 002B     		cmp	r3, #0
+ 470 005e E6D1     		bne	.L17
+ 132:main.c        ****         }
+ 133:main.c        ****         usbPutString("END LOOP\n\r");                               //**//
+ 471              		.loc 1 133 0
+ 472 0060 2048     		ldr	r0, .L21+4
+ 473 0062 FFF7FEFF 		bl	usbPutString
+ 134:main.c        ****         
+ 135:main.c        ****         if (count > 3){
+ 474              		.loc 1 135 0
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccmw0Jyb.s 			page 12
 
 
- 501              	usbPutString:
- 502              	.LFB67:
- 106:main.c        **** 
- 107:main.c        **** //* ========================================
- 108:main.c        **** void usbPutString(char *s)
- 109:main.c        **** {
- 503              		.loc 1 109 0
- 504              		.cfi_startproc
- 505              		@ args = 0, pretend = 0, frame = 8
- 506              		@ frame_needed = 1, uses_anonymous_args = 0
- 507 0000 80B5     		push	{r7, lr}
- 508              		.cfi_def_cfa_offset 8
- 509              		.cfi_offset 7, -8
- 510              		.cfi_offset 14, -4
- 511 0002 82B0     		sub	sp, sp, #8
- 512              		.cfi_def_cfa_offset 16
- 513 0004 00AF     		add	r7, sp, #0
- 514              		.cfi_def_cfa_register 7
- 515 0006 7860     		str	r0, [r7, #4]
- 110:main.c        **** // !! Assumes that *s is a string with allocated space >=64 chars     
- 111:main.c        **** //  Since USB implementation retricts data packets to 64 chars, this function truncates the
- 112:main.c        **** //  length to 62 char (63rd char is a '!')
- 113:main.c        **** 
- 114:main.c        **** #ifdef USE_USB     
- 115:main.c        ****     while (USBUART_CDCIsReady() == 0);
- 516              		.loc 1 115 0
- 517 0008 00BF     		nop
- 518              	.L22:
- 519              		.loc 1 115 0 is_stmt 0 discriminator 1
- 520 000a FFF7FEFF 		bl	USBUART_CDCIsReady
- 521 000e 0346     		mov	r3, r0
- 522 0010 002B     		cmp	r3, #0
- 523 0012 FAD0     		beq	.L22
- 116:main.c        ****     s[63]='\0';
- 524              		.loc 1 116 0 is_stmt 1
- 525 0014 7B68     		ldr	r3, [r7, #4]
- 526 0016 3F33     		adds	r3, r3, #63
- 527 0018 0022     		movs	r2, #0
- 528 001a 1A70     		strb	r2, [r3]
- 117:main.c        ****     s[62]='!';
- 529              		.loc 1 117 0
- 530 001c 7B68     		ldr	r3, [r7, #4]
- 531 001e 3E33     		adds	r3, r3, #62
- 532 0020 2122     		movs	r2, #33
- 533 0022 1A70     		strb	r2, [r3]
- 118:main.c        ****     USBUART_PutData((uint8*)s,strlen(s));
- 534              		.loc 1 118 0
- 535 0024 7868     		ldr	r0, [r7, #4]
- 536 0026 FFF7FEFF 		bl	strlen
- 537 002a 0346     		mov	r3, r0
- 538 002c 9BB2     		uxth	r3, r3
- 539 002e 1946     		mov	r1, r3
- 540 0030 7868     		ldr	r0, [r7, #4]
- 541 0032 FFF7FEFF 		bl	USBUART_PutData
- 119:main.c        **** #endif
- 120:main.c        **** }
- 542              		.loc 1 120 0
-ARM GAS  C:\Users\Janit\AppData\Local\Temp\cctvVDDM.s 			page 13
+ 475 0066 FB69     		ldr	r3, [r7, #28]
+ 476 0068 032B     		cmp	r3, #3
+ 477 006a 03DD     		ble	.L18
+ 136:main.c        ****             usbPutString("Number too large!\n\r");
+ 478              		.loc 1 136 0
+ 479 006c 1E48     		ldr	r0, .L21+8
+ 480 006e FFF7FEFF 		bl	usbPutString
+ 137:main.c        ****             return;            
+ 481              		.loc 1 137 0
+ 482 0072 31E0     		b	.L12
+ 483              	.L18:
+ 138:main.c        ****         }
+ 139:main.c        ****         
+ 140:main.c        ****         char char_nums[count-1];
+ 484              		.loc 1 140 0
+ 485 0074 FB69     		ldr	r3, [r7, #28]
+ 486 0076 591E     		subs	r1, r3, #1
+ 487 0078 6B46     		mov	r3, sp
+ 488 007a 1E46     		mov	r6, r3
+ 489 007c 4B1E     		subs	r3, r1, #1
+ 490 007e FB60     		str	r3, [r7, #12]
+ 491 0080 0B46     		mov	r3, r1
+ 492 0082 1A46     		mov	r2, r3
+ 493 0084 4FF00003 		mov	r3, #0
+ 494 0088 4FEAC309 		lsl	r9, r3, #3
+ 495 008c 49EA5279 		orr	r9, r9, r2, lsr #29
+ 496 0090 4FEAC208 		lsl	r8, r2, #3
+ 497 0094 0B46     		mov	r3, r1
+ 498 0096 1A46     		mov	r2, r3
+ 499 0098 4FF00003 		mov	r3, #0
+ 500 009c DD00     		lsls	r5, r3, #3
+ 501 009e 45EA5275 		orr	r5, r5, r2, lsr #29
+ 502 00a2 D400     		lsls	r4, r2, #3
+ 503 00a4 0B46     		mov	r3, r1
+ 504 00a6 0733     		adds	r3, r3, #7
+ 505 00a8 DB08     		lsrs	r3, r3, #3
+ 506 00aa DB00     		lsls	r3, r3, #3
+ 507 00ac ADEB030D 		sub	sp, sp, r3
+ 508 00b0 6B46     		mov	r3, sp
+ 509 00b2 0033     		adds	r3, r3, #0
+ 510 00b4 BB60     		str	r3, [r7, #8]
+ 141:main.c        ****         strncpy(char_nums, input+1, count-1);
+ 511              		.loc 1 141 0
+ 512 00b6 B868     		ldr	r0, [r7, #8]
+ 513 00b8 7B68     		ldr	r3, [r7, #4]
+ 514 00ba 591C     		adds	r1, r3, #1
+ 515 00bc FB69     		ldr	r3, [r7, #28]
+ 516 00be 013B     		subs	r3, r3, #1
+ 517 00c0 1A46     		mov	r2, r3
+ 518 00c2 FFF7FEFF 		bl	strncpy
+ 142:main.c        ****         usbPutString(char_nums);                                    //**//
+ 519              		.loc 1 142 0
+ 520 00c6 BB68     		ldr	r3, [r7, #8]
+ 521 00c8 1846     		mov	r0, r3
+ 522 00ca FFF7FEFF 		bl	usbPutString
+ 523 00ce B546     		mov	sp, r6
+ 524              	.LBE3:
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccmw0Jyb.s 			page 13
 
 
- 543 0036 00BF     		nop
- 544 0038 0837     		adds	r7, r7, #8
- 545              		.cfi_def_cfa_offset 8
- 546 003a BD46     		mov	sp, r7
- 547              		.cfi_def_cfa_register 13
- 548              		@ sp needed
- 549 003c 80BD     		pop	{r7, pc}
- 550              		.cfi_endproc
- 551              	.LFE67:
- 552              		.size	usbPutString, .-usbPutString
- 553 003e 00BF     		.section	.text.usbPutChar,"ax",%progbits
- 554              		.align	2
- 555              		.global	usbPutChar
- 556              		.thumb
- 557              		.thumb_func
- 558              		.type	usbPutChar, %function
- 559              	usbPutChar:
- 560              	.LFB68:
- 121:main.c        **** //* ========================================
- 122:main.c        **** void usbPutChar(char c)
- 123:main.c        **** {
- 561              		.loc 1 123 0
- 562              		.cfi_startproc
- 563              		@ args = 0, pretend = 0, frame = 8
- 564              		@ frame_needed = 1, uses_anonymous_args = 0
- 565 0000 80B5     		push	{r7, lr}
- 566              		.cfi_def_cfa_offset 8
- 567              		.cfi_offset 7, -8
- 568              		.cfi_offset 14, -4
- 569 0002 82B0     		sub	sp, sp, #8
- 570              		.cfi_def_cfa_offset 16
- 571 0004 00AF     		add	r7, sp, #0
- 572              		.cfi_def_cfa_register 7
- 573 0006 0346     		mov	r3, r0
- 574 0008 FB71     		strb	r3, [r7, #7]
- 124:main.c        **** #ifdef USE_USB     
- 125:main.c        ****     while (USBUART_CDCIsReady() == 0);
- 575              		.loc 1 125 0
- 576 000a 00BF     		nop
- 577              	.L24:
- 578              		.loc 1 125 0 is_stmt 0 discriminator 1
- 579 000c FFF7FEFF 		bl	USBUART_CDCIsReady
- 580 0010 0346     		mov	r3, r0
- 581 0012 002B     		cmp	r3, #0
- 582 0014 FAD0     		beq	.L24
- 126:main.c        ****     USBUART_PutChar(c);
- 583              		.loc 1 126 0 is_stmt 1
- 584 0016 FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
- 585 0018 1846     		mov	r0, r3
- 586 001a FFF7FEFF 		bl	USBUART_PutChar
- 127:main.c        **** #endif    
- 128:main.c        **** }
- 587              		.loc 1 128 0
- 588 001e 00BF     		nop
- 589 0020 0837     		adds	r7, r7, #8
- 590              		.cfi_def_cfa_offset 8
- 591 0022 BD46     		mov	sp, r7
-ARM GAS  C:\Users\Janit\AppData\Local\Temp\cctvVDDM.s 			page 14
+ 143:main.c        ****     }
+ 144:main.c        ****     return; // Pattern not found
+ 525              		.loc 1 144 0
+ 526 00d0 00BF     		nop
+ 527              	.L19:
+ 528 00d2 00BF     		nop
+ 529 00d4 00E0     		b	.L12
+ 530              	.L20:
+ 531              	.LBB4:
+ 128:main.c        ****             }
+ 532              		.loc 1 128 0
+ 533 00d6 00BF     		nop
+ 534              	.L12:
+ 535              	.LBE4:
+ 145:main.c        **** }
+ 536              		.loc 1 145 0
+ 537 00d8 2437     		adds	r7, r7, #36
+ 538              		.cfi_def_cfa_offset 28
+ 539 00da BD46     		mov	sp, r7
+ 540              		.cfi_def_cfa_register 13
+ 541              		@ sp needed
+ 542 00dc BDE8F083 		pop	{r4, r5, r6, r7, r8, r9, pc}
+ 543              	.L22:
+ 544              		.align	2
+ 545              	.L21:
+ 546 00e0 00000000 		.word	__ctype_ptr__
+ 547 00e4 20000000 		.word	.LC4
+ 548 00e8 2C000000 		.word	.LC5
+ 549              		.cfi_endproc
+ 550              	.LFE67:
+ 551              		.size	checkPWMCommand, .-checkPWMCommand
+ 552              		.global	__aeabi_i2f
+ 553              		.global	__aeabi_fmul
+ 554              		.global	__aeabi_f2d
+ 555              		.global	__aeabi_ddiv
+ 556              		.global	__aeabi_d2uiz
+ 557              		.section	.rodata
+ 558              		.align	2
+ 559              	.LC6:
+ 560 0040 55706461 		.ascii	"Updated duty cycle!\012\015\000"
+ 560      74656420 
+ 560      64757479 
+ 560      20637963 
+ 560      6C65210A 
+ 561              		.section	.text.setPWMDuty,"ax",%progbits
+ 562              		.align	2
+ 563              		.global	setPWMDuty
+ 564              		.thumb
+ 565              		.thumb_func
+ 566              		.type	setPWMDuty, %function
+ 567              	setPWMDuty:
+ 568              	.LFB68:
+ 146:main.c        **** 
+ 147:main.c        **** void setPWMDuty(int duty){
+ 569              		.loc 1 147 0
+ 570              		.cfi_startproc
+ 571              		@ args = 0, pretend = 0, frame = 8
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccmw0Jyb.s 			page 14
 
 
- 592              		.cfi_def_cfa_register 13
- 593              		@ sp needed
- 594 0024 80BD     		pop	{r7, pc}
- 595              		.cfi_endproc
- 596              	.LFE68:
- 597              		.size	usbPutChar, .-usbPutChar
- 598 0026 00BF     		.section	.text.handle_usb,"ax",%progbits
- 599              		.align	2
- 600              		.global	handle_usb
- 601              		.thumb
- 602              		.thumb_func
- 603              		.type	handle_usb, %function
- 604              	handle_usb:
- 605              	.LFB69:
- 129:main.c        **** //* ========================================
- 130:main.c        **** void handle_usb()
- 131:main.c        **** {
- 606              		.loc 1 131 0
- 607              		.cfi_startproc
- 608              		@ args = 0, pretend = 0, frame = 8
- 609              		@ frame_needed = 1, uses_anonymous_args = 0
- 610 0000 80B5     		push	{r7, lr}
- 611              		.cfi_def_cfa_offset 8
- 612              		.cfi_offset 7, -8
- 613              		.cfi_offset 14, -4
- 614 0002 82B0     		sub	sp, sp, #8
- 615              		.cfi_def_cfa_offset 16
- 616 0004 00AF     		add	r7, sp, #0
- 617              		.cfi_def_cfa_register 7
- 132:main.c        ****     // handles input at terminal, echos it back to the terminal
- 133:main.c        ****     // turn echo OFF, key emulation: only CR
- 134:main.c        ****     // entered string is made available in 'line' and 'flag_KB_string' is set
- 135:main.c        ****     
- 136:main.c        ****     static uint8 usbStarted = FALSE;
- 137:main.c        ****     static uint16 usbBufCount = 0;
- 138:main.c        ****     uint8 c; 
- 139:main.c        ****     
- 140:main.c        **** 
- 141:main.c        ****     if (!usbStarted)
- 618              		.loc 1 141 0
- 619 0006 2B4B     		ldr	r3, .L35
- 620 0008 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
- 621 000a 002B     		cmp	r3, #0
- 622 000c 0AD1     		bne	.L26
- 142:main.c        ****     {
- 143:main.c        ****         if (USBUART_GetConfiguration())
- 623              		.loc 1 143 0
- 624 000e FFF7FEFF 		bl	USBUART_GetConfiguration
- 625 0012 0346     		mov	r3, r0
- 626 0014 002B     		cmp	r3, #0
- 627 0016 49D0     		beq	.L34
- 144:main.c        ****         {
- 145:main.c        ****             USBUART_CDC_Init();
- 628              		.loc 1 145 0
- 629 0018 FFF7FEFF 		bl	USBUART_CDC_Init
- 146:main.c        ****             usbStarted = TRUE;
- 630              		.loc 1 146 0
-ARM GAS  C:\Users\Janit\AppData\Local\Temp\cctvVDDM.s 			page 15
+ 572              		@ frame_needed = 1, uses_anonymous_args = 0
+ 573 0000 90B5     		push	{r4, r7, lr}
+ 574              		.cfi_def_cfa_offset 12
+ 575              		.cfi_offset 4, -12
+ 576              		.cfi_offset 7, -8
+ 577              		.cfi_offset 14, -4
+ 578 0002 83B0     		sub	sp, sp, #12
+ 579              		.cfi_def_cfa_offset 24
+ 580 0004 00AF     		add	r7, sp, #0
+ 581              		.cfi_def_cfa_register 7
+ 582 0006 7860     		str	r0, [r7, #4]
+ 148:main.c        ****     PWM_1_WriteCompare(PWM_1_ReadPeriod() * (float)duty/100.00);
+ 583              		.loc 1 148 0
+ 584 0008 FFF7FEFF 		bl	PWM_1_ReadPeriod
+ 585 000c 0346     		mov	r3, r0
+ 586 000e 1846     		mov	r0, r3
+ 587 0010 FFF7FEFF 		bl	__aeabi_i2f
+ 588 0014 0446     		mov	r4, r0
+ 589 0016 7868     		ldr	r0, [r7, #4]
+ 590 0018 FFF7FEFF 		bl	__aeabi_i2f
+ 591 001c 0346     		mov	r3, r0
+ 592 001e 1946     		mov	r1, r3
+ 593 0020 2046     		mov	r0, r4
+ 594 0022 FFF7FEFF 		bl	__aeabi_fmul
+ 595 0026 0346     		mov	r3, r0
+ 596 0028 1846     		mov	r0, r3
+ 597 002a FFF7FEFF 		bl	__aeabi_f2d
+ 598 002e 4FF00002 		mov	r2, #0
+ 599 0032 1C4B     		ldr	r3, .L25
+ 600 0034 FFF7FEFF 		bl	__aeabi_ddiv
+ 601 0038 0346     		mov	r3, r0
+ 602 003a 0C46     		mov	r4, r1
+ 603 003c 1846     		mov	r0, r3
+ 604 003e 2146     		mov	r1, r4
+ 605 0040 FFF7FEFF 		bl	__aeabi_d2uiz
+ 606 0044 0346     		mov	r3, r0
+ 607 0046 DBB2     		uxtb	r3, r3
+ 608 0048 1846     		mov	r0, r3
+ 609 004a FFF7FEFF 		bl	PWM_1_WriteCompare
+ 149:main.c        ****     PWM_2_WriteCompare(PWM_2_ReadPeriod() * (float)duty/100.00);
+ 610              		.loc 1 149 0
+ 611 004e FFF7FEFF 		bl	PWM_2_ReadPeriod
+ 612 0052 0346     		mov	r3, r0
+ 613 0054 1846     		mov	r0, r3
+ 614 0056 FFF7FEFF 		bl	__aeabi_i2f
+ 615 005a 0446     		mov	r4, r0
+ 616 005c 7868     		ldr	r0, [r7, #4]
+ 617 005e FFF7FEFF 		bl	__aeabi_i2f
+ 618 0062 0346     		mov	r3, r0
+ 619 0064 1946     		mov	r1, r3
+ 620 0066 2046     		mov	r0, r4
+ 621 0068 FFF7FEFF 		bl	__aeabi_fmul
+ 622 006c 0346     		mov	r3, r0
+ 623 006e 1846     		mov	r0, r3
+ 624 0070 FFF7FEFF 		bl	__aeabi_f2d
+ 625 0074 4FF00002 		mov	r2, #0
+ 626 0078 0A4B     		ldr	r3, .L25
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccmw0Jyb.s 			page 15
 
 
- 631 001c 254B     		ldr	r3, .L35
- 632 001e 0122     		movs	r2, #1
- 633 0020 1A70     		strb	r2, [r3]
- 147:main.c        ****         }
- 148:main.c        ****     }
- 149:main.c        ****     else
- 150:main.c        ****     {
- 151:main.c        ****         if (USBUART_DataIsReady() != 0)
- 152:main.c        ****         {  
- 153:main.c        ****             c = USBUART_GetChar();
- 154:main.c        **** 
- 155:main.c        ****             if ((c == 13) || (c == 10))
- 156:main.c        ****             {
- 157:main.c        **** //                if (usbBufCount > 0)
- 158:main.c        ****                 {
- 159:main.c        ****                     entry[usbBufCount]= '\0';
- 160:main.c        ****                     strcpy(line,entry);
- 161:main.c        ****                     usbBufCount = 0;
- 162:main.c        ****                     flag_KB_string = 1;
- 163:main.c        ****                 }
- 164:main.c        ****             }
- 165:main.c        ****             else 
- 166:main.c        ****             {
- 167:main.c        ****                 if (((c == CHAR_BACKSP) || (c == CHAR_DEL) ) && (usbBufCount > 0) )
- 168:main.c        ****                     usbBufCount--;
- 169:main.c        ****                 else
- 170:main.c        ****                 {
- 171:main.c        ****                     if (usbBufCount > (BUF_SIZE-2) ) // one less else strtok triggers a crash
- 172:main.c        ****                     {
- 173:main.c        ****                        USBUART_PutChar('!');        
- 174:main.c        ****                     }
- 175:main.c        ****                     else
- 176:main.c        ****                         entry[usbBufCount++] = c;  
- 177:main.c        ****                 }  
- 178:main.c        ****             }
- 179:main.c        ****         }
- 180:main.c        ****     }    
- 181:main.c        **** }
- 634              		.loc 1 181 0
- 635 0022 43E0     		b	.L34
- 636              	.L26:
- 151:main.c        ****         {  
- 637              		.loc 1 151 0
- 638 0024 FFF7FEFF 		bl	USBUART_DataIsReady
- 639 0028 0346     		mov	r3, r0
- 640 002a 002B     		cmp	r3, #0
- 641 002c 3ED0     		beq	.L34
+ 627 007a FFF7FEFF 		bl	__aeabi_ddiv
+ 628 007e 0346     		mov	r3, r0
+ 629 0080 0C46     		mov	r4, r1
+ 630 0082 1846     		mov	r0, r3
+ 631 0084 2146     		mov	r1, r4
+ 632 0086 FFF7FEFF 		bl	__aeabi_d2uiz
+ 633 008a 0346     		mov	r3, r0
+ 634 008c DBB2     		uxtb	r3, r3
+ 635 008e 1846     		mov	r0, r3
+ 636 0090 FFF7FEFF 		bl	PWM_2_WriteCompare
+ 150:main.c        ****     usbPutString("Updated duty cycle!\n\r");
+ 637              		.loc 1 150 0
+ 638 0094 0448     		ldr	r0, .L25+4
+ 639 0096 FFF7FEFF 		bl	usbPutString
+ 151:main.c        ****     return;
+ 640              		.loc 1 151 0
+ 641 009a 00BF     		nop
+ 152:main.c        **** }
+ 642              		.loc 1 152 0
+ 643 009c 0C37     		adds	r7, r7, #12
+ 644              		.cfi_def_cfa_offset 12
+ 645 009e BD46     		mov	sp, r7
+ 646              		.cfi_def_cfa_register 13
+ 647              		@ sp needed
+ 648 00a0 90BD     		pop	{r4, r7, pc}
+ 649              	.L26:
+ 650 00a2 00BF     		.align	2
+ 651              	.L25:
+ 652 00a4 00005940 		.word	1079574528
+ 653 00a8 40000000 		.word	.LC6
+ 654              		.cfi_endproc
+ 655              	.LFE68:
+ 656              		.size	setPWMDuty, .-setPWMDuty
+ 657              		.section	.text.usbPutString,"ax",%progbits
+ 658              		.align	2
+ 659              		.global	usbPutString
+ 660              		.thumb
+ 661              		.thumb_func
+ 662              		.type	usbPutString, %function
+ 663              	usbPutString:
+ 664              	.LFB69:
  153:main.c        **** 
- 642              		.loc 1 153 0
- 643 002e FFF7FEFF 		bl	USBUART_GetChar
- 644 0032 0346     		mov	r3, r0
- 645 0034 FB71     		strb	r3, [r7, #7]
- 155:main.c        ****             {
- 646              		.loc 1 155 0
- 647 0036 FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
- 648 0038 0D2B     		cmp	r3, #13
- 649 003a 02D0     		beq	.L29
-ARM GAS  C:\Users\Janit\AppData\Local\Temp\cctvVDDM.s 			page 16
+ 154:main.c        **** //* ========================================
+ 155:main.c        **** void usbPutString(char *s)
+ 156:main.c        **** {
+ 665              		.loc 1 156 0
+ 666              		.cfi_startproc
+ 667              		@ args = 0, pretend = 0, frame = 8
+ 668              		@ frame_needed = 1, uses_anonymous_args = 0
+ 669 0000 80B5     		push	{r7, lr}
+ 670              		.cfi_def_cfa_offset 8
+ 671              		.cfi_offset 7, -8
+ 672              		.cfi_offset 14, -4
+ 673 0002 82B0     		sub	sp, sp, #8
+ 674              		.cfi_def_cfa_offset 16
+ 675 0004 00AF     		add	r7, sp, #0
+ 676              		.cfi_def_cfa_register 7
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccmw0Jyb.s 			page 16
 
 
- 155:main.c        ****             {
- 650              		.loc 1 155 0 is_stmt 0 discriminator 1
- 651 003c FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
- 652 003e 0A2B     		cmp	r3, #10
- 653 0040 10D1     		bne	.L30
- 654              	.L29:
- 159:main.c        ****                     strcpy(line,entry);
- 655              		.loc 1 159 0 is_stmt 1
- 656 0042 1D4B     		ldr	r3, .L35+4
- 657 0044 1B88     		ldrh	r3, [r3]
- 658 0046 1A46     		mov	r2, r3
- 659 0048 1C4B     		ldr	r3, .L35+8
- 660 004a 0021     		movs	r1, #0
- 661 004c 9954     		strb	r1, [r3, r2]
- 160:main.c        ****                     usbBufCount = 0;
- 662              		.loc 1 160 0
- 663 004e 1B49     		ldr	r1, .L35+8
- 664 0050 1B48     		ldr	r0, .L35+12
- 665 0052 FFF7FEFF 		bl	strcpy
- 161:main.c        ****                     flag_KB_string = 1;
- 666              		.loc 1 161 0
- 667 0056 184B     		ldr	r3, .L35+4
- 668 0058 0022     		movs	r2, #0
- 669 005a 1A80     		strh	r2, [r3]	@ movhi
- 162:main.c        ****                 }
- 670              		.loc 1 162 0
- 671 005c 194B     		ldr	r3, .L35+16
- 672 005e 0122     		movs	r2, #1
- 673 0060 1A70     		strb	r2, [r3]
- 674 0062 23E0     		b	.L28
- 675              	.L30:
- 167:main.c        ****                     usbBufCount--;
- 676              		.loc 1 167 0
- 677 0064 FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
- 678 0066 082B     		cmp	r3, #8
- 679 0068 02D0     		beq	.L31
- 167:main.c        ****                     usbBufCount--;
- 680              		.loc 1 167 0 is_stmt 0 discriminator 2
- 681 006a FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
- 682 006c 7F2B     		cmp	r3, #127
- 683 006e 0AD1     		bne	.L32
- 684              	.L31:
- 167:main.c        ****                     usbBufCount--;
- 685              		.loc 1 167 0 discriminator 3
- 686 0070 114B     		ldr	r3, .L35+4
- 687 0072 1B88     		ldrh	r3, [r3]
- 688 0074 002B     		cmp	r3, #0
- 689 0076 06D0     		beq	.L32
- 168:main.c        ****                 else
- 690              		.loc 1 168 0 is_stmt 1
- 691 0078 0F4B     		ldr	r3, .L35+4
- 692 007a 1B88     		ldrh	r3, [r3]
- 693 007c 013B     		subs	r3, r3, #1
- 694 007e 9AB2     		uxth	r2, r3
- 695 0080 0D4B     		ldr	r3, .L35+4
- 696 0082 1A80     		strh	r2, [r3]	@ movhi
- 697 0084 12E0     		b	.L28
-ARM GAS  C:\Users\Janit\AppData\Local\Temp\cctvVDDM.s 			page 17
+ 677 0006 7860     		str	r0, [r7, #4]
+ 157:main.c        **** // !! Assumes that *s is a string with allocated space >=64 chars     
+ 158:main.c        **** //  Since USB implementation retricts data packets to 64 chars, this function truncates the
+ 159:main.c        **** //  length to 62 char (63rd char is a '!')
+ 160:main.c        **** 
+ 161:main.c        **** #ifdef USE_USB     
+ 162:main.c        ****     while (USBUART_CDCIsReady() == 0);
+ 678              		.loc 1 162 0
+ 679 0008 00BF     		nop
+ 680              	.L28:
+ 681              		.loc 1 162 0 is_stmt 0 discriminator 1
+ 682 000a FFF7FEFF 		bl	USBUART_CDCIsReady
+ 683 000e 0346     		mov	r3, r0
+ 684 0010 002B     		cmp	r3, #0
+ 685 0012 FAD0     		beq	.L28
+ 163:main.c        ****     s[63]='\0';
+ 686              		.loc 1 163 0 is_stmt 1
+ 687 0014 7B68     		ldr	r3, [r7, #4]
+ 688 0016 3F33     		adds	r3, r3, #63
+ 689 0018 0022     		movs	r2, #0
+ 690 001a 1A70     		strb	r2, [r3]
+ 164:main.c        ****     s[62]='!';
+ 691              		.loc 1 164 0
+ 692 001c 7B68     		ldr	r3, [r7, #4]
+ 693 001e 3E33     		adds	r3, r3, #62
+ 694 0020 2122     		movs	r2, #33
+ 695 0022 1A70     		strb	r2, [r3]
+ 165:main.c        ****     USBUART_PutData((uint8*)s,strlen(s));
+ 696              		.loc 1 165 0
+ 697 0024 7868     		ldr	r0, [r7, #4]
+ 698 0026 FFF7FEFF 		bl	strlen
+ 699 002a 0346     		mov	r3, r0
+ 700 002c 9BB2     		uxth	r3, r3
+ 701 002e 1946     		mov	r1, r3
+ 702 0030 7868     		ldr	r0, [r7, #4]
+ 703 0032 FFF7FEFF 		bl	USBUART_PutData
+ 166:main.c        **** #endif
+ 167:main.c        **** }
+ 704              		.loc 1 167 0
+ 705 0036 00BF     		nop
+ 706 0038 0837     		adds	r7, r7, #8
+ 707              		.cfi_def_cfa_offset 8
+ 708 003a BD46     		mov	sp, r7
+ 709              		.cfi_def_cfa_register 13
+ 710              		@ sp needed
+ 711 003c 80BD     		pop	{r7, pc}
+ 712              		.cfi_endproc
+ 713              	.LFE69:
+ 714              		.size	usbPutString, .-usbPutString
+ 715 003e 00BF     		.section	.text.usbPutChar,"ax",%progbits
+ 716              		.align	2
+ 717              		.global	usbPutChar
+ 718              		.thumb
+ 719              		.thumb_func
+ 720              		.type	usbPutChar, %function
+ 721              	usbPutChar:
+ 722              	.LFB70:
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccmw0Jyb.s 			page 17
 
 
- 698              	.L32:
- 171:main.c        ****                     {
- 699              		.loc 1 171 0
- 700 0086 0C4B     		ldr	r3, .L35+4
- 701 0088 1B88     		ldrh	r3, [r3]
- 702 008a 3E2B     		cmp	r3, #62
- 703 008c 03D9     		bls	.L33
- 173:main.c        ****                     }
- 704              		.loc 1 173 0
- 705 008e 2120     		movs	r0, #33
- 706 0090 FFF7FEFF 		bl	USBUART_PutChar
- 707              		.loc 1 181 0
- 708 0094 0AE0     		b	.L34
- 709              	.L33:
- 176:main.c        ****                 }  
- 710              		.loc 1 176 0
- 711 0096 084B     		ldr	r3, .L35+4
- 712 0098 1B88     		ldrh	r3, [r3]
- 713 009a 5A1C     		adds	r2, r3, #1
- 714 009c 91B2     		uxth	r1, r2
- 715 009e 064A     		ldr	r2, .L35+4
- 716 00a0 1180     		strh	r1, [r2]	@ movhi
- 717 00a2 1946     		mov	r1, r3
- 718 00a4 054A     		ldr	r2, .L35+8
- 719 00a6 FB79     		ldrb	r3, [r7, #7]
- 720 00a8 5354     		strb	r3, [r2, r1]
- 721              		.loc 1 181 0
- 722 00aa FFE7     		b	.L34
- 723              	.L28:
- 724              	.L34:
- 725 00ac 00BF     		nop
- 726 00ae 0837     		adds	r7, r7, #8
- 727              		.cfi_def_cfa_offset 8
- 728 00b0 BD46     		mov	sp, r7
- 729              		.cfi_def_cfa_register 13
- 730              		@ sp needed
- 731 00b2 80BD     		pop	{r7, pc}
- 732              	.L36:
- 733              		.align	2
- 734              	.L35:
- 735 00b4 12000000 		.word	usbStarted.8149
- 736 00b8 14000000 		.word	usbBufCount.8150
- 737 00bc 00000000 		.word	entry
- 738 00c0 00000000 		.word	line
- 739 00c4 00000000 		.word	flag_KB_string
- 740              		.cfi_endproc
- 741              	.LFE69:
- 742              		.size	handle_usb, .-handle_usb
- 743              		.bss
- 744              	usbStarted.8149:
- 745 0012 00       		.space	1
- 746 0013 00       		.align	1
- 747              	usbBufCount.8150:
- 748 0014 0000     		.space	2
- 749              		.text
- 750              	.Letext0:
- 751              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
-ARM GAS  C:\Users\Janit\AppData\Local\Temp\cctvVDDM.s 			page 18
+ 168:main.c        **** //* ========================================
+ 169:main.c        **** void usbPutChar(char c)
+ 170:main.c        **** {
+ 723              		.loc 1 170 0
+ 724              		.cfi_startproc
+ 725              		@ args = 0, pretend = 0, frame = 8
+ 726              		@ frame_needed = 1, uses_anonymous_args = 0
+ 727 0000 80B5     		push	{r7, lr}
+ 728              		.cfi_def_cfa_offset 8
+ 729              		.cfi_offset 7, -8
+ 730              		.cfi_offset 14, -4
+ 731 0002 82B0     		sub	sp, sp, #8
+ 732              		.cfi_def_cfa_offset 16
+ 733 0004 00AF     		add	r7, sp, #0
+ 734              		.cfi_def_cfa_register 7
+ 735 0006 0346     		mov	r3, r0
+ 736 0008 FB71     		strb	r3, [r7, #7]
+ 171:main.c        **** #ifdef USE_USB     
+ 172:main.c        ****     while (USBUART_CDCIsReady() == 0);
+ 737              		.loc 1 172 0
+ 738 000a 00BF     		nop
+ 739              	.L30:
+ 740              		.loc 1 172 0 is_stmt 0 discriminator 1
+ 741 000c FFF7FEFF 		bl	USBUART_CDCIsReady
+ 742 0010 0346     		mov	r3, r0
+ 743 0012 002B     		cmp	r3, #0
+ 744 0014 FAD0     		beq	.L30
+ 173:main.c        ****     USBUART_PutChar(c);
+ 745              		.loc 1 173 0 is_stmt 1
+ 746 0016 FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 747 0018 1846     		mov	r0, r3
+ 748 001a FFF7FEFF 		bl	USBUART_PutChar
+ 174:main.c        **** #endif    
+ 175:main.c        **** }
+ 749              		.loc 1 175 0
+ 750 001e 00BF     		nop
+ 751 0020 0837     		adds	r7, r7, #8
+ 752              		.cfi_def_cfa_offset 8
+ 753 0022 BD46     		mov	sp, r7
+ 754              		.cfi_def_cfa_register 13
+ 755              		@ sp needed
+ 756 0024 80BD     		pop	{r7, pc}
+ 757              		.cfi_endproc
+ 758              	.LFE70:
+ 759              		.size	usbPutChar, .-usbPutChar
+ 760 0026 00BF     		.section	.text.handle_usb,"ax",%progbits
+ 761              		.align	2
+ 762              		.global	handle_usb
+ 763              		.thumb
+ 764              		.thumb_func
+ 765              		.type	handle_usb, %function
+ 766              	handle_usb:
+ 767              	.LFB71:
+ 176:main.c        **** //* ========================================
+ 177:main.c        **** void handle_usb()
+ 178:main.c        **** {
+ 768              		.loc 1 178 0
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccmw0Jyb.s 			page 18
 
 
- 752              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
- 753              		.file 4 "Generated_Source\\PSoC5/cytypes.h"
- 754              		.file 5 "vars.h"
- 755              		.file 6 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
- 756              		.file 7 "Generated_Source\\PSoC5/core_cm3.h"
- 757              		.section	.debug_info,"",%progbits
- 758              	.Ldebug_info0:
- 759 0000 BA040000 		.4byte	0x4ba
- 760 0004 0400     		.2byte	0x4
- 761 0006 00000000 		.4byte	.Ldebug_abbrev0
- 762 000a 04       		.byte	0x4
- 763 000b 01       		.uleb128 0x1
- 764 000c 7E000000 		.4byte	.LASF72
- 765 0010 0C       		.byte	0xc
- 766 0011 56030000 		.4byte	.LASF73
- 767 0015 B2010000 		.4byte	.LASF74
- 768 0019 18000000 		.4byte	.Ldebug_ranges0+0x18
- 769 001d 00000000 		.4byte	0
- 770 0021 00000000 		.4byte	.Ldebug_line0
- 771 0025 02       		.uleb128 0x2
- 772 0026 01       		.byte	0x1
- 773 0027 06       		.byte	0x6
- 774 0028 7A020000 		.4byte	.LASF0
- 775 002c 02       		.uleb128 0x2
- 776 002d 01       		.byte	0x1
- 777 002e 08       		.byte	0x8
- 778 002f 4B020000 		.4byte	.LASF1
- 779 0033 02       		.uleb128 0x2
- 780 0034 02       		.byte	0x2
- 781 0035 05       		.byte	0x5
- 782 0036 40000000 		.4byte	.LASF2
- 783 003a 02       		.uleb128 0x2
- 784 003b 02       		.byte	0x2
- 785 003c 07       		.byte	0x7
- 786 003d E0020000 		.4byte	.LASF3
- 787 0041 03       		.uleb128 0x3
- 788 0042 A4030000 		.4byte	.LASF12
- 789 0046 02       		.byte	0x2
- 790 0047 3F       		.byte	0x3f
- 791 0048 4C000000 		.4byte	0x4c
- 792 004c 02       		.uleb128 0x2
- 793 004d 04       		.byte	0x4
- 794 004e 05       		.byte	0x5
- 795 004f A9010000 		.4byte	.LASF4
- 796 0053 02       		.uleb128 0x2
- 797 0054 04       		.byte	0x4
- 798 0055 07       		.byte	0x7
- 799 0056 5D030000 		.4byte	.LASF5
- 800 005a 02       		.uleb128 0x2
- 801 005b 08       		.byte	0x8
- 802 005c 05       		.byte	0x5
- 803 005d 5D010000 		.4byte	.LASF6
- 804 0061 02       		.uleb128 0x2
- 805 0062 08       		.byte	0x8
- 806 0063 07       		.byte	0x7
- 807 0064 86020000 		.4byte	.LASF7
- 808 0068 04       		.uleb128 0x4
-ARM GAS  C:\Users\Janit\AppData\Local\Temp\cctvVDDM.s 			page 19
+ 769              		.cfi_startproc
+ 770              		@ args = 0, pretend = 0, frame = 8
+ 771              		@ frame_needed = 1, uses_anonymous_args = 0
+ 772 0000 80B5     		push	{r7, lr}
+ 773              		.cfi_def_cfa_offset 8
+ 774              		.cfi_offset 7, -8
+ 775              		.cfi_offset 14, -4
+ 776 0002 82B0     		sub	sp, sp, #8
+ 777              		.cfi_def_cfa_offset 16
+ 778 0004 00AF     		add	r7, sp, #0
+ 779              		.cfi_def_cfa_register 7
+ 179:main.c        ****     // handles input at terminal, echos it back to the terminal
+ 180:main.c        ****     // turn echo OFF, key emulation: only CR
+ 181:main.c        ****     // entered string is made available in 'line' and 'flag_KB_string' is set
+ 182:main.c        ****     
+ 183:main.c        ****     static uint8 usbStarted = FALSE;
+ 184:main.c        ****     static uint16 usbBufCount = 0;
+ 185:main.c        ****     uint8 c; 
+ 186:main.c        ****     
+ 187:main.c        **** 
+ 188:main.c        ****     if (!usbStarted)
+ 780              		.loc 1 188 0
+ 781 0006 2B4B     		ldr	r3, .L41
+ 782 0008 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 783 000a 002B     		cmp	r3, #0
+ 784 000c 0AD1     		bne	.L32
+ 189:main.c        ****     {
+ 190:main.c        ****         if (USBUART_GetConfiguration())
+ 785              		.loc 1 190 0
+ 786 000e FFF7FEFF 		bl	USBUART_GetConfiguration
+ 787 0012 0346     		mov	r3, r0
+ 788 0014 002B     		cmp	r3, #0
+ 789 0016 49D0     		beq	.L40
+ 191:main.c        ****         {
+ 192:main.c        ****             USBUART_CDC_Init();
+ 790              		.loc 1 192 0
+ 791 0018 FFF7FEFF 		bl	USBUART_CDC_Init
+ 193:main.c        ****             usbStarted = TRUE;
+ 792              		.loc 1 193 0
+ 793 001c 254B     		ldr	r3, .L41
+ 794 001e 0122     		movs	r2, #1
+ 795 0020 1A70     		strb	r2, [r3]
+ 194:main.c        ****         }
+ 195:main.c        ****     }
+ 196:main.c        ****     else
+ 197:main.c        ****     {
+ 198:main.c        ****         if (USBUART_DataIsReady() != 0)
+ 199:main.c        ****         {  
+ 200:main.c        ****             c = USBUART_GetChar();
+ 201:main.c        **** 
+ 202:main.c        ****             if ((c == 13) || (c == 10))
+ 203:main.c        ****             {
+ 204:main.c        **** //                if (usbBufCount > 0)
+ 205:main.c        ****                 {
+ 206:main.c        ****                     entry[usbBufCount]= '\0';
+ 207:main.c        ****                     strcpy(line,entry);
+ 208:main.c        ****                     usbBufCount = 0;
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccmw0Jyb.s 			page 19
 
 
- 809 0069 04       		.byte	0x4
- 810 006a 05       		.byte	0x5
- 811 006b 696E7400 		.ascii	"int\000"
- 812 006f 02       		.uleb128 0x2
- 813 0070 04       		.byte	0x4
- 814 0071 07       		.byte	0x7
- 815 0072 9D020000 		.4byte	.LASF8
- 816 0076 02       		.uleb128 0x2
- 817 0077 08       		.byte	0x8
- 818 0078 04       		.byte	0x4
- 819 0079 38020000 		.4byte	.LASF9
- 820 007d 02       		.uleb128 0x2
- 821 007e 04       		.byte	0x4
- 822 007f 07       		.byte	0x7
- 823 0080 5D000000 		.4byte	.LASF10
- 824 0084 05       		.uleb128 0x5
- 825 0085 04       		.byte	0x4
- 826 0086 8A000000 		.4byte	0x8a
- 827 008a 02       		.uleb128 0x2
- 828 008b 01       		.byte	0x1
- 829 008c 08       		.byte	0x8
- 830 008d FD020000 		.4byte	.LASF11
- 831 0091 05       		.uleb128 0x5
- 832 0092 04       		.byte	0x4
- 833 0093 97000000 		.4byte	0x97
- 834 0097 06       		.uleb128 0x6
- 835 0098 8A000000 		.4byte	0x8a
- 836 009c 03       		.uleb128 0x3
- 837 009d 0D030000 		.4byte	.LASF13
- 838 00a1 03       		.byte	0x3
- 839 00a2 2C       		.byte	0x2c
- 840 00a3 41000000 		.4byte	0x41
- 841 00a7 07       		.uleb128 0x7
- 842 00a8 34010000 		.4byte	.LASF14
- 843 00ac 04       		.byte	0x4
- 844 00ad E701     		.2byte	0x1e7
- 845 00af 2C000000 		.4byte	0x2c
- 846 00b3 07       		.uleb128 0x7
- 847 00b4 21010000 		.4byte	.LASF15
- 848 00b8 04       		.byte	0x4
- 849 00b9 E801     		.2byte	0x1e8
- 850 00bb 3A000000 		.4byte	0x3a
- 851 00bf 07       		.uleb128 0x7
- 852 00c0 78010000 		.4byte	.LASF16
- 853 00c4 04       		.byte	0x4
- 854 00c5 EA01     		.2byte	0x1ea
- 855 00c7 25000000 		.4byte	0x25
- 856 00cb 07       		.uleb128 0x7
- 857 00cc 2E010000 		.4byte	.LASF17
- 858 00d0 04       		.byte	0x4
- 859 00d1 EB01     		.2byte	0x1eb
- 860 00d3 33000000 		.4byte	0x33
- 861 00d7 02       		.uleb128 0x2
- 862 00d8 04       		.byte	0x4
- 863 00d9 04       		.byte	0x4
- 864 00da 57010000 		.4byte	.LASF18
- 865 00de 02       		.uleb128 0x2
-ARM GAS  C:\Users\Janit\AppData\Local\Temp\cctvVDDM.s 			page 20
+ 209:main.c        ****                     flag_KB_string = 1;
+ 210:main.c        ****                 }
+ 211:main.c        ****             }
+ 212:main.c        ****             else 
+ 213:main.c        ****             {
+ 214:main.c        ****                 if (((c == CHAR_BACKSP) || (c == CHAR_DEL) ) && (usbBufCount > 0) )
+ 215:main.c        ****                     usbBufCount--;
+ 216:main.c        ****                 else
+ 217:main.c        ****                 {
+ 218:main.c        ****                     if (usbBufCount > (BUF_SIZE-2) ) // one less else strtok triggers a crash
+ 219:main.c        ****                     {
+ 220:main.c        ****                        USBUART_PutChar('!');        
+ 221:main.c        ****                     }
+ 222:main.c        ****                     else
+ 223:main.c        ****                         entry[usbBufCount++] = c;  
+ 224:main.c        ****                 }  
+ 225:main.c        ****             }
+ 226:main.c        ****         }
+ 227:main.c        ****     }    
+ 228:main.c        **** }
+ 796              		.loc 1 228 0
+ 797 0022 43E0     		b	.L40
+ 798              	.L32:
+ 198:main.c        ****         {  
+ 799              		.loc 1 198 0
+ 800 0024 FFF7FEFF 		bl	USBUART_DataIsReady
+ 801 0028 0346     		mov	r3, r0
+ 802 002a 002B     		cmp	r3, #0
+ 803 002c 3ED0     		beq	.L40
+ 200:main.c        **** 
+ 804              		.loc 1 200 0
+ 805 002e FFF7FEFF 		bl	USBUART_GetChar
+ 806 0032 0346     		mov	r3, r0
+ 807 0034 FB71     		strb	r3, [r7, #7]
+ 202:main.c        ****             {
+ 808              		.loc 1 202 0
+ 809 0036 FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 810 0038 0D2B     		cmp	r3, #13
+ 811 003a 02D0     		beq	.L35
+ 202:main.c        ****             {
+ 812              		.loc 1 202 0 is_stmt 0 discriminator 1
+ 813 003c FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 814 003e 0A2B     		cmp	r3, #10
+ 815 0040 10D1     		bne	.L36
+ 816              	.L35:
+ 206:main.c        ****                     strcpy(line,entry);
+ 817              		.loc 1 206 0 is_stmt 1
+ 818 0042 1D4B     		ldr	r3, .L41+4
+ 819 0044 1B88     		ldrh	r3, [r3]
+ 820 0046 1A46     		mov	r2, r3
+ 821 0048 1C4B     		ldr	r3, .L41+8
+ 822 004a 0021     		movs	r1, #0
+ 823 004c 9954     		strb	r1, [r3, r2]
+ 207:main.c        ****                     usbBufCount = 0;
+ 824              		.loc 1 207 0
+ 825 004e 1B49     		ldr	r1, .L41+8
+ 826 0050 1B48     		ldr	r0, .L41+12
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccmw0Jyb.s 			page 20
 
 
- 866 00df 08       		.byte	0x8
- 867 00e0 04       		.byte	0x4
- 868 00e1 17000000 		.4byte	.LASF19
- 869 00e5 08       		.uleb128 0x8
- 870 00e6 F3020000 		.4byte	.LASF75
- 871 00ea 20       		.byte	0x20
- 872 00eb 05       		.byte	0x5
- 873 00ec 29       		.byte	0x29
- 874 00ed BE010000 		.4byte	0x1be
- 875 00f1 09       		.uleb128 0x9
- 876 00f2 11040000 		.4byte	.LASF20
- 877 00f6 05       		.byte	0x5
- 878 00f7 2A       		.byte	0x2a
- 879 00f8 BF000000 		.4byte	0xbf
- 880 00fc 00       		.byte	0
- 881 00fd 09       		.uleb128 0x9
- 882 00fe 28010000 		.4byte	.LASF21
- 883 0102 05       		.byte	0x5
- 884 0103 2B       		.byte	0x2b
- 885 0104 A7000000 		.4byte	0xa7
- 886 0108 01       		.byte	0x1
- 887 0109 09       		.uleb128 0x9
- 888 010a 02030000 		.4byte	.LASF22
- 889 010e 05       		.byte	0x5
- 890 010f 2C       		.byte	0x2c
- 891 0110 CB000000 		.4byte	0xcb
- 892 0114 02       		.byte	0x2
- 893 0115 09       		.uleb128 0x9
- 894 0116 F9030000 		.4byte	.LASF23
- 895 011a 05       		.byte	0x5
- 896 011b 2D       		.byte	0x2d
- 897 011c CB000000 		.4byte	0xcb
- 898 0120 04       		.byte	0x4
- 899 0121 09       		.uleb128 0x9
- 900 0122 16040000 		.4byte	.LASF24
- 901 0126 05       		.byte	0x5
- 902 0127 2E       		.byte	0x2e
- 903 0128 CB000000 		.4byte	0xcb
- 904 012c 06       		.byte	0x6
- 905 012d 09       		.uleb128 0x9
- 906 012e A1010000 		.4byte	.LASF25
- 907 0132 05       		.byte	0x5
- 908 0133 2F       		.byte	0x2f
- 909 0134 CB000000 		.4byte	0xcb
- 910 0138 08       		.byte	0x8
- 911 0139 09       		.uleb128 0x9
- 912 013a AE030000 		.4byte	.LASF26
- 913 013e 05       		.byte	0x5
- 914 013f 30       		.byte	0x30
- 915 0140 CB000000 		.4byte	0xcb
- 916 0144 0A       		.byte	0xa
- 917 0145 09       		.uleb128 0x9
- 918 0146 5E020000 		.4byte	.LASF27
- 919 014a 05       		.byte	0x5
- 920 014b 31       		.byte	0x31
- 921 014c CB000000 		.4byte	0xcb
- 922 0150 0C       		.byte	0xc
-ARM GAS  C:\Users\Janit\AppData\Local\Temp\cctvVDDM.s 			page 21
+ 827 0052 FFF7FEFF 		bl	strcpy
+ 208:main.c        ****                     flag_KB_string = 1;
+ 828              		.loc 1 208 0
+ 829 0056 184B     		ldr	r3, .L41+4
+ 830 0058 0022     		movs	r2, #0
+ 831 005a 1A80     		strh	r2, [r3]	@ movhi
+ 209:main.c        ****                 }
+ 832              		.loc 1 209 0
+ 833 005c 194B     		ldr	r3, .L41+16
+ 834 005e 0122     		movs	r2, #1
+ 835 0060 1A70     		strb	r2, [r3]
+ 836 0062 23E0     		b	.L34
+ 837              	.L36:
+ 214:main.c        ****                     usbBufCount--;
+ 838              		.loc 1 214 0
+ 839 0064 FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 840 0066 082B     		cmp	r3, #8
+ 841 0068 02D0     		beq	.L37
+ 214:main.c        ****                     usbBufCount--;
+ 842              		.loc 1 214 0 is_stmt 0 discriminator 2
+ 843 006a FB79     		ldrb	r3, [r7, #7]	@ zero_extendqisi2
+ 844 006c 7F2B     		cmp	r3, #127
+ 845 006e 0AD1     		bne	.L38
+ 846              	.L37:
+ 214:main.c        ****                     usbBufCount--;
+ 847              		.loc 1 214 0 discriminator 3
+ 848 0070 114B     		ldr	r3, .L41+4
+ 849 0072 1B88     		ldrh	r3, [r3]
+ 850 0074 002B     		cmp	r3, #0
+ 851 0076 06D0     		beq	.L38
+ 215:main.c        ****                 else
+ 852              		.loc 1 215 0 is_stmt 1
+ 853 0078 0F4B     		ldr	r3, .L41+4
+ 854 007a 1B88     		ldrh	r3, [r3]
+ 855 007c 013B     		subs	r3, r3, #1
+ 856 007e 9AB2     		uxth	r2, r3
+ 857 0080 0D4B     		ldr	r3, .L41+4
+ 858 0082 1A80     		strh	r2, [r3]	@ movhi
+ 859 0084 12E0     		b	.L34
+ 860              	.L38:
+ 218:main.c        ****                     {
+ 861              		.loc 1 218 0
+ 862 0086 0C4B     		ldr	r3, .L41+4
+ 863 0088 1B88     		ldrh	r3, [r3]
+ 864 008a 3E2B     		cmp	r3, #62
+ 865 008c 03D9     		bls	.L39
+ 220:main.c        ****                     }
+ 866              		.loc 1 220 0
+ 867 008e 2120     		movs	r0, #33
+ 868 0090 FFF7FEFF 		bl	USBUART_PutChar
+ 869              		.loc 1 228 0
+ 870 0094 0AE0     		b	.L40
+ 871              	.L39:
+ 223:main.c        ****                 }  
+ 872              		.loc 1 223 0
+ 873 0096 084B     		ldr	r3, .L41+4
+ 874 0098 1B88     		ldrh	r3, [r3]
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccmw0Jyb.s 			page 21
 
 
- 923 0151 09       		.uleb128 0x9
- 924 0152 94010000 		.4byte	.LASF28
- 925 0156 05       		.byte	0x5
- 926 0157 32       		.byte	0x32
- 927 0158 CB000000 		.4byte	0xcb
- 928 015c 0E       		.byte	0xe
- 929 015d 09       		.uleb128 0x9
- 930 015e CE020000 		.4byte	.LASF29
- 931 0162 05       		.byte	0x5
- 932 0163 33       		.byte	0x33
- 933 0164 CB000000 		.4byte	0xcb
- 934 0168 10       		.byte	0x10
- 935 0169 09       		.uleb128 0x9
- 936 016a 15030000 		.4byte	.LASF30
- 937 016e 05       		.byte	0x5
- 938 016f 34       		.byte	0x34
- 939 0170 CB000000 		.4byte	0xcb
- 940 0174 12       		.byte	0x12
- 941 0175 09       		.uleb128 0x9
- 942 0176 2A030000 		.4byte	.LASF31
- 943 017a 05       		.byte	0x5
- 944 017b 35       		.byte	0x35
- 945 017c CB000000 		.4byte	0xcb
- 946 0180 14       		.byte	0x14
- 947 0181 09       		.uleb128 0x9
- 948 0182 3A010000 		.4byte	.LASF32
- 949 0186 05       		.byte	0x5
- 950 0187 36       		.byte	0x36
- 951 0188 CB000000 		.4byte	0xcb
- 952 018c 16       		.byte	0x16
- 953 018d 09       		.uleb128 0x9
- 954 018e 38000000 		.4byte	.LASF33
- 955 0192 05       		.byte	0x5
- 956 0193 37       		.byte	0x37
- 957 0194 CB000000 		.4byte	0xcb
- 958 0198 18       		.byte	0x18
- 959 0199 09       		.uleb128 0x9
- 960 019a 8C010000 		.4byte	.LASF34
- 961 019e 05       		.byte	0x5
- 962 019f 38       		.byte	0x38
- 963 01a0 CB000000 		.4byte	0xcb
- 964 01a4 1A       		.byte	0x1a
- 965 01a5 09       		.uleb128 0x9
- 966 01a6 C5020000 		.4byte	.LASF35
- 967 01aa 05       		.byte	0x5
- 968 01ab 39       		.byte	0x39
- 969 01ac CB000000 		.4byte	0xcb
- 970 01b0 1C       		.byte	0x1c
- 971 01b1 09       		.uleb128 0x9
- 972 01b2 1D030000 		.4byte	.LASF36
- 973 01b6 05       		.byte	0x5
- 974 01b7 3A       		.byte	0x3a
- 975 01b8 CB000000 		.4byte	0xcb
- 976 01bc 1E       		.byte	0x1e
- 977 01bd 00       		.byte	0
- 978 01be 0A       		.uleb128 0xa
- 979 01bf 0C010000 		.4byte	.LASF38
-ARM GAS  C:\Users\Janit\AppData\Local\Temp\cctvVDDM.s 			page 22
+ 875 009a 5A1C     		adds	r2, r3, #1
+ 876 009c 91B2     		uxth	r1, r2
+ 877 009e 064A     		ldr	r2, .L41+4
+ 878 00a0 1180     		strh	r1, [r2]	@ movhi
+ 879 00a2 1946     		mov	r1, r3
+ 880 00a4 054A     		ldr	r2, .L41+8
+ 881 00a6 FB79     		ldrb	r3, [r7, #7]
+ 882 00a8 5354     		strb	r3, [r2, r1]
+ 883              		.loc 1 228 0
+ 884 00aa FFE7     		b	.L40
+ 885              	.L34:
+ 886              	.L40:
+ 887 00ac 00BF     		nop
+ 888 00ae 0837     		adds	r7, r7, #8
+ 889              		.cfi_def_cfa_offset 8
+ 890 00b0 BD46     		mov	sp, r7
+ 891              		.cfi_def_cfa_register 13
+ 892              		@ sp needed
+ 893 00b2 80BD     		pop	{r7, pc}
+ 894              	.L42:
+ 895              		.align	2
+ 896              	.L41:
+ 897 00b4 18000000 		.word	usbStarted.8259
+ 898 00b8 1A000000 		.word	usbBufCount.8260
+ 899 00bc 00000000 		.word	entry
+ 900 00c0 00000000 		.word	line
+ 901 00c4 00000000 		.word	flag_KB_string
+ 902              		.cfi_endproc
+ 903              	.LFE71:
+ 904              		.size	handle_usb, .-handle_usb
+ 905              		.bss
+ 906              	usbStarted.8259:
+ 907 0018 00       		.space	1
+ 908 0019 00       		.align	1
+ 909              	usbBufCount.8260:
+ 910 001a 0000     		.space	2
+ 911              		.text
+ 912              	.Letext0:
+ 913              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ 914              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ 915              		.file 4 "Generated_Source\\PSoC5/cytypes.h"
+ 916              		.file 5 "vars.h"
+ 917              		.file 6 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ 918              		.file 7 "Generated_Source\\PSoC5/core_cm3.h"
+ 919              		.section	.debug_info,"",%progbits
+ 920              	.Ldebug_info0:
+ 921 0000 05050000 		.4byte	0x505
+ 922 0004 0400     		.2byte	0x4
+ 923 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 924 000a 04       		.byte	0x4
+ 925 000b 01       		.uleb128 0x1
+ 926 000c 7E000000 		.4byte	.LASF77
+ 927 0010 0C       		.byte	0xc
+ 928 0011 17030000 		.4byte	.LASF78
+ 929 0015 6F030000 		.4byte	.LASF79
+ 930 0019 18000000 		.4byte	.Ldebug_ranges0+0x18
+ 931 001d 00000000 		.4byte	0
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccmw0Jyb.s 			page 22
 
 
- 980 01c3 01       		.byte	0x1
- 981 01c4 22       		.byte	0x22
- 982 01c5 68000000 		.4byte	0x68
- 983 01c9 00000000 		.4byte	.LFB64
- 984 01cd 9C000000 		.4byte	.LFE64-.LFB64
- 985 01d1 01       		.uleb128 0x1
- 986 01d2 9C       		.byte	0x9c
- 987 01d3 FF010000 		.4byte	0x1ff
- 988 01d7 0B       		.uleb128 0xb
- 989 01d8 38000000 		.4byte	.LBB2
- 990 01dc 4E000000 		.4byte	.LBE2-.LBB2
- 991 01e0 0C       		.uleb128 0xc
- 992 01e1 6D736700 		.ascii	"msg\000"
- 993 01e5 01       		.byte	0x1
- 994 01e6 3B       		.byte	0x3b
- 995 01e7 FF010000 		.4byte	0x1ff
- 996 01eb 03       		.uleb128 0x3
- 997 01ec 91       		.byte	0x91
- 998 01ed A07F     		.sleb128 -96
- 999 01ef 0D       		.uleb128 0xd
- 1000 01f0 44020000 		.4byte	.LASF37
- 1001 01f4 01       		.byte	0x1
- 1002 01f5 3C       		.byte	0x3c
- 1003 01f6 0F020000 		.4byte	0x20f
- 1004 01fa 02       		.uleb128 0x2
- 1005 01fb 91       		.byte	0x91
- 1006 01fc 60       		.sleb128 -32
- 1007 01fd 00       		.byte	0
- 1008 01fe 00       		.byte	0
- 1009 01ff 0E       		.uleb128 0xe
- 1010 0200 8A000000 		.4byte	0x8a
- 1011 0204 0F020000 		.4byte	0x20f
- 1012 0208 0F       		.uleb128 0xf
- 1013 0209 7D000000 		.4byte	0x7d
- 1014 020d 3F       		.byte	0x3f
- 1015 020e 00       		.byte	0
- 1016 020f 0E       		.uleb128 0xe
- 1017 0210 8A000000 		.4byte	0x8a
- 1018 0214 1F020000 		.4byte	0x21f
- 1019 0218 0F       		.uleb128 0xf
- 1020 0219 7D000000 		.4byte	0x7d
- 1021 021d 0D       		.byte	0xd
- 1022 021e 00       		.byte	0
- 1023 021f 10       		.uleb128 0x10
- 1024 0220 11010000 		.4byte	.LASF39
- 1025 0224 01       		.byte	0x1
- 1026 0225 47       		.byte	0x47
- 1027 0226 00000000 		.4byte	.LFB65
- 1028 022a EC000000 		.4byte	.LFE65-.LFB65
- 1029 022e 01       		.uleb128 0x1
- 1030 022f 9C       		.byte	0x9c
- 1031 0230 90020000 		.4byte	0x290
- 1032 0234 11       		.uleb128 0x11
- 1033 0235 4A000000 		.4byte	.LASF46
- 1034 0239 01       		.byte	0x1
- 1035 023a 47       		.byte	0x47
- 1036 023b 91000000 		.4byte	0x91
-ARM GAS  C:\Users\Janit\AppData\Local\Temp\cctvVDDM.s 			page 23
+ 932 0021 00000000 		.4byte	.Ldebug_line0
+ 933 0025 02       		.uleb128 0x2
+ 934 0026 01       		.byte	0x1
+ 935 0027 06       		.byte	0x6
+ 936 0028 20020000 		.4byte	.LASF0
+ 937 002c 02       		.uleb128 0x2
+ 938 002d 01       		.byte	0x1
+ 939 002e 08       		.byte	0x8
+ 940 002f F1010000 		.4byte	.LASF1
+ 941 0033 02       		.uleb128 0x2
+ 942 0034 02       		.byte	0x2
+ 943 0035 05       		.byte	0x5
+ 944 0036 40000000 		.4byte	.LASF2
+ 945 003a 03       		.uleb128 0x3
+ 946 003b 11010000 		.4byte	.LASF4
+ 947 003f 02       		.byte	0x2
+ 948 0040 2B       		.byte	0x2b
+ 949 0041 45000000 		.4byte	0x45
+ 950 0045 02       		.uleb128 0x2
+ 951 0046 02       		.byte	0x2
+ 952 0047 07       		.byte	0x7
+ 953 0048 9A020000 		.4byte	.LASF3
+ 954 004c 03       		.uleb128 0x3
+ 955 004d 65030000 		.4byte	.LASF5
+ 956 0051 02       		.byte	0x2
+ 957 0052 3F       		.byte	0x3f
+ 958 0053 57000000 		.4byte	0x57
+ 959 0057 02       		.uleb128 0x2
+ 960 0058 04       		.byte	0x4
+ 961 0059 05       		.byte	0x5
+ 962 005a B4010000 		.4byte	.LASF6
+ 963 005e 02       		.uleb128 0x2
+ 964 005f 04       		.byte	0x4
+ 965 0060 07       		.byte	0x7
+ 966 0061 1E030000 		.4byte	.LASF7
+ 967 0065 02       		.uleb128 0x2
+ 968 0066 08       		.byte	0x8
+ 969 0067 05       		.byte	0x5
+ 970 0068 68010000 		.4byte	.LASF8
+ 971 006c 02       		.uleb128 0x2
+ 972 006d 08       		.byte	0x8
+ 973 006e 07       		.byte	0x7
+ 974 006f 2C020000 		.4byte	.LASF9
+ 975 0073 04       		.uleb128 0x4
+ 976 0074 04       		.byte	0x4
+ 977 0075 05       		.byte	0x5
+ 978 0076 696E7400 		.ascii	"int\000"
+ 979 007a 02       		.uleb128 0x2
+ 980 007b 04       		.byte	0x4
+ 981 007c 07       		.byte	0x7
+ 982 007d 43020000 		.4byte	.LASF10
+ 983 0081 02       		.uleb128 0x2
+ 984 0082 08       		.byte	0x8
+ 985 0083 04       		.byte	0x4
+ 986 0084 E5010000 		.4byte	.LASF11
+ 987 0088 02       		.uleb128 0x2
+ 988 0089 04       		.byte	0x4
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccmw0Jyb.s 			page 23
 
 
- 1037 023f 02       		.uleb128 0x2
- 1038 0240 91       		.byte	0x91
- 1039 0241 44       		.sleb128 -60
- 1040 0242 0D       		.uleb128 0xd
- 1041 0243 67020000 		.4byte	.LASF40
- 1042 0247 01       		.byte	0x1
- 1043 0248 48       		.byte	0x48
- 1044 0249 84000000 		.4byte	0x84
- 1045 024d 02       		.uleb128 0x2
- 1046 024e 91       		.byte	0x91
- 1047 024f 54       		.sleb128 -44
- 1048 0250 0D       		.uleb128 0xd
- 1049 0251 41030000 		.4byte	.LASF41
- 1050 0255 01       		.byte	0x1
- 1051 0256 49       		.byte	0x49
- 1052 0257 84000000 		.4byte	0x84
- 1053 025b 02       		.uleb128 0x2
- 1054 025c 91       		.byte	0x91
- 1055 025d 50       		.sleb128 -48
- 1056 025e 12       		.uleb128 0x12
- 1057 025f 00000000 		.4byte	.Ldebug_ranges0+0
- 1058 0263 0D       		.uleb128 0xd
- 1059 0264 92030000 		.4byte	.LASF42
- 1060 0268 01       		.byte	0x1
- 1061 0269 4C       		.byte	0x4c
- 1062 026a 68000000 		.4byte	0x68
- 1063 026e 02       		.uleb128 0x2
- 1064 026f 91       		.byte	0x91
- 1065 0270 5C       		.sleb128 -36
- 1066 0271 0D       		.uleb128 0xd
- 1067 0272 0B000000 		.4byte	.LASF43
- 1068 0276 01       		.byte	0x1
- 1069 0277 4D       		.byte	0x4d
- 1070 0278 8A000000 		.4byte	0x8a
- 1071 027c 02       		.uleb128 0x2
- 1072 027d 91       		.byte	0x91
- 1073 027e 5B       		.sleb128 -37
- 1074 027f 0D       		.uleb128 0xd
- 1075 0280 D6020000 		.4byte	.LASF44
- 1076 0284 01       		.byte	0x1
- 1077 0285 5D       		.byte	0x5d
- 1078 0286 90020000 		.4byte	0x290
- 1079 028a 03       		.uleb128 0x3
- 1080 028b 91       		.byte	0x91
- 1081 028c 48       		.sleb128 -56
- 1082 028d 06       		.byte	0x6
- 1083 028e 00       		.byte	0
- 1084 028f 00       		.byte	0
- 1085 0290 0E       		.uleb128 0xe
- 1086 0291 8A000000 		.4byte	0x8a
- 1087 0295 A3020000 		.4byte	0x2a3
- 1088 0299 13       		.uleb128 0x13
- 1089 029a 7D000000 		.4byte	0x7d
- 1090 029e 03       		.uleb128 0x3
- 1091 029f 91       		.byte	0x91
- 1092 02a0 4C       		.sleb128 -52
- 1093 02a1 06       		.byte	0x6
-ARM GAS  C:\Users\Janit\AppData\Local\Temp\cctvVDDM.s 			page 24
+ 989 008a 07       		.byte	0x7
+ 990 008b 5D000000 		.4byte	.LASF12
+ 991 008f 05       		.uleb128 0x5
+ 992 0090 04       		.byte	0x4
+ 993 0091 95000000 		.4byte	0x95
+ 994 0095 02       		.uleb128 0x2
+ 995 0096 01       		.byte	0x1
+ 996 0097 08       		.byte	0x8
+ 997 0098 B7020000 		.4byte	.LASF13
+ 998 009c 05       		.uleb128 0x5
+ 999 009d 04       		.byte	0x4
+ 1000 009e A2000000 		.4byte	0xa2
+ 1001 00a2 06       		.uleb128 0x6
+ 1002 00a3 95000000 		.4byte	0x95
+ 1003 00a7 03       		.uleb128 0x3
+ 1004 00a8 50020000 		.4byte	.LASF14
+ 1005 00ac 03       		.byte	0x3
+ 1006 00ad 24       		.byte	0x24
+ 1007 00ae 3A000000 		.4byte	0x3a
+ 1008 00b2 03       		.uleb128 0x3
+ 1009 00b3 C7020000 		.4byte	.LASF15
+ 1010 00b7 03       		.byte	0x3
+ 1011 00b8 2C       		.byte	0x2c
+ 1012 00b9 4C000000 		.4byte	0x4c
+ 1013 00bd 07       		.uleb128 0x7
+ 1014 00be 3F010000 		.4byte	.LASF16
+ 1015 00c2 04       		.byte	0x4
+ 1016 00c3 E701     		.2byte	0x1e7
+ 1017 00c5 2C000000 		.4byte	0x2c
+ 1018 00c9 07       		.uleb128 0x7
+ 1019 00ca 2C010000 		.4byte	.LASF17
+ 1020 00ce 04       		.byte	0x4
+ 1021 00cf E801     		.2byte	0x1e8
+ 1022 00d1 45000000 		.4byte	0x45
+ 1023 00d5 07       		.uleb128 0x7
+ 1024 00d6 83010000 		.4byte	.LASF18
+ 1025 00da 04       		.byte	0x4
+ 1026 00db EA01     		.2byte	0x1ea
+ 1027 00dd 25000000 		.4byte	0x25
+ 1028 00e1 07       		.uleb128 0x7
+ 1029 00e2 39010000 		.4byte	.LASF19
+ 1030 00e6 04       		.byte	0x4
+ 1031 00e7 EB01     		.2byte	0x1eb
+ 1032 00e9 33000000 		.4byte	0x33
+ 1033 00ed 02       		.uleb128 0x2
+ 1034 00ee 04       		.byte	0x4
+ 1035 00ef 04       		.byte	0x4
+ 1036 00f0 62010000 		.4byte	.LASF20
+ 1037 00f4 02       		.uleb128 0x2
+ 1038 00f5 08       		.byte	0x8
+ 1039 00f6 04       		.byte	0x4
+ 1040 00f7 17000000 		.4byte	.LASF21
+ 1041 00fb 08       		.uleb128 0x8
+ 1042 00fc AD020000 		.4byte	.LASF80
+ 1043 0100 20       		.byte	0x20
+ 1044 0101 05       		.byte	0x5
+ 1045 0102 29       		.byte	0x29
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccmw0Jyb.s 			page 24
 
 
- 1094 02a2 00       		.byte	0
- 1095 02a3 10       		.uleb128 0x10
- 1096 02a4 47010000 		.4byte	.LASF45
- 1097 02a8 01       		.byte	0x1
- 1098 02a9 64       		.byte	0x64
- 1099 02aa 00000000 		.4byte	.LFB66
- 1100 02ae AC000000 		.4byte	.LFE66-.LFB66
- 1101 02b2 01       		.uleb128 0x1
- 1102 02b3 9C       		.byte	0x9c
- 1103 02b4 C7020000 		.4byte	0x2c7
- 1104 02b8 11       		.uleb128 0x11
- 1105 02b9 59020000 		.4byte	.LASF47
- 1106 02bd 01       		.byte	0x1
- 1107 02be 64       		.byte	0x64
- 1108 02bf 68000000 		.4byte	0x68
- 1109 02c3 02       		.uleb128 0x2
- 1110 02c4 91       		.byte	0x91
- 1111 02c5 6C       		.sleb128 -20
- 1112 02c6 00       		.byte	0
- 1113 02c7 10       		.uleb128 0x10
- 1114 02c8 6B010000 		.4byte	.LASF48
- 1115 02cc 01       		.byte	0x1
- 1116 02cd 6C       		.byte	0x6c
- 1117 02ce 00000000 		.4byte	.LFB67
- 1118 02d2 3E000000 		.4byte	.LFE67-.LFB67
- 1119 02d6 01       		.uleb128 0x1
- 1120 02d7 9C       		.byte	0x9c
- 1121 02d8 E9020000 		.4byte	0x2e9
- 1122 02dc 14       		.uleb128 0x14
- 1123 02dd 7300     		.ascii	"s\000"
- 1124 02df 01       		.byte	0x1
- 1125 02e0 6C       		.byte	0x6c
- 1126 02e1 84000000 		.4byte	0x84
- 1127 02e5 02       		.uleb128 0x2
- 1128 02e6 91       		.byte	0x91
- 1129 02e7 74       		.sleb128 -12
- 1130 02e8 00       		.byte	0
- 1131 02e9 10       		.uleb128 0x10
- 1132 02ea 00000000 		.4byte	.LASF49
- 1133 02ee 01       		.byte	0x1
- 1134 02ef 7A       		.byte	0x7a
- 1135 02f0 00000000 		.4byte	.LFB68
- 1136 02f4 26000000 		.4byte	.LFE68-.LFB68
- 1137 02f8 01       		.uleb128 0x1
- 1138 02f9 9C       		.byte	0x9c
- 1139 02fa 0B030000 		.4byte	0x30b
- 1140 02fe 14       		.uleb128 0x14
- 1141 02ff 6300     		.ascii	"c\000"
- 1142 0301 01       		.byte	0x1
- 1143 0302 7A       		.byte	0x7a
- 1144 0303 8A000000 		.4byte	0x8a
- 1145 0307 02       		.uleb128 0x2
- 1146 0308 91       		.byte	0x91
- 1147 0309 77       		.sleb128 -9
- 1148 030a 00       		.byte	0
- 1149 030b 15       		.uleb128 0x15
- 1150 030c D2030000 		.4byte	.LASF76
-ARM GAS  C:\Users\Janit\AppData\Local\Temp\cctvVDDM.s 			page 25
+ 1046 0103 D4010000 		.4byte	0x1d4
+ 1047 0107 09       		.uleb128 0x9
+ 1048 0108 20040000 		.4byte	.LASF22
+ 1049 010c 05       		.byte	0x5
+ 1050 010d 2A       		.byte	0x2a
+ 1051 010e D5000000 		.4byte	0xd5
+ 1052 0112 00       		.byte	0
+ 1053 0113 09       		.uleb128 0x9
+ 1054 0114 33010000 		.4byte	.LASF23
+ 1055 0118 05       		.byte	0x5
+ 1056 0119 2B       		.byte	0x2b
+ 1057 011a BD000000 		.4byte	0xbd
+ 1058 011e 01       		.byte	0x1
+ 1059 011f 09       		.uleb128 0x9
+ 1060 0120 BC020000 		.4byte	.LASF24
+ 1061 0124 05       		.byte	0x5
+ 1062 0125 2C       		.byte	0x2c
+ 1063 0126 E1000000 		.4byte	0xe1
+ 1064 012a 02       		.byte	0x2
+ 1065 012b 09       		.uleb128 0x9
+ 1066 012c 03040000 		.4byte	.LASF25
+ 1067 0130 05       		.byte	0x5
+ 1068 0131 2D       		.byte	0x2d
+ 1069 0132 E1000000 		.4byte	0xe1
+ 1070 0136 04       		.byte	0x4
+ 1071 0137 09       		.uleb128 0x9
+ 1072 0138 25040000 		.4byte	.LASF26
+ 1073 013c 05       		.byte	0x5
+ 1074 013d 2E       		.byte	0x2e
+ 1075 013e E1000000 		.4byte	0xe1
+ 1076 0142 06       		.byte	0x6
+ 1077 0143 09       		.uleb128 0x9
+ 1078 0144 AC010000 		.4byte	.LASF27
+ 1079 0148 05       		.byte	0x5
+ 1080 0149 2F       		.byte	0x2f
+ 1081 014a E1000000 		.4byte	0xe1
+ 1082 014e 08       		.byte	0x8
+ 1083 014f 09       		.uleb128 0x9
+ 1084 0150 B8030000 		.4byte	.LASF28
+ 1085 0154 05       		.byte	0x5
+ 1086 0155 30       		.byte	0x30
+ 1087 0156 E1000000 		.4byte	0xe1
+ 1088 015a 0A       		.byte	0xa
+ 1089 015b 09       		.uleb128 0x9
+ 1090 015c 04020000 		.4byte	.LASF29
+ 1091 0160 05       		.byte	0x5
+ 1092 0161 31       		.byte	0x31
+ 1093 0162 E1000000 		.4byte	0xe1
+ 1094 0166 0C       		.byte	0xc
+ 1095 0167 09       		.uleb128 0x9
+ 1096 0168 9F010000 		.4byte	.LASF30
+ 1097 016c 05       		.byte	0x5
+ 1098 016d 32       		.byte	0x32
+ 1099 016e E1000000 		.4byte	0xe1
+ 1100 0172 0E       		.byte	0xe
+ 1101 0173 09       		.uleb128 0x9
+ 1102 0174 88020000 		.4byte	.LASF31
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccmw0Jyb.s 			page 25
 
 
- 1151 0310 01       		.byte	0x1
- 1152 0311 82       		.byte	0x82
- 1153 0312 00000000 		.4byte	.LFB69
- 1154 0316 C8000000 		.4byte	.LFE69-.LFB69
- 1155 031a 01       		.uleb128 0x1
- 1156 031b 9C       		.byte	0x9c
- 1157 031c 4F030000 		.4byte	0x34f
- 1158 0320 0D       		.uleb128 0xd
- 1159 0321 6F030000 		.4byte	.LASF50
- 1160 0325 01       		.byte	0x1
- 1161 0326 88       		.byte	0x88
- 1162 0327 A7000000 		.4byte	0xa7
- 1163 032b 05       		.uleb128 0x5
- 1164 032c 03       		.byte	0x3
- 1165 032d 12000000 		.4byte	usbStarted.8149
- 1166 0331 0D       		.uleb128 0xd
- 1167 0332 B9020000 		.4byte	.LASF51
- 1168 0336 01       		.byte	0x1
- 1169 0337 89       		.byte	0x89
- 1170 0338 B3000000 		.4byte	0xb3
- 1171 033c 05       		.uleb128 0x5
- 1172 033d 03       		.byte	0x3
- 1173 033e 14000000 		.4byte	usbBufCount.8150
- 1174 0342 0C       		.uleb128 0xc
- 1175 0343 6300     		.ascii	"c\000"
- 1176 0345 01       		.byte	0x1
- 1177 0346 8A       		.byte	0x8a
- 1178 0347 A7000000 		.4byte	0xa7
- 1179 034b 02       		.uleb128 0x2
- 1180 034c 91       		.byte	0x91
- 1181 034d 77       		.sleb128 -9
- 1182 034e 00       		.byte	0
- 1183 034f 16       		.uleb128 0x16
- 1184 0350 70000000 		.4byte	.LASF52
- 1185 0354 06       		.byte	0x6
- 1186 0355 2E       		.byte	0x2e
- 1187 0356 91000000 		.4byte	0x91
- 1188 035a 17       		.uleb128 0x17
- 1189 035b 04040000 		.4byte	.LASF53
- 1190 035f 07       		.byte	0x7
- 1191 0360 1207     		.2byte	0x712
- 1192 0362 66030000 		.4byte	0x366
- 1193 0366 18       		.uleb128 0x18
- 1194 0367 9C000000 		.4byte	0x9c
- 1195 036b 19       		.uleb128 0x19
- 1196 036c 747300   		.ascii	"ts\000"
- 1197 036f 05       		.byte	0x5
- 1198 0370 10       		.byte	0x10
- 1199 0371 A7000000 		.4byte	0xa7
- 1200 0375 05       		.uleb128 0x5
- 1201 0376 03       		.byte	0x3
- 1202 0377 00000000 		.4byte	ts
- 1203 037b 1A       		.uleb128 0x1a
- 1204 037c C1030000 		.4byte	.LASF54
- 1205 0380 05       		.byte	0x5
- 1206 0381 11       		.byte	0x11
- 1207 0382 B3000000 		.4byte	0xb3
-ARM GAS  C:\Users\Janit\AppData\Local\Temp\cctvVDDM.s 			page 26
+ 1103 0178 05       		.byte	0x5
+ 1104 0179 33       		.byte	0x33
+ 1105 017a E1000000 		.4byte	0xe1
+ 1106 017e 10       		.byte	0x10
+ 1107 017f 09       		.uleb128 0x9
+ 1108 0180 CF020000 		.4byte	.LASF32
+ 1109 0184 05       		.byte	0x5
+ 1110 0185 34       		.byte	0x34
+ 1111 0186 E1000000 		.4byte	0xe1
+ 1112 018a 12       		.byte	0x12
+ 1113 018b 09       		.uleb128 0x9
+ 1114 018c E4020000 		.4byte	.LASF33
+ 1115 0190 05       		.byte	0x5
+ 1116 0191 35       		.byte	0x35
+ 1117 0192 E1000000 		.4byte	0xe1
+ 1118 0196 14       		.byte	0x14
+ 1119 0197 09       		.uleb128 0x9
+ 1120 0198 45010000 		.4byte	.LASF34
+ 1121 019c 05       		.byte	0x5
+ 1122 019d 36       		.byte	0x36
+ 1123 019e E1000000 		.4byte	0xe1
+ 1124 01a2 16       		.byte	0x16
+ 1125 01a3 09       		.uleb128 0x9
+ 1126 01a4 38000000 		.4byte	.LASF35
+ 1127 01a8 05       		.byte	0x5
+ 1128 01a9 37       		.byte	0x37
+ 1129 01aa E1000000 		.4byte	0xe1
+ 1130 01ae 18       		.byte	0x18
+ 1131 01af 09       		.uleb128 0x9
+ 1132 01b0 97010000 		.4byte	.LASF36
+ 1133 01b4 05       		.byte	0x5
+ 1134 01b5 38       		.byte	0x38
+ 1135 01b6 E1000000 		.4byte	0xe1
+ 1136 01ba 1A       		.byte	0x1a
+ 1137 01bb 09       		.uleb128 0x9
+ 1138 01bc 70020000 		.4byte	.LASF37
+ 1139 01c0 05       		.byte	0x5
+ 1140 01c1 39       		.byte	0x39
+ 1141 01c2 E1000000 		.4byte	0xe1
+ 1142 01c6 1C       		.byte	0x1c
+ 1143 01c7 09       		.uleb128 0x9
+ 1144 01c8 D7020000 		.4byte	.LASF38
+ 1145 01cc 05       		.byte	0x5
+ 1146 01cd 3A       		.byte	0x3a
+ 1147 01ce E1000000 		.4byte	0xe1
+ 1148 01d2 1E       		.byte	0x1e
+ 1149 01d3 00       		.byte	0
+ 1150 01d4 0A       		.uleb128 0xa
+ 1151 01d5 1B040000 		.4byte	.LASF39
+ 1152 01d9 01       		.byte	0x1
+ 1153 01da 23       		.byte	0x23
+ 1154 01db 00000000 		.4byte	.LFB64
+ 1155 01df 40000000 		.4byte	.LFE64-.LFB64
+ 1156 01e3 01       		.uleb128 0x1
+ 1157 01e4 9C       		.byte	0x9c
+ 1158 01e5 0A       		.uleb128 0xa
+ 1159 01e6 BD010000 		.4byte	.LASF40
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccmw0Jyb.s 			page 26
 
 
- 1208 0386 05       		.uleb128 0x5
- 1209 0387 03       		.byte	0x3
- 1210 0388 00000000 		.4byte	ts_enc
- 1211 038c 1A       		.uleb128 0x1a
- 1212 038d C8030000 		.4byte	.LASF55
- 1213 0391 05       		.byte	0x5
- 1214 0392 12       		.byte	0x12
- 1215 0393 B3000000 		.4byte	0xb3
- 1216 0397 05       		.uleb128 0x5
- 1217 0398 03       		.byte	0x3
- 1218 0399 00000000 		.4byte	ts_update
- 1219 039d 1A       		.uleb128 0x1a
- 1220 039e 89030000 		.4byte	.LASF56
- 1221 03a2 05       		.byte	0x5
- 1222 03a3 13       		.byte	0x13
- 1223 03a4 B3000000 		.4byte	0xb3
- 1224 03a8 05       		.uleb128 0x5
- 1225 03a9 03       		.byte	0x3
- 1226 03aa 00000000 		.4byte	ts_speed
- 1227 03ae 1A       		.uleb128 0x1a
- 1228 03af B6030000 		.4byte	.LASF57
- 1229 03b3 05       		.byte	0x5
- 1230 03b4 14       		.byte	0x14
- 1231 03b5 B3000000 		.4byte	0xb3
- 1232 03b9 05       		.uleb128 0x5
- 1233 03ba 03       		.byte	0x3
- 1234 03bb 00000000 		.4byte	ts_display
- 1235 03bf 1A       		.uleb128 0x1a
- 1236 03c0 98030000 		.4byte	.LASF58
- 1237 03c4 05       		.byte	0x5
- 1238 03c5 16       		.byte	0x16
- 1239 03c6 A7000000 		.4byte	0xa7
- 1240 03ca 05       		.uleb128 0x5
- 1241 03cb 03       		.byte	0x3
- 1242 03cc 00000000 		.4byte	flag_ts_enc
- 1243 03d0 1A       		.uleb128 0x1a
- 1244 03d1 7D010000 		.4byte	.LASF59
- 1245 03d5 05       		.byte	0x5
- 1246 03d6 17       		.byte	0x17
- 1247 03d7 A7000000 		.4byte	0xa7
- 1248 03db 05       		.uleb128 0x5
- 1249 03dc 03       		.byte	0x3
- 1250 03dd 00000000 		.4byte	flag_ts_update
- 1251 03e1 1A       		.uleb128 0x1a
- 1252 03e2 2A000000 		.4byte	.LASF60
- 1253 03e6 05       		.byte	0x5
- 1254 03e7 18       		.byte	0x18
- 1255 03e8 A7000000 		.4byte	0xa7
- 1256 03ec 05       		.uleb128 0x5
- 1257 03ed 03       		.byte	0x3
- 1258 03ee 00000000 		.4byte	flag_ts_speed
- 1259 03f2 1A       		.uleb128 0x1a
- 1260 03f3 1A020000 		.4byte	.LASF61
- 1261 03f7 05       		.byte	0x5
- 1262 03f8 19       		.byte	0x19
- 1263 03f9 A7000000 		.4byte	0xa7
- 1264 03fd 05       		.uleb128 0x5
-ARM GAS  C:\Users\Janit\AppData\Local\Temp\cctvVDDM.s 			page 27
+ 1160 01ea 01       		.byte	0x1
+ 1161 01eb 2D       		.byte	0x2d
+ 1162 01ec 00000000 		.4byte	.LFB65
+ 1163 01f0 24000000 		.4byte	.LFE65-.LFB65
+ 1164 01f4 01       		.uleb128 0x1
+ 1165 01f5 9C       		.byte	0x9c
+ 1166 01f6 0B       		.uleb128 0xb
+ 1167 01f7 0C010000 		.4byte	.LASF41
+ 1168 01fb 01       		.byte	0x1
+ 1169 01fc 37       		.byte	0x37
+ 1170 01fd 73000000 		.4byte	0x73
+ 1171 0201 00000000 		.4byte	.LFB66
+ 1172 0205 04010000 		.4byte	.LFE66-.LFB66
+ 1173 0209 01       		.uleb128 0x1
+ 1174 020a 9C       		.byte	0x9c
+ 1175 020b 29020000 		.4byte	0x229
+ 1176 020f 0C       		.uleb128 0xc
+ 1177 0210 66000000 		.4byte	.LBB2
+ 1178 0214 76000000 		.4byte	.LBE2-.LBB2
+ 1179 0218 0D       		.uleb128 0xd
+ 1180 0219 10030000 		.4byte	.LASF43
+ 1181 021d 01       		.byte	0x1
+ 1182 021e 58       		.byte	0x58
+ 1183 021f 29020000 		.4byte	0x229
+ 1184 0223 03       		.uleb128 0x3
+ 1185 0224 91       		.byte	0x91
+ 1186 0225 B87F     		.sleb128 -72
+ 1187 0227 00       		.byte	0
+ 1188 0228 00       		.byte	0
+ 1189 0229 0E       		.uleb128 0xe
+ 1190 022a 95000000 		.4byte	0x95
+ 1191 022e 39020000 		.4byte	0x239
+ 1192 0232 0F       		.uleb128 0xf
+ 1193 0233 88000000 		.4byte	0x88
+ 1194 0237 3F       		.byte	0x3f
+ 1195 0238 00       		.byte	0
+ 1196 0239 10       		.uleb128 0x10
+ 1197 023a 1C010000 		.4byte	.LASF42
+ 1198 023e 01       		.byte	0x1
+ 1199 023f 76       		.byte	0x76
+ 1200 0240 00000000 		.4byte	.LFB67
+ 1201 0244 EC000000 		.4byte	.LFE67-.LFB67
+ 1202 0248 01       		.uleb128 0x1
+ 1203 0249 9C       		.byte	0x9c
+ 1204 024a AA020000 		.4byte	0x2aa
+ 1205 024e 11       		.uleb128 0x11
+ 1206 024f 4A000000 		.4byte	.LASF50
+ 1207 0253 01       		.byte	0x1
+ 1208 0254 76       		.byte	0x76
+ 1209 0255 9C000000 		.4byte	0x9c
+ 1210 0259 02       		.uleb128 0x2
+ 1211 025a 91       		.byte	0x91
+ 1212 025b 44       		.sleb128 -60
+ 1213 025c 0D       		.uleb128 0xd
+ 1214 025d 0D020000 		.4byte	.LASF44
+ 1215 0261 01       		.byte	0x1
+ 1216 0262 77       		.byte	0x77
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccmw0Jyb.s 			page 27
 
 
- 1265 03fe 03       		.byte	0x3
- 1266 03ff 00000000 		.4byte	flag_ts_display
- 1267 0403 1A       		.uleb128 0x1a
- 1268 0404 2A020000 		.4byte	.LASF62
- 1269 0408 05       		.byte	0x5
- 1270 0409 1C       		.byte	0x1c
- 1271 040a A7000000 		.4byte	0xa7
- 1272 040e 05       		.uleb128 0x5
- 1273 040f 03       		.byte	0x3
- 1274 0410 00000000 		.4byte	flag_rx
- 1275 0414 1A       		.uleb128 0x1a
- 1276 0415 1E000000 		.4byte	.LASF63
- 1277 0419 05       		.byte	0x5
- 1278 041a 1D       		.byte	0x1d
- 1279 041b A7000000 		.4byte	0xa7
- 1280 041f 05       		.uleb128 0x5
- 1281 0420 03       		.byte	0x3
- 1282 0421 00000000 		.4byte	flag_packet
- 1283 0425 1A       		.uleb128 0x1a
- 1284 0426 AA020000 		.4byte	.LASF64
- 1285 042a 05       		.byte	0x5
- 1286 042b 1E       		.byte	0x1e
- 1287 042c A7000000 		.4byte	0xa7
- 1288 0430 05       		.uleb128 0x5
- 1289 0431 03       		.byte	0x3
- 1290 0432 00000000 		.4byte	flag_KB_string
- 1291 0436 1A       		.uleb128 0x1a
- 1292 0437 7A030000 		.4byte	.LASF65
- 1293 043b 05       		.byte	0x5
- 1294 043c 20       		.byte	0x20
- 1295 043d A7000000 		.4byte	0xa7
- 1296 0441 05       		.uleb128 0x5
- 1297 0442 03       		.byte	0x3
- 1298 0443 00000000 		.4byte	dataready_flag
- 1299 0447 1A       		.uleb128 0x1a
- 1300 0448 DD030000 		.4byte	.LASF66
- 1301 044c 05       		.byte	0x5
- 1302 044d 22       		.byte	0x22
- 1303 044e A7000000 		.4byte	0xa7
- 1304 0452 05       		.uleb128 0x5
- 1305 0453 03       		.byte	0x3
- 1306 0454 00000000 		.4byte	flag_rf_transmission_active
- 1307 0458 1A       		.uleb128 0x1a
- 1308 0459 33030000 		.4byte	.LASF67
- 1309 045d 05       		.byte	0x5
- 1310 045e 25       		.byte	0x25
- 1311 045f FF010000 		.4byte	0x1ff
- 1312 0463 05       		.uleb128 0x5
- 1313 0464 03       		.byte	0x3
- 1314 0465 00000000 		.4byte	displaystring
- 1315 0469 1A       		.uleb128 0x1a
- 1316 046a 52010000 		.4byte	.LASF68
- 1317 046e 05       		.byte	0x5
- 1318 046f 26       		.byte	0x26
- 1319 0470 FF010000 		.4byte	0x1ff
- 1320 0474 05       		.uleb128 0x5
- 1321 0475 03       		.byte	0x3
-ARM GAS  C:\Users\Janit\AppData\Local\Temp\cctvVDDM.s 			page 28
+ 1217 0263 8F000000 		.4byte	0x8f
+ 1218 0267 02       		.uleb128 0x2
+ 1219 0268 91       		.byte	0x91
+ 1220 0269 54       		.sleb128 -44
+ 1221 026a 0D       		.uleb128 0xd
+ 1222 026b FB020000 		.4byte	.LASF45
+ 1223 026f 01       		.byte	0x1
+ 1224 0270 78       		.byte	0x78
+ 1225 0271 8F000000 		.4byte	0x8f
+ 1226 0275 02       		.uleb128 0x2
+ 1227 0276 91       		.byte	0x91
+ 1228 0277 50       		.sleb128 -48
+ 1229 0278 12       		.uleb128 0x12
+ 1230 0279 00000000 		.4byte	.Ldebug_ranges0+0
+ 1231 027d 0D       		.uleb128 0xd
+ 1232 027e 53030000 		.4byte	.LASF46
+ 1233 0282 01       		.byte	0x1
+ 1234 0283 7B       		.byte	0x7b
+ 1235 0284 73000000 		.4byte	0x73
+ 1236 0288 02       		.uleb128 0x2
+ 1237 0289 91       		.byte	0x91
+ 1238 028a 5C       		.sleb128 -36
+ 1239 028b 0D       		.uleb128 0xd
+ 1240 028c 0B000000 		.4byte	.LASF47
+ 1241 0290 01       		.byte	0x1
+ 1242 0291 7C       		.byte	0x7c
+ 1243 0292 95000000 		.4byte	0x95
+ 1244 0296 02       		.uleb128 0x2
+ 1245 0297 91       		.byte	0x91
+ 1246 0298 5B       		.sleb128 -37
+ 1247 0299 0D       		.uleb128 0xd
+ 1248 029a 90020000 		.4byte	.LASF48
+ 1249 029e 01       		.byte	0x1
+ 1250 029f 8C       		.byte	0x8c
+ 1251 02a0 AA020000 		.4byte	0x2aa
+ 1252 02a4 03       		.uleb128 0x3
+ 1253 02a5 91       		.byte	0x91
+ 1254 02a6 48       		.sleb128 -56
+ 1255 02a7 06       		.byte	0x6
+ 1256 02a8 00       		.byte	0
+ 1257 02a9 00       		.byte	0
+ 1258 02aa 0E       		.uleb128 0xe
+ 1259 02ab 95000000 		.4byte	0x95
+ 1260 02af BD020000 		.4byte	0x2bd
+ 1261 02b3 13       		.uleb128 0x13
+ 1262 02b4 88000000 		.4byte	0x88
+ 1263 02b8 03       		.uleb128 0x3
+ 1264 02b9 91       		.byte	0x91
+ 1265 02ba 4C       		.sleb128 -52
+ 1266 02bb 06       		.byte	0x6
+ 1267 02bc 00       		.byte	0
+ 1268 02bd 10       		.uleb128 0x10
+ 1269 02be 52010000 		.4byte	.LASF49
+ 1270 02c2 01       		.byte	0x1
+ 1271 02c3 93       		.byte	0x93
+ 1272 02c4 00000000 		.4byte	.LFB68
+ 1273 02c8 AC000000 		.4byte	.LFE68-.LFB68
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccmw0Jyb.s 			page 28
 
 
- 1322 0476 00000000 		.4byte	line
- 1323 047a 1A       		.uleb128 0x1a
- 1324 047b 32020000 		.4byte	.LASF69
- 1325 047f 05       		.byte	0x5
- 1326 0480 26       		.byte	0x26
- 1327 0481 FF010000 		.4byte	0x1ff
- 1328 0485 05       		.uleb128 0x5
- 1329 0486 03       		.byte	0x3
- 1330 0487 00000000 		.4byte	entry
- 1331 048b 0E       		.uleb128 0xe
- 1332 048c A7000000 		.4byte	0xa7
- 1333 0490 9B040000 		.4byte	0x49b
- 1334 0494 0F       		.uleb128 0xf
- 1335 0495 7D000000 		.4byte	0x7d
- 1336 0499 3F       		.byte	0x3f
- 1337 049a 00       		.byte	0
- 1338 049b 1A       		.uleb128 0x1a
- 1339 049c 66000000 		.4byte	.LASF70
- 1340 04a0 05       		.byte	0x5
- 1341 04a1 27       		.byte	0x27
- 1342 04a2 8B040000 		.4byte	0x48b
- 1343 04a6 05       		.uleb128 0x5
- 1344 04a7 03       		.byte	0x3
- 1345 04a8 00000000 		.4byte	usbBuffer
- 1346 04ac 1A       		.uleb128 0x1a
- 1347 04ad 50000000 		.4byte	.LASF71
- 1348 04b1 05       		.byte	0x5
- 1349 04b2 3C       		.byte	0x3c
- 1350 04b3 E5000000 		.4byte	0xe5
- 1351 04b7 05       		.uleb128 0x5
- 1352 04b8 03       		.byte	0x3
- 1353 04b9 00000000 		.4byte	system_state
- 1354 04bd 00       		.byte	0
- 1355              		.section	.debug_abbrev,"",%progbits
- 1356              	.Ldebug_abbrev0:
- 1357 0000 01       		.uleb128 0x1
- 1358 0001 11       		.uleb128 0x11
- 1359 0002 01       		.byte	0x1
- 1360 0003 25       		.uleb128 0x25
- 1361 0004 0E       		.uleb128 0xe
- 1362 0005 13       		.uleb128 0x13
- 1363 0006 0B       		.uleb128 0xb
- 1364 0007 03       		.uleb128 0x3
- 1365 0008 0E       		.uleb128 0xe
- 1366 0009 1B       		.uleb128 0x1b
- 1367 000a 0E       		.uleb128 0xe
- 1368 000b 55       		.uleb128 0x55
- 1369 000c 17       		.uleb128 0x17
- 1370 000d 11       		.uleb128 0x11
- 1371 000e 01       		.uleb128 0x1
- 1372 000f 10       		.uleb128 0x10
- 1373 0010 17       		.uleb128 0x17
- 1374 0011 00       		.byte	0
- 1375 0012 00       		.byte	0
- 1376 0013 02       		.uleb128 0x2
- 1377 0014 24       		.uleb128 0x24
- 1378 0015 00       		.byte	0
-ARM GAS  C:\Users\Janit\AppData\Local\Temp\cctvVDDM.s 			page 29
+ 1274 02cc 01       		.uleb128 0x1
+ 1275 02cd 9C       		.byte	0x9c
+ 1276 02ce E1020000 		.4byte	0x2e1
+ 1277 02d2 11       		.uleb128 0x11
+ 1278 02d3 FF010000 		.4byte	.LASF51
+ 1279 02d7 01       		.byte	0x1
+ 1280 02d8 93       		.byte	0x93
+ 1281 02d9 73000000 		.4byte	0x73
+ 1282 02dd 02       		.uleb128 0x2
+ 1283 02de 91       		.byte	0x91
+ 1284 02df 6C       		.sleb128 -20
+ 1285 02e0 00       		.byte	0
+ 1286 02e1 10       		.uleb128 0x10
+ 1287 02e2 76010000 		.4byte	.LASF52
+ 1288 02e6 01       		.byte	0x1
+ 1289 02e7 9B       		.byte	0x9b
+ 1290 02e8 00000000 		.4byte	.LFB69
+ 1291 02ec 3E000000 		.4byte	.LFE69-.LFB69
+ 1292 02f0 01       		.uleb128 0x1
+ 1293 02f1 9C       		.byte	0x9c
+ 1294 02f2 03030000 		.4byte	0x303
+ 1295 02f6 14       		.uleb128 0x14
+ 1296 02f7 7300     		.ascii	"s\000"
+ 1297 02f9 01       		.byte	0x1
+ 1298 02fa 9B       		.byte	0x9b
+ 1299 02fb 8F000000 		.4byte	0x8f
+ 1300 02ff 02       		.uleb128 0x2
+ 1301 0300 91       		.byte	0x91
+ 1302 0301 74       		.sleb128 -12
+ 1303 0302 00       		.byte	0
+ 1304 0303 10       		.uleb128 0x10
+ 1305 0304 00000000 		.4byte	.LASF53
+ 1306 0308 01       		.byte	0x1
+ 1307 0309 A9       		.byte	0xa9
+ 1308 030a 00000000 		.4byte	.LFB70
+ 1309 030e 26000000 		.4byte	.LFE70-.LFB70
+ 1310 0312 01       		.uleb128 0x1
+ 1311 0313 9C       		.byte	0x9c
+ 1312 0314 25030000 		.4byte	0x325
+ 1313 0318 14       		.uleb128 0x14
+ 1314 0319 6300     		.ascii	"c\000"
+ 1315 031b 01       		.byte	0x1
+ 1316 031c A9       		.byte	0xa9
+ 1317 031d 95000000 		.4byte	0x95
+ 1318 0321 02       		.uleb128 0x2
+ 1319 0322 91       		.byte	0x91
+ 1320 0323 77       		.sleb128 -9
+ 1321 0324 00       		.byte	0
+ 1322 0325 15       		.uleb128 0x15
+ 1323 0326 DC030000 		.4byte	.LASF81
+ 1324 032a 01       		.byte	0x1
+ 1325 032b B1       		.byte	0xb1
+ 1326 032c 00000000 		.4byte	.LFB71
+ 1327 0330 C8000000 		.4byte	.LFE71-.LFB71
+ 1328 0334 01       		.uleb128 0x1
+ 1329 0335 9C       		.byte	0x9c
+ 1330 0336 69030000 		.4byte	0x369
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccmw0Jyb.s 			page 29
 
 
- 1379 0016 0B       		.uleb128 0xb
- 1380 0017 0B       		.uleb128 0xb
- 1381 0018 3E       		.uleb128 0x3e
- 1382 0019 0B       		.uleb128 0xb
- 1383 001a 03       		.uleb128 0x3
- 1384 001b 0E       		.uleb128 0xe
- 1385 001c 00       		.byte	0
- 1386 001d 00       		.byte	0
- 1387 001e 03       		.uleb128 0x3
- 1388 001f 16       		.uleb128 0x16
- 1389 0020 00       		.byte	0
- 1390 0021 03       		.uleb128 0x3
- 1391 0022 0E       		.uleb128 0xe
- 1392 0023 3A       		.uleb128 0x3a
- 1393 0024 0B       		.uleb128 0xb
- 1394 0025 3B       		.uleb128 0x3b
- 1395 0026 0B       		.uleb128 0xb
- 1396 0027 49       		.uleb128 0x49
- 1397 0028 13       		.uleb128 0x13
- 1398 0029 00       		.byte	0
- 1399 002a 00       		.byte	0
- 1400 002b 04       		.uleb128 0x4
- 1401 002c 24       		.uleb128 0x24
- 1402 002d 00       		.byte	0
- 1403 002e 0B       		.uleb128 0xb
- 1404 002f 0B       		.uleb128 0xb
- 1405 0030 3E       		.uleb128 0x3e
- 1406 0031 0B       		.uleb128 0xb
- 1407 0032 03       		.uleb128 0x3
- 1408 0033 08       		.uleb128 0x8
- 1409 0034 00       		.byte	0
- 1410 0035 00       		.byte	0
- 1411 0036 05       		.uleb128 0x5
- 1412 0037 0F       		.uleb128 0xf
- 1413 0038 00       		.byte	0
- 1414 0039 0B       		.uleb128 0xb
- 1415 003a 0B       		.uleb128 0xb
- 1416 003b 49       		.uleb128 0x49
- 1417 003c 13       		.uleb128 0x13
- 1418 003d 00       		.byte	0
- 1419 003e 00       		.byte	0
- 1420 003f 06       		.uleb128 0x6
- 1421 0040 26       		.uleb128 0x26
- 1422 0041 00       		.byte	0
- 1423 0042 49       		.uleb128 0x49
- 1424 0043 13       		.uleb128 0x13
- 1425 0044 00       		.byte	0
- 1426 0045 00       		.byte	0
- 1427 0046 07       		.uleb128 0x7
- 1428 0047 16       		.uleb128 0x16
- 1429 0048 00       		.byte	0
- 1430 0049 03       		.uleb128 0x3
- 1431 004a 0E       		.uleb128 0xe
- 1432 004b 3A       		.uleb128 0x3a
- 1433 004c 0B       		.uleb128 0xb
- 1434 004d 3B       		.uleb128 0x3b
- 1435 004e 05       		.uleb128 0x5
-ARM GAS  C:\Users\Janit\AppData\Local\Temp\cctvVDDM.s 			page 30
+ 1331 033a 0D       		.uleb128 0xd
+ 1332 033b 30030000 		.4byte	.LASF54
+ 1333 033f 01       		.byte	0x1
+ 1334 0340 B7       		.byte	0xb7
+ 1335 0341 BD000000 		.4byte	0xbd
+ 1336 0345 05       		.uleb128 0x5
+ 1337 0346 03       		.byte	0x3
+ 1338 0347 18000000 		.4byte	usbStarted.8259
+ 1339 034b 0D       		.uleb128 0xd
+ 1340 034c 59020000 		.4byte	.LASF55
+ 1341 0350 01       		.byte	0x1
+ 1342 0351 B8       		.byte	0xb8
+ 1343 0352 C9000000 		.4byte	0xc9
+ 1344 0356 05       		.uleb128 0x5
+ 1345 0357 03       		.byte	0x3
+ 1346 0358 1A000000 		.4byte	usbBufCount.8260
+ 1347 035c 16       		.uleb128 0x16
+ 1348 035d 6300     		.ascii	"c\000"
+ 1349 035f 01       		.byte	0x1
+ 1350 0360 B9       		.byte	0xb9
+ 1351 0361 BD000000 		.4byte	0xbd
+ 1352 0365 02       		.uleb128 0x2
+ 1353 0366 91       		.byte	0x91
+ 1354 0367 77       		.sleb128 -9
+ 1355 0368 00       		.byte	0
+ 1356 0369 17       		.uleb128 0x17
+ 1357 036a 70000000 		.4byte	.LASF56
+ 1358 036e 06       		.byte	0x6
+ 1359 036f 2E       		.byte	0x2e
+ 1360 0370 9C000000 		.4byte	0x9c
+ 1361 0374 18       		.uleb128 0x18
+ 1362 0375 0E040000 		.4byte	.LASF57
+ 1363 0379 07       		.byte	0x7
+ 1364 037a 1207     		.2byte	0x712
+ 1365 037c 80030000 		.4byte	0x380
+ 1366 0380 19       		.uleb128 0x19
+ 1367 0381 B2000000 		.4byte	0xb2
+ 1368 0385 1A       		.uleb128 0x1a
+ 1369 0386 747300   		.ascii	"ts\000"
+ 1370 0389 05       		.byte	0x5
+ 1371 038a 10       		.byte	0x10
+ 1372 038b BD000000 		.4byte	0xbd
+ 1373 038f 05       		.uleb128 0x5
+ 1374 0390 03       		.byte	0x3
+ 1375 0391 00000000 		.4byte	ts
+ 1376 0395 1B       		.uleb128 0x1b
+ 1377 0396 CB030000 		.4byte	.LASF58
+ 1378 039a 05       		.byte	0x5
+ 1379 039b 11       		.byte	0x11
+ 1380 039c C9000000 		.4byte	0xc9
+ 1381 03a0 05       		.uleb128 0x5
+ 1382 03a1 03       		.byte	0x3
+ 1383 03a2 00000000 		.4byte	ts_enc
+ 1384 03a6 1B       		.uleb128 0x1b
+ 1385 03a7 D2030000 		.4byte	.LASF59
+ 1386 03ab 05       		.byte	0x5
+ 1387 03ac 12       		.byte	0x12
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccmw0Jyb.s 			page 30
 
 
- 1436 004f 49       		.uleb128 0x49
- 1437 0050 13       		.uleb128 0x13
- 1438 0051 00       		.byte	0
- 1439 0052 00       		.byte	0
- 1440 0053 08       		.uleb128 0x8
- 1441 0054 13       		.uleb128 0x13
- 1442 0055 01       		.byte	0x1
- 1443 0056 03       		.uleb128 0x3
- 1444 0057 0E       		.uleb128 0xe
- 1445 0058 0B       		.uleb128 0xb
- 1446 0059 0B       		.uleb128 0xb
- 1447 005a 3A       		.uleb128 0x3a
- 1448 005b 0B       		.uleb128 0xb
- 1449 005c 3B       		.uleb128 0x3b
- 1450 005d 0B       		.uleb128 0xb
- 1451 005e 01       		.uleb128 0x1
- 1452 005f 13       		.uleb128 0x13
- 1453 0060 00       		.byte	0
- 1454 0061 00       		.byte	0
- 1455 0062 09       		.uleb128 0x9
- 1456 0063 0D       		.uleb128 0xd
- 1457 0064 00       		.byte	0
- 1458 0065 03       		.uleb128 0x3
- 1459 0066 0E       		.uleb128 0xe
- 1460 0067 3A       		.uleb128 0x3a
- 1461 0068 0B       		.uleb128 0xb
- 1462 0069 3B       		.uleb128 0x3b
- 1463 006a 0B       		.uleb128 0xb
- 1464 006b 49       		.uleb128 0x49
- 1465 006c 13       		.uleb128 0x13
- 1466 006d 38       		.uleb128 0x38
- 1467 006e 0B       		.uleb128 0xb
- 1468 006f 00       		.byte	0
- 1469 0070 00       		.byte	0
- 1470 0071 0A       		.uleb128 0xa
- 1471 0072 2E       		.uleb128 0x2e
- 1472 0073 01       		.byte	0x1
- 1473 0074 3F       		.uleb128 0x3f
- 1474 0075 19       		.uleb128 0x19
- 1475 0076 03       		.uleb128 0x3
- 1476 0077 0E       		.uleb128 0xe
- 1477 0078 3A       		.uleb128 0x3a
- 1478 0079 0B       		.uleb128 0xb
- 1479 007a 3B       		.uleb128 0x3b
- 1480 007b 0B       		.uleb128 0xb
- 1481 007c 49       		.uleb128 0x49
- 1482 007d 13       		.uleb128 0x13
- 1483 007e 11       		.uleb128 0x11
- 1484 007f 01       		.uleb128 0x1
- 1485 0080 12       		.uleb128 0x12
- 1486 0081 06       		.uleb128 0x6
- 1487 0082 40       		.uleb128 0x40
- 1488 0083 18       		.uleb128 0x18
- 1489 0084 9642     		.uleb128 0x2116
- 1490 0086 19       		.uleb128 0x19
- 1491 0087 01       		.uleb128 0x1
- 1492 0088 13       		.uleb128 0x13
-ARM GAS  C:\Users\Janit\AppData\Local\Temp\cctvVDDM.s 			page 31
+ 1388 03ad C9000000 		.4byte	0xc9
+ 1389 03b1 05       		.uleb128 0x5
+ 1390 03b2 03       		.byte	0x3
+ 1391 03b3 00000000 		.4byte	ts_update
+ 1392 03b7 1B       		.uleb128 0x1b
+ 1393 03b8 4A030000 		.4byte	.LASF60
+ 1394 03bc 05       		.byte	0x5
+ 1395 03bd 13       		.byte	0x13
+ 1396 03be C9000000 		.4byte	0xc9
+ 1397 03c2 05       		.uleb128 0x5
+ 1398 03c3 03       		.byte	0x3
+ 1399 03c4 00000000 		.4byte	ts_speed
+ 1400 03c8 1B       		.uleb128 0x1b
+ 1401 03c9 C0030000 		.4byte	.LASF61
+ 1402 03cd 05       		.byte	0x5
+ 1403 03ce 14       		.byte	0x14
+ 1404 03cf C9000000 		.4byte	0xc9
+ 1405 03d3 05       		.uleb128 0x5
+ 1406 03d4 03       		.byte	0x3
+ 1407 03d5 00000000 		.4byte	ts_display
+ 1408 03d9 1B       		.uleb128 0x1b
+ 1409 03da 59030000 		.4byte	.LASF62
+ 1410 03de 05       		.byte	0x5
+ 1411 03df 16       		.byte	0x16
+ 1412 03e0 BD000000 		.4byte	0xbd
+ 1413 03e4 05       		.uleb128 0x5
+ 1414 03e5 03       		.byte	0x3
+ 1415 03e6 00000000 		.4byte	flag_ts_enc
+ 1416 03ea 1B       		.uleb128 0x1b
+ 1417 03eb 88010000 		.4byte	.LASF63
+ 1418 03ef 05       		.byte	0x5
+ 1419 03f0 17       		.byte	0x17
+ 1420 03f1 BD000000 		.4byte	0xbd
+ 1421 03f5 05       		.uleb128 0x5
+ 1422 03f6 03       		.byte	0x3
+ 1423 03f7 00000000 		.4byte	flag_ts_update
+ 1424 03fb 1B       		.uleb128 0x1b
+ 1425 03fc 2A000000 		.4byte	.LASF64
+ 1426 0400 05       		.byte	0x5
+ 1427 0401 18       		.byte	0x18
+ 1428 0402 BD000000 		.4byte	0xbd
+ 1429 0406 05       		.uleb128 0x5
+ 1430 0407 03       		.byte	0x3
+ 1431 0408 00000000 		.4byte	flag_ts_speed
+ 1432 040c 1B       		.uleb128 0x1b
+ 1433 040d C7010000 		.4byte	.LASF65
+ 1434 0411 05       		.byte	0x5
+ 1435 0412 19       		.byte	0x19
+ 1436 0413 BD000000 		.4byte	0xbd
+ 1437 0417 05       		.uleb128 0x5
+ 1438 0418 03       		.byte	0x3
+ 1439 0419 00000000 		.4byte	flag_ts_display
+ 1440 041d 1B       		.uleb128 0x1b
+ 1441 041e D7010000 		.4byte	.LASF66
+ 1442 0422 05       		.byte	0x5
+ 1443 0423 1C       		.byte	0x1c
+ 1444 0424 BD000000 		.4byte	0xbd
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccmw0Jyb.s 			page 31
 
 
- 1493 0089 00       		.byte	0
- 1494 008a 00       		.byte	0
- 1495 008b 0B       		.uleb128 0xb
- 1496 008c 0B       		.uleb128 0xb
- 1497 008d 01       		.byte	0x1
- 1498 008e 11       		.uleb128 0x11
- 1499 008f 01       		.uleb128 0x1
- 1500 0090 12       		.uleb128 0x12
- 1501 0091 06       		.uleb128 0x6
- 1502 0092 00       		.byte	0
- 1503 0093 00       		.byte	0
- 1504 0094 0C       		.uleb128 0xc
- 1505 0095 34       		.uleb128 0x34
- 1506 0096 00       		.byte	0
- 1507 0097 03       		.uleb128 0x3
- 1508 0098 08       		.uleb128 0x8
- 1509 0099 3A       		.uleb128 0x3a
- 1510 009a 0B       		.uleb128 0xb
- 1511 009b 3B       		.uleb128 0x3b
- 1512 009c 0B       		.uleb128 0xb
- 1513 009d 49       		.uleb128 0x49
- 1514 009e 13       		.uleb128 0x13
- 1515 009f 02       		.uleb128 0x2
- 1516 00a0 18       		.uleb128 0x18
- 1517 00a1 00       		.byte	0
- 1518 00a2 00       		.byte	0
- 1519 00a3 0D       		.uleb128 0xd
- 1520 00a4 34       		.uleb128 0x34
- 1521 00a5 00       		.byte	0
- 1522 00a6 03       		.uleb128 0x3
- 1523 00a7 0E       		.uleb128 0xe
- 1524 00a8 3A       		.uleb128 0x3a
- 1525 00a9 0B       		.uleb128 0xb
- 1526 00aa 3B       		.uleb128 0x3b
- 1527 00ab 0B       		.uleb128 0xb
- 1528 00ac 49       		.uleb128 0x49
- 1529 00ad 13       		.uleb128 0x13
- 1530 00ae 02       		.uleb128 0x2
- 1531 00af 18       		.uleb128 0x18
- 1532 00b0 00       		.byte	0
- 1533 00b1 00       		.byte	0
- 1534 00b2 0E       		.uleb128 0xe
- 1535 00b3 01       		.uleb128 0x1
- 1536 00b4 01       		.byte	0x1
- 1537 00b5 49       		.uleb128 0x49
- 1538 00b6 13       		.uleb128 0x13
- 1539 00b7 01       		.uleb128 0x1
- 1540 00b8 13       		.uleb128 0x13
- 1541 00b9 00       		.byte	0
- 1542 00ba 00       		.byte	0
- 1543 00bb 0F       		.uleb128 0xf
- 1544 00bc 21       		.uleb128 0x21
- 1545 00bd 00       		.byte	0
- 1546 00be 49       		.uleb128 0x49
- 1547 00bf 13       		.uleb128 0x13
- 1548 00c0 2F       		.uleb128 0x2f
- 1549 00c1 0B       		.uleb128 0xb
-ARM GAS  C:\Users\Janit\AppData\Local\Temp\cctvVDDM.s 			page 32
+ 1445 0428 05       		.uleb128 0x5
+ 1446 0429 03       		.byte	0x3
+ 1447 042a 00000000 		.4byte	flag_rx
+ 1448 042e 1B       		.uleb128 0x1b
+ 1449 042f 1E000000 		.4byte	.LASF67
+ 1450 0433 05       		.byte	0x5
+ 1451 0434 1D       		.byte	0x1d
+ 1452 0435 BD000000 		.4byte	0xbd
+ 1453 0439 05       		.uleb128 0x5
+ 1454 043a 03       		.byte	0x3
+ 1455 043b 00000000 		.4byte	flag_packet
+ 1456 043f 1B       		.uleb128 0x1b
+ 1457 0440 79020000 		.4byte	.LASF68
+ 1458 0444 05       		.byte	0x5
+ 1459 0445 1E       		.byte	0x1e
+ 1460 0446 BD000000 		.4byte	0xbd
+ 1461 044a 05       		.uleb128 0x5
+ 1462 044b 03       		.byte	0x3
+ 1463 044c 00000000 		.4byte	flag_KB_string
+ 1464 0450 1B       		.uleb128 0x1b
+ 1465 0451 3B030000 		.4byte	.LASF69
+ 1466 0455 05       		.byte	0x5
+ 1467 0456 20       		.byte	0x20
+ 1468 0457 BD000000 		.4byte	0xbd
+ 1469 045b 05       		.uleb128 0x5
+ 1470 045c 03       		.byte	0x3
+ 1471 045d 00000000 		.4byte	dataready_flag
+ 1472 0461 1B       		.uleb128 0x1b
+ 1473 0462 E7030000 		.4byte	.LASF70
+ 1474 0466 05       		.byte	0x5
+ 1475 0467 22       		.byte	0x22
+ 1476 0468 BD000000 		.4byte	0xbd
+ 1477 046c 05       		.uleb128 0x5
+ 1478 046d 03       		.byte	0x3
+ 1479 046e 00000000 		.4byte	flag_rf_transmission_active
+ 1480 0472 1B       		.uleb128 0x1b
+ 1481 0473 ED020000 		.4byte	.LASF71
+ 1482 0477 05       		.byte	0x5
+ 1483 0478 25       		.byte	0x25
+ 1484 0479 29020000 		.4byte	0x229
+ 1485 047d 05       		.uleb128 0x5
+ 1486 047e 03       		.byte	0x3
+ 1487 047f 00000000 		.4byte	displaystring
+ 1488 0483 1B       		.uleb128 0x1b
+ 1489 0484 5D010000 		.4byte	.LASF72
+ 1490 0488 05       		.byte	0x5
+ 1491 0489 26       		.byte	0x26
+ 1492 048a 29020000 		.4byte	0x229
+ 1493 048e 05       		.uleb128 0x5
+ 1494 048f 03       		.byte	0x3
+ 1495 0490 00000000 		.4byte	line
+ 1496 0494 1B       		.uleb128 0x1b
+ 1497 0495 DF010000 		.4byte	.LASF73
+ 1498 0499 05       		.byte	0x5
+ 1499 049a 26       		.byte	0x26
+ 1500 049b 29020000 		.4byte	0x229
+ 1501 049f 05       		.uleb128 0x5
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccmw0Jyb.s 			page 32
 
 
- 1550 00c2 00       		.byte	0
- 1551 00c3 00       		.byte	0
- 1552 00c4 10       		.uleb128 0x10
- 1553 00c5 2E       		.uleb128 0x2e
- 1554 00c6 01       		.byte	0x1
- 1555 00c7 3F       		.uleb128 0x3f
- 1556 00c8 19       		.uleb128 0x19
- 1557 00c9 03       		.uleb128 0x3
- 1558 00ca 0E       		.uleb128 0xe
- 1559 00cb 3A       		.uleb128 0x3a
- 1560 00cc 0B       		.uleb128 0xb
- 1561 00cd 3B       		.uleb128 0x3b
- 1562 00ce 0B       		.uleb128 0xb
- 1563 00cf 27       		.uleb128 0x27
- 1564 00d0 19       		.uleb128 0x19
- 1565 00d1 11       		.uleb128 0x11
- 1566 00d2 01       		.uleb128 0x1
- 1567 00d3 12       		.uleb128 0x12
- 1568 00d4 06       		.uleb128 0x6
- 1569 00d5 40       		.uleb128 0x40
- 1570 00d6 18       		.uleb128 0x18
- 1571 00d7 9642     		.uleb128 0x2116
- 1572 00d9 19       		.uleb128 0x19
- 1573 00da 01       		.uleb128 0x1
- 1574 00db 13       		.uleb128 0x13
- 1575 00dc 00       		.byte	0
- 1576 00dd 00       		.byte	0
- 1577 00de 11       		.uleb128 0x11
- 1578 00df 05       		.uleb128 0x5
- 1579 00e0 00       		.byte	0
- 1580 00e1 03       		.uleb128 0x3
- 1581 00e2 0E       		.uleb128 0xe
- 1582 00e3 3A       		.uleb128 0x3a
- 1583 00e4 0B       		.uleb128 0xb
- 1584 00e5 3B       		.uleb128 0x3b
- 1585 00e6 0B       		.uleb128 0xb
- 1586 00e7 49       		.uleb128 0x49
- 1587 00e8 13       		.uleb128 0x13
- 1588 00e9 02       		.uleb128 0x2
- 1589 00ea 18       		.uleb128 0x18
- 1590 00eb 00       		.byte	0
- 1591 00ec 00       		.byte	0
- 1592 00ed 12       		.uleb128 0x12
- 1593 00ee 0B       		.uleb128 0xb
- 1594 00ef 01       		.byte	0x1
- 1595 00f0 55       		.uleb128 0x55
- 1596 00f1 17       		.uleb128 0x17
- 1597 00f2 00       		.byte	0
- 1598 00f3 00       		.byte	0
- 1599 00f4 13       		.uleb128 0x13
- 1600 00f5 21       		.uleb128 0x21
- 1601 00f6 00       		.byte	0
- 1602 00f7 49       		.uleb128 0x49
- 1603 00f8 13       		.uleb128 0x13
- 1604 00f9 2F       		.uleb128 0x2f
- 1605 00fa 18       		.uleb128 0x18
- 1606 00fb 00       		.byte	0
-ARM GAS  C:\Users\Janit\AppData\Local\Temp\cctvVDDM.s 			page 33
+ 1502 04a0 03       		.byte	0x3
+ 1503 04a1 00000000 		.4byte	entry
+ 1504 04a5 0E       		.uleb128 0xe
+ 1505 04a6 BD000000 		.4byte	0xbd
+ 1506 04aa B5040000 		.4byte	0x4b5
+ 1507 04ae 0F       		.uleb128 0xf
+ 1508 04af 88000000 		.4byte	0x88
+ 1509 04b3 3F       		.byte	0x3f
+ 1510 04b4 00       		.byte	0
+ 1511 04b5 1B       		.uleb128 0x1b
+ 1512 04b6 66000000 		.4byte	.LASF74
+ 1513 04ba 05       		.byte	0x5
+ 1514 04bb 27       		.byte	0x27
+ 1515 04bc A5040000 		.4byte	0x4a5
+ 1516 04c0 05       		.uleb128 0x5
+ 1517 04c1 03       		.byte	0x3
+ 1518 04c2 00000000 		.4byte	usbBuffer
+ 1519 04c6 1B       		.uleb128 0x1b
+ 1520 04c7 50000000 		.4byte	.LASF75
+ 1521 04cb 05       		.byte	0x5
+ 1522 04cc 3C       		.byte	0x3c
+ 1523 04cd FB000000 		.4byte	0xfb
+ 1524 04d1 05       		.uleb128 0x5
+ 1525 04d2 03       		.byte	0x3
+ 1526 04d3 00000000 		.4byte	system_state
+ 1527 04d7 1B       		.uleb128 0x1b
+ 1528 04d8 65020000 		.4byte	.LASF76
+ 1529 04dc 01       		.byte	0x1
+ 1530 04dd 20       		.byte	0x20
+ 1531 04de A7000000 		.4byte	0xa7
+ 1532 04e2 05       		.uleb128 0x5
+ 1533 04e3 03       		.byte	0x3
+ 1534 04e4 00000000 		.4byte	printSpeed
+ 1535 04e8 1A       		.uleb128 0x1a
+ 1536 04e9 6D3100   		.ascii	"m1\000"
+ 1537 04ec 01       		.byte	0x1
+ 1538 04ed 21       		.byte	0x21
+ 1539 04ee A7000000 		.4byte	0xa7
+ 1540 04f2 05       		.uleb128 0x5
+ 1541 04f3 03       		.byte	0x3
+ 1542 04f4 00000000 		.4byte	m1
+ 1543 04f8 1A       		.uleb128 0x1a
+ 1544 04f9 6D3200   		.ascii	"m2\000"
+ 1545 04fc 01       		.byte	0x1
+ 1546 04fd 22       		.byte	0x22
+ 1547 04fe A7000000 		.4byte	0xa7
+ 1548 0502 05       		.uleb128 0x5
+ 1549 0503 03       		.byte	0x3
+ 1550 0504 00000000 		.4byte	m2
+ 1551 0508 00       		.byte	0
+ 1552              		.section	.debug_abbrev,"",%progbits
+ 1553              	.Ldebug_abbrev0:
+ 1554 0000 01       		.uleb128 0x1
+ 1555 0001 11       		.uleb128 0x11
+ 1556 0002 01       		.byte	0x1
+ 1557 0003 25       		.uleb128 0x25
+ 1558 0004 0E       		.uleb128 0xe
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccmw0Jyb.s 			page 33
 
 
- 1607 00fc 00       		.byte	0
- 1608 00fd 14       		.uleb128 0x14
- 1609 00fe 05       		.uleb128 0x5
- 1610 00ff 00       		.byte	0
- 1611 0100 03       		.uleb128 0x3
- 1612 0101 08       		.uleb128 0x8
- 1613 0102 3A       		.uleb128 0x3a
- 1614 0103 0B       		.uleb128 0xb
- 1615 0104 3B       		.uleb128 0x3b
- 1616 0105 0B       		.uleb128 0xb
- 1617 0106 49       		.uleb128 0x49
- 1618 0107 13       		.uleb128 0x13
- 1619 0108 02       		.uleb128 0x2
- 1620 0109 18       		.uleb128 0x18
- 1621 010a 00       		.byte	0
- 1622 010b 00       		.byte	0
- 1623 010c 15       		.uleb128 0x15
- 1624 010d 2E       		.uleb128 0x2e
- 1625 010e 01       		.byte	0x1
- 1626 010f 3F       		.uleb128 0x3f
- 1627 0110 19       		.uleb128 0x19
- 1628 0111 03       		.uleb128 0x3
- 1629 0112 0E       		.uleb128 0xe
- 1630 0113 3A       		.uleb128 0x3a
- 1631 0114 0B       		.uleb128 0xb
- 1632 0115 3B       		.uleb128 0x3b
- 1633 0116 0B       		.uleb128 0xb
- 1634 0117 11       		.uleb128 0x11
- 1635 0118 01       		.uleb128 0x1
- 1636 0119 12       		.uleb128 0x12
- 1637 011a 06       		.uleb128 0x6
- 1638 011b 40       		.uleb128 0x40
- 1639 011c 18       		.uleb128 0x18
- 1640 011d 9642     		.uleb128 0x2116
- 1641 011f 19       		.uleb128 0x19
- 1642 0120 01       		.uleb128 0x1
- 1643 0121 13       		.uleb128 0x13
- 1644 0122 00       		.byte	0
- 1645 0123 00       		.byte	0
- 1646 0124 16       		.uleb128 0x16
- 1647 0125 34       		.uleb128 0x34
- 1648 0126 00       		.byte	0
- 1649 0127 03       		.uleb128 0x3
- 1650 0128 0E       		.uleb128 0xe
- 1651 0129 3A       		.uleb128 0x3a
- 1652 012a 0B       		.uleb128 0xb
- 1653 012b 3B       		.uleb128 0x3b
- 1654 012c 0B       		.uleb128 0xb
- 1655 012d 49       		.uleb128 0x49
- 1656 012e 13       		.uleb128 0x13
- 1657 012f 3F       		.uleb128 0x3f
- 1658 0130 19       		.uleb128 0x19
- 1659 0131 3C       		.uleb128 0x3c
- 1660 0132 19       		.uleb128 0x19
- 1661 0133 00       		.byte	0
- 1662 0134 00       		.byte	0
- 1663 0135 17       		.uleb128 0x17
-ARM GAS  C:\Users\Janit\AppData\Local\Temp\cctvVDDM.s 			page 34
+ 1559 0005 13       		.uleb128 0x13
+ 1560 0006 0B       		.uleb128 0xb
+ 1561 0007 03       		.uleb128 0x3
+ 1562 0008 0E       		.uleb128 0xe
+ 1563 0009 1B       		.uleb128 0x1b
+ 1564 000a 0E       		.uleb128 0xe
+ 1565 000b 55       		.uleb128 0x55
+ 1566 000c 17       		.uleb128 0x17
+ 1567 000d 11       		.uleb128 0x11
+ 1568 000e 01       		.uleb128 0x1
+ 1569 000f 10       		.uleb128 0x10
+ 1570 0010 17       		.uleb128 0x17
+ 1571 0011 00       		.byte	0
+ 1572 0012 00       		.byte	0
+ 1573 0013 02       		.uleb128 0x2
+ 1574 0014 24       		.uleb128 0x24
+ 1575 0015 00       		.byte	0
+ 1576 0016 0B       		.uleb128 0xb
+ 1577 0017 0B       		.uleb128 0xb
+ 1578 0018 3E       		.uleb128 0x3e
+ 1579 0019 0B       		.uleb128 0xb
+ 1580 001a 03       		.uleb128 0x3
+ 1581 001b 0E       		.uleb128 0xe
+ 1582 001c 00       		.byte	0
+ 1583 001d 00       		.byte	0
+ 1584 001e 03       		.uleb128 0x3
+ 1585 001f 16       		.uleb128 0x16
+ 1586 0020 00       		.byte	0
+ 1587 0021 03       		.uleb128 0x3
+ 1588 0022 0E       		.uleb128 0xe
+ 1589 0023 3A       		.uleb128 0x3a
+ 1590 0024 0B       		.uleb128 0xb
+ 1591 0025 3B       		.uleb128 0x3b
+ 1592 0026 0B       		.uleb128 0xb
+ 1593 0027 49       		.uleb128 0x49
+ 1594 0028 13       		.uleb128 0x13
+ 1595 0029 00       		.byte	0
+ 1596 002a 00       		.byte	0
+ 1597 002b 04       		.uleb128 0x4
+ 1598 002c 24       		.uleb128 0x24
+ 1599 002d 00       		.byte	0
+ 1600 002e 0B       		.uleb128 0xb
+ 1601 002f 0B       		.uleb128 0xb
+ 1602 0030 3E       		.uleb128 0x3e
+ 1603 0031 0B       		.uleb128 0xb
+ 1604 0032 03       		.uleb128 0x3
+ 1605 0033 08       		.uleb128 0x8
+ 1606 0034 00       		.byte	0
+ 1607 0035 00       		.byte	0
+ 1608 0036 05       		.uleb128 0x5
+ 1609 0037 0F       		.uleb128 0xf
+ 1610 0038 00       		.byte	0
+ 1611 0039 0B       		.uleb128 0xb
+ 1612 003a 0B       		.uleb128 0xb
+ 1613 003b 49       		.uleb128 0x49
+ 1614 003c 13       		.uleb128 0x13
+ 1615 003d 00       		.byte	0
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccmw0Jyb.s 			page 34
 
 
- 1664 0136 34       		.uleb128 0x34
- 1665 0137 00       		.byte	0
- 1666 0138 03       		.uleb128 0x3
- 1667 0139 0E       		.uleb128 0xe
- 1668 013a 3A       		.uleb128 0x3a
- 1669 013b 0B       		.uleb128 0xb
- 1670 013c 3B       		.uleb128 0x3b
- 1671 013d 05       		.uleb128 0x5
- 1672 013e 49       		.uleb128 0x49
- 1673 013f 13       		.uleb128 0x13
- 1674 0140 3F       		.uleb128 0x3f
- 1675 0141 19       		.uleb128 0x19
- 1676 0142 3C       		.uleb128 0x3c
- 1677 0143 19       		.uleb128 0x19
- 1678 0144 00       		.byte	0
- 1679 0145 00       		.byte	0
- 1680 0146 18       		.uleb128 0x18
- 1681 0147 35       		.uleb128 0x35
- 1682 0148 00       		.byte	0
- 1683 0149 49       		.uleb128 0x49
- 1684 014a 13       		.uleb128 0x13
- 1685 014b 00       		.byte	0
- 1686 014c 00       		.byte	0
- 1687 014d 19       		.uleb128 0x19
- 1688 014e 34       		.uleb128 0x34
- 1689 014f 00       		.byte	0
- 1690 0150 03       		.uleb128 0x3
- 1691 0151 08       		.uleb128 0x8
- 1692 0152 3A       		.uleb128 0x3a
- 1693 0153 0B       		.uleb128 0xb
- 1694 0154 3B       		.uleb128 0x3b
- 1695 0155 0B       		.uleb128 0xb
- 1696 0156 49       		.uleb128 0x49
- 1697 0157 13       		.uleb128 0x13
- 1698 0158 3F       		.uleb128 0x3f
- 1699 0159 19       		.uleb128 0x19
- 1700 015a 02       		.uleb128 0x2
- 1701 015b 18       		.uleb128 0x18
- 1702 015c 00       		.byte	0
- 1703 015d 00       		.byte	0
- 1704 015e 1A       		.uleb128 0x1a
- 1705 015f 34       		.uleb128 0x34
- 1706 0160 00       		.byte	0
- 1707 0161 03       		.uleb128 0x3
- 1708 0162 0E       		.uleb128 0xe
- 1709 0163 3A       		.uleb128 0x3a
- 1710 0164 0B       		.uleb128 0xb
- 1711 0165 3B       		.uleb128 0x3b
- 1712 0166 0B       		.uleb128 0xb
- 1713 0167 49       		.uleb128 0x49
- 1714 0168 13       		.uleb128 0x13
- 1715 0169 3F       		.uleb128 0x3f
- 1716 016a 19       		.uleb128 0x19
- 1717 016b 02       		.uleb128 0x2
- 1718 016c 18       		.uleb128 0x18
- 1719 016d 00       		.byte	0
- 1720 016e 00       		.byte	0
-ARM GAS  C:\Users\Janit\AppData\Local\Temp\cctvVDDM.s 			page 35
+ 1616 003e 00       		.byte	0
+ 1617 003f 06       		.uleb128 0x6
+ 1618 0040 26       		.uleb128 0x26
+ 1619 0041 00       		.byte	0
+ 1620 0042 49       		.uleb128 0x49
+ 1621 0043 13       		.uleb128 0x13
+ 1622 0044 00       		.byte	0
+ 1623 0045 00       		.byte	0
+ 1624 0046 07       		.uleb128 0x7
+ 1625 0047 16       		.uleb128 0x16
+ 1626 0048 00       		.byte	0
+ 1627 0049 03       		.uleb128 0x3
+ 1628 004a 0E       		.uleb128 0xe
+ 1629 004b 3A       		.uleb128 0x3a
+ 1630 004c 0B       		.uleb128 0xb
+ 1631 004d 3B       		.uleb128 0x3b
+ 1632 004e 05       		.uleb128 0x5
+ 1633 004f 49       		.uleb128 0x49
+ 1634 0050 13       		.uleb128 0x13
+ 1635 0051 00       		.byte	0
+ 1636 0052 00       		.byte	0
+ 1637 0053 08       		.uleb128 0x8
+ 1638 0054 13       		.uleb128 0x13
+ 1639 0055 01       		.byte	0x1
+ 1640 0056 03       		.uleb128 0x3
+ 1641 0057 0E       		.uleb128 0xe
+ 1642 0058 0B       		.uleb128 0xb
+ 1643 0059 0B       		.uleb128 0xb
+ 1644 005a 3A       		.uleb128 0x3a
+ 1645 005b 0B       		.uleb128 0xb
+ 1646 005c 3B       		.uleb128 0x3b
+ 1647 005d 0B       		.uleb128 0xb
+ 1648 005e 01       		.uleb128 0x1
+ 1649 005f 13       		.uleb128 0x13
+ 1650 0060 00       		.byte	0
+ 1651 0061 00       		.byte	0
+ 1652 0062 09       		.uleb128 0x9
+ 1653 0063 0D       		.uleb128 0xd
+ 1654 0064 00       		.byte	0
+ 1655 0065 03       		.uleb128 0x3
+ 1656 0066 0E       		.uleb128 0xe
+ 1657 0067 3A       		.uleb128 0x3a
+ 1658 0068 0B       		.uleb128 0xb
+ 1659 0069 3B       		.uleb128 0x3b
+ 1660 006a 0B       		.uleb128 0xb
+ 1661 006b 49       		.uleb128 0x49
+ 1662 006c 13       		.uleb128 0x13
+ 1663 006d 38       		.uleb128 0x38
+ 1664 006e 0B       		.uleb128 0xb
+ 1665 006f 00       		.byte	0
+ 1666 0070 00       		.byte	0
+ 1667 0071 0A       		.uleb128 0xa
+ 1668 0072 2E       		.uleb128 0x2e
+ 1669 0073 00       		.byte	0
+ 1670 0074 3F       		.uleb128 0x3f
+ 1671 0075 19       		.uleb128 0x19
+ 1672 0076 03       		.uleb128 0x3
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccmw0Jyb.s 			page 35
 
 
- 1721 016f 00       		.byte	0
- 1722              		.section	.debug_aranges,"",%progbits
- 1723 0000 44000000 		.4byte	0x44
- 1724 0004 0200     		.2byte	0x2
- 1725 0006 00000000 		.4byte	.Ldebug_info0
- 1726 000a 04       		.byte	0x4
- 1727 000b 00       		.byte	0
- 1728 000c 0000     		.2byte	0
- 1729 000e 0000     		.2byte	0
- 1730 0010 00000000 		.4byte	.LFB64
- 1731 0014 9C000000 		.4byte	.LFE64-.LFB64
- 1732 0018 00000000 		.4byte	.LFB65
- 1733 001c EC000000 		.4byte	.LFE65-.LFB65
- 1734 0020 00000000 		.4byte	.LFB66
- 1735 0024 AC000000 		.4byte	.LFE66-.LFB66
- 1736 0028 00000000 		.4byte	.LFB67
- 1737 002c 3E000000 		.4byte	.LFE67-.LFB67
- 1738 0030 00000000 		.4byte	.LFB68
- 1739 0034 26000000 		.4byte	.LFE68-.LFB68
- 1740 0038 00000000 		.4byte	.LFB69
- 1741 003c C8000000 		.4byte	.LFE69-.LFB69
- 1742 0040 00000000 		.4byte	0
- 1743 0044 00000000 		.4byte	0
- 1744              		.section	.debug_ranges,"",%progbits
- 1745              	.Ldebug_ranges0:
- 1746 0000 24000000 		.4byte	.LBB3
- 1747 0004 D0000000 		.4byte	.LBE3
- 1748 0008 D6000000 		.4byte	.LBB4
- 1749 000c D8000000 		.4byte	.LBE4
- 1750 0010 00000000 		.4byte	0
- 1751 0014 00000000 		.4byte	0
- 1752 0018 00000000 		.4byte	.LFB64
- 1753 001c 9C000000 		.4byte	.LFE64
- 1754 0020 00000000 		.4byte	.LFB65
- 1755 0024 EC000000 		.4byte	.LFE65
- 1756 0028 00000000 		.4byte	.LFB66
- 1757 002c AC000000 		.4byte	.LFE66
- 1758 0030 00000000 		.4byte	.LFB67
- 1759 0034 3E000000 		.4byte	.LFE67
- 1760 0038 00000000 		.4byte	.LFB68
- 1761 003c 26000000 		.4byte	.LFE68
- 1762 0040 00000000 		.4byte	.LFB69
- 1763 0044 C8000000 		.4byte	.LFE69
- 1764 0048 00000000 		.4byte	0
- 1765 004c 00000000 		.4byte	0
- 1766              		.section	.debug_line,"",%progbits
- 1767              	.Ldebug_line0:
- 1768 0000 AC020000 		.section	.debug_str,"MS",%progbits,1
- 1768      0200C901 
- 1768      00000201 
- 1768      FB0E0D00 
- 1768      01010101 
- 1769              	.LASF49:
- 1770 0000 75736250 		.ascii	"usbPutChar\000"
- 1770      75744368 
- 1770      617200
- 1771              	.LASF43:
-ARM GAS  C:\Users\Janit\AppData\Local\Temp\cctvVDDM.s 			page 36
+ 1673 0077 0E       		.uleb128 0xe
+ 1674 0078 3A       		.uleb128 0x3a
+ 1675 0079 0B       		.uleb128 0xb
+ 1676 007a 3B       		.uleb128 0x3b
+ 1677 007b 0B       		.uleb128 0xb
+ 1678 007c 27       		.uleb128 0x27
+ 1679 007d 19       		.uleb128 0x19
+ 1680 007e 11       		.uleb128 0x11
+ 1681 007f 01       		.uleb128 0x1
+ 1682 0080 12       		.uleb128 0x12
+ 1683 0081 06       		.uleb128 0x6
+ 1684 0082 40       		.uleb128 0x40
+ 1685 0083 18       		.uleb128 0x18
+ 1686 0084 9642     		.uleb128 0x2116
+ 1687 0086 19       		.uleb128 0x19
+ 1688 0087 00       		.byte	0
+ 1689 0088 00       		.byte	0
+ 1690 0089 0B       		.uleb128 0xb
+ 1691 008a 2E       		.uleb128 0x2e
+ 1692 008b 01       		.byte	0x1
+ 1693 008c 3F       		.uleb128 0x3f
+ 1694 008d 19       		.uleb128 0x19
+ 1695 008e 03       		.uleb128 0x3
+ 1696 008f 0E       		.uleb128 0xe
+ 1697 0090 3A       		.uleb128 0x3a
+ 1698 0091 0B       		.uleb128 0xb
+ 1699 0092 3B       		.uleb128 0x3b
+ 1700 0093 0B       		.uleb128 0xb
+ 1701 0094 49       		.uleb128 0x49
+ 1702 0095 13       		.uleb128 0x13
+ 1703 0096 11       		.uleb128 0x11
+ 1704 0097 01       		.uleb128 0x1
+ 1705 0098 12       		.uleb128 0x12
+ 1706 0099 06       		.uleb128 0x6
+ 1707 009a 40       		.uleb128 0x40
+ 1708 009b 18       		.uleb128 0x18
+ 1709 009c 9642     		.uleb128 0x2116
+ 1710 009e 19       		.uleb128 0x19
+ 1711 009f 01       		.uleb128 0x1
+ 1712 00a0 13       		.uleb128 0x13
+ 1713 00a1 00       		.byte	0
+ 1714 00a2 00       		.byte	0
+ 1715 00a3 0C       		.uleb128 0xc
+ 1716 00a4 0B       		.uleb128 0xb
+ 1717 00a5 01       		.byte	0x1
+ 1718 00a6 11       		.uleb128 0x11
+ 1719 00a7 01       		.uleb128 0x1
+ 1720 00a8 12       		.uleb128 0x12
+ 1721 00a9 06       		.uleb128 0x6
+ 1722 00aa 00       		.byte	0
+ 1723 00ab 00       		.byte	0
+ 1724 00ac 0D       		.uleb128 0xd
+ 1725 00ad 34       		.uleb128 0x34
+ 1726 00ae 00       		.byte	0
+ 1727 00af 03       		.uleb128 0x3
+ 1728 00b0 0E       		.uleb128 0xe
+ 1729 00b1 3A       		.uleb128 0x3a
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccmw0Jyb.s 			page 36
 
 
- 1772 000b 63757272 		.ascii	"currentchar\000"
- 1772      656E7463 
- 1772      68617200 
- 1773              	.LASF19:
- 1774 0017 646F7562 		.ascii	"double\000"
- 1774      6C6500
- 1775              	.LASF63:
- 1776 001e 666C6167 		.ascii	"flag_packet\000"
- 1776      5F706163 
- 1776      6B657400 
- 1777              	.LASF60:
- 1778 002a 666C6167 		.ascii	"flag_ts_speed\000"
- 1778      5F74735F 
- 1778      73706565 
- 1778      6400
- 1779              	.LASF33:
- 1780 0038 67325F78 		.ascii	"g2_xpos\000"
- 1780      706F7300 
- 1781              	.LASF2:
- 1782 0040 73686F72 		.ascii	"short int\000"
- 1782      7420696E 
- 1782      7400
- 1783              	.LASF46:
- 1784 004a 696E7075 		.ascii	"input\000"
- 1784      7400
- 1785              	.LASF71:
- 1786 0050 73797374 		.ascii	"system_state\000"
- 1786      656D5F73 
- 1786      74617465 
- 1786      00
- 1787              	.LASF10:
- 1788 005d 73697A65 		.ascii	"sizetype\000"
- 1788      74797065 
- 1788      00
- 1789              	.LASF70:
- 1790 0066 75736242 		.ascii	"usbBuffer\000"
- 1790      75666665 
- 1790      7200
- 1791              	.LASF52:
- 1792 0070 5F5F6374 		.ascii	"__ctype_ptr__\000"
- 1792      7970655F 
- 1792      7074725F 
- 1792      5F00
- 1793              	.LASF72:
- 1794 007e 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
- 1794      43313120 
- 1794      352E342E 
- 1794      31203230 
- 1794      31363036 
- 1795 00b1 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
- 1795      20726576 
- 1795      6973696F 
- 1795      6E203233 
- 1795      37373135 
- 1796 00e4 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
- 1796      66756E63 
- 1796      74696F6E 
-ARM GAS  C:\Users\Janit\AppData\Local\Temp\cctvVDDM.s 			page 37
+ 1730 00b2 0B       		.uleb128 0xb
+ 1731 00b3 3B       		.uleb128 0x3b
+ 1732 00b4 0B       		.uleb128 0xb
+ 1733 00b5 49       		.uleb128 0x49
+ 1734 00b6 13       		.uleb128 0x13
+ 1735 00b7 02       		.uleb128 0x2
+ 1736 00b8 18       		.uleb128 0x18
+ 1737 00b9 00       		.byte	0
+ 1738 00ba 00       		.byte	0
+ 1739 00bb 0E       		.uleb128 0xe
+ 1740 00bc 01       		.uleb128 0x1
+ 1741 00bd 01       		.byte	0x1
+ 1742 00be 49       		.uleb128 0x49
+ 1743 00bf 13       		.uleb128 0x13
+ 1744 00c0 01       		.uleb128 0x1
+ 1745 00c1 13       		.uleb128 0x13
+ 1746 00c2 00       		.byte	0
+ 1747 00c3 00       		.byte	0
+ 1748 00c4 0F       		.uleb128 0xf
+ 1749 00c5 21       		.uleb128 0x21
+ 1750 00c6 00       		.byte	0
+ 1751 00c7 49       		.uleb128 0x49
+ 1752 00c8 13       		.uleb128 0x13
+ 1753 00c9 2F       		.uleb128 0x2f
+ 1754 00ca 0B       		.uleb128 0xb
+ 1755 00cb 00       		.byte	0
+ 1756 00cc 00       		.byte	0
+ 1757 00cd 10       		.uleb128 0x10
+ 1758 00ce 2E       		.uleb128 0x2e
+ 1759 00cf 01       		.byte	0x1
+ 1760 00d0 3F       		.uleb128 0x3f
+ 1761 00d1 19       		.uleb128 0x19
+ 1762 00d2 03       		.uleb128 0x3
+ 1763 00d3 0E       		.uleb128 0xe
+ 1764 00d4 3A       		.uleb128 0x3a
+ 1765 00d5 0B       		.uleb128 0xb
+ 1766 00d6 3B       		.uleb128 0x3b
+ 1767 00d7 0B       		.uleb128 0xb
+ 1768 00d8 27       		.uleb128 0x27
+ 1769 00d9 19       		.uleb128 0x19
+ 1770 00da 11       		.uleb128 0x11
+ 1771 00db 01       		.uleb128 0x1
+ 1772 00dc 12       		.uleb128 0x12
+ 1773 00dd 06       		.uleb128 0x6
+ 1774 00de 40       		.uleb128 0x40
+ 1775 00df 18       		.uleb128 0x18
+ 1776 00e0 9642     		.uleb128 0x2116
+ 1777 00e2 19       		.uleb128 0x19
+ 1778 00e3 01       		.uleb128 0x1
+ 1779 00e4 13       		.uleb128 0x13
+ 1780 00e5 00       		.byte	0
+ 1781 00e6 00       		.byte	0
+ 1782 00e7 11       		.uleb128 0x11
+ 1783 00e8 05       		.uleb128 0x5
+ 1784 00e9 00       		.byte	0
+ 1785 00ea 03       		.uleb128 0x3
+ 1786 00eb 0E       		.uleb128 0xe
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccmw0Jyb.s 			page 37
 
 
- 1796      2D736563 
- 1796      74696F6E 
- 1797              	.LASF38:
- 1798 010c 6D61696E 		.ascii	"main\000"
- 1798      00
- 1799              	.LASF39:
- 1800 0111 63686563 		.ascii	"checkPWMCommand\000"
- 1800      6B50574D 
- 1800      436F6D6D 
- 1800      616E6400 
- 1801              	.LASF15:
- 1802 0121 75696E74 		.ascii	"uint16\000"
- 1802      313600
- 1803              	.LASF21:
- 1804 0128 696E6465 		.ascii	"index\000"
- 1804      7800
- 1805              	.LASF17:
- 1806 012e 696E7431 		.ascii	"int16\000"
- 1806      3600
- 1807              	.LASF14:
- 1808 0134 75696E74 		.ascii	"uint8\000"
- 1808      3800
- 1809              	.LASF32:
- 1810 013a 67315F64 		.ascii	"g1_direction\000"
- 1810      69726563 
- 1810      74696F6E 
- 1810      00
- 1811              	.LASF45:
- 1812 0147 73657450 		.ascii	"setPWMDuty\000"
- 1812      574D4475 
- 1812      747900
- 1813              	.LASF68:
- 1814 0152 6C696E65 		.ascii	"line\000"
- 1814      00
- 1815              	.LASF18:
- 1816 0157 666C6F61 		.ascii	"float\000"
- 1816      7400
- 1817              	.LASF6:
- 1818 015d 6C6F6E67 		.ascii	"long long int\000"
- 1818      206C6F6E 
- 1818      6720696E 
- 1818      7400
- 1819              	.LASF48:
- 1820 016b 75736250 		.ascii	"usbPutString\000"
- 1820      75745374 
- 1820      72696E67 
- 1820      00
- 1821              	.LASF16:
- 1822 0178 696E7438 		.ascii	"int8\000"
- 1822      00
- 1823              	.LASF59:
- 1824 017d 666C6167 		.ascii	"flag_ts_update\000"
- 1824      5F74735F 
- 1824      75706461 
- 1824      746500
- 1825              	.LASF34:
- 1826 018c 67325F79 		.ascii	"g2_ypos\000"
-ARM GAS  C:\Users\Janit\AppData\Local\Temp\cctvVDDM.s 			page 38
+ 1787 00ec 3A       		.uleb128 0x3a
+ 1788 00ed 0B       		.uleb128 0xb
+ 1789 00ee 3B       		.uleb128 0x3b
+ 1790 00ef 0B       		.uleb128 0xb
+ 1791 00f0 49       		.uleb128 0x49
+ 1792 00f1 13       		.uleb128 0x13
+ 1793 00f2 02       		.uleb128 0x2
+ 1794 00f3 18       		.uleb128 0x18
+ 1795 00f4 00       		.byte	0
+ 1796 00f5 00       		.byte	0
+ 1797 00f6 12       		.uleb128 0x12
+ 1798 00f7 0B       		.uleb128 0xb
+ 1799 00f8 01       		.byte	0x1
+ 1800 00f9 55       		.uleb128 0x55
+ 1801 00fa 17       		.uleb128 0x17
+ 1802 00fb 00       		.byte	0
+ 1803 00fc 00       		.byte	0
+ 1804 00fd 13       		.uleb128 0x13
+ 1805 00fe 21       		.uleb128 0x21
+ 1806 00ff 00       		.byte	0
+ 1807 0100 49       		.uleb128 0x49
+ 1808 0101 13       		.uleb128 0x13
+ 1809 0102 2F       		.uleb128 0x2f
+ 1810 0103 18       		.uleb128 0x18
+ 1811 0104 00       		.byte	0
+ 1812 0105 00       		.byte	0
+ 1813 0106 14       		.uleb128 0x14
+ 1814 0107 05       		.uleb128 0x5
+ 1815 0108 00       		.byte	0
+ 1816 0109 03       		.uleb128 0x3
+ 1817 010a 08       		.uleb128 0x8
+ 1818 010b 3A       		.uleb128 0x3a
+ 1819 010c 0B       		.uleb128 0xb
+ 1820 010d 3B       		.uleb128 0x3b
+ 1821 010e 0B       		.uleb128 0xb
+ 1822 010f 49       		.uleb128 0x49
+ 1823 0110 13       		.uleb128 0x13
+ 1824 0111 02       		.uleb128 0x2
+ 1825 0112 18       		.uleb128 0x18
+ 1826 0113 00       		.byte	0
+ 1827 0114 00       		.byte	0
+ 1828 0115 15       		.uleb128 0x15
+ 1829 0116 2E       		.uleb128 0x2e
+ 1830 0117 01       		.byte	0x1
+ 1831 0118 3F       		.uleb128 0x3f
+ 1832 0119 19       		.uleb128 0x19
+ 1833 011a 03       		.uleb128 0x3
+ 1834 011b 0E       		.uleb128 0xe
+ 1835 011c 3A       		.uleb128 0x3a
+ 1836 011d 0B       		.uleb128 0xb
+ 1837 011e 3B       		.uleb128 0x3b
+ 1838 011f 0B       		.uleb128 0xb
+ 1839 0120 11       		.uleb128 0x11
+ 1840 0121 01       		.uleb128 0x1
+ 1841 0122 12       		.uleb128 0x12
+ 1842 0123 06       		.uleb128 0x6
+ 1843 0124 40       		.uleb128 0x40
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccmw0Jyb.s 			page 38
 
 
- 1826      706F7300 
- 1827              	.LASF28:
- 1828 0194 67305F64 		.ascii	"g0_direction\000"
- 1828      69726563 
- 1828      74696F6E 
- 1828      00
- 1829              	.LASF25:
- 1830 01a1 67305F78 		.ascii	"g0_xpos\000"
- 1830      706F7300 
- 1831              	.LASF4:
- 1832 01a9 6C6F6E67 		.ascii	"long int\000"
- 1832      20696E74 
- 1832      00
- 1833              	.LASF74:
- 1834 01b2 443A5C44 		.ascii	"D:\\Documents\\UOA\\2023\\Semester 2\\COMPSYS301\\p"
- 1834      6F63756D 
- 1834      656E7473 
- 1834      5C554F41 
- 1834      5C323032 
- 1835 01df 736F6320 		.ascii	"soc student pack\\lab exercise\\psoc_intro\\CS301_C"
- 1835      73747564 
- 1835      656E7420 
- 1835      7061636B 
- 1835      5C6C6162 
- 1836 020f 6C617373 		.ascii	"lass.cydsn\000"
- 1836      2E637964 
- 1836      736E00
- 1837              	.LASF61:
- 1838 021a 666C6167 		.ascii	"flag_ts_display\000"
- 1838      5F74735F 
- 1838      64697370 
- 1838      6C617900 
- 1839              	.LASF62:
- 1840 022a 666C6167 		.ascii	"flag_rx\000"
- 1840      5F727800 
- 1841              	.LASF69:
- 1842 0232 656E7472 		.ascii	"entry\000"
- 1842      7900
- 1843              	.LASF9:
- 1844 0238 6C6F6E67 		.ascii	"long double\000"
- 1844      20646F75 
- 1844      626C6500 
- 1845              	.LASF37:
- 1846 0244 74657874 		.ascii	"textpt\000"
- 1846      707400
- 1847              	.LASF1:
- 1848 024b 756E7369 		.ascii	"unsigned char\000"
- 1848      676E6564 
- 1848      20636861 
- 1848      7200
- 1849              	.LASF47:
- 1850 0259 64757479 		.ascii	"duty\000"
- 1850      00
- 1851              	.LASF27:
- 1852 025e 67305F73 		.ascii	"g0_speed\000"
- 1852      70656564 
- 1852      00
-ARM GAS  C:\Users\Janit\AppData\Local\Temp\cctvVDDM.s 			page 39
+ 1844 0125 18       		.uleb128 0x18
+ 1845 0126 9642     		.uleb128 0x2116
+ 1846 0128 19       		.uleb128 0x19
+ 1847 0129 01       		.uleb128 0x1
+ 1848 012a 13       		.uleb128 0x13
+ 1849 012b 00       		.byte	0
+ 1850 012c 00       		.byte	0
+ 1851 012d 16       		.uleb128 0x16
+ 1852 012e 34       		.uleb128 0x34
+ 1853 012f 00       		.byte	0
+ 1854 0130 03       		.uleb128 0x3
+ 1855 0131 08       		.uleb128 0x8
+ 1856 0132 3A       		.uleb128 0x3a
+ 1857 0133 0B       		.uleb128 0xb
+ 1858 0134 3B       		.uleb128 0x3b
+ 1859 0135 0B       		.uleb128 0xb
+ 1860 0136 49       		.uleb128 0x49
+ 1861 0137 13       		.uleb128 0x13
+ 1862 0138 02       		.uleb128 0x2
+ 1863 0139 18       		.uleb128 0x18
+ 1864 013a 00       		.byte	0
+ 1865 013b 00       		.byte	0
+ 1866 013c 17       		.uleb128 0x17
+ 1867 013d 34       		.uleb128 0x34
+ 1868 013e 00       		.byte	0
+ 1869 013f 03       		.uleb128 0x3
+ 1870 0140 0E       		.uleb128 0xe
+ 1871 0141 3A       		.uleb128 0x3a
+ 1872 0142 0B       		.uleb128 0xb
+ 1873 0143 3B       		.uleb128 0x3b
+ 1874 0144 0B       		.uleb128 0xb
+ 1875 0145 49       		.uleb128 0x49
+ 1876 0146 13       		.uleb128 0x13
+ 1877 0147 3F       		.uleb128 0x3f
+ 1878 0148 19       		.uleb128 0x19
+ 1879 0149 3C       		.uleb128 0x3c
+ 1880 014a 19       		.uleb128 0x19
+ 1881 014b 00       		.byte	0
+ 1882 014c 00       		.byte	0
+ 1883 014d 18       		.uleb128 0x18
+ 1884 014e 34       		.uleb128 0x34
+ 1885 014f 00       		.byte	0
+ 1886 0150 03       		.uleb128 0x3
+ 1887 0151 0E       		.uleb128 0xe
+ 1888 0152 3A       		.uleb128 0x3a
+ 1889 0153 0B       		.uleb128 0xb
+ 1890 0154 3B       		.uleb128 0x3b
+ 1891 0155 05       		.uleb128 0x5
+ 1892 0156 49       		.uleb128 0x49
+ 1893 0157 13       		.uleb128 0x13
+ 1894 0158 3F       		.uleb128 0x3f
+ 1895 0159 19       		.uleb128 0x19
+ 1896 015a 3C       		.uleb128 0x3c
+ 1897 015b 19       		.uleb128 0x19
+ 1898 015c 00       		.byte	0
+ 1899 015d 00       		.byte	0
+ 1900 015e 19       		.uleb128 0x19
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccmw0Jyb.s 			page 39
 
 
- 1853              	.LASF40:
- 1854 0267 64757479 		.ascii	"duty_command_found\000"
- 1854      5F636F6D 
- 1854      6D616E64 
- 1854      5F666F75 
- 1854      6E6400
- 1855              	.LASF0:
- 1856 027a 7369676E 		.ascii	"signed char\000"
- 1856      65642063 
- 1856      68617200 
- 1857              	.LASF7:
- 1858 0286 6C6F6E67 		.ascii	"long long unsigned int\000"
- 1858      206C6F6E 
- 1858      6720756E 
- 1858      7369676E 
- 1858      65642069 
- 1859              	.LASF8:
- 1860 029d 756E7369 		.ascii	"unsigned int\000"
- 1860      676E6564 
- 1860      20696E74 
- 1860      00
- 1861              	.LASF64:
- 1862 02aa 666C6167 		.ascii	"flag_KB_string\000"
- 1862      5F4B425F 
- 1862      73747269 
- 1862      6E6700
- 1863              	.LASF51:
- 1864 02b9 75736242 		.ascii	"usbBufCount\000"
- 1864      7566436F 
- 1864      756E7400 
- 1865              	.LASF35:
- 1866 02c5 67325F73 		.ascii	"g2_speed\000"
- 1866      70656564 
- 1866      00
- 1867              	.LASF29:
- 1868 02ce 67315F78 		.ascii	"g1_xpos\000"
- 1868      706F7300 
- 1869              	.LASF44:
- 1870 02d6 63686172 		.ascii	"char_nums\000"
- 1870      5F6E756D 
- 1870      7300
- 1871              	.LASF3:
- 1872 02e0 73686F72 		.ascii	"short unsigned int\000"
- 1872      7420756E 
- 1872      7369676E 
- 1872      65642069 
- 1872      6E7400
- 1873              	.LASF75:
- 1874 02f3 64617461 		.ascii	"data_main\000"
- 1874      5F6D6169 
- 1874      6E00
- 1875              	.LASF11:
- 1876 02fd 63686172 		.ascii	"char\000"
- 1876      00
- 1877              	.LASF22:
- 1878 0302 726F626F 		.ascii	"robot_xpos\000"
- 1878      745F7870 
-ARM GAS  C:\Users\Janit\AppData\Local\Temp\cctvVDDM.s 			page 40
+ 1901 015f 35       		.uleb128 0x35
+ 1902 0160 00       		.byte	0
+ 1903 0161 49       		.uleb128 0x49
+ 1904 0162 13       		.uleb128 0x13
+ 1905 0163 00       		.byte	0
+ 1906 0164 00       		.byte	0
+ 1907 0165 1A       		.uleb128 0x1a
+ 1908 0166 34       		.uleb128 0x34
+ 1909 0167 00       		.byte	0
+ 1910 0168 03       		.uleb128 0x3
+ 1911 0169 08       		.uleb128 0x8
+ 1912 016a 3A       		.uleb128 0x3a
+ 1913 016b 0B       		.uleb128 0xb
+ 1914 016c 3B       		.uleb128 0x3b
+ 1915 016d 0B       		.uleb128 0xb
+ 1916 016e 49       		.uleb128 0x49
+ 1917 016f 13       		.uleb128 0x13
+ 1918 0170 3F       		.uleb128 0x3f
+ 1919 0171 19       		.uleb128 0x19
+ 1920 0172 02       		.uleb128 0x2
+ 1921 0173 18       		.uleb128 0x18
+ 1922 0174 00       		.byte	0
+ 1923 0175 00       		.byte	0
+ 1924 0176 1B       		.uleb128 0x1b
+ 1925 0177 34       		.uleb128 0x34
+ 1926 0178 00       		.byte	0
+ 1927 0179 03       		.uleb128 0x3
+ 1928 017a 0E       		.uleb128 0xe
+ 1929 017b 3A       		.uleb128 0x3a
+ 1930 017c 0B       		.uleb128 0xb
+ 1931 017d 3B       		.uleb128 0x3b
+ 1932 017e 0B       		.uleb128 0xb
+ 1933 017f 49       		.uleb128 0x49
+ 1934 0180 13       		.uleb128 0x13
+ 1935 0181 3F       		.uleb128 0x3f
+ 1936 0182 19       		.uleb128 0x19
+ 1937 0183 02       		.uleb128 0x2
+ 1938 0184 18       		.uleb128 0x18
+ 1939 0185 00       		.byte	0
+ 1940 0186 00       		.byte	0
+ 1941 0187 00       		.byte	0
+ 1942              		.section	.debug_aranges,"",%progbits
+ 1943 0000 54000000 		.4byte	0x54
+ 1944 0004 0200     		.2byte	0x2
+ 1945 0006 00000000 		.4byte	.Ldebug_info0
+ 1946 000a 04       		.byte	0x4
+ 1947 000b 00       		.byte	0
+ 1948 000c 0000     		.2byte	0
+ 1949 000e 0000     		.2byte	0
+ 1950 0010 00000000 		.4byte	.LFB64
+ 1951 0014 40000000 		.4byte	.LFE64-.LFB64
+ 1952 0018 00000000 		.4byte	.LFB65
+ 1953 001c 24000000 		.4byte	.LFE65-.LFB65
+ 1954 0020 00000000 		.4byte	.LFB66
+ 1955 0024 04010000 		.4byte	.LFE66-.LFB66
+ 1956 0028 00000000 		.4byte	.LFB67
+ 1957 002c EC000000 		.4byte	.LFE67-.LFB67
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccmw0Jyb.s 			page 40
 
 
- 1878      6F7300
- 1879              	.LASF13:
- 1880 030d 696E7433 		.ascii	"int32_t\000"
- 1880      325F7400 
- 1881              	.LASF30:
- 1882 0315 67315F79 		.ascii	"g1_ypos\000"
- 1882      706F7300 
- 1883              	.LASF36:
- 1884 031d 67325F64 		.ascii	"g2_direction\000"
- 1884      69726563 
- 1884      74696F6E 
- 1884      00
- 1885              	.LASF31:
- 1886 032a 67315F73 		.ascii	"g1_speed\000"
- 1886      70656564 
- 1886      00
- 1887              	.LASF67:
- 1888 0333 64697370 		.ascii	"displaystring\000"
- 1888      6C617973 
- 1888      7472696E 
- 1888      6700
- 1889              	.LASF41:
- 1890 0341 70657269 		.ascii	"period_command_found\000"
- 1890      6F645F63 
- 1890      6F6D6D61 
- 1890      6E645F66 
- 1890      6F756E64 
- 1891              	.LASF73:
- 1892 0356 6D61696E 		.ascii	"main.c\000"
- 1892      2E6300
- 1893              	.LASF5:
- 1894 035d 6C6F6E67 		.ascii	"long unsigned int\000"
- 1894      20756E73 
- 1894      69676E65 
- 1894      6420696E 
- 1894      7400
- 1895              	.LASF50:
- 1896 036f 75736253 		.ascii	"usbStarted\000"
- 1896      74617274 
- 1896      656400
- 1897              	.LASF65:
- 1898 037a 64617461 		.ascii	"dataready_flag\000"
- 1898      72656164 
- 1898      795F666C 
- 1898      616700
- 1899              	.LASF56:
- 1900 0389 74735F73 		.ascii	"ts_speed\000"
- 1900      70656564 
- 1900      00
- 1901              	.LASF42:
- 1902 0392 636F756E 		.ascii	"count\000"
- 1902      7400
- 1903              	.LASF58:
- 1904 0398 666C6167 		.ascii	"flag_ts_enc\000"
- 1904      5F74735F 
- 1904      656E6300 
- 1905              	.LASF12:
-ARM GAS  C:\Users\Janit\AppData\Local\Temp\cctvVDDM.s 			page 41
+ 1958 0030 00000000 		.4byte	.LFB68
+ 1959 0034 AC000000 		.4byte	.LFE68-.LFB68
+ 1960 0038 00000000 		.4byte	.LFB69
+ 1961 003c 3E000000 		.4byte	.LFE69-.LFB69
+ 1962 0040 00000000 		.4byte	.LFB70
+ 1963 0044 26000000 		.4byte	.LFE70-.LFB70
+ 1964 0048 00000000 		.4byte	.LFB71
+ 1965 004c C8000000 		.4byte	.LFE71-.LFB71
+ 1966 0050 00000000 		.4byte	0
+ 1967 0054 00000000 		.4byte	0
+ 1968              		.section	.debug_ranges,"",%progbits
+ 1969              	.Ldebug_ranges0:
+ 1970 0000 24000000 		.4byte	.LBB3
+ 1971 0004 D0000000 		.4byte	.LBE3
+ 1972 0008 D6000000 		.4byte	.LBB4
+ 1973 000c D8000000 		.4byte	.LBE4
+ 1974 0010 00000000 		.4byte	0
+ 1975 0014 00000000 		.4byte	0
+ 1976 0018 00000000 		.4byte	.LFB64
+ 1977 001c 40000000 		.4byte	.LFE64
+ 1978 0020 00000000 		.4byte	.LFB65
+ 1979 0024 24000000 		.4byte	.LFE65
+ 1980 0028 00000000 		.4byte	.LFB66
+ 1981 002c 04010000 		.4byte	.LFE66
+ 1982 0030 00000000 		.4byte	.LFB67
+ 1983 0034 EC000000 		.4byte	.LFE67
+ 1984 0038 00000000 		.4byte	.LFB68
+ 1985 003c AC000000 		.4byte	.LFE68
+ 1986 0040 00000000 		.4byte	.LFB69
+ 1987 0044 3E000000 		.4byte	.LFE69
+ 1988 0048 00000000 		.4byte	.LFB70
+ 1989 004c 26000000 		.4byte	.LFE70
+ 1990 0050 00000000 		.4byte	.LFB71
+ 1991 0054 C8000000 		.4byte	.LFE71
+ 1992 0058 00000000 		.4byte	0
+ 1993 005c 00000000 		.4byte	0
+ 1994              		.section	.debug_line,"",%progbits
+ 1995              	.Ldebug_line0:
+ 1996 0000 E2020000 		.section	.debug_str,"MS",%progbits,1
+ 1996      0200C901 
+ 1996      00000201 
+ 1996      FB0E0D00 
+ 1996      01010101 
+ 1997              	.LASF53:
+ 1998 0000 75736250 		.ascii	"usbPutChar\000"
+ 1998      75744368 
+ 1998      617200
+ 1999              	.LASF47:
+ 2000 000b 63757272 		.ascii	"currentchar\000"
+ 2000      656E7463 
+ 2000      68617200 
+ 2001              	.LASF21:
+ 2002 0017 646F7562 		.ascii	"double\000"
+ 2002      6C6500
+ 2003              	.LASF67:
+ 2004 001e 666C6167 		.ascii	"flag_packet\000"
+ 2004      5F706163 
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccmw0Jyb.s 			page 41
 
 
- 1906 03a4 5F5F696E 		.ascii	"__int32_t\000"
- 1906      7433325F 
- 1906      7400
- 1907              	.LASF26:
- 1908 03ae 67305F79 		.ascii	"g0_ypos\000"
- 1908      706F7300 
- 1909              	.LASF57:
- 1910 03b6 74735F64 		.ascii	"ts_display\000"
- 1910      6973706C 
- 1910      617900
- 1911              	.LASF54:
- 1912 03c1 74735F65 		.ascii	"ts_enc\000"
- 1912      6E6300
- 1913              	.LASF55:
- 1914 03c8 74735F75 		.ascii	"ts_update\000"
- 1914      70646174 
- 1914      6500
- 1915              	.LASF76:
- 1916 03d2 68616E64 		.ascii	"handle_usb\000"
- 1916      6C655F75 
- 1916      736200
- 1917              	.LASF66:
- 1918 03dd 666C6167 		.ascii	"flag_rf_transmission_active\000"
- 1918      5F72665F 
- 1918      7472616E 
- 1918      736D6973 
- 1918      73696F6E 
- 1919              	.LASF23:
- 1920 03f9 726F626F 		.ascii	"robot_ypos\000"
- 1920      745F7970 
- 1920      6F7300
- 1921              	.LASF53:
- 1922 0404 49544D5F 		.ascii	"ITM_RxBuffer\000"
- 1922      52784275 
- 1922      66666572 
- 1922      00
- 1923              	.LASF20:
- 1924 0411 72737369 		.ascii	"rssi\000"
- 1924      00
- 1925              	.LASF24:
- 1926 0416 726F626F 		.ascii	"robot_orientation\000"
- 1926      745F6F72 
- 1926      69656E74 
- 1926      6174696F 
- 1926      6E00
- 1927              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
+ 2004      6B657400 
+ 2005              	.LASF64:
+ 2006 002a 666C6167 		.ascii	"flag_ts_speed\000"
+ 2006      5F74735F 
+ 2006      73706565 
+ 2006      6400
+ 2007              	.LASF35:
+ 2008 0038 67325F78 		.ascii	"g2_xpos\000"
+ 2008      706F7300 
+ 2009              	.LASF2:
+ 2010 0040 73686F72 		.ascii	"short int\000"
+ 2010      7420696E 
+ 2010      7400
+ 2011              	.LASF50:
+ 2012 004a 696E7075 		.ascii	"input\000"
+ 2012      7400
+ 2013              	.LASF75:
+ 2014 0050 73797374 		.ascii	"system_state\000"
+ 2014      656D5F73 
+ 2014      74617465 
+ 2014      00
+ 2015              	.LASF12:
+ 2016 005d 73697A65 		.ascii	"sizetype\000"
+ 2016      74797065 
+ 2016      00
+ 2017              	.LASF74:
+ 2018 0066 75736242 		.ascii	"usbBuffer\000"
+ 2018      75666665 
+ 2018      7200
+ 2019              	.LASF56:
+ 2020 0070 5F5F6374 		.ascii	"__ctype_ptr__\000"
+ 2020      7970655F 
+ 2020      7074725F 
+ 2020      5F00
+ 2021              	.LASF77:
+ 2022 007e 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 2022      43313120 
+ 2022      352E342E 
+ 2022      31203230 
+ 2022      31363036 
+ 2023 00b1 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 2023      20726576 
+ 2023      6973696F 
+ 2023      6E203233 
+ 2023      37373135 
+ 2024 00e4 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
+ 2024      66756E63 
+ 2024      74696F6E 
+ 2024      2D736563 
+ 2024      74696F6E 
+ 2025              	.LASF41:
+ 2026 010c 6D61696E 		.ascii	"main\000"
+ 2026      00
+ 2027              	.LASF4:
+ 2028 0111 5F5F7569 		.ascii	"__uint16_t\000"
+ 2028      6E743136 
+ 2028      5F7400
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccmw0Jyb.s 			page 42
+
+
+ 2029              	.LASF42:
+ 2030 011c 63686563 		.ascii	"checkPWMCommand\000"
+ 2030      6B50574D 
+ 2030      436F6D6D 
+ 2030      616E6400 
+ 2031              	.LASF17:
+ 2032 012c 75696E74 		.ascii	"uint16\000"
+ 2032      313600
+ 2033              	.LASF23:
+ 2034 0133 696E6465 		.ascii	"index\000"
+ 2034      7800
+ 2035              	.LASF19:
+ 2036 0139 696E7431 		.ascii	"int16\000"
+ 2036      3600
+ 2037              	.LASF16:
+ 2038 013f 75696E74 		.ascii	"uint8\000"
+ 2038      3800
+ 2039              	.LASF34:
+ 2040 0145 67315F64 		.ascii	"g1_direction\000"
+ 2040      69726563 
+ 2040      74696F6E 
+ 2040      00
+ 2041              	.LASF49:
+ 2042 0152 73657450 		.ascii	"setPWMDuty\000"
+ 2042      574D4475 
+ 2042      747900
+ 2043              	.LASF72:
+ 2044 015d 6C696E65 		.ascii	"line\000"
+ 2044      00
+ 2045              	.LASF20:
+ 2046 0162 666C6F61 		.ascii	"float\000"
+ 2046      7400
+ 2047              	.LASF8:
+ 2048 0168 6C6F6E67 		.ascii	"long long int\000"
+ 2048      206C6F6E 
+ 2048      6720696E 
+ 2048      7400
+ 2049              	.LASF52:
+ 2050 0176 75736250 		.ascii	"usbPutString\000"
+ 2050      75745374 
+ 2050      72696E67 
+ 2050      00
+ 2051              	.LASF18:
+ 2052 0183 696E7438 		.ascii	"int8\000"
+ 2052      00
+ 2053              	.LASF63:
+ 2054 0188 666C6167 		.ascii	"flag_ts_update\000"
+ 2054      5F74735F 
+ 2054      75706461 
+ 2054      746500
+ 2055              	.LASF36:
+ 2056 0197 67325F79 		.ascii	"g2_ypos\000"
+ 2056      706F7300 
+ 2057              	.LASF30:
+ 2058 019f 67305F64 		.ascii	"g0_direction\000"
+ 2058      69726563 
+ 2058      74696F6E 
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccmw0Jyb.s 			page 43
+
+
+ 2058      00
+ 2059              	.LASF27:
+ 2060 01ac 67305F78 		.ascii	"g0_xpos\000"
+ 2060      706F7300 
+ 2061              	.LASF6:
+ 2062 01b4 6C6F6E67 		.ascii	"long int\000"
+ 2062      20696E74 
+ 2062      00
+ 2063              	.LASF40:
+ 2064 01bd 7072696E 		.ascii	"printUart\000"
+ 2064      74556172 
+ 2064      7400
+ 2065              	.LASF65:
+ 2066 01c7 666C6167 		.ascii	"flag_ts_display\000"
+ 2066      5F74735F 
+ 2066      64697370 
+ 2066      6C617900 
+ 2067              	.LASF66:
+ 2068 01d7 666C6167 		.ascii	"flag_rx\000"
+ 2068      5F727800 
+ 2069              	.LASF73:
+ 2070 01df 656E7472 		.ascii	"entry\000"
+ 2070      7900
+ 2071              	.LASF11:
+ 2072 01e5 6C6F6E67 		.ascii	"long double\000"
+ 2072      20646F75 
+ 2072      626C6500 
+ 2073              	.LASF1:
+ 2074 01f1 756E7369 		.ascii	"unsigned char\000"
+ 2074      676E6564 
+ 2074      20636861 
+ 2074      7200
+ 2075              	.LASF51:
+ 2076 01ff 64757479 		.ascii	"duty\000"
+ 2076      00
+ 2077              	.LASF29:
+ 2078 0204 67305F73 		.ascii	"g0_speed\000"
+ 2078      70656564 
+ 2078      00
+ 2079              	.LASF44:
+ 2080 020d 64757479 		.ascii	"duty_command_found\000"
+ 2080      5F636F6D 
+ 2080      6D616E64 
+ 2080      5F666F75 
+ 2080      6E6400
+ 2081              	.LASF0:
+ 2082 0220 7369676E 		.ascii	"signed char\000"
+ 2082      65642063 
+ 2082      68617200 
+ 2083              	.LASF9:
+ 2084 022c 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 2084      206C6F6E 
+ 2084      6720756E 
+ 2084      7369676E 
+ 2084      65642069 
+ 2085              	.LASF10:
+ 2086 0243 756E7369 		.ascii	"unsigned int\000"
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccmw0Jyb.s 			page 44
+
+
+ 2086      676E6564 
+ 2086      20696E74 
+ 2086      00
+ 2087              	.LASF14:
+ 2088 0250 75696E74 		.ascii	"uint16_t\000"
+ 2088      31365F74 
+ 2088      00
+ 2089              	.LASF55:
+ 2090 0259 75736242 		.ascii	"usbBufCount\000"
+ 2090      7566436F 
+ 2090      756E7400 
+ 2091              	.LASF76:
+ 2092 0265 7072696E 		.ascii	"printSpeed\000"
+ 2092      74537065 
+ 2092      656400
+ 2093              	.LASF37:
+ 2094 0270 67325F73 		.ascii	"g2_speed\000"
+ 2094      70656564 
+ 2094      00
+ 2095              	.LASF68:
+ 2096 0279 666C6167 		.ascii	"flag_KB_string\000"
+ 2096      5F4B425F 
+ 2096      73747269 
+ 2096      6E6700
+ 2097              	.LASF31:
+ 2098 0288 67315F78 		.ascii	"g1_xpos\000"
+ 2098      706F7300 
+ 2099              	.LASF48:
+ 2100 0290 63686172 		.ascii	"char_nums\000"
+ 2100      5F6E756D 
+ 2100      7300
+ 2101              	.LASF3:
+ 2102 029a 73686F72 		.ascii	"short unsigned int\000"
+ 2102      7420756E 
+ 2102      7369676E 
+ 2102      65642069 
+ 2102      6E7400
+ 2103              	.LASF80:
+ 2104 02ad 64617461 		.ascii	"data_main\000"
+ 2104      5F6D6169 
+ 2104      6E00
+ 2105              	.LASF13:
+ 2106 02b7 63686172 		.ascii	"char\000"
+ 2106      00
+ 2107              	.LASF24:
+ 2108 02bc 726F626F 		.ascii	"robot_xpos\000"
+ 2108      745F7870 
+ 2108      6F7300
+ 2109              	.LASF15:
+ 2110 02c7 696E7433 		.ascii	"int32_t\000"
+ 2110      325F7400 
+ 2111              	.LASF32:
+ 2112 02cf 67315F79 		.ascii	"g1_ypos\000"
+ 2112      706F7300 
+ 2113              	.LASF38:
+ 2114 02d7 67325F64 		.ascii	"g2_direction\000"
+ 2114      69726563 
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccmw0Jyb.s 			page 45
+
+
+ 2114      74696F6E 
+ 2114      00
+ 2115              	.LASF33:
+ 2116 02e4 67315F73 		.ascii	"g1_speed\000"
+ 2116      70656564 
+ 2116      00
+ 2117              	.LASF71:
+ 2118 02ed 64697370 		.ascii	"displaystring\000"
+ 2118      6C617973 
+ 2118      7472696E 
+ 2118      6700
+ 2119              	.LASF45:
+ 2120 02fb 70657269 		.ascii	"period_command_found\000"
+ 2120      6F645F63 
+ 2120      6F6D6D61 
+ 2120      6E645F66 
+ 2120      6F756E64 
+ 2121              	.LASF43:
+ 2122 0310 62756666 		.ascii	"buffer\000"
+ 2122      657200
+ 2123              	.LASF78:
+ 2124 0317 6D61696E 		.ascii	"main.c\000"
+ 2124      2E6300
+ 2125              	.LASF7:
+ 2126 031e 6C6F6E67 		.ascii	"long unsigned int\000"
+ 2126      20756E73 
+ 2126      69676E65 
+ 2126      6420696E 
+ 2126      7400
+ 2127              	.LASF54:
+ 2128 0330 75736253 		.ascii	"usbStarted\000"
+ 2128      74617274 
+ 2128      656400
+ 2129              	.LASF69:
+ 2130 033b 64617461 		.ascii	"dataready_flag\000"
+ 2130      72656164 
+ 2130      795F666C 
+ 2130      616700
+ 2131              	.LASF60:
+ 2132 034a 74735F73 		.ascii	"ts_speed\000"
+ 2132      70656564 
+ 2132      00
+ 2133              	.LASF46:
+ 2134 0353 636F756E 		.ascii	"count\000"
+ 2134      7400
+ 2135              	.LASF62:
+ 2136 0359 666C6167 		.ascii	"flag_ts_enc\000"
+ 2136      5F74735F 
+ 2136      656E6300 
+ 2137              	.LASF5:
+ 2138 0365 5F5F696E 		.ascii	"__int32_t\000"
+ 2138      7433325F 
+ 2138      7400
+ 2139              	.LASF79:
+ 2140 036f 483A5C44 		.ascii	"H:\\Documents\\12_Cypress_LineFollowingRobot\\Janit"
+ 2140      6F63756D 
+ 2140      656E7473 
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccmw0Jyb.s 			page 46
+
+
+ 2140      5C31325F 
+ 2140      43797072 
+ 2141 039f 685C5053 		.ascii	"h\\PSOC\\CS301_Class.cydsn\000"
+ 2141      4F435C43 
+ 2141      53333031 
+ 2141      5F436C61 
+ 2141      73732E63 
+ 2142              	.LASF28:
+ 2143 03b8 67305F79 		.ascii	"g0_ypos\000"
+ 2143      706F7300 
+ 2144              	.LASF61:
+ 2145 03c0 74735F64 		.ascii	"ts_display\000"
+ 2145      6973706C 
+ 2145      617900
+ 2146              	.LASF58:
+ 2147 03cb 74735F65 		.ascii	"ts_enc\000"
+ 2147      6E6300
+ 2148              	.LASF59:
+ 2149 03d2 74735F75 		.ascii	"ts_update\000"
+ 2149      70646174 
+ 2149      6500
+ 2150              	.LASF81:
+ 2151 03dc 68616E64 		.ascii	"handle_usb\000"
+ 2151      6C655F75 
+ 2151      736200
+ 2152              	.LASF70:
+ 2153 03e7 666C6167 		.ascii	"flag_rf_transmission_active\000"
+ 2153      5F72665F 
+ 2153      7472616E 
+ 2153      736D6973 
+ 2153      73696F6E 
+ 2154              	.LASF25:
+ 2155 0403 726F626F 		.ascii	"robot_ypos\000"
+ 2155      745F7970 
+ 2155      6F7300
+ 2156              	.LASF57:
+ 2157 040e 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 2157      52784275 
+ 2157      66666572 
+ 2157      00
+ 2158              	.LASF39:
+ 2159 041b 67617262 		.ascii	"garb\000"
+ 2159      00
+ 2160              	.LASF22:
+ 2161 0420 72737369 		.ascii	"rssi\000"
+ 2161      00
+ 2162              	.LASF26:
+ 2163 0425 726F626F 		.ascii	"robot_orientation\000"
+ 2163      745F6F72 
+ 2163      69656E74 
+ 2163      6174696F 
+ 2163      6E00
+ 2164              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran
