@@ -2,7 +2,7 @@
 --	Conversion of Team12_PsoC_FinalImplementation.v to vh2:
 --
 --	Cypress Semiconductor - WARP Version 6.3 IR 41
---	Tue Oct 03 14:21:25 2023
+--	Wed Oct 11 12:28:24 2023
 --
 
 USE cypress.cypress.all;
@@ -1466,6 +1466,16 @@ SIGNAL tmpFB_0__LED_BLUE_net_0 : bit;
 SIGNAL tmpIO_0__LED_BLUE_net_0 : bit;
 TERMINAL tmpSIOVREF__LED_BLUE_net_0 : bit;
 SIGNAL tmpINTERRUPT_0__LED_BLUE_net_0 : bit;
+SIGNAL Net_4546 : bit;
+SIGNAL Net_4548 : bit;
+SIGNAL \Timer_Sensor:Net_260\ : bit;
+SIGNAL \Timer_Sensor:Net_266\ : bit;
+SIGNAL \Timer_Sensor:Net_51\ : bit;
+SIGNAL \Timer_Sensor:Net_261\ : bit;
+SIGNAL \Timer_Sensor:Net_57\ : bit;
+SIGNAL Net_4549 : bit;
+SIGNAL Net_4554 : bit;
+SIGNAL \Timer_Sensor:Net_102\ : bit;
 SIGNAL \QuadDec_M1:Net_1251\\D\ : bit;
 SIGNAL \QuadDec_M1:Cnt16:CounterUDB:prevCapture\\D\ : bit;
 SIGNAL \QuadDec_M1:Cnt16:CounterUDB:overflow_reg_i\\D\ : bit;
@@ -5975,6 +5985,30 @@ LED_BLUE:cy_psoc3_pins_v1_10
 		out_clock_en=>tmpOE__M1_IN1_net_0,
 		out_reset=>Net_2183,
 		interrupt=>tmpINTERRUPT_0__LED_BLUE_net_0);
+timer_clock:cy_clock_v1_0
+	GENERIC MAP(cy_registers=>"",
+		id=>"c0fb34bd-1044-4931-9788-16b01ce89812",
+		source_clock_id=>"61737EF6-3B74-48f9-8B91-F7473A442AE7",
+		divisor=>0,
+		period=>"1000000000000",
+		is_direct=>'0',
+		is_digital=>'1')
+	PORT MAP(clock_out=>Net_4546,
+		dig_domain_out=>open);
+\Timer_Sensor:TimerHW\:cy_psoc3_timer_v1_0
+	GENERIC MAP(cy_registers=>"")
+	PORT MAP(clock=>Net_4546,
+		kill=>Net_2183,
+		enable=>tmpOE__M1_IN1_net_0,
+		capture=>Net_2183,
+		timer_reset=>Net_2183,
+		tc=>Net_4554,
+		compare=>\Timer_Sensor:Net_261\,
+		interrupt=>\Timer_Sensor:Net_57\);
+Sensor_isr:cy_isr_v1_0
+	GENERIC MAP(int_type=>"10",
+		is_nmi=>'0')
+	PORT MAP(int_signal=>Net_4554);
 \QuadDec_M1:Net_1251\:cy_dff
 	PORT MAP(d=>\QuadDec_M1:Net_1251\\D\,
 		clk=>\QuadDec_M1:bQuadDec:sync_clock\,

@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\schoo\AppData\Local\Temp\cc23nsl9.s 			page 1
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccCKQGv1.s 			page 1
 
 
    1              		.syntax unified
@@ -24,43 +24,36 @@ ARM GAS  C:\Users\schoo\AppData\Local\Temp\cc23nsl9.s 			page 1
   21              	.Ldebug_line0:
   22              		.section	.debug_str,"MS",%progbits,1
   23              	.LASF0:
-  24 0000 433A5C55 		.ascii	"C:\\Users\\schoo\\OneDrive\\Desktop\\12_Cypress_Lin"
-  24      73657273 
-  24      5C736368 
-  24      6F6F5C4F 
-  24      6E654472 
-  25 002e 65466F6C 		.ascii	"eFollowingRobot\\Final_implementation\\Team12_PsoC_"
-  25      6C6F7769 
-  25      6E67526F 
-  25      626F745C 
-  25      46696E61 
-  26 005f 46696E61 		.ascii	"FinalImplementation.cydsn\000"
-  26      6C496D70 
-  26      6C656D65 
-  26      6E746174 
-  26      696F6E2E 
-  27              	.LASF1:
-  28 0079 51756164 		.ascii	"QuadEncoder.c\000"
-  28      456E636F 
-  28      6465722E 
-  28      6300
+  24 0000 51756164 		.ascii	"QuadEncoder.c\000"
+  24      456E636F 
+  24      6465722E 
+  24      6300
+  25              	.LASF1:
+  26 000e 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+  26      43313120 
+  26      352E342E 
+  26      31203230 
+  26      31363036 
+  27 0041 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+  27      20726576 
+  27      6973696F 
+  27      6E203233 
+  27      37373135 
+  28 0074 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
+  28      66756E63 
+  28      74696F6E 
+  28      2D736563 
+  28      74696F6E 
   29              	.LASF2:
-  30 0087 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
-  30      43313120 
-  30      352E342E 
-  30      31203230 
-  30      31363036 
-  31 00ba 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
-  31      20726576 
-  31      6973696F 
-  31      6E203233 
-  31      37373135 
-  32 00ed 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
-  32      66756E63 
-  32      74696F6E 
-ARM GAS  C:\Users\schoo\AppData\Local\Temp\cc23nsl9.s 			page 2
-
-
-  32      2D736563 
-  32      74696F6E 
+  30 009c 483A5C44 		.ascii	"H:\\Documents\\12_Cypress_LineFollowingRobot\\Final"
+  30      6F63756D 
+  30      656E7473 
+  30      5C31325F 
+  30      43797072 
+  31 00cc 5F696D70 		.ascii	"_implementation\\Team12_PsoC_FinalImplementation.cy"
+  31      6C656D65 
+  31      6E746174 
+  31      696F6E5C 
+  31      5465616D 
+  32 00fe 64736E00 		.ascii	"dsn\000"
   33              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

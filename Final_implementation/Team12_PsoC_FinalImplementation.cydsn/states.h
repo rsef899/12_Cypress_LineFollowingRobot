@@ -24,6 +24,7 @@
     #define DRIVING 4
     #define TURNING 5
     #define STOPCAR 10
+    #define PREPARETURN 6
     
 #endif
 

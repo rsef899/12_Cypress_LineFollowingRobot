@@ -1,0 +1,3545 @@
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccLFIdLJ.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"algo.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.isValid,"ax",%progbits
+  20              		.align	2
+  21              		.global	isValid
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	isValid, %function
+  25              	isValid:
+  26              	.LFB1:
+  27              		.file 1 "algo.c"
+   1:algo.c        **** /* ========================================
+   2:algo.c        ****  *
+   3:algo.c        ****  * Copyright YOUR COMPANY, THE YEAR
+   4:algo.c        ****  * All Rights Reserved
+   5:algo.c        ****  * UNPUBLISHED, LICENSED SOFTWARE.
+   6:algo.c        ****  *
+   7:algo.c        ****  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+   8:algo.c        ****  * WHICH IS THE PROPERTY OF your company.
+   9:algo.c        ****  *
+  10:algo.c        ****  * ========================================
+  11:algo.c        **** */
+  12:algo.c        **** // finds shortes path from start to first endpoint
+  13:algo.c        **** #include "algo.h"
+  14:algo.c        **** #include "defines.h"
+  15:algo.c        **** 
+  16:algo.c        **** #include <assert.h>
+  17:algo.c        **** #include <stdint.h>
+  18:algo.c        **** #include <string.h>
+  19:algo.c        **** 
+  20:algo.c        **** // Macros that allow easy creation of adjacent points
+  21:algo.c        **** // i.e. LEFT(start), will get you the position that is
+  22:algo.c        **** // left from the starting point.
+  23:algo.c        **** #define LEFT(p) ((Point){.x = (p).x - 1, .y = (p).y})
+  24:algo.c        **** #define RIGHT(p) ((Point){.x = (p).x + 1, .y = (p).y})
+  25:algo.c        **** #define ABOVE(p) ((Point){.x = (p).x, .y = (p).y - 1})
+  26:algo.c        **** #define BELOW(p) ((Point){.x = (p).x, .y = (p).y + 1})
+  27:algo.c        **** 
+  28:algo.c        **** // INPUTS
+  29:algo.c        **** // map:
+  30:algo.c        **** //	 The map to be used to run BFS on
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccLFIdLJ.s 			page 2
+
+
+  31:algo.c        **** // start:
+  32:algo.c        **** //	 Start points for the algorithm
+  33:algo.c        **** // ends:
+  34:algo.c        **** //   The end points which the algorithm should search for
+  35:algo.c        **** // endCount:
+  36:algo.c        **** //	 The number of possible end points we have (size of array ends points
+  37:algo.c        **** // to)
+  38:algo.c        **** // out:
+  39:algo.c        **** //   Where your final path should be written. It is an array.
+  40:algo.c        **** //
+  41:algo.c        **** // RETURNS:
+  42:algo.c        **** //  The length of the path
+  43:algo.c        **** bool isValid(Point p, const uint8_t map[MAP_HEIGHT][MAP_WIDTH]) {
+  28              		.loc 1 43 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 16
+  31              		@ frame_needed = 1, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+  33 0000 80B4     		push	{r7}
+  34              		.cfi_def_cfa_offset 4
+  35              		.cfi_offset 7, -4
+  36 0002 85B0     		sub	sp, sp, #20
+  37              		.cfi_def_cfa_offset 24
+  38 0004 00AF     		add	r7, sp, #0
+  39              		.cfi_def_cfa_register 7
+  40 0006 07F10803 		add	r3, r7, #8
+  41 000a 83E80300 		stmia	r3, {r0, r1}
+  42 000e 7A60     		str	r2, [r7, #4]
+  44:algo.c        ****   return p.x >= 0 && p.x < MAP_WIDTH && p.y >= 0 && p.y < MAP_HEIGHT &&
+  43              		.loc 1 44 0
+  44 0010 3B7A     		ldrb	r3, [r7, #8]	@ zero_extendqisi2
+  45 0012 122B     		cmp	r3, #18
+  46 0014 11D8     		bhi	.L2
+  47              		.loc 1 44 0 is_stmt 0 discriminator 1
+  48 0016 7B7A     		ldrb	r3, [r7, #9]	@ zero_extendqisi2
+  49 0018 0E2B     		cmp	r3, #14
+  50 001a 0ED8     		bhi	.L2
+  45:algo.c        ****          map[p.y][p.x] == 0;
+  51              		.loc 1 45 0 is_stmt 1 discriminator 3
+  52 001c 7B7A     		ldrb	r3, [r7, #9]	@ zero_extendqisi2
+  53 001e 1A46     		mov	r2, r3
+  54 0020 1346     		mov	r3, r2
+  55 0022 DB00     		lsls	r3, r3, #3
+  56 0024 1344     		add	r3, r3, r2
+  57 0026 5B00     		lsls	r3, r3, #1
+  58 0028 1344     		add	r3, r3, r2
+  59 002a 7A68     		ldr	r2, [r7, #4]
+  60 002c 1344     		add	r3, r3, r2
+  61 002e 3A7A     		ldrb	r2, [r7, #8]	@ zero_extendqisi2
+  62 0030 9B5C     		ldrb	r3, [r3, r2]	@ zero_extendqisi2
+  44:algo.c        ****   return p.x >= 0 && p.x < MAP_WIDTH && p.y >= 0 && p.y < MAP_HEIGHT &&
+  63              		.loc 1 44 0 discriminator 3
+  64 0032 002B     		cmp	r3, #0
+  65 0034 01D1     		bne	.L2
+  44:algo.c        ****   return p.x >= 0 && p.x < MAP_WIDTH && p.y >= 0 && p.y < MAP_HEIGHT &&
+  66              		.loc 1 44 0 is_stmt 0 discriminator 5
+  67 0036 0123     		movs	r3, #1
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccLFIdLJ.s 			page 3
+
+
+  68 0038 00E0     		b	.L3
+  69              	.L2:
+  44:algo.c        ****   return p.x >= 0 && p.x < MAP_WIDTH && p.y >= 0 && p.y < MAP_HEIGHT &&
+  70              		.loc 1 44 0 discriminator 6
+  71 003a 0023     		movs	r3, #0
+  72              	.L3:
+  44:algo.c        ****   return p.x >= 0 && p.x < MAP_WIDTH && p.y >= 0 && p.y < MAP_HEIGHT &&
+  73              		.loc 1 44 0 discriminator 8
+  74 003c 03F00103 		and	r3, r3, #1
+  75 0040 DBB2     		uxtb	r3, r3
+  46:algo.c        **** }
+  76              		.loc 1 46 0 is_stmt 1 discriminator 8
+  77 0042 1846     		mov	r0, r3
+  78 0044 1437     		adds	r7, r7, #20
+  79              		.cfi_def_cfa_offset 4
+  80 0046 BD46     		mov	sp, r7
+  81              		.cfi_def_cfa_register 13
+  82              		@ sp needed
+  83 0048 80BC     		pop	{r7}
+  84              		.cfi_restore 7
+  85              		.cfi_def_cfa_offset 0
+  86 004a 7047     		bx	lr
+  87              		.cfi_endproc
+  88              	.LFE1:
+  89              		.size	isValid, .-isValid
+  90              		.comm	queue,1995,4
+  91              		.global	front
+  92              		.bss
+  93              		.align	2
+  94              		.type	front, %object
+  95              		.size	front, 4
+  96              	front:
+  97 0000 00000000 		.space	4
+  98              		.global	rear
+  99              		.align	2
+ 100              		.type	rear, %object
+ 101              		.size	rear, 4
+ 102              	rear:
+ 103 0004 00000000 		.space	4
+ 104              		.global	size
+ 105              		.align	2
+ 106              		.type	size, %object
+ 107              		.size	size, 4
+ 108              	size:
+ 109 0008 00000000 		.space	4
+ 110              		.section	.text.isQueueEmpty,"ax",%progbits
+ 111              		.align	2
+ 112              		.global	isQueueEmpty
+ 113              		.thumb
+ 114              		.thumb_func
+ 115              		.type	isQueueEmpty, %function
+ 116              	isQueueEmpty:
+ 117              	.LFB2:
+  47:algo.c        **** Point queue[MAP_HEIGHT * MAP_WIDTH];
+  48:algo.c        **** size_t front = 0;
+  49:algo.c        **** size_t rear = 0;
+  50:algo.c        **** size_t size = 0;
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccLFIdLJ.s 			page 4
+
+
+  51:algo.c        **** 
+  52:algo.c        **** bool isQueueEmpty() { return size == 0; }
+ 118              		.loc 1 52 0
+ 119              		.cfi_startproc
+ 120              		@ args = 0, pretend = 0, frame = 0
+ 121              		@ frame_needed = 1, uses_anonymous_args = 0
+ 122              		@ link register save eliminated.
+ 123 0000 80B4     		push	{r7}
+ 124              		.cfi_def_cfa_offset 4
+ 125              		.cfi_offset 7, -4
+ 126 0002 00AF     		add	r7, sp, #0
+ 127              		.cfi_def_cfa_register 7
+ 128              		.loc 1 52 0
+ 129 0004 054B     		ldr	r3, .L7
+ 130 0006 1B68     		ldr	r3, [r3]
+ 131 0008 002B     		cmp	r3, #0
+ 132 000a 0CBF     		ite	eq
+ 133 000c 0123     		moveq	r3, #1
+ 134 000e 0023     		movne	r3, #0
+ 135 0010 DBB2     		uxtb	r3, r3
+ 136 0012 1846     		mov	r0, r3
+ 137 0014 BD46     		mov	sp, r7
+ 138              		.cfi_def_cfa_register 13
+ 139              		@ sp needed
+ 140 0016 80BC     		pop	{r7}
+ 141              		.cfi_restore 7
+ 142              		.cfi_def_cfa_offset 0
+ 143 0018 7047     		bx	lr
+ 144              	.L8:
+ 145 001a 00BF     		.align	2
+ 146              	.L7:
+ 147 001c 00000000 		.word	size
+ 148              		.cfi_endproc
+ 149              	.LFE2:
+ 150              		.size	isQueueEmpty, .-isQueueEmpty
+ 151              		.section	.text.isQueueFull,"ax",%progbits
+ 152              		.align	2
+ 153              		.global	isQueueFull
+ 154              		.thumb
+ 155              		.thumb_func
+ 156              		.type	isQueueFull, %function
+ 157              	isQueueFull:
+ 158              	.LFB3:
+  53:algo.c        **** 
+  54:algo.c        **** bool isQueueFull() { return size == MAP_HEIGHT * MAP_WIDTH; }
+ 159              		.loc 1 54 0
+ 160              		.cfi_startproc
+ 161              		@ args = 0, pretend = 0, frame = 0
+ 162              		@ frame_needed = 1, uses_anonymous_args = 0
+ 163              		@ link register save eliminated.
+ 164 0000 80B4     		push	{r7}
+ 165              		.cfi_def_cfa_offset 4
+ 166              		.cfi_offset 7, -4
+ 167 0002 00AF     		add	r7, sp, #0
+ 168              		.cfi_def_cfa_register 7
+ 169              		.loc 1 54 0
+ 170 0004 064B     		ldr	r3, .L11
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccLFIdLJ.s 			page 5
+
+
+ 171 0006 1B68     		ldr	r3, [r3]
+ 172 0008 40F21D12 		movw	r2, #285
+ 173 000c 9342     		cmp	r3, r2
+ 174 000e 0CBF     		ite	eq
+ 175 0010 0123     		moveq	r3, #1
+ 176 0012 0023     		movne	r3, #0
+ 177 0014 DBB2     		uxtb	r3, r3
+ 178 0016 1846     		mov	r0, r3
+ 179 0018 BD46     		mov	sp, r7
+ 180              		.cfi_def_cfa_register 13
+ 181              		@ sp needed
+ 182 001a 80BC     		pop	{r7}
+ 183              		.cfi_restore 7
+ 184              		.cfi_def_cfa_offset 0
+ 185 001c 7047     		bx	lr
+ 186              	.L12:
+ 187 001e 00BF     		.align	2
+ 188              	.L11:
+ 189 0020 00000000 		.word	size
+ 190              		.cfi_endproc
+ 191              	.LFE3:
+ 192              		.size	isQueueFull, .-isQueueFull
+ 193              		.section	.text.enqueue,"ax",%progbits
+ 194              		.align	2
+ 195              		.global	enqueue
+ 196              		.thumb
+ 197              		.thumb_func
+ 198              		.type	enqueue, %function
+ 199              	enqueue:
+ 200              	.LFB4:
+  55:algo.c        **** 
+  56:algo.c        **** void enqueue(Point element) {
+ 201              		.loc 1 56 0
+ 202              		.cfi_startproc
+ 203              		@ args = 0, pretend = 0, frame = 8
+ 204              		@ frame_needed = 1, uses_anonymous_args = 0
+ 205 0000 90B5     		push	{r4, r7, lr}
+ 206              		.cfi_def_cfa_offset 12
+ 207              		.cfi_offset 4, -12
+ 208              		.cfi_offset 7, -8
+ 209              		.cfi_offset 14, -4
+ 210 0002 83B0     		sub	sp, sp, #12
+ 211              		.cfi_def_cfa_offset 24
+ 212 0004 00AF     		add	r7, sp, #0
+ 213              		.cfi_def_cfa_register 7
+ 214 0006 3B46     		mov	r3, r7
+ 215 0008 83E80300 		stmia	r3, {r0, r1}
+  57:algo.c        ****   if (!isQueueFull()) {
+ 216              		.loc 1 57 0
+ 217 000c FFF7FEFF 		bl	isQueueFull
+ 218 0010 0346     		mov	r3, r0
+ 219 0012 83F00103 		eor	r3, r3, #1
+ 220 0016 DBB2     		uxtb	r3, r3
+ 221 0018 002B     		cmp	r3, #0
+ 222 001a 24D0     		beq	.L15
+  58:algo.c        ****     queue[rear] = element;
+ 223              		.loc 1 58 0
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccLFIdLJ.s 			page 6
+
+
+ 224 001c 144B     		ldr	r3, .L16
+ 225 001e 1A68     		ldr	r2, [r3]
+ 226 0020 1449     		ldr	r1, .L16+4
+ 227 0022 1346     		mov	r3, r2
+ 228 0024 DB00     		lsls	r3, r3, #3
+ 229 0026 9B1A     		subs	r3, r3, r2
+ 230 0028 0B44     		add	r3, r3, r1
+ 231 002a 1A46     		mov	r2, r3
+ 232 002c 3B46     		mov	r3, r7
+ 233 002e 1868     		ldr	r0, [r3]	@ unaligned
+ 234 0030 1060     		str	r0, [r2]	@ unaligned
+ 235 0032 9988     		ldrh	r1, [r3, #4]	@ unaligned
+ 236 0034 9B79     		ldrb	r3, [r3, #6]
+ 237 0036 9180     		strh	r1, [r2, #4]	@ unaligned
+ 238 0038 9371     		strb	r3, [r2, #6]
+  59:algo.c        ****     rear = (rear + 1) % (MAP_HEIGHT * MAP_WIDTH);
+ 239              		.loc 1 59 0
+ 240 003a 0D4B     		ldr	r3, .L16
+ 241 003c 1B68     		ldr	r3, [r3]
+ 242 003e 5A1C     		adds	r2, r3, #1
+ 243 0040 0D4B     		ldr	r3, .L16+8
+ 244 0042 A2FB0334 		umull	r3, r4, r2, r3
+ 245 0046 111B     		subs	r1, r2, r4
+ 246 0048 4908     		lsrs	r1, r1, #1
+ 247 004a 0B19     		adds	r3, r1, r4
+ 248 004c 1B0A     		lsrs	r3, r3, #8
+ 249 004e 40F21D11 		movw	r1, #285
+ 250 0052 01FB03F3 		mul	r3, r1, r3
+ 251 0056 D31A     		subs	r3, r2, r3
+ 252 0058 054A     		ldr	r2, .L16
+ 253 005a 1360     		str	r3, [r2]
+  60:algo.c        ****     size++;
+ 254              		.loc 1 60 0
+ 255 005c 074B     		ldr	r3, .L16+12
+ 256 005e 1B68     		ldr	r3, [r3]
+ 257 0060 0133     		adds	r3, r3, #1
+ 258 0062 064A     		ldr	r2, .L16+12
+ 259 0064 1360     		str	r3, [r2]
+ 260              	.L15:
+  61:algo.c        ****   }
+  62:algo.c        **** }
+ 261              		.loc 1 62 0
+ 262 0066 00BF     		nop
+ 263 0068 0C37     		adds	r7, r7, #12
+ 264              		.cfi_def_cfa_offset 12
+ 265 006a BD46     		mov	sp, r7
+ 266              		.cfi_def_cfa_register 13
+ 267              		@ sp needed
+ 268 006c 90BD     		pop	{r4, r7, pc}
+ 269              	.L17:
+ 270 006e 00BF     		.align	2
+ 271              	.L16:
+ 272 0070 00000000 		.word	rear
+ 273 0074 00000000 		.word	queue
+ 274 0078 61D9E6CB 		.word	-874063519
+ 275 007c 00000000 		.word	size
+ 276              		.cfi_endproc
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccLFIdLJ.s 			page 7
+
+
+ 277              	.LFE4:
+ 278              		.size	enqueue, .-enqueue
+ 279              		.section	.text.dequeue,"ax",%progbits
+ 280              		.align	2
+ 281              		.global	dequeue
+ 282              		.thumb
+ 283              		.thumb_func
+ 284              		.type	dequeue, %function
+ 285              	dequeue:
+ 286              	.LFB5:
+  63:algo.c        **** 
+  64:algo.c        **** Point dequeue() {
+ 287              		.loc 1 64 0
+ 288              		.cfi_startproc
+ 289              		@ args = 0, pretend = 0, frame = 16
+ 290              		@ frame_needed = 1, uses_anonymous_args = 0
+ 291 0000 90B5     		push	{r4, r7, lr}
+ 292              		.cfi_def_cfa_offset 12
+ 293              		.cfi_offset 4, -12
+ 294              		.cfi_offset 7, -8
+ 295              		.cfi_offset 14, -4
+ 296 0002 85B0     		sub	sp, sp, #20
+ 297              		.cfi_def_cfa_offset 32
+ 298 0004 00AF     		add	r7, sp, #0
+ 299              		.cfi_def_cfa_register 7
+ 300 0006 7860     		str	r0, [r7, #4]
+  65:algo.c        ****   Point element = {0}; // Default initialization
+ 301              		.loc 1 65 0
+ 302 0008 07F10803 		add	r3, r7, #8
+ 303 000c 0022     		movs	r2, #0
+ 304 000e 1A60     		str	r2, [r3]
+ 305 0010 C3F80320 		str	r2, [r3, #3]	@ unaligned
+  66:algo.c        ****   if (!isQueueEmpty()) {
+ 306              		.loc 1 66 0
+ 307 0014 FFF7FEFF 		bl	isQueueEmpty
+ 308 0018 0346     		mov	r3, r0
+ 309 001a 83F00103 		eor	r3, r3, #1
+ 310 001e DBB2     		uxtb	r3, r3
+ 311 0020 002B     		cmp	r3, #0
+ 312 0022 24D0     		beq	.L19
+  67:algo.c        ****     element = queue[front];
+ 313              		.loc 1 67 0
+ 314 0024 194B     		ldr	r3, .L21
+ 315 0026 1A68     		ldr	r2, [r3]
+ 316 0028 1949     		ldr	r1, .L21+4
+ 317 002a 1346     		mov	r3, r2
+ 318 002c DB00     		lsls	r3, r3, #3
+ 319 002e 9B1A     		subs	r3, r3, r2
+ 320 0030 CA18     		adds	r2, r1, r3
+ 321 0032 07F10803 		add	r3, r7, #8
+ 322 0036 1068     		ldr	r0, [r2]	@ unaligned
+ 323 0038 1860     		str	r0, [r3]	@ unaligned
+ 324 003a 9188     		ldrh	r1, [r2, #4]	@ unaligned
+ 325 003c 9279     		ldrb	r2, [r2, #6]
+ 326 003e 9980     		strh	r1, [r3, #4]	@ unaligned
+ 327 0040 9A71     		strb	r2, [r3, #6]
+  68:algo.c        ****     front = (front + 1) % (MAP_HEIGHT * MAP_WIDTH);
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccLFIdLJ.s 			page 8
+
+
+ 328              		.loc 1 68 0
+ 329 0042 124B     		ldr	r3, .L21
+ 330 0044 1B68     		ldr	r3, [r3]
+ 331 0046 5A1C     		adds	r2, r3, #1
+ 332 0048 124B     		ldr	r3, .L21+8
+ 333 004a A2FB0334 		umull	r3, r4, r2, r3
+ 334 004e 111B     		subs	r1, r2, r4
+ 335 0050 4908     		lsrs	r1, r1, #1
+ 336 0052 0B19     		adds	r3, r1, r4
+ 337 0054 1B0A     		lsrs	r3, r3, #8
+ 338 0056 40F21D11 		movw	r1, #285
+ 339 005a 01FB03F3 		mul	r3, r1, r3
+ 340 005e D31A     		subs	r3, r2, r3
+ 341 0060 0A4A     		ldr	r2, .L21
+ 342 0062 1360     		str	r3, [r2]
+  69:algo.c        ****     size--;
+ 343              		.loc 1 69 0
+ 344 0064 0C4B     		ldr	r3, .L21+12
+ 345 0066 1B68     		ldr	r3, [r3]
+ 346 0068 013B     		subs	r3, r3, #1
+ 347 006a 0B4A     		ldr	r2, .L21+12
+ 348 006c 1360     		str	r3, [r2]
+ 349              	.L19:
+  70:algo.c        ****   }
+  71:algo.c        ****   return element;
+ 350              		.loc 1 71 0
+ 351 006e 7B68     		ldr	r3, [r7, #4]
+ 352 0070 1A46     		mov	r2, r3
+ 353 0072 07F10803 		add	r3, r7, #8
+ 354 0076 1868     		ldr	r0, [r3]	@ unaligned
+ 355 0078 1060     		str	r0, [r2]	@ unaligned
+ 356 007a 9988     		ldrh	r1, [r3, #4]	@ unaligned
+ 357 007c 9B79     		ldrb	r3, [r3, #6]
+ 358 007e 9180     		strh	r1, [r2, #4]	@ unaligned
+ 359 0080 9371     		strb	r3, [r2, #6]
+  72:algo.c        **** }
+ 360              		.loc 1 72 0
+ 361 0082 7868     		ldr	r0, [r7, #4]
+ 362 0084 1437     		adds	r7, r7, #20
+ 363              		.cfi_def_cfa_offset 12
+ 364 0086 BD46     		mov	sp, r7
+ 365              		.cfi_def_cfa_register 13
+ 366              		@ sp needed
+ 367 0088 90BD     		pop	{r4, r7, pc}
+ 368              	.L22:
+ 369 008a 00BF     		.align	2
+ 370              	.L21:
+ 371 008c 00000000 		.word	front
+ 372 0090 00000000 		.word	queue
+ 373 0094 61D9E6CB 		.word	-874063519
+ 374 0098 00000000 		.word	size
+ 375              		.cfi_endproc
+ 376              	.LFE5:
+ 377              		.size	dequeue, .-dequeue
+ 378              		.section	.rodata
+ 379              		.align	2
+ 380              	.LC0:
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccLFIdLJ.s 			page 9
+
+
+ 381 0000 68657265 		.ascii	"here\000"
+ 381      00
+ 382              		.section	.text.bfs,"ax",%progbits
+ 383              		.align	2
+ 384              		.global	bfs
+ 385              		.thumb
+ 386              		.thumb_func
+ 387              		.type	bfs, %function
+ 388              	bfs:
+ 389              	.LFB6:
+  73:algo.c        **** size_t bfs(const uint8_t map[MAP_HEIGHT][MAP_WIDTH], Point start,
+  74:algo.c        ****            const Point *ends, size_t endCount, Point *out) {
+ 390              		.loc 1 74 0
+ 391              		.cfi_startproc
+ 392              		@ args = 8, pretend = 0, frame = 4384
+ 393              		@ frame_needed = 1, uses_anonymous_args = 0
+ 394 0000 90B5     		push	{r4, r7, lr}
+ 395              		.cfi_def_cfa_offset 12
+ 396              		.cfi_offset 4, -12
+ 397              		.cfi_offset 7, -8
+ 398              		.cfi_offset 14, -4
+ 399 0002 ADF5895D 		sub	sp, sp, #4384
+ 400              		.cfi_def_cfa_offset 4396
+ 401 0006 81B0     		sub	sp, sp, #4
+ 402              		.cfi_def_cfa_offset 4400
+ 403 0008 00AF     		add	r7, sp, #0
+ 404              		.cfi_def_cfa_register 7
+ 405 000a 07F12004 		add	r4, r7, #32
+ 406 000e 143C     		subs	r4, r4, #20
+ 407 0010 2060     		str	r0, [r4]
+ 408 0012 07F12000 		add	r0, r7, #32
+ 409 0016 1C38     		subs	r0, r0, #28
+ 410 0018 80E80600 		stmia	r0, {r1, r2}
+ 411 001c 3A46     		mov	r2, r7
+ 412 001e 1360     		str	r3, [r2]
+  75:algo.c        ****   Point visited[MAP_HEIGHT][MAP_WIDTH] = {{0}};
+ 413              		.loc 1 75 0
+ 414 0020 07F63813 		addw	r3, r7, #2360
+ 415 0024 1846     		mov	r0, r3
+ 416 0026 40F2CB73 		movw	r3, #1995
+ 417 002a 1A46     		mov	r2, r3
+ 418 002c 0021     		movs	r1, #0
+ 419 002e FFF7FEFF 		bl	memset
+ 420              	.LBB2:
+  76:algo.c        ****   uint8_t dummyMap[MAP_HEIGHT][MAP_WIDTH];
+  77:algo.c        ****   for (uint8_t i = 0; i < MAP_HEIGHT; i++) {
+ 421              		.loc 1 77 0
+ 422 0032 0023     		movs	r3, #0
+ 423 0034 07F58852 		add	r2, r7, #4352
+ 424 0038 02F11F02 		add	r2, r2, #31
+ 425 003c 1370     		strb	r3, [r2]
+ 426 003e 4DE0     		b	.L24
+ 427              	.L27:
+ 428              	.LBB3:
+  78:algo.c        ****     for (uint8_t j = 0; j < MAP_WIDTH; j++) {
+ 429              		.loc 1 78 0
+ 430 0040 0023     		movs	r3, #0
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccLFIdLJ.s 			page 10
+
+
+ 431 0042 07F58852 		add	r2, r7, #4352
+ 432 0046 02F11E02 		add	r2, r2, #30
+ 433 004a 1370     		strb	r3, [r2]
+ 434 004c 34E0     		b	.L25
+ 435              	.L26:
+  79:algo.c        ****       dummyMap[i][j] = map[i][j];
+ 436              		.loc 1 79 0 discriminator 3
+ 437 004e 07F58853 		add	r3, r7, #4352
+ 438 0052 03F11F03 		add	r3, r3, #31
+ 439 0056 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 440 0058 07F58853 		add	r3, r7, #4352
+ 441 005c 03F11E03 		add	r3, r3, #30
+ 442 0060 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+ 443 0062 07F58853 		add	r3, r7, #4352
+ 444 0066 03F11F03 		add	r3, r3, #31
+ 445 006a 1978     		ldrb	r1, [r3]	@ zero_extendqisi2
+ 446 006c 0B46     		mov	r3, r1
+ 447 006e DB00     		lsls	r3, r3, #3
+ 448 0070 0B44     		add	r3, r3, r1
+ 449 0072 5B00     		lsls	r3, r3, #1
+ 450 0074 1944     		add	r1, r1, r3
+ 451 0076 07F12003 		add	r3, r7, #32
+ 452 007a 143B     		subs	r3, r3, #20
+ 453 007c 1B68     		ldr	r3, [r3]
+ 454 007e 1944     		add	r1, r1, r3
+ 455 0080 07F58853 		add	r3, r7, #4352
+ 456 0084 03F11E03 		add	r3, r3, #30
+ 457 0088 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 458 008a CC5C     		ldrb	r4, [r1, r3]	@ zero_extendqisi2
+ 459 008c 07F61801 		addw	r1, r7, #2072
+ 460 0090 1346     		mov	r3, r2
+ 461 0092 DB00     		lsls	r3, r3, #3
+ 462 0094 1344     		add	r3, r3, r2
+ 463 0096 5B00     		lsls	r3, r3, #1
+ 464 0098 1344     		add	r3, r3, r2
+ 465 009a 0B44     		add	r3, r3, r1
+ 466 009c 0344     		add	r3, r3, r0
+ 467 009e 2246     		mov	r2, r4
+ 468 00a0 1A70     		strb	r2, [r3]
+  78:algo.c        ****     for (uint8_t j = 0; j < MAP_WIDTH; j++) {
+ 469              		.loc 1 78 0 discriminator 3
+ 470 00a2 07F58853 		add	r3, r7, #4352
+ 471 00a6 03F11E03 		add	r3, r3, #30
+ 472 00aa 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 473 00ac 0133     		adds	r3, r3, #1
+ 474 00ae 07F58852 		add	r2, r7, #4352
+ 475 00b2 02F11E02 		add	r2, r2, #30
+ 476 00b6 1370     		strb	r3, [r2]
+ 477              	.L25:
+  78:algo.c        ****     for (uint8_t j = 0; j < MAP_WIDTH; j++) {
+ 478              		.loc 1 78 0 is_stmt 0 discriminator 1
+ 479 00b8 07F58853 		add	r3, r7, #4352
+ 480 00bc 03F11E03 		add	r3, r3, #30
+ 481 00c0 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 482 00c2 122B     		cmp	r3, #18
+ 483 00c4 C3D9     		bls	.L26
+ 484              	.LBE3:
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccLFIdLJ.s 			page 11
+
+
+  77:algo.c        ****     for (uint8_t j = 0; j < MAP_WIDTH; j++) {
+ 485              		.loc 1 77 0 is_stmt 1 discriminator 2
+ 486 00c6 07F58853 		add	r3, r7, #4352
+ 487 00ca 03F11F03 		add	r3, r3, #31
+ 488 00ce 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 489 00d0 0133     		adds	r3, r3, #1
+ 490 00d2 07F58852 		add	r2, r7, #4352
+ 491 00d6 02F11F02 		add	r2, r2, #31
+ 492 00da 1370     		strb	r3, [r2]
+ 493              	.L24:
+  77:algo.c        ****     for (uint8_t j = 0; j < MAP_WIDTH; j++) {
+ 494              		.loc 1 77 0 is_stmt 0 discriminator 1
+ 495 00dc 07F58853 		add	r3, r7, #4352
+ 496 00e0 03F11F03 		add	r3, r3, #31
+ 497 00e4 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 498 00e6 0E2B     		cmp	r3, #14
+ 499 00e8 AAD9     		bls	.L27
+ 500              	.LBE2:
+  80:algo.c        ****     }
+  81:algo.c        ****   }
+  82:algo.c        ****   uint8_t found = 0;
+ 501              		.loc 1 82 0 is_stmt 1
+ 502 00ea 0023     		movs	r3, #0
+ 503 00ec 07F58852 		add	r2, r7, #4352
+ 504 00f0 02F10302 		add	r2, r2, #3
+ 505 00f4 1370     		strb	r3, [r2]
+  83:algo.c        ****   size_t pathIndex = 0;
+ 506              		.loc 1 83 0
+ 507 00f6 0023     		movs	r3, #0
+ 508 00f8 07F58852 		add	r2, r7, #4352
+ 509 00fc 02F11802 		add	r2, r2, #24
+ 510 0100 1360     		str	r3, [r2]
+  84:algo.c        ****   uint8_t foundEndsCount = 0;
+ 511              		.loc 1 84 0
+ 512 0102 0023     		movs	r3, #0
+ 513 0104 07F58852 		add	r2, r7, #4352
+ 514 0108 02F11702 		add	r2, r2, #23
+ 515 010c 1370     		strb	r3, [r2]
+  85:algo.c        ****   //Point foundEnds[endCount];
+  86:algo.c        ****   Point newStart = start;
+ 516              		.loc 1 86 0
+ 517 010e 07F50163 		add	r3, r7, #2064
+ 518 0112 07F12002 		add	r2, r7, #32
+ 519 0116 1C3A     		subs	r2, r2, #28
+ 520 0118 92E80300 		ldmia	r2, {r0, r1}
+ 521 011c 1860     		str	r0, [r3]
+ 522 011e 0433     		adds	r3, r3, #4
+ 523 0120 1980     		strh	r1, [r3]	@ movhi
+ 524 0122 0233     		adds	r3, r3, #2
+ 525 0124 0A0C     		lsrs	r2, r1, #16
+ 526 0126 1A70     		strb	r2, [r3]
+  87:algo.c        ****   enqueue(start);
+ 527              		.loc 1 87 0
+ 528 0128 07F12003 		add	r3, r7, #32
+ 529 012c 1C3B     		subs	r3, r3, #28
+ 530 012e 93E80300 		ldmia	r3, {r0, r1}
+ 531 0132 FFF7FEFF 		bl	enqueue
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccLFIdLJ.s 			page 12
+
+
+  88:algo.c        **** 
+  89:algo.c        ****   while (!isQueueEmpty()) {
+ 532              		.loc 1 89 0
+ 533 0136 00F0D5BC 		b	.L28
+ 534              	.L85:
+ 535              	.LBB4:
+  90:algo.c        ****     Point curr = dequeue();
+ 536              		.loc 1 90 0
+ 537 013a 07F60803 		addw	r3, r7, #2056
+ 538 013e 1846     		mov	r0, r3
+ 539 0140 FFF7FEFF 		bl	dequeue
+  91:algo.c        ****     Point left = LEFT(curr);
+ 540              		.loc 1 91 0
+ 541 0144 07F50063 		add	r3, r7, #2048
+ 542 0148 1A46     		mov	r2, r3
+ 543 014a 0023     		movs	r3, #0
+ 544 014c 1360     		str	r3, [r2]
+ 545 014e C2F80330 		str	r3, [r2, #3]	@ unaligned
+ 546 0152 07F60803 		addw	r3, r7, #2056
+ 547 0156 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 548 0158 013B     		subs	r3, r3, #1
+ 549 015a DAB2     		uxtb	r2, r3
+ 550 015c 07F50063 		add	r3, r7, #2048
+ 551 0160 1A70     		strb	r2, [r3]
+ 552 0162 07F60803 		addw	r3, r7, #2056
+ 553 0166 5A78     		ldrb	r2, [r3, #1]	@ zero_extendqisi2
+ 554 0168 07F50063 		add	r3, r7, #2048
+ 555 016c 5A70     		strb	r2, [r3, #1]
+  92:algo.c        ****     Point right = RIGHT(curr);
+ 556              		.loc 1 92 0
+ 557 016e 07F5FF63 		add	r3, r7, #2040
+ 558 0172 1A46     		mov	r2, r3
+ 559 0174 0023     		movs	r3, #0
+ 560 0176 1360     		str	r3, [r2]
+ 561 0178 C2F80330 		str	r3, [r2, #3]	@ unaligned
+ 562 017c 07F60803 		addw	r3, r7, #2056
+ 563 0180 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 564 0182 0133     		adds	r3, r3, #1
+ 565 0184 DAB2     		uxtb	r2, r3
+ 566 0186 07F5FF63 		add	r3, r7, #2040
+ 567 018a 1A70     		strb	r2, [r3]
+ 568 018c 07F60803 		addw	r3, r7, #2056
+ 569 0190 5A78     		ldrb	r2, [r3, #1]	@ zero_extendqisi2
+ 570 0192 07F5FF63 		add	r3, r7, #2040
+ 571 0196 5A70     		strb	r2, [r3, #1]
+  93:algo.c        ****     Point above = ABOVE(curr);
+ 572              		.loc 1 93 0
+ 573 0198 07F5FE63 		add	r3, r7, #2032
+ 574 019c 1A46     		mov	r2, r3
+ 575 019e 0023     		movs	r3, #0
+ 576 01a0 1360     		str	r3, [r2]
+ 577 01a2 C2F80330 		str	r3, [r2, #3]	@ unaligned
+ 578 01a6 07F60803 		addw	r3, r7, #2056
+ 579 01aa 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 580 01ac 07F5FE63 		add	r3, r7, #2032
+ 581 01b0 1A70     		strb	r2, [r3]
+ 582 01b2 07F60803 		addw	r3, r7, #2056
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccLFIdLJ.s 			page 13
+
+
+ 583 01b6 5B78     		ldrb	r3, [r3, #1]	@ zero_extendqisi2
+ 584 01b8 013B     		subs	r3, r3, #1
+ 585 01ba DAB2     		uxtb	r2, r3
+ 586 01bc 07F5FE63 		add	r3, r7, #2032
+ 587 01c0 5A70     		strb	r2, [r3, #1]
+  94:algo.c        ****     Point below = BELOW(curr);
+ 588              		.loc 1 94 0
+ 589 01c2 07F5FD63 		add	r3, r7, #2024
+ 590 01c6 1A46     		mov	r2, r3
+ 591 01c8 0023     		movs	r3, #0
+ 592 01ca 1360     		str	r3, [r2]
+ 593 01cc C2F80330 		str	r3, [r2, #3]	@ unaligned
+ 594 01d0 07F60803 		addw	r3, r7, #2056
+ 595 01d4 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 596 01d6 07F5FD63 		add	r3, r7, #2024
+ 597 01da 1A70     		strb	r2, [r3]
+ 598 01dc 07F60803 		addw	r3, r7, #2056
+ 599 01e0 5B78     		ldrb	r3, [r3, #1]	@ zero_extendqisi2
+ 600 01e2 0133     		adds	r3, r3, #1
+ 601 01e4 DAB2     		uxtb	r2, r3
+ 602 01e6 07F5FD63 		add	r3, r7, #2024
+ 603 01ea 5A70     		strb	r2, [r3, #1]
+  95:algo.c        ****     // left.direction = (curr.direction == RIGHTTURN) ? DOWNTURN : (curr.direction == LEFTTURN) ? U
+  96:algo.c        **** 
+  97:algo.c        ****     // right.direction = (curr.direction == RIGHTTURN) ? UPTURN : (curr.direction == LEFTTURN) ? DO
+  98:algo.c        ****     // above.direction = (curr.direction == RIGHTTURN) ? LEFTTURN : (curr.direction == LEFTTURN) ? 
+  99:algo.c        ****     // below.direction = (curr.direction == RIGHTTURN) ? RIGHTTURN : (curr.direction == LEFTTURN) ?
+ 100:algo.c        **** 
+ 101:algo.c        ****     
+ 102:algo.c        ****       if (point_eq(curr, ends[foundEndsCount])) {
+ 604              		.loc 1 102 0
+ 605 01ec 07F58853 		add	r3, r7, #4352
+ 606 01f0 03F11703 		add	r3, r3, #23
+ 607 01f4 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 608 01f6 1346     		mov	r3, r2
+ 609 01f8 DB00     		lsls	r3, r3, #3
+ 610 01fa 9B1A     		subs	r3, r3, r2
+ 611 01fc 3A46     		mov	r2, r7
+ 612 01fe 1268     		ldr	r2, [r2]
+ 613 0200 1344     		add	r3, r3, r2
+ 614 0202 07F60801 		addw	r1, r7, #2056
+ 615 0206 1A68     		ldr	r2, [r3]	@ unaligned
+ 616 0208 0024     		movs	r4, #0
+ 617 020a 1446     		mov	r4, r2
+ 618 020c 1A79     		ldrb	r2, [r3, #4]	@ zero_extendqisi2
+ 619 020e 5879     		ldrb	r0, [r3, #5]	@ zero_extendqisi2
+ 620 0210 0002     		lsls	r0, r0, #8
+ 621 0212 0243     		orrs	r2, r2, r0
+ 622 0214 9B79     		ldrb	r3, [r3, #6]	@ zero_extendqisi2
+ 623 0216 1B04     		lsls	r3, r3, #16
+ 624 0218 1A43     		orrs	r2, r2, r3
+ 625 021a 0023     		movs	r3, #0
+ 626 021c 62F31703 		bfi	r3, r2, #0, #24
+ 627 0220 2246     		mov	r2, r4
+ 628 0222 03C9     		ldmia	r1, {r0, r1}
+ 629 0224 FFF7FEFF 		bl	point_eq
+ 630 0228 0346     		mov	r3, r0
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccLFIdLJ.s 			page 14
+
+
+ 631 022a 002B     		cmp	r3, #0
+ 632 022c 00F01583 		beq	.L29
+ 633              	.LBB5:
+ 103:algo.c        ****           // Reconstruct the path to the endpoint
+ 104:algo.c        ****           Point shortestPath[MAP_HEIGHT*MAP_WIDTH];
+ 105:algo.c        ****           size_t shortestPathIndex = 0;
+ 634              		.loc 1 105 0
+ 635 0230 0023     		movs	r3, #0
+ 636 0232 07F58852 		add	r2, r7, #4352
+ 637 0236 02F11002 		add	r2, r2, #16
+ 638 023a 1360     		str	r3, [r2]
+ 106:algo.c        ****           Point traceBack = curr;
+ 639              		.loc 1 106 0
+ 640 023c 07F5FC63 		add	r3, r7, #2016
+ 641 0240 07F60802 		addw	r2, r7, #2056
+ 642 0244 92E80300 		ldmia	r2, {r0, r1}
+ 643 0248 1860     		str	r0, [r3]
+ 644 024a 0433     		adds	r3, r3, #4
+ 645 024c 1980     		strh	r1, [r3]	@ movhi
+ 646 024e 0233     		adds	r3, r3, #2
+ 647 0250 0A0C     		lsrs	r2, r1, #16
+ 648 0252 1A70     		strb	r2, [r3]
+ 107:algo.c        ****           traceBack.foodPoint = 1; // Saying it is a foodpoint
+ 649              		.loc 1 107 0
+ 650 0254 07F5FC63 		add	r3, r7, #2016
+ 651 0258 0122     		movs	r2, #1
+ 652 025a 5A71     		strb	r2, [r3, #5]
+ 108:algo.c        ****           uint8_t finalFound = 0;
+ 653              		.loc 1 108 0
+ 654 025c 0023     		movs	r3, #0
+ 655 025e 07F58852 		add	r2, r7, #4352
+ 656 0262 02F10F02 		add	r2, r2, #15
+ 657 0266 1370     		strb	r3, [r2]
+ 109:algo.c        ****           uint8_t steps = 0;
+ 658              		.loc 1 109 0
+ 659 0268 0023     		movs	r3, #0
+ 660 026a 07F58852 		add	r2, r7, #4352
+ 661 026e 02F10E02 		add	r2, r2, #14
+ 662 0272 1370     		strb	r3, [r2]
+ 110:algo.c        ****           while (!point_eq(traceBack, newStart)) {
+ 663              		.loc 1 110 0
+ 664 0274 90E0     		b	.L30
+ 665              	.L35:
+ 111:algo.c        ****             
+ 112:algo.c        ****             if (traceBack.node == 1 && finalFound == 0) {
+ 666              		.loc 1 112 0
+ 667 0276 07F5FC63 		add	r3, r7, #2016
+ 668 027a DB78     		ldrb	r3, [r3, #3]	@ zero_extendqisi2
+ 669 027c 012B     		cmp	r3, #1
+ 670 027e 18D1     		bne	.L31
+ 671              		.loc 1 112 0 is_stmt 0 discriminator 1
+ 672 0280 07F58853 		add	r3, r7, #4352
+ 673 0284 03F10F03 		add	r3, r3, #15
+ 674 0288 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 675 028a 002B     		cmp	r3, #0
+ 676 028c 11D1     		bne	.L31
+ 113:algo.c        ****               traceBack.steps = steps;
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccLFIdLJ.s 			page 15
+
+
+ 677              		.loc 1 113 0 is_stmt 1
+ 678 028e 07F5FC63 		add	r3, r7, #2016
+ 679 0292 07F58852 		add	r2, r7, #4352
+ 680 0296 02F10E02 		add	r2, r2, #14
+ 681 029a 1278     		ldrb	r2, [r2]
+ 682 029c 9A71     		strb	r2, [r3, #6]
+ 114:algo.c        ****               traceBack.finalTurn = 1;
+ 683              		.loc 1 114 0
+ 684 029e 07F5FC63 		add	r3, r7, #2016
+ 685 02a2 0122     		movs	r2, #1
+ 686 02a4 1A71     		strb	r2, [r3, #4]
+ 115:algo.c        ****               finalFound = 1;
+ 687              		.loc 1 115 0
+ 688 02a6 0123     		movs	r3, #1
+ 689 02a8 07F58852 		add	r2, r7, #4352
+ 690 02ac 02F10F02 		add	r2, r2, #15
+ 691 02b0 1370     		strb	r3, [r2]
+ 692              	.L31:
+ 116:algo.c        ****             }
+ 117:algo.c        ****             if (finalFound==0) {
+ 693              		.loc 1 117 0
+ 694 02b2 07F58853 		add	r3, r7, #4352
+ 695 02b6 03F10F03 		add	r3, r3, #15
+ 696 02ba 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 697 02bc 002B     		cmp	r3, #0
+ 698 02be 30D1     		bne	.L32
+ 118:algo.c        ****               steps++;
+ 699              		.loc 1 118 0
+ 700 02c0 07F58853 		add	r3, r7, #4352
+ 701 02c4 03F10E03 		add	r3, r3, #14
+ 702 02c8 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 703 02ca 0133     		adds	r3, r3, #1
+ 704 02cc 07F58852 		add	r2, r7, #4352
+ 705 02d0 02F10E02 		add	r2, r2, #14
+ 706 02d4 1370     		strb	r3, [r2]
+ 119:algo.c        ****               if (point_eq(curr,traceBack)) {
+ 707              		.loc 1 119 0
+ 708 02d6 07F5FC63 		add	r3, r7, #2016
+ 709 02da 07F60801 		addw	r1, r7, #2056
+ 710 02de 0CCB     		ldmia	r3, {r2, r3}
+ 711 02e0 03C9     		ldmia	r1, {r0, r1}
+ 712 02e2 FFF7FEFF 		bl	point_eq
+ 713 02e6 0346     		mov	r3, r0
+ 714 02e8 002B     		cmp	r3, #0
+ 715 02ea 39D0     		beq	.L34
+ 120:algo.c        ****                 shortestPath[shortestPathIndex++] = traceBack;
+ 716              		.loc 1 120 0
+ 717 02ec 07F58853 		add	r3, r7, #4352
+ 718 02f0 03F11003 		add	r3, r3, #16
+ 719 02f4 1968     		ldr	r1, [r3]
+ 720 02f6 4B1C     		adds	r3, r1, #1
+ 721 02f8 07F58852 		add	r2, r7, #4352
+ 722 02fc 02F11002 		add	r2, r2, #16
+ 723 0300 1360     		str	r3, [r2]
+ 724 0302 07F12002 		add	r2, r7, #32
+ 725 0306 0C3A     		subs	r2, r2, #12
+ 726 0308 0B46     		mov	r3, r1
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccLFIdLJ.s 			page 16
+
+
+ 727 030a DB00     		lsls	r3, r3, #3
+ 728 030c 5B1A     		subs	r3, r3, r1
+ 729 030e 1344     		add	r3, r3, r2
+ 730 0310 07F5FC62 		add	r2, r7, #2016
+ 731 0314 1068     		ldr	r0, [r2]	@ unaligned
+ 732 0316 1860     		str	r0, [r3]	@ unaligned
+ 733 0318 9188     		ldrh	r1, [r2, #4]	@ unaligned
+ 734 031a 9279     		ldrb	r2, [r2, #6]
+ 735 031c 9980     		strh	r1, [r3, #4]	@ unaligned
+ 736 031e 9A71     		strb	r2, [r3, #6]
+ 737 0320 1EE0     		b	.L34
+ 738              	.L32:
+ 121:algo.c        ****               }
+ 122:algo.c        ****               //shortestPath[shortestPathIndex++] = traceBack;
+ 123:algo.c        ****               
+ 124:algo.c        ****             } else if (traceBack.node ==1) {
+ 739              		.loc 1 124 0
+ 740 0322 07F5FC63 		add	r3, r7, #2016
+ 741 0326 DB78     		ldrb	r3, [r3, #3]	@ zero_extendqisi2
+ 742 0328 012B     		cmp	r3, #1
+ 743 032a 19D1     		bne	.L34
+ 125:algo.c        **** 
+ 126:algo.c        ****               shortestPath[shortestPathIndex++] = traceBack;
+ 744              		.loc 1 126 0
+ 745 032c 07F58853 		add	r3, r7, #4352
+ 746 0330 03F11003 		add	r3, r3, #16
+ 747 0334 1968     		ldr	r1, [r3]
+ 748 0336 4B1C     		adds	r3, r1, #1
+ 749 0338 07F58852 		add	r2, r7, #4352
+ 750 033c 02F11002 		add	r2, r2, #16
+ 751 0340 1360     		str	r3, [r2]
+ 752 0342 07F12002 		add	r2, r7, #32
+ 753 0346 0C3A     		subs	r2, r2, #12
+ 754 0348 0B46     		mov	r3, r1
+ 755 034a DB00     		lsls	r3, r3, #3
+ 756 034c 5B1A     		subs	r3, r3, r1
+ 757 034e 1344     		add	r3, r3, r2
+ 758 0350 07F5FC62 		add	r2, r7, #2016
+ 759 0354 1068     		ldr	r0, [r2]	@ unaligned
+ 760 0356 1860     		str	r0, [r3]	@ unaligned
+ 761 0358 9188     		ldrh	r1, [r2, #4]	@ unaligned
+ 762 035a 9279     		ldrb	r2, [r2, #6]
+ 763 035c 9980     		strh	r1, [r3, #4]	@ unaligned
+ 764 035e 9A71     		strb	r2, [r3, #6]
+ 765              	.L34:
+ 127:algo.c        ****             }
+ 128:algo.c        ****             traceBack = visited[traceBack.y][traceBack.x];
+ 766              		.loc 1 128 0
+ 767 0360 07F5FC63 		add	r3, r7, #2016
+ 768 0364 5B78     		ldrb	r3, [r3, #1]	@ zero_extendqisi2
+ 769 0366 1946     		mov	r1, r3
+ 770 0368 07F5FC63 		add	r3, r7, #2016
+ 771 036c 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 772 036e 07F5FC64 		add	r4, r7, #2016
+ 773 0372 07F63810 		addw	r0, r7, #2360
+ 774 0376 1A46     		mov	r2, r3
+ 775 0378 D200     		lsls	r2, r2, #3
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccLFIdLJ.s 			page 17
+
+
+ 776 037a D21A     		subs	r2, r2, r3
+ 777 037c 0B46     		mov	r3, r1
+ 778 037e 5B01     		lsls	r3, r3, #5
+ 779 0380 0B44     		add	r3, r3, r1
+ 780 0382 9B00     		lsls	r3, r3, #2
+ 781 0384 0B44     		add	r3, r3, r1
+ 782 0386 1344     		add	r3, r3, r2
+ 783 0388 C218     		adds	r2, r0, r3
+ 784 038a 2346     		mov	r3, r4
+ 785 038c 1068     		ldr	r0, [r2]	@ unaligned
+ 786 038e 1860     		str	r0, [r3]	@ unaligned
+ 787 0390 9188     		ldrh	r1, [r2, #4]	@ unaligned
+ 788 0392 9279     		ldrb	r2, [r2, #6]
+ 789 0394 9980     		strh	r1, [r3, #4]	@ unaligned
+ 790 0396 9A71     		strb	r2, [r3, #6]
+ 791              	.L30:
+ 110:algo.c        ****             
+ 792              		.loc 1 110 0
+ 793 0398 07F50163 		add	r3, r7, #2064
+ 794 039c 07F5FC61 		add	r1, r7, #2016
+ 795 03a0 0CCB     		ldmia	r3, {r2, r3}
+ 796 03a2 03C9     		ldmia	r1, {r0, r1}
+ 797 03a4 FFF7FEFF 		bl	point_eq
+ 798 03a8 0346     		mov	r3, r0
+ 799 03aa 002B     		cmp	r3, #0
+ 800 03ac 3FF463AF 		beq	.L35
+ 129:algo.c        ****           }
+ 130:algo.c        **** 
+ 131:algo.c        ****           shortestPath[shortestPathIndex++] = newStart;
+ 801              		.loc 1 131 0
+ 802 03b0 07F58853 		add	r3, r7, #4352
+ 803 03b4 03F11003 		add	r3, r3, #16
+ 804 03b8 1968     		ldr	r1, [r3]
+ 805 03ba 4B1C     		adds	r3, r1, #1
+ 806 03bc 07F58852 		add	r2, r7, #4352
+ 807 03c0 02F11002 		add	r2, r2, #16
+ 808 03c4 1360     		str	r3, [r2]
+ 809 03c6 07F12002 		add	r2, r7, #32
+ 810 03ca 0C3A     		subs	r2, r2, #12
+ 811 03cc 0B46     		mov	r3, r1
+ 812 03ce DB00     		lsls	r3, r3, #3
+ 813 03d0 5B1A     		subs	r3, r3, r1
+ 814 03d2 1344     		add	r3, r3, r2
+ 815 03d4 07F50162 		add	r2, r7, #2064
+ 816 03d8 1068     		ldr	r0, [r2]	@ unaligned
+ 817 03da 1860     		str	r0, [r3]	@ unaligned
+ 818 03dc 9188     		ldrh	r1, [r2, #4]	@ unaligned
+ 819 03de 9279     		ldrb	r2, [r2, #6]
+ 820 03e0 9980     		strh	r1, [r3, #4]	@ unaligned
+ 821 03e2 9A71     		strb	r2, [r3, #6]
+ 822              	.LBB6:
+ 132:algo.c        **** 
+ 133:algo.c        ****           // Copy the reconstructed path to the 'out' array
+ 134:algo.c        ****           for (int i = shortestPathIndex - 1; i >= 0; i--) {
+ 823              		.loc 1 134 0
+ 824 03e4 07F58853 		add	r3, r7, #4352
+ 825 03e8 03F11003 		add	r3, r3, #16
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccLFIdLJ.s 			page 18
+
+
+ 826 03ec 1B68     		ldr	r3, [r3]
+ 827 03ee 013B     		subs	r3, r3, #1
+ 828 03f0 07F58852 		add	r2, r7, #4352
+ 829 03f4 02F10802 		add	r2, r2, #8
+ 830 03f8 1360     		str	r3, [r2]
+ 831 03fa 7BE1     		b	.L36
+ 832              	.L66:
+ 833              	.LBB7:
+ 135:algo.c        ****             uint8_t direction = 0;
+ 834              		.loc 1 135 0
+ 835 03fc 0023     		movs	r3, #0
+ 836 03fe 07F58852 		add	r2, r7, #4352
+ 837 0402 02F10702 		add	r2, r2, #7
+ 838 0406 1370     		strb	r3, [r2]
+ 136:algo.c        ****             if (i != 0) {
+ 839              		.loc 1 136 0
+ 840 0408 07F58853 		add	r3, r7, #4352
+ 841 040c 03F10803 		add	r3, r3, #8
+ 842 0410 1B68     		ldr	r3, [r3]
+ 843 0412 002B     		cmp	r3, #0
+ 844 0414 00F03C81 		beq	.L37
+ 137:algo.c        ****               
+ 138:algo.c        ****               if (shortestPath[i-1].direction == LEFTTURN) {
+ 845              		.loc 1 138 0
+ 846 0418 07F58853 		add	r3, r7, #4352
+ 847 041c 03F10803 		add	r3, r3, #8
+ 848 0420 1B68     		ldr	r3, [r3]
+ 849 0422 591E     		subs	r1, r3, #1
+ 850 0424 07F12002 		add	r2, r7, #32
+ 851 0428 0C3A     		subs	r2, r2, #12
+ 852 042a 0B46     		mov	r3, r1
+ 853 042c DB00     		lsls	r3, r3, #3
+ 854 042e 5B1A     		subs	r3, r3, r1
+ 855 0430 1344     		add	r3, r3, r2
+ 856 0432 0233     		adds	r3, r3, #2
+ 857 0434 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 858 0436 032B     		cmp	r3, #3
+ 859 0438 3FD1     		bne	.L38
+ 139:algo.c        ****                 printf("here\n");
+ 860              		.loc 1 139 0
+ 861 043a B948     		ldr	r0, .L87
+ 862 043c FFF7FEFF 		bl	puts
+ 140:algo.c        ****                 direction = (shortestPath[i].direction == RIGHTTURN) ? DOWNTURN : (shortestPath[i].
+ 863              		.loc 1 140 0
+ 864 0440 07F12002 		add	r2, r7, #32
+ 865 0444 0C3A     		subs	r2, r2, #12
+ 866 0446 07F58853 		add	r3, r7, #4352
+ 867 044a 03F10803 		add	r3, r3, #8
+ 868 044e 1968     		ldr	r1, [r3]
+ 869 0450 0B46     		mov	r3, r1
+ 870 0452 DB00     		lsls	r3, r3, #3
+ 871 0454 5B1A     		subs	r3, r3, r1
+ 872 0456 1344     		add	r3, r3, r2
+ 873 0458 0233     		adds	r3, r3, #2
+ 874 045a 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 875 045c 042B     		cmp	r3, #4
+ 876 045e 25D0     		beq	.L39
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccLFIdLJ.s 			page 19
+
+
+ 877              		.loc 1 140 0 is_stmt 0 discriminator 1
+ 878 0460 07F12002 		add	r2, r7, #32
+ 879 0464 0C3A     		subs	r2, r2, #12
+ 880 0466 07F58853 		add	r3, r7, #4352
+ 881 046a 03F10803 		add	r3, r3, #8
+ 882 046e 1968     		ldr	r1, [r3]
+ 883 0470 0B46     		mov	r3, r1
+ 884 0472 DB00     		lsls	r3, r3, #3
+ 885 0474 5B1A     		subs	r3, r3, r1
+ 886 0476 1344     		add	r3, r3, r2
+ 887 0478 0233     		adds	r3, r3, #2
+ 888 047a 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 889 047c 032B     		cmp	r3, #3
+ 890 047e 13D0     		beq	.L40
+ 891              		.loc 1 140 0 discriminator 3
+ 892 0480 07F12002 		add	r2, r7, #32
+ 893 0484 0C3A     		subs	r2, r2, #12
+ 894 0486 07F58853 		add	r3, r7, #4352
+ 895 048a 03F10803 		add	r3, r3, #8
+ 896 048e 1968     		ldr	r1, [r3]
+ 897 0490 0B46     		mov	r3, r1
+ 898 0492 DB00     		lsls	r3, r3, #3
+ 899 0494 5B1A     		subs	r3, r3, r1
+ 900 0496 1344     		add	r3, r3, r2
+ 901 0498 0233     		adds	r3, r3, #2
+ 902 049a 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 903 049c 012B     		cmp	r3, #1
+ 904 049e 01D1     		bne	.L41
+ 905              		.loc 1 140 0 discriminator 5
+ 906 04a0 0323     		movs	r3, #3
+ 907 04a2 04E0     		b	.L44
+ 908              	.L41:
+ 909              		.loc 1 140 0 discriminator 6
+ 910 04a4 0423     		movs	r3, #4
+ 911 04a6 02E0     		b	.L44
+ 912              	.L40:
+ 913              		.loc 1 140 0 discriminator 4
+ 914 04a8 0123     		movs	r3, #1
+ 915 04aa 00E0     		b	.L44
+ 916              	.L39:
+ 917              		.loc 1 140 0 discriminator 2
+ 918 04ac 0223     		movs	r3, #2
+ 919              	.L44:
+ 920              		.loc 1 140 0 discriminator 12
+ 921 04ae 07F58852 		add	r2, r7, #4352
+ 922 04b2 02F10702 		add	r2, r2, #7
+ 923 04b6 1370     		strb	r3, [r2]
+ 924 04b8 D7E0     		b	.L45
+ 925              	.L38:
+ 141:algo.c        ****               } else if (shortestPath[i-1].direction==RIGHTTURN) {
+ 926              		.loc 1 141 0 is_stmt 1
+ 927 04ba 07F58853 		add	r3, r7, #4352
+ 928 04be 03F10803 		add	r3, r3, #8
+ 929 04c2 1B68     		ldr	r3, [r3]
+ 930 04c4 591E     		subs	r1, r3, #1
+ 931 04c6 07F12002 		add	r2, r7, #32
+ 932 04ca 0C3A     		subs	r2, r2, #12
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccLFIdLJ.s 			page 20
+
+
+ 933 04cc 0B46     		mov	r3, r1
+ 934 04ce DB00     		lsls	r3, r3, #3
+ 935 04d0 5B1A     		subs	r3, r3, r1
+ 936 04d2 1344     		add	r3, r3, r2
+ 937 04d4 0233     		adds	r3, r3, #2
+ 938 04d6 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 939 04d8 042B     		cmp	r3, #4
+ 940 04da 3CD1     		bne	.L46
+ 142:algo.c        ****                 direction = (shortestPath[i].direction == RIGHTTURN) ? UPTURN : (shortestPath[i].di
+ 941              		.loc 1 142 0
+ 942 04dc 07F12002 		add	r2, r7, #32
+ 943 04e0 0C3A     		subs	r2, r2, #12
+ 944 04e2 07F58853 		add	r3, r7, #4352
+ 945 04e6 03F10803 		add	r3, r3, #8
+ 946 04ea 1968     		ldr	r1, [r3]
+ 947 04ec 0B46     		mov	r3, r1
+ 948 04ee DB00     		lsls	r3, r3, #3
+ 949 04f0 5B1A     		subs	r3, r3, r1
+ 950 04f2 1344     		add	r3, r3, r2
+ 951 04f4 0233     		adds	r3, r3, #2
+ 952 04f6 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 953 04f8 042B     		cmp	r3, #4
+ 954 04fa 25D0     		beq	.L47
+ 955              		.loc 1 142 0 is_stmt 0 discriminator 1
+ 956 04fc 07F12002 		add	r2, r7, #32
+ 957 0500 0C3A     		subs	r2, r2, #12
+ 958 0502 07F58853 		add	r3, r7, #4352
+ 959 0506 03F10803 		add	r3, r3, #8
+ 960 050a 1968     		ldr	r1, [r3]
+ 961 050c 0B46     		mov	r3, r1
+ 962 050e DB00     		lsls	r3, r3, #3
+ 963 0510 5B1A     		subs	r3, r3, r1
+ 964 0512 1344     		add	r3, r3, r2
+ 965 0514 0233     		adds	r3, r3, #2
+ 966 0516 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 967 0518 032B     		cmp	r3, #3
+ 968 051a 13D0     		beq	.L48
+ 969              		.loc 1 142 0 discriminator 3
+ 970 051c 07F12002 		add	r2, r7, #32
+ 971 0520 0C3A     		subs	r2, r2, #12
+ 972 0522 07F58853 		add	r3, r7, #4352
+ 973 0526 03F10803 		add	r3, r3, #8
+ 974 052a 1968     		ldr	r1, [r3]
+ 975 052c 0B46     		mov	r3, r1
+ 976 052e DB00     		lsls	r3, r3, #3
+ 977 0530 5B1A     		subs	r3, r3, r1
+ 978 0532 1344     		add	r3, r3, r2
+ 979 0534 0233     		adds	r3, r3, #2
+ 980 0536 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 981 0538 012B     		cmp	r3, #1
+ 982 053a 01D1     		bne	.L49
+ 983              		.loc 1 142 0 discriminator 5
+ 984 053c 0423     		movs	r3, #4
+ 985 053e 04E0     		b	.L52
+ 986              	.L49:
+ 987              		.loc 1 142 0 discriminator 6
+ 988 0540 0323     		movs	r3, #3
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccLFIdLJ.s 			page 21
+
+
+ 989 0542 02E0     		b	.L52
+ 990              	.L48:
+ 991              		.loc 1 142 0 discriminator 4
+ 992 0544 0223     		movs	r3, #2
+ 993 0546 00E0     		b	.L52
+ 994              	.L47:
+ 995              		.loc 1 142 0 discriminator 2
+ 996 0548 0123     		movs	r3, #1
+ 997              	.L52:
+ 998              		.loc 1 142 0 discriminator 12
+ 999 054a 07F58852 		add	r2, r7, #4352
+ 1000 054e 02F10702 		add	r2, r2, #7
+ 1001 0552 1370     		strb	r3, [r2]
+ 1002 0554 89E0     		b	.L45
+ 1003              	.L46:
+ 143:algo.c        ****               } else if (shortestPath[i-1].direction==UPTURN) {
+ 1004              		.loc 1 143 0 is_stmt 1
+ 1005 0556 07F58853 		add	r3, r7, #4352
+ 1006 055a 03F10803 		add	r3, r3, #8
+ 1007 055e 1B68     		ldr	r3, [r3]
+ 1008 0560 591E     		subs	r1, r3, #1
+ 1009 0562 07F12002 		add	r2, r7, #32
+ 1010 0566 0C3A     		subs	r2, r2, #12
+ 1011 0568 0B46     		mov	r3, r1
+ 1012 056a DB00     		lsls	r3, r3, #3
+ 1013 056c 5B1A     		subs	r3, r3, r1
+ 1014 056e 1344     		add	r3, r3, r2
+ 1015 0570 0233     		adds	r3, r3, #2
+ 1016 0572 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1017 0574 012B     		cmp	r3, #1
+ 1018 0576 3CD1     		bne	.L53
+ 144:algo.c        ****                 direction = (shortestPath[i].direction == RIGHTTURN) ? LEFTTURN : (shortestPath[i].
+ 1019              		.loc 1 144 0
+ 1020 0578 07F12002 		add	r2, r7, #32
+ 1021 057c 0C3A     		subs	r2, r2, #12
+ 1022 057e 07F58853 		add	r3, r7, #4352
+ 1023 0582 03F10803 		add	r3, r3, #8
+ 1024 0586 1968     		ldr	r1, [r3]
+ 1025 0588 0B46     		mov	r3, r1
+ 1026 058a DB00     		lsls	r3, r3, #3
+ 1027 058c 5B1A     		subs	r3, r3, r1
+ 1028 058e 1344     		add	r3, r3, r2
+ 1029 0590 0233     		adds	r3, r3, #2
+ 1030 0592 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1031 0594 042B     		cmp	r3, #4
+ 1032 0596 25D0     		beq	.L54
+ 1033              		.loc 1 144 0 is_stmt 0 discriminator 1
+ 1034 0598 07F12002 		add	r2, r7, #32
+ 1035 059c 0C3A     		subs	r2, r2, #12
+ 1036 059e 07F58853 		add	r3, r7, #4352
+ 1037 05a2 03F10803 		add	r3, r3, #8
+ 1038 05a6 1968     		ldr	r1, [r3]
+ 1039 05a8 0B46     		mov	r3, r1
+ 1040 05aa DB00     		lsls	r3, r3, #3
+ 1041 05ac 5B1A     		subs	r3, r3, r1
+ 1042 05ae 1344     		add	r3, r3, r2
+ 1043 05b0 0233     		adds	r3, r3, #2
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccLFIdLJ.s 			page 22
+
+
+ 1044 05b2 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1045 05b4 032B     		cmp	r3, #3
+ 1046 05b6 13D0     		beq	.L55
+ 1047              		.loc 1 144 0 discriminator 3
+ 1048 05b8 07F12002 		add	r2, r7, #32
+ 1049 05bc 0C3A     		subs	r2, r2, #12
+ 1050 05be 07F58853 		add	r3, r7, #4352
+ 1051 05c2 03F10803 		add	r3, r3, #8
+ 1052 05c6 1968     		ldr	r1, [r3]
+ 1053 05c8 0B46     		mov	r3, r1
+ 1054 05ca DB00     		lsls	r3, r3, #3
+ 1055 05cc 5B1A     		subs	r3, r3, r1
+ 1056 05ce 1344     		add	r3, r3, r2
+ 1057 05d0 0233     		adds	r3, r3, #2
+ 1058 05d2 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1059 05d4 012B     		cmp	r3, #1
+ 1060 05d6 01D1     		bne	.L56
+ 1061              		.loc 1 144 0 discriminator 5
+ 1062 05d8 0123     		movs	r3, #1
+ 1063 05da 04E0     		b	.L59
+ 1064              	.L56:
+ 1065              		.loc 1 144 0 discriminator 6
+ 1066 05dc 0223     		movs	r3, #2
+ 1067 05de 02E0     		b	.L59
+ 1068              	.L55:
+ 1069              		.loc 1 144 0 discriminator 4
+ 1070 05e0 0423     		movs	r3, #4
+ 1071 05e2 00E0     		b	.L59
+ 1072              	.L54:
+ 1073              		.loc 1 144 0 discriminator 2
+ 1074 05e4 0323     		movs	r3, #3
+ 1075              	.L59:
+ 1076              		.loc 1 144 0 discriminator 12
+ 1077 05e6 07F58852 		add	r2, r7, #4352
+ 1078 05ea 02F10702 		add	r2, r2, #7
+ 1079 05ee 1370     		strb	r3, [r2]
+ 1080 05f0 3BE0     		b	.L45
+ 1081              	.L53:
+ 145:algo.c        ****               } else {
+ 146:algo.c        ****                 direction = (shortestPath[i].direction == RIGHTTURN) ? RIGHTTURN : (shortestPath[i]
+ 1082              		.loc 1 146 0 is_stmt 1
+ 1083 05f2 07F12002 		add	r2, r7, #32
+ 1084 05f6 0C3A     		subs	r2, r2, #12
+ 1085 05f8 07F58853 		add	r3, r7, #4352
+ 1086 05fc 03F10803 		add	r3, r3, #8
+ 1087 0600 1968     		ldr	r1, [r3]
+ 1088 0602 0B46     		mov	r3, r1
+ 1089 0604 DB00     		lsls	r3, r3, #3
+ 1090 0606 5B1A     		subs	r3, r3, r1
+ 1091 0608 1344     		add	r3, r3, r2
+ 1092 060a 0233     		adds	r3, r3, #2
+ 1093 060c 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1094 060e 042B     		cmp	r3, #4
+ 1095 0610 25D0     		beq	.L60
+ 1096              		.loc 1 146 0 is_stmt 0 discriminator 1
+ 1097 0612 07F12002 		add	r2, r7, #32
+ 1098 0616 0C3A     		subs	r2, r2, #12
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccLFIdLJ.s 			page 23
+
+
+ 1099 0618 07F58853 		add	r3, r7, #4352
+ 1100 061c 03F10803 		add	r3, r3, #8
+ 1101 0620 1968     		ldr	r1, [r3]
+ 1102 0622 0B46     		mov	r3, r1
+ 1103 0624 DB00     		lsls	r3, r3, #3
+ 1104 0626 5B1A     		subs	r3, r3, r1
+ 1105 0628 1344     		add	r3, r3, r2
+ 1106 062a 0233     		adds	r3, r3, #2
+ 1107 062c 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1108 062e 032B     		cmp	r3, #3
+ 1109 0630 13D0     		beq	.L61
+ 1110              		.loc 1 146 0 discriminator 3
+ 1111 0632 07F12002 		add	r2, r7, #32
+ 1112 0636 0C3A     		subs	r2, r2, #12
+ 1113 0638 07F58853 		add	r3, r7, #4352
+ 1114 063c 03F10803 		add	r3, r3, #8
+ 1115 0640 1968     		ldr	r1, [r3]
+ 1116 0642 0B46     		mov	r3, r1
+ 1117 0644 DB00     		lsls	r3, r3, #3
+ 1118 0646 5B1A     		subs	r3, r3, r1
+ 1119 0648 1344     		add	r3, r3, r2
+ 1120 064a 0233     		adds	r3, r3, #2
+ 1121 064c 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1122 064e 012B     		cmp	r3, #1
+ 1123 0650 01D1     		bne	.L62
+ 1124              		.loc 1 146 0 discriminator 5
+ 1125 0652 0223     		movs	r3, #2
+ 1126 0654 04E0     		b	.L65
+ 1127              	.L62:
+ 1128              		.loc 1 146 0 discriminator 6
+ 1129 0656 0123     		movs	r3, #1
+ 1130 0658 02E0     		b	.L65
+ 1131              	.L61:
+ 1132              		.loc 1 146 0 discriminator 4
+ 1133 065a 0323     		movs	r3, #3
+ 1134 065c 00E0     		b	.L65
+ 1135              	.L60:
+ 1136              		.loc 1 146 0 discriminator 2
+ 1137 065e 0423     		movs	r3, #4
+ 1138              	.L65:
+ 1139              		.loc 1 146 0 discriminator 12
+ 1140 0660 07F58852 		add	r2, r7, #4352
+ 1141 0664 02F10702 		add	r2, r2, #7
+ 1142 0668 1370     		strb	r3, [r2]
+ 1143              	.L45:
+ 147:algo.c        ****               }
+ 148:algo.c        ****               shortestPath[i].direction = direction;
+ 1144              		.loc 1 148 0 is_stmt 1
+ 1145 066a 07F12002 		add	r2, r7, #32
+ 1146 066e 0C3A     		subs	r2, r2, #12
+ 1147 0670 07F58853 		add	r3, r7, #4352
+ 1148 0674 03F10803 		add	r3, r3, #8
+ 1149 0678 1968     		ldr	r1, [r3]
+ 1150 067a 0B46     		mov	r3, r1
+ 1151 067c DB00     		lsls	r3, r3, #3
+ 1152 067e 5B1A     		subs	r3, r3, r1
+ 1153 0680 1344     		add	r3, r3, r2
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccLFIdLJ.s 			page 24
+
+
+ 1154 0682 0233     		adds	r3, r3, #2
+ 1155 0684 07F58852 		add	r2, r7, #4352
+ 1156 0688 02F10702 		add	r2, r2, #7
+ 1157 068c 1278     		ldrb	r2, [r2]
+ 1158 068e 1A70     		strb	r2, [r3]
+ 1159              	.L37:
+ 149:algo.c        ****             }
+ 150:algo.c        **** 
+ 151:algo.c        ****             
+ 152:algo.c        ****             out[pathIndex++] = shortestPath[i];
+ 1160              		.loc 1 152 0 discriminator 2
+ 1161 0690 07F58853 		add	r3, r7, #4352
+ 1162 0694 03F11803 		add	r3, r3, #24
+ 1163 0698 1B68     		ldr	r3, [r3]
+ 1164 069a 5A1C     		adds	r2, r3, #1
+ 1165 069c 07F58851 		add	r1, r7, #4352
+ 1166 06a0 01F11801 		add	r1, r1, #24
+ 1167 06a4 0A60     		str	r2, [r1]
+ 1168 06a6 1A46     		mov	r2, r3
+ 1169 06a8 D200     		lsls	r2, r2, #3
+ 1170 06aa D31A     		subs	r3, r2, r3
+ 1171 06ac 07F58952 		add	r2, r7, #4384
+ 1172 06b0 02F11402 		add	r2, r2, #20
+ 1173 06b4 1268     		ldr	r2, [r2]
+ 1174 06b6 D018     		adds	r0, r2, r3
+ 1175 06b8 07F12002 		add	r2, r7, #32
+ 1176 06bc 0C3A     		subs	r2, r2, #12
+ 1177 06be 07F58853 		add	r3, r7, #4352
+ 1178 06c2 03F10803 		add	r3, r3, #8
+ 1179 06c6 1968     		ldr	r1, [r3]
+ 1180 06c8 0B46     		mov	r3, r1
+ 1181 06ca DB00     		lsls	r3, r3, #3
+ 1182 06cc 5B1A     		subs	r3, r3, r1
+ 1183 06ce 1A44     		add	r2, r2, r3
+ 1184 06d0 0346     		mov	r3, r0
+ 1185 06d2 1168     		ldr	r1, [r2]	@ unaligned
+ 1186 06d4 1960     		str	r1, [r3]	@ unaligned
+ 1187 06d6 9188     		ldrh	r1, [r2, #4]	@ unaligned
+ 1188 06d8 9279     		ldrb	r2, [r2, #6]
+ 1189 06da 9980     		strh	r1, [r3, #4]	@ unaligned
+ 1190 06dc 9A71     		strb	r2, [r3, #6]
+ 1191              	.LBE7:
+ 134:algo.c        ****             uint8_t direction = 0;
+ 1192              		.loc 1 134 0 discriminator 2
+ 1193 06de 07F58853 		add	r3, r7, #4352
+ 1194 06e2 03F10803 		add	r3, r3, #8
+ 1195 06e6 1B68     		ldr	r3, [r3]
+ 1196 06e8 013B     		subs	r3, r3, #1
+ 1197 06ea 07F58852 		add	r2, r7, #4352
+ 1198 06ee 02F10802 		add	r2, r2, #8
+ 1199 06f2 1360     		str	r3, [r2]
+ 1200              	.L36:
+ 134:algo.c        ****             uint8_t direction = 0;
+ 1201              		.loc 1 134 0 is_stmt 0 discriminator 1
+ 1202 06f4 07F58853 		add	r3, r7, #4352
+ 1203 06f8 03F10803 		add	r3, r3, #8
+ 1204 06fc 1B68     		ldr	r3, [r3]
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccLFIdLJ.s 			page 25
+
+
+ 1205 06fe 002B     		cmp	r3, #0
+ 1206 0700 BFF67CAE 		bge	.L66
+ 1207              	.LBE6:
+ 1208              	.LBB8:
+ 153:algo.c        ****             
+ 154:algo.c        ****             
+ 155:algo.c        **** 
+ 156:algo.c        ****           }
+ 157:algo.c        **** 
+ 158:algo.c        ****           // Reset visited array for the next search
+ 159:algo.c        ****           for (uint8_t i = 0; i < MAP_HEIGHT; i++) {
+ 1209              		.loc 1 159 0 is_stmt 1
+ 1210 0704 0023     		movs	r3, #0
+ 1211 0706 07F58852 		add	r2, r7, #4352
+ 1212 070a 02F10602 		add	r2, r2, #6
+ 1213 070e 1370     		strb	r3, [r2]
+ 1214 0710 6AE0     		b	.L67
+ 1215              	.L70:
+ 1216              	.LBB9:
+ 160:algo.c        ****             for (uint8_t j = 0; j < MAP_WIDTH; j++) {
+ 1217              		.loc 1 160 0
+ 1218 0712 0023     		movs	r3, #0
+ 1219 0714 07F58852 		add	r2, r7, #4352
+ 1220 0718 02F10502 		add	r2, r2, #5
+ 1221 071c 1370     		strb	r3, [r2]
+ 1222 071e 51E0     		b	.L68
+ 1223              	.L88:
+ 1224              		.align	2
+ 1225              	.L87:
+ 1226 0720 00000000 		.word	.LC0
+ 1227              	.L69:
+ 161:algo.c        ****               visited[i][j] = (Point){0};
+ 1228              		.loc 1 161 0 discriminator 3
+ 1229 0724 07F58853 		add	r3, r7, #4352
+ 1230 0728 03F10603 		add	r3, r3, #6
+ 1231 072c 1978     		ldrb	r1, [r3]	@ zero_extendqisi2
+ 1232 072e 07F58853 		add	r3, r7, #4352
+ 1233 0732 03F10503 		add	r3, r3, #5
+ 1234 0736 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1235 0738 07F63810 		addw	r0, r7, #2360
+ 1236 073c 1A46     		mov	r2, r3
+ 1237 073e D200     		lsls	r2, r2, #3
+ 1238 0740 D21A     		subs	r2, r2, r3
+ 1239 0742 0B46     		mov	r3, r1
+ 1240 0744 5B01     		lsls	r3, r3, #5
+ 1241 0746 0B44     		add	r3, r3, r1
+ 1242 0748 9B00     		lsls	r3, r3, #2
+ 1243 074a 0B44     		add	r3, r3, r1
+ 1244 074c 1344     		add	r3, r3, r2
+ 1245 074e 0344     		add	r3, r3, r0
+ 1246 0750 1A46     		mov	r2, r3
+ 1247 0752 0023     		movs	r3, #0
+ 1248 0754 1360     		str	r3, [r2]	@ unaligned
+ 1249 0756 C2F80330 		str	r3, [r2, #3]	@ unaligned
+ 162:algo.c        ****               dummyMap[i][j] = map[i][j];
+ 1250              		.loc 1 162 0 discriminator 3
+ 1251 075a 07F58853 		add	r3, r7, #4352
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccLFIdLJ.s 			page 26
+
+
+ 1252 075e 03F10603 		add	r3, r3, #6
+ 1253 0762 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 1254 0764 07F58853 		add	r3, r7, #4352
+ 1255 0768 03F10503 		add	r3, r3, #5
+ 1256 076c 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+ 1257 076e 07F58853 		add	r3, r7, #4352
+ 1258 0772 03F10603 		add	r3, r3, #6
+ 1259 0776 1978     		ldrb	r1, [r3]	@ zero_extendqisi2
+ 1260 0778 0B46     		mov	r3, r1
+ 1261 077a DB00     		lsls	r3, r3, #3
+ 1262 077c 0B44     		add	r3, r3, r1
+ 1263 077e 5B00     		lsls	r3, r3, #1
+ 1264 0780 1944     		add	r1, r1, r3
+ 1265 0782 07F12003 		add	r3, r7, #32
+ 1266 0786 143B     		subs	r3, r3, #20
+ 1267 0788 1B68     		ldr	r3, [r3]
+ 1268 078a 1944     		add	r1, r1, r3
+ 1269 078c 07F58853 		add	r3, r7, #4352
+ 1270 0790 03F10503 		add	r3, r3, #5
+ 1271 0794 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1272 0796 CC5C     		ldrb	r4, [r1, r3]	@ zero_extendqisi2
+ 1273 0798 07F61801 		addw	r1, r7, #2072
+ 1274 079c 1346     		mov	r3, r2
+ 1275 079e DB00     		lsls	r3, r3, #3
+ 1276 07a0 1344     		add	r3, r3, r2
+ 1277 07a2 5B00     		lsls	r3, r3, #1
+ 1278 07a4 1344     		add	r3, r3, r2
+ 1279 07a6 0B44     		add	r3, r3, r1
+ 1280 07a8 0344     		add	r3, r3, r0
+ 1281 07aa 2246     		mov	r2, r4
+ 1282 07ac 1A70     		strb	r2, [r3]
+ 160:algo.c        ****             for (uint8_t j = 0; j < MAP_WIDTH; j++) {
+ 1283              		.loc 1 160 0 discriminator 3
+ 1284 07ae 07F58853 		add	r3, r7, #4352
+ 1285 07b2 03F10503 		add	r3, r3, #5
+ 1286 07b6 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1287 07b8 0133     		adds	r3, r3, #1
+ 1288 07ba 07F58852 		add	r2, r7, #4352
+ 1289 07be 02F10502 		add	r2, r2, #5
+ 1290 07c2 1370     		strb	r3, [r2]
+ 1291              	.L68:
+ 160:algo.c        ****             for (uint8_t j = 0; j < MAP_WIDTH; j++) {
+ 1292              		.loc 1 160 0 is_stmt 0 discriminator 1
+ 1293 07c4 07F58853 		add	r3, r7, #4352
+ 1294 07c8 03F10503 		add	r3, r3, #5
+ 1295 07cc 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1296 07ce 122B     		cmp	r3, #18
+ 1297 07d0 A8D9     		bls	.L69
+ 1298              	.LBE9:
+ 159:algo.c        ****             for (uint8_t j = 0; j < MAP_WIDTH; j++) {
+ 1299              		.loc 1 159 0 is_stmt 1 discriminator 2
+ 1300 07d2 07F58853 		add	r3, r7, #4352
+ 1301 07d6 03F10603 		add	r3, r3, #6
+ 1302 07da 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1303 07dc 0133     		adds	r3, r3, #1
+ 1304 07de 07F58852 		add	r2, r7, #4352
+ 1305 07e2 02F10602 		add	r2, r2, #6
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccLFIdLJ.s 			page 27
+
+
+ 1306 07e6 1370     		strb	r3, [r2]
+ 1307              	.L67:
+ 159:algo.c        ****             for (uint8_t j = 0; j < MAP_WIDTH; j++) {
+ 1308              		.loc 1 159 0 is_stmt 0 discriminator 1
+ 1309 07e8 07F58853 		add	r3, r7, #4352
+ 1310 07ec 03F10603 		add	r3, r3, #6
+ 1311 07f0 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1312 07f2 0E2B     		cmp	r3, #14
+ 1313 07f4 8DD9     		bls	.L70
+ 1314              	.LBE8:
+ 163:algo.c        ****             }
+ 164:algo.c        ****           }
+ 165:algo.c        ****           front = 0;
+ 1315              		.loc 1 165 0 is_stmt 1
+ 1316 07f6 C34B     		ldr	r3, .L89
+ 1317 07f8 0022     		movs	r2, #0
+ 1318 07fa 1A60     		str	r2, [r3]
+ 166:algo.c        ****           rear = 0;
+ 1319              		.loc 1 166 0
+ 1320 07fc C24B     		ldr	r3, .L89+4
+ 1321 07fe 0022     		movs	r2, #0
+ 1322 0800 1A60     		str	r2, [r3]
+ 167:algo.c        ****           size = 0;
+ 1323              		.loc 1 167 0
+ 1324 0802 C24B     		ldr	r3, .L89+8
+ 1325 0804 0022     		movs	r2, #0
+ 1326 0806 1A60     		str	r2, [r3]
+ 168:algo.c        **** 
+ 169:algo.c        ****           newStart = curr;
+ 1327              		.loc 1 169 0
+ 1328 0808 07F50163 		add	r3, r7, #2064
+ 1329 080c 07F60802 		addw	r2, r7, #2056
+ 1330 0810 92E80300 		ldmia	r2, {r0, r1}
+ 1331 0814 1860     		str	r0, [r3]
+ 1332 0816 0433     		adds	r3, r3, #4
+ 1333 0818 1980     		strh	r1, [r3]	@ movhi
+ 1334 081a 0233     		adds	r3, r3, #2
+ 1335 081c 0A0C     		lsrs	r2, r1, #16
+ 1336 081e 1A70     		strb	r2, [r3]
+ 170:algo.c        ****           //foundEnds[foundEndsCount] = curr;
+ 171:algo.c        ****           // Increment the found ends count:
+ 172:algo.c        ****           foundEndsCount++;
+ 1337              		.loc 1 172 0
+ 1338 0820 07F58853 		add	r3, r7, #4352
+ 1339 0824 03F11703 		add	r3, r3, #23
+ 1340 0828 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1341 082a 0133     		adds	r3, r3, #1
+ 1342 082c 07F58852 		add	r2, r7, #4352
+ 1343 0830 02F11702 		add	r2, r2, #23
+ 1344 0834 1370     		strb	r3, [r2]
+ 173:algo.c        **** 
+ 174:algo.c        ****           if (foundEndsCount == endCount) {
+ 1345              		.loc 1 174 0
+ 1346 0836 07F58853 		add	r3, r7, #4352
+ 1347 083a 03F11703 		add	r3, r3, #23
+ 1348 083e 1A78     		ldrb	r2, [r3]	@ zero_extendqisi2
+ 1349 0840 07F58953 		add	r3, r7, #4384
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccLFIdLJ.s 			page 28
+
+
+ 1350 0844 03F11003 		add	r3, r3, #16
+ 1351 0848 1B68     		ldr	r3, [r3]
+ 1352 084a 9A42     		cmp	r2, r3
+ 1353 084c 05D1     		bne	.L29
+ 175:algo.c        ****             // Return the shortest path length
+ 176:algo.c        ****             return pathIndex;
+ 1354              		.loc 1 176 0
+ 1355 084e 07F58853 		add	r3, r7, #4352
+ 1356 0852 03F11803 		add	r3, r3, #24
+ 1357 0856 1B68     		ldr	r3, [r3]
+ 1358 0858 4EE1     		b	.L86
+ 1359              	.L29:
+ 1360              	.LBE5:
+ 177:algo.c        ****           }
+ 178:algo.c        ****         }
+ 179:algo.c        ****     dummyMap[curr.y][curr.x] = 1;
+ 1361              		.loc 1 179 0
+ 1362 085a 07F60803 		addw	r3, r7, #2056
+ 1363 085e 5B78     		ldrb	r3, [r3, #1]	@ zero_extendqisi2
+ 1364 0860 1A46     		mov	r2, r3
+ 1365 0862 07F60803 		addw	r3, r7, #2056
+ 1366 0866 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1367 0868 1846     		mov	r0, r3
+ 1368 086a 07F61801 		addw	r1, r7, #2072
+ 1369 086e 1346     		mov	r3, r2
+ 1370 0870 DB00     		lsls	r3, r3, #3
+ 1371 0872 1344     		add	r3, r3, r2
+ 1372 0874 5B00     		lsls	r3, r3, #1
+ 1373 0876 1344     		add	r3, r3, r2
+ 1374 0878 0B44     		add	r3, r3, r1
+ 1375 087a 0344     		add	r3, r3, r0
+ 1376 087c 0122     		movs	r2, #1
+ 1377 087e 1A70     		strb	r2, [r3]
+ 180:algo.c        ****     uint8_t pointsValid = 0;
+ 1378              		.loc 1 180 0
+ 1379 0880 0023     		movs	r3, #0
+ 1380 0882 07F58852 		add	r2, r7, #4352
+ 1381 0886 02F10402 		add	r2, r2, #4
+ 1382 088a 1370     		strb	r3, [r2]
+ 181:algo.c        ****     if (isValid(left, dummyMap)) {
+ 1383              		.loc 1 181 0
+ 1384 088c 07F61802 		addw	r2, r7, #2072
+ 1385 0890 07F50063 		add	r3, r7, #2048
+ 1386 0894 93E80300 		ldmia	r3, {r0, r1}
+ 1387 0898 FFF7FEFF 		bl	isValid
+ 1388 089c 0346     		mov	r3, r0
+ 1389 089e 002B     		cmp	r3, #0
+ 1390 08a0 3FD0     		beq	.L73
+ 182:algo.c        ****       left.direction = LEFTTURN;
+ 1391              		.loc 1 182 0
+ 1392 08a2 07F50063 		add	r3, r7, #2048
+ 1393 08a6 0322     		movs	r2, #3
+ 1394 08a8 9A70     		strb	r2, [r3, #2]
+ 183:algo.c        ****       pointsValid++;
+ 1395              		.loc 1 183 0
+ 1396 08aa 07F58853 		add	r3, r7, #4352
+ 1397 08ae 03F10403 		add	r3, r3, #4
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccLFIdLJ.s 			page 29
+
+
+ 1398 08b2 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1399 08b4 0133     		adds	r3, r3, #1
+ 1400 08b6 07F58852 		add	r2, r7, #4352
+ 1401 08ba 02F10402 		add	r2, r2, #4
+ 1402 08be 1370     		strb	r3, [r2]
+ 184:algo.c        ****       enqueue(left);
+ 1403              		.loc 1 184 0
+ 1404 08c0 07F50063 		add	r3, r7, #2048
+ 1405 08c4 93E80300 		ldmia	r3, {r0, r1}
+ 1406 08c8 FFF7FEFF 		bl	enqueue
+ 185:algo.c        ****       if (pointsValid >= 2 || (curr.direction != LEFTTURN)) { // If more than two points valid it i
+ 1407              		.loc 1 185 0
+ 1408 08cc 07F58853 		add	r3, r7, #4352
+ 1409 08d0 03F10403 		add	r3, r3, #4
+ 1410 08d4 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1411 08d6 012B     		cmp	r3, #1
+ 1412 08d8 04D8     		bhi	.L74
+ 1413              		.loc 1 185 0 is_stmt 0 discriminator 1
+ 1414 08da 07F60803 		addw	r3, r7, #2056
+ 1415 08de 9B78     		ldrb	r3, [r3, #2]	@ zero_extendqisi2
+ 1416 08e0 032B     		cmp	r3, #3
+ 1417 08e2 03D0     		beq	.L75
+ 1418              	.L74:
+ 186:algo.c        ****         curr.node = 1;
+ 1419              		.loc 1 186 0 is_stmt 1
+ 1420 08e4 07F60803 		addw	r3, r7, #2056
+ 1421 08e8 0122     		movs	r2, #1
+ 1422 08ea DA70     		strb	r2, [r3, #3]
+ 1423              	.L75:
+ 187:algo.c        ****       }
+ 188:algo.c        ****       visited[left.y][left.x] = curr; // Store the parent
+ 1424              		.loc 1 188 0
+ 1425 08ec 07F50063 		add	r3, r7, #2048
+ 1426 08f0 5B78     		ldrb	r3, [r3, #1]	@ zero_extendqisi2
+ 1427 08f2 1946     		mov	r1, r3
+ 1428 08f4 07F50063 		add	r3, r7, #2048
+ 1429 08f8 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1430 08fa 07F63810 		addw	r0, r7, #2360
+ 1431 08fe 1A46     		mov	r2, r3
+ 1432 0900 D200     		lsls	r2, r2, #3
+ 1433 0902 D21A     		subs	r2, r2, r3
+ 1434 0904 0B46     		mov	r3, r1
+ 1435 0906 5B01     		lsls	r3, r3, #5
+ 1436 0908 0B44     		add	r3, r3, r1
+ 1437 090a 9B00     		lsls	r3, r3, #2
+ 1438 090c 0B44     		add	r3, r3, r1
+ 1439 090e 1344     		add	r3, r3, r2
+ 1440 0910 0344     		add	r3, r3, r0
+ 1441 0912 07F60802 		addw	r2, r7, #2056
+ 1442 0916 1068     		ldr	r0, [r2]	@ unaligned
+ 1443 0918 1860     		str	r0, [r3]	@ unaligned
+ 1444 091a 9188     		ldrh	r1, [r2, #4]	@ unaligned
+ 1445 091c 9279     		ldrb	r2, [r2, #6]
+ 1446 091e 9980     		strh	r1, [r3, #4]	@ unaligned
+ 1447 0920 9A71     		strb	r2, [r3, #6]
+ 1448              	.L73:
+ 189:algo.c        ****     }
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccLFIdLJ.s 			page 30
+
+
+ 190:algo.c        ****     if (isValid(right, dummyMap)) {
+ 1449              		.loc 1 190 0
+ 1450 0922 07F61802 		addw	r2, r7, #2072
+ 1451 0926 07F5FF63 		add	r3, r7, #2040
+ 1452 092a 93E80300 		ldmia	r3, {r0, r1}
+ 1453 092e FFF7FEFF 		bl	isValid
+ 1454 0932 0346     		mov	r3, r0
+ 1455 0934 002B     		cmp	r3, #0
+ 1456 0936 3FD0     		beq	.L76
+ 191:algo.c        ****       right.direction = RIGHTTURN;
+ 1457              		.loc 1 191 0
+ 1458 0938 07F5FF63 		add	r3, r7, #2040
+ 1459 093c 0422     		movs	r2, #4
+ 1460 093e 9A70     		strb	r2, [r3, #2]
+ 192:algo.c        ****       pointsValid++;
+ 1461              		.loc 1 192 0
+ 1462 0940 07F58853 		add	r3, r7, #4352
+ 1463 0944 03F10403 		add	r3, r3, #4
+ 1464 0948 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1465 094a 0133     		adds	r3, r3, #1
+ 1466 094c 07F58852 		add	r2, r7, #4352
+ 1467 0950 02F10402 		add	r2, r2, #4
+ 1468 0954 1370     		strb	r3, [r2]
+ 193:algo.c        ****       if (pointsValid >= 2 || (curr.direction != RIGHTTURN)) { // If more than two points valid it 
+ 1469              		.loc 1 193 0
+ 1470 0956 07F58853 		add	r3, r7, #4352
+ 1471 095a 03F10403 		add	r3, r3, #4
+ 1472 095e 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1473 0960 012B     		cmp	r3, #1
+ 1474 0962 04D8     		bhi	.L77
+ 1475              		.loc 1 193 0 is_stmt 0 discriminator 1
+ 1476 0964 07F60803 		addw	r3, r7, #2056
+ 1477 0968 9B78     		ldrb	r3, [r3, #2]	@ zero_extendqisi2
+ 1478 096a 042B     		cmp	r3, #4
+ 1479 096c 03D0     		beq	.L78
+ 1480              	.L77:
+ 194:algo.c        ****         curr.node = 1;
+ 1481              		.loc 1 194 0 is_stmt 1
+ 1482 096e 07F60803 		addw	r3, r7, #2056
+ 1483 0972 0122     		movs	r2, #1
+ 1484 0974 DA70     		strb	r2, [r3, #3]
+ 1485              	.L78:
+ 195:algo.c        ****       }
+ 196:algo.c        ****       enqueue(right);
+ 1486              		.loc 1 196 0
+ 1487 0976 07F5FF63 		add	r3, r7, #2040
+ 1488 097a 93E80300 		ldmia	r3, {r0, r1}
+ 1489 097e FFF7FEFF 		bl	enqueue
+ 197:algo.c        ****       visited[right.y][right.x] = curr; // Store the parent
+ 1490              		.loc 1 197 0
+ 1491 0982 07F5FF63 		add	r3, r7, #2040
+ 1492 0986 5B78     		ldrb	r3, [r3, #1]	@ zero_extendqisi2
+ 1493 0988 1946     		mov	r1, r3
+ 1494 098a 07F5FF63 		add	r3, r7, #2040
+ 1495 098e 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1496 0990 07F63810 		addw	r0, r7, #2360
+ 1497 0994 1A46     		mov	r2, r3
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccLFIdLJ.s 			page 31
+
+
+ 1498 0996 D200     		lsls	r2, r2, #3
+ 1499 0998 D21A     		subs	r2, r2, r3
+ 1500 099a 0B46     		mov	r3, r1
+ 1501 099c 5B01     		lsls	r3, r3, #5
+ 1502 099e 0B44     		add	r3, r3, r1
+ 1503 09a0 9B00     		lsls	r3, r3, #2
+ 1504 09a2 0B44     		add	r3, r3, r1
+ 1505 09a4 1344     		add	r3, r3, r2
+ 1506 09a6 0344     		add	r3, r3, r0
+ 1507 09a8 07F60802 		addw	r2, r7, #2056
+ 1508 09ac 1068     		ldr	r0, [r2]	@ unaligned
+ 1509 09ae 1860     		str	r0, [r3]	@ unaligned
+ 1510 09b0 9188     		ldrh	r1, [r2, #4]	@ unaligned
+ 1511 09b2 9279     		ldrb	r2, [r2, #6]
+ 1512 09b4 9980     		strh	r1, [r3, #4]	@ unaligned
+ 1513 09b6 9A71     		strb	r2, [r3, #6]
+ 1514              	.L76:
+ 198:algo.c        ****     }
+ 199:algo.c        ****     if (isValid(above, dummyMap)) {
+ 1515              		.loc 1 199 0
+ 1516 09b8 07F61802 		addw	r2, r7, #2072
+ 1517 09bc 07F5FE63 		add	r3, r7, #2032
+ 1518 09c0 93E80300 		ldmia	r3, {r0, r1}
+ 1519 09c4 FFF7FEFF 		bl	isValid
+ 1520 09c8 0346     		mov	r3, r0
+ 1521 09ca 002B     		cmp	r3, #0
+ 1522 09cc 3FD0     		beq	.L79
+ 200:algo.c        ****       above.direction = UPTURN;
+ 1523              		.loc 1 200 0
+ 1524 09ce 07F5FE63 		add	r3, r7, #2032
+ 1525 09d2 0122     		movs	r2, #1
+ 1526 09d4 9A70     		strb	r2, [r3, #2]
+ 201:algo.c        ****       pointsValid++;
+ 1527              		.loc 1 201 0
+ 1528 09d6 07F58853 		add	r3, r7, #4352
+ 1529 09da 03F10403 		add	r3, r3, #4
+ 1530 09de 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1531 09e0 0133     		adds	r3, r3, #1
+ 1532 09e2 07F58852 		add	r2, r7, #4352
+ 1533 09e6 02F10402 		add	r2, r2, #4
+ 1534 09ea 1370     		strb	r3, [r2]
+ 202:algo.c        ****       if (pointsValid >= 2 || (curr.direction != UPTURN)) { // If more than two points valid it is 
+ 1535              		.loc 1 202 0
+ 1536 09ec 07F58853 		add	r3, r7, #4352
+ 1537 09f0 03F10403 		add	r3, r3, #4
+ 1538 09f4 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1539 09f6 012B     		cmp	r3, #1
+ 1540 09f8 04D8     		bhi	.L80
+ 1541              		.loc 1 202 0 is_stmt 0 discriminator 1
+ 1542 09fa 07F60803 		addw	r3, r7, #2056
+ 1543 09fe 9B78     		ldrb	r3, [r3, #2]	@ zero_extendqisi2
+ 1544 0a00 012B     		cmp	r3, #1
+ 1545 0a02 03D0     		beq	.L81
+ 1546              	.L80:
+ 203:algo.c        ****         curr.node = 1;
+ 1547              		.loc 1 203 0 is_stmt 1
+ 1548 0a04 07F60803 		addw	r3, r7, #2056
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccLFIdLJ.s 			page 32
+
+
+ 1549 0a08 0122     		movs	r2, #1
+ 1550 0a0a DA70     		strb	r2, [r3, #3]
+ 1551              	.L81:
+ 204:algo.c        ****       }
+ 205:algo.c        ****       enqueue(above);
+ 1552              		.loc 1 205 0
+ 1553 0a0c 07F5FE63 		add	r3, r7, #2032
+ 1554 0a10 93E80300 		ldmia	r3, {r0, r1}
+ 1555 0a14 FFF7FEFF 		bl	enqueue
+ 206:algo.c        ****       visited[above.y][above.x] = curr; // Store the parent
+ 1556              		.loc 1 206 0
+ 1557 0a18 07F5FE63 		add	r3, r7, #2032
+ 1558 0a1c 5B78     		ldrb	r3, [r3, #1]	@ zero_extendqisi2
+ 1559 0a1e 1946     		mov	r1, r3
+ 1560 0a20 07F5FE63 		add	r3, r7, #2032
+ 1561 0a24 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1562 0a26 07F63810 		addw	r0, r7, #2360
+ 1563 0a2a 1A46     		mov	r2, r3
+ 1564 0a2c D200     		lsls	r2, r2, #3
+ 1565 0a2e D21A     		subs	r2, r2, r3
+ 1566 0a30 0B46     		mov	r3, r1
+ 1567 0a32 5B01     		lsls	r3, r3, #5
+ 1568 0a34 0B44     		add	r3, r3, r1
+ 1569 0a36 9B00     		lsls	r3, r3, #2
+ 1570 0a38 0B44     		add	r3, r3, r1
+ 1571 0a3a 1344     		add	r3, r3, r2
+ 1572 0a3c 0344     		add	r3, r3, r0
+ 1573 0a3e 07F60802 		addw	r2, r7, #2056
+ 1574 0a42 1068     		ldr	r0, [r2]	@ unaligned
+ 1575 0a44 1860     		str	r0, [r3]	@ unaligned
+ 1576 0a46 9188     		ldrh	r1, [r2, #4]	@ unaligned
+ 1577 0a48 9279     		ldrb	r2, [r2, #6]
+ 1578 0a4a 9980     		strh	r1, [r3, #4]	@ unaligned
+ 1579 0a4c 9A71     		strb	r2, [r3, #6]
+ 1580              	.L79:
+ 207:algo.c        ****     }
+ 208:algo.c        ****     if (isValid(below, dummyMap)) {
+ 1581              		.loc 1 208 0
+ 1582 0a4e 07F61802 		addw	r2, r7, #2072
+ 1583 0a52 07F5FD63 		add	r3, r7, #2024
+ 1584 0a56 93E80300 		ldmia	r3, {r0, r1}
+ 1585 0a5a FFF7FEFF 		bl	isValid
+ 1586 0a5e 0346     		mov	r3, r0
+ 1587 0a60 002B     		cmp	r3, #0
+ 1588 0a62 3FD0     		beq	.L28
+ 209:algo.c        ****       below.direction = DOWNTURN;
+ 1589              		.loc 1 209 0
+ 1590 0a64 07F5FD63 		add	r3, r7, #2024
+ 1591 0a68 0222     		movs	r2, #2
+ 1592 0a6a 9A70     		strb	r2, [r3, #2]
+ 210:algo.c        ****       pointsValid++;
+ 1593              		.loc 1 210 0
+ 1594 0a6c 07F58853 		add	r3, r7, #4352
+ 1595 0a70 03F10403 		add	r3, r3, #4
+ 1596 0a74 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1597 0a76 0133     		adds	r3, r3, #1
+ 1598 0a78 07F58852 		add	r2, r7, #4352
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccLFIdLJ.s 			page 33
+
+
+ 1599 0a7c 02F10402 		add	r2, r2, #4
+ 1600 0a80 1370     		strb	r3, [r2]
+ 211:algo.c        ****       if (pointsValid >= 2 || (curr.direction != DOWNTURN)) { // If more than two points valid it i
+ 1601              		.loc 1 211 0
+ 1602 0a82 07F58853 		add	r3, r7, #4352
+ 1603 0a86 03F10403 		add	r3, r3, #4
+ 1604 0a8a 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1605 0a8c 012B     		cmp	r3, #1
+ 1606 0a8e 04D8     		bhi	.L83
+ 1607              		.loc 1 211 0 is_stmt 0 discriminator 1
+ 1608 0a90 07F60803 		addw	r3, r7, #2056
+ 1609 0a94 9B78     		ldrb	r3, [r3, #2]	@ zero_extendqisi2
+ 1610 0a96 022B     		cmp	r3, #2
+ 1611 0a98 03D0     		beq	.L84
+ 1612              	.L83:
+ 212:algo.c        ****         curr.node = 1;
+ 1613              		.loc 1 212 0 is_stmt 1
+ 1614 0a9a 07F60803 		addw	r3, r7, #2056
+ 1615 0a9e 0122     		movs	r2, #1
+ 1616 0aa0 DA70     		strb	r2, [r3, #3]
+ 1617              	.L84:
+ 213:algo.c        ****       }
+ 214:algo.c        ****       enqueue(below);
+ 1618              		.loc 1 214 0
+ 1619 0aa2 07F5FD63 		add	r3, r7, #2024
+ 1620 0aa6 93E80300 		ldmia	r3, {r0, r1}
+ 1621 0aaa FFF7FEFF 		bl	enqueue
+ 215:algo.c        ****       visited[below.y][below.x] = curr; // Store the parent
+ 1622              		.loc 1 215 0
+ 1623 0aae 07F5FD63 		add	r3, r7, #2024
+ 1624 0ab2 5B78     		ldrb	r3, [r3, #1]	@ zero_extendqisi2
+ 1625 0ab4 1946     		mov	r1, r3
+ 1626 0ab6 07F5FD63 		add	r3, r7, #2024
+ 1627 0aba 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 1628 0abc 07F63810 		addw	r0, r7, #2360
+ 1629 0ac0 1A46     		mov	r2, r3
+ 1630 0ac2 D200     		lsls	r2, r2, #3
+ 1631 0ac4 D21A     		subs	r2, r2, r3
+ 1632 0ac6 0B46     		mov	r3, r1
+ 1633 0ac8 5B01     		lsls	r3, r3, #5
+ 1634 0aca 0B44     		add	r3, r3, r1
+ 1635 0acc 9B00     		lsls	r3, r3, #2
+ 1636 0ace 0B44     		add	r3, r3, r1
+ 1637 0ad0 1344     		add	r3, r3, r2
+ 1638 0ad2 0344     		add	r3, r3, r0
+ 1639 0ad4 07F60802 		addw	r2, r7, #2056
+ 1640 0ad8 1068     		ldr	r0, [r2]	@ unaligned
+ 1641 0ada 1860     		str	r0, [r3]	@ unaligned
+ 1642 0adc 9188     		ldrh	r1, [r2, #4]	@ unaligned
+ 1643 0ade 9279     		ldrb	r2, [r2, #6]
+ 1644 0ae0 9980     		strh	r1, [r3, #4]	@ unaligned
+ 1645 0ae2 9A71     		strb	r2, [r3, #6]
+ 1646              	.L28:
+ 1647              	.LBE4:
+  89:algo.c        ****     Point curr = dequeue();
+ 1648              		.loc 1 89 0
+ 1649 0ae4 FFF7FEFF 		bl	isQueueEmpty
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccLFIdLJ.s 			page 34
+
+
+ 1650 0ae8 0346     		mov	r3, r0
+ 1651 0aea 83F00103 		eor	r3, r3, #1
+ 1652 0aee DBB2     		uxtb	r3, r3
+ 1653 0af0 002B     		cmp	r3, #0
+ 1654 0af2 7FF422AB 		bne	.L85
+ 216:algo.c        ****     }
+ 217:algo.c        ****     
+ 218:algo.c        **** 
+ 219:algo.c        ****     
+ 220:algo.c        ****   }
+ 221:algo.c        ****   return 0;
+ 1655              		.loc 1 221 0
+ 1656 0af6 0023     		movs	r3, #0
+ 1657              	.L86:
+ 222:algo.c        **** }
+ 1658              		.loc 1 222 0 discriminator 2
+ 1659 0af8 1846     		mov	r0, r3
+ 1660 0afa 07F58957 		add	r7, r7, #4384
+ 1661 0afe 0437     		adds	r7, r7, #4
+ 1662              		.cfi_def_cfa_offset 12
+ 1663 0b00 BD46     		mov	sp, r7
+ 1664              		.cfi_def_cfa_register 13
+ 1665              		@ sp needed
+ 1666 0b02 90BD     		pop	{r4, r7, pc}
+ 1667              	.L90:
+ 1668              		.align	2
+ 1669              	.L89:
+ 1670 0b04 00000000 		.word	front
+ 1671 0b08 00000000 		.word	rear
+ 1672 0b0c 00000000 		.word	size
+ 1673              		.cfi_endproc
+ 1674              	.LFE6:
+ 1675              		.size	bfs, .-bfs
+ 1676              		.section	.text.run_algo,"ax",%progbits
+ 1677              		.align	2
+ 1678              		.global	run_algo
+ 1679              		.thumb
+ 1680              		.thumb_func
+ 1681              		.type	run_algo, %function
+ 1682              	run_algo:
+ 1683              	.LFB7:
+ 223:algo.c        **** 
+ 224:algo.c        **** size_t run_algo(const uint8_t map[MAP_HEIGHT][MAP_WIDTH], Point start,
+ 225:algo.c        ****                     const Point *ends, size_t endCount, Point *out) {
+ 1684              		.loc 1 225 0
+ 1685              		.cfi_startproc
+ 1686              		@ args = 8, pretend = 0, frame = 16
+ 1687              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1688 0000 80B5     		push	{r7, lr}
+ 1689              		.cfi_def_cfa_offset 8
+ 1690              		.cfi_offset 7, -8
+ 1691              		.cfi_offset 14, -4
+ 1692 0002 86B0     		sub	sp, sp, #24
+ 1693              		.cfi_def_cfa_offset 32
+ 1694 0004 02AF     		add	r7, sp, #8
+ 1695              		.cfi_def_cfa 7, 24
+ 1696 0006 F860     		str	r0, [r7, #12]
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccLFIdLJ.s 			page 35
+
+
+ 1697 0008 381D     		adds	r0, r7, #4
+ 1698 000a 80E80600 		stmia	r0, {r1, r2}
+ 1699 000e 3B60     		str	r3, [r7]
+ 226:algo.c        ****   return bfs(map, start, ends, endCount, out);
+ 1700              		.loc 1 226 0
+ 1701 0010 FB69     		ldr	r3, [r7, #28]
+ 1702 0012 0193     		str	r3, [sp, #4]
+ 1703 0014 BB69     		ldr	r3, [r7, #24]
+ 1704 0016 0093     		str	r3, [sp]
+ 1705 0018 3B68     		ldr	r3, [r7]
+ 1706 001a 3A1D     		adds	r2, r7, #4
+ 1707 001c 06CA     		ldmia	r2, {r1, r2}
+ 1708 001e F868     		ldr	r0, [r7, #12]
+ 1709 0020 FFF7FEFF 		bl	bfs
+ 1710 0024 0346     		mov	r3, r0
+ 227:algo.c        **** 
+ 228:algo.c        **** }
+ 1711              		.loc 1 228 0
+ 1712 0026 1846     		mov	r0, r3
+ 1713 0028 1037     		adds	r7, r7, #16
+ 1714              		.cfi_def_cfa_offset 8
+ 1715 002a BD46     		mov	sp, r7
+ 1716              		.cfi_def_cfa_register 13
+ 1717              		@ sp needed
+ 1718 002c 80BD     		pop	{r7, pc}
+ 1719              		.cfi_endproc
+ 1720              	.LFE7:
+ 1721              		.size	run_algo, .-run_algo
+ 1722 002e 00BF     		.section	.text.point_eq,"ax",%progbits
+ 1723              		.align	2
+ 1724              		.global	point_eq
+ 1725              		.thumb
+ 1726              		.thumb_func
+ 1727              		.type	point_eq, %function
+ 1728              	point_eq:
+ 1729              	.LFB8:
+ 229:algo.c        **** 
+ 230:algo.c        **** 
+ 231:algo.c        **** // Don't need to modify this
+ 232:algo.c        **** 
+ 233:algo.c        **** uint8_t point_eq(Point a, Point b) { return a.x == b.x && a.y == b.y; }
+ 1730              		.loc 1 233 0
+ 1731              		.cfi_startproc
+ 1732              		@ args = 0, pretend = 0, frame = 16
+ 1733              		@ frame_needed = 1, uses_anonymous_args = 0
+ 1734              		@ link register save eliminated.
+ 1735 0000 90B4     		push	{r4, r7}
+ 1736              		.cfi_def_cfa_offset 8
+ 1737              		.cfi_offset 4, -8
+ 1738              		.cfi_offset 7, -4
+ 1739 0002 84B0     		sub	sp, sp, #16
+ 1740              		.cfi_def_cfa_offset 24
+ 1741 0004 00AF     		add	r7, sp, #0
+ 1742              		.cfi_def_cfa_register 7
+ 1743 0006 07F10804 		add	r4, r7, #8
+ 1744 000a 84E80300 		stmia	r4, {r0, r1}
+ 1745 000e 3946     		mov	r1, r7
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccLFIdLJ.s 			page 36
+
+
+ 1746 0010 81E80C00 		stmia	r1, {r2, r3}
+ 1747              		.loc 1 233 0
+ 1748 0014 3A7A     		ldrb	r2, [r7, #8]	@ zero_extendqisi2
+ 1749 0016 3B78     		ldrb	r3, [r7]	@ zero_extendqisi2
+ 1750 0018 9A42     		cmp	r2, r3
+ 1751 001a 05D1     		bne	.L94
+ 1752              		.loc 1 233 0 is_stmt 0 discriminator 1
+ 1753 001c 7A7A     		ldrb	r2, [r7, #9]	@ zero_extendqisi2
+ 1754 001e 7B78     		ldrb	r3, [r7, #1]	@ zero_extendqisi2
+ 1755 0020 9A42     		cmp	r2, r3
+ 1756 0022 01D1     		bne	.L94
+ 1757              		.loc 1 233 0 discriminator 3
+ 1758 0024 0123     		movs	r3, #1
+ 1759 0026 00E0     		b	.L95
+ 1760              	.L94:
+ 1761              		.loc 1 233 0 discriminator 4
+ 1762 0028 0023     		movs	r3, #0
+ 1763              	.L95:
+ 1764              		.loc 1 233 0 discriminator 6
+ 1765 002a DBB2     		uxtb	r3, r3
+ 1766 002c 1846     		mov	r0, r3
+ 1767 002e 1037     		adds	r7, r7, #16
+ 1768              		.cfi_def_cfa_offset 8
+ 1769 0030 BD46     		mov	sp, r7
+ 1770              		.cfi_def_cfa_register 13
+ 1771              		@ sp needed
+ 1772 0032 90BC     		pop	{r4, r7}
+ 1773              		.cfi_restore 7
+ 1774              		.cfi_restore 4
+ 1775              		.cfi_def_cfa_offset 0
+ 1776 0034 7047     		bx	lr
+ 1777              		.cfi_endproc
+ 1778              	.LFE8:
+ 1779              		.size	point_eq, .-point_eq
+ 1780 0036 00BF     		.text
+ 1781              	.Letext0:
+ 1782              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ 1783              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ 1784              		.file 4 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ 1785              		.file 5 "defines.h"
+ 1786              		.section	.debug_info,"",%progbits
+ 1787              	.Ldebug_info0:
+ 1788 0000 F3040000 		.4byte	0x4f3
+ 1789 0004 0400     		.2byte	0x4
+ 1790 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 1791 000a 04       		.byte	0x4
+ 1792 000b 01       		.uleb128 0x1
+ 1793 000c 2D000000 		.4byte	.LASF53
+ 1794 0010 0C       		.byte	0xc
+ 1795 0011 59020000 		.4byte	.LASF54
+ 1796 0015 03020000 		.4byte	.LASF55
+ 1797 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 1798 001d 00000000 		.4byte	0
+ 1799 0021 00000000 		.4byte	.Ldebug_line0
+ 1800 0025 02       		.uleb128 0x2
+ 1801 0026 04       		.byte	0x4
+ 1802 0027 05       		.byte	0x5
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccLFIdLJ.s 			page 37
+
+
+ 1803 0028 696E7400 		.ascii	"int\000"
+ 1804 002c 03       		.uleb128 0x3
+ 1805 002d 12000000 		.4byte	.LASF4
+ 1806 0031 02       		.byte	0x2
+ 1807 0032 D8       		.byte	0xd8
+ 1808 0033 37000000 		.4byte	0x37
+ 1809 0037 04       		.uleb128 0x4
+ 1810 0038 04       		.byte	0x4
+ 1811 0039 07       		.byte	0x7
+ 1812 003a 3D010000 		.4byte	.LASF0
+ 1813 003e 04       		.uleb128 0x4
+ 1814 003f 08       		.byte	0x8
+ 1815 0040 05       		.byte	0x5
+ 1816 0041 E9000000 		.4byte	.LASF1
+ 1817 0045 04       		.uleb128 0x4
+ 1818 0046 08       		.byte	0x8
+ 1819 0047 04       		.byte	0x4
+ 1820 0048 96010000 		.4byte	.LASF2
+ 1821 004c 04       		.uleb128 0x4
+ 1822 004d 01       		.byte	0x1
+ 1823 004e 06       		.byte	0x6
+ 1824 004f F7000000 		.4byte	.LASF3
+ 1825 0053 03       		.uleb128 0x3
+ 1826 0054 19000000 		.4byte	.LASF5
+ 1827 0058 03       		.byte	0x3
+ 1828 0059 1D       		.byte	0x1d
+ 1829 005a 5E000000 		.4byte	0x5e
+ 1830 005e 04       		.uleb128 0x4
+ 1831 005f 01       		.byte	0x1
+ 1832 0060 08       		.byte	0x8
+ 1833 0061 CD010000 		.4byte	.LASF6
+ 1834 0065 04       		.uleb128 0x4
+ 1835 0066 02       		.byte	0x2
+ 1836 0067 05       		.byte	0x5
+ 1837 0068 F1010000 		.4byte	.LASF7
+ 1838 006c 04       		.uleb128 0x4
+ 1839 006d 02       		.byte	0x2
+ 1840 006e 07       		.byte	0x7
+ 1841 006f 7A010000 		.4byte	.LASF8
+ 1842 0073 04       		.uleb128 0x4
+ 1843 0074 04       		.byte	0x4
+ 1844 0075 05       		.byte	0x5
+ 1845 0076 0D010000 		.4byte	.LASF9
+ 1846 007a 04       		.uleb128 0x4
+ 1847 007b 04       		.byte	0x4
+ 1848 007c 07       		.byte	0x7
+ 1849 007d 59010000 		.4byte	.LASF10
+ 1850 0081 04       		.uleb128 0x4
+ 1851 0082 08       		.byte	0x8
+ 1852 0083 07       		.byte	0x7
+ 1853 0084 C3000000 		.4byte	.LASF11
+ 1854 0088 03       		.uleb128 0x3
+ 1855 0089 A4020000 		.4byte	.LASF12
+ 1856 008d 04       		.byte	0x4
+ 1857 008e 18       		.byte	0x18
+ 1858 008f 53000000 		.4byte	0x53
+ 1859 0093 05       		.uleb128 0x5
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccLFIdLJ.s 			page 38
+
+
+ 1860 0094 16010000 		.4byte	.LASF18
+ 1861 0098 07       		.byte	0x7
+ 1862 0099 05       		.byte	0x5
+ 1863 009a 44       		.byte	0x44
+ 1864 009b F0000000 		.4byte	0xf0
+ 1865 009f 06       		.uleb128 0x6
+ 1866 00a0 7800     		.ascii	"x\000"
+ 1867 00a2 05       		.byte	0x5
+ 1868 00a3 45       		.byte	0x45
+ 1869 00a4 88000000 		.4byte	0x88
+ 1870 00a8 00       		.byte	0
+ 1871 00a9 06       		.uleb128 0x6
+ 1872 00aa 7900     		.ascii	"y\000"
+ 1873 00ac 05       		.byte	0x5
+ 1874 00ad 45       		.byte	0x45
+ 1875 00ae 88000000 		.4byte	0x88
+ 1876 00b2 01       		.byte	0x1
+ 1877 00b3 07       		.uleb128 0x7
+ 1878 00b4 23000000 		.4byte	.LASF13
+ 1879 00b8 05       		.byte	0x5
+ 1880 00b9 45       		.byte	0x45
+ 1881 00ba 88000000 		.4byte	0x88
+ 1882 00be 02       		.byte	0x2
+ 1883 00bf 07       		.uleb128 0x7
+ 1884 00c0 E0010000 		.4byte	.LASF14
+ 1885 00c4 05       		.byte	0x5
+ 1886 00c5 45       		.byte	0x45
+ 1887 00c6 88000000 		.4byte	0x88
+ 1888 00ca 03       		.byte	0x3
+ 1889 00cb 07       		.uleb128 0x7
+ 1890 00cc BD010000 		.4byte	.LASF15
+ 1891 00d0 05       		.byte	0x5
+ 1892 00d1 45       		.byte	0x45
+ 1893 00d2 88000000 		.4byte	0x88
+ 1894 00d6 04       		.byte	0x4
+ 1895 00d7 07       		.uleb128 0x7
+ 1896 00d8 6B010000 		.4byte	.LASF16
+ 1897 00dc 05       		.byte	0x5
+ 1898 00dd 45       		.byte	0x45
+ 1899 00de 88000000 		.4byte	0x88
+ 1900 00e2 05       		.byte	0x5
+ 1901 00e3 07       		.uleb128 0x7
+ 1902 00e4 CE020000 		.4byte	.LASF17
+ 1903 00e8 05       		.byte	0x5
+ 1904 00e9 45       		.byte	0x45
+ 1905 00ea 88000000 		.4byte	0x88
+ 1906 00ee 06       		.byte	0x6
+ 1907 00ef 00       		.byte	0
+ 1908 00f0 03       		.uleb128 0x3
+ 1909 00f1 16010000 		.4byte	.LASF18
+ 1910 00f5 05       		.byte	0x5
+ 1911 00f6 46       		.byte	0x46
+ 1912 00f7 93000000 		.4byte	0x93
+ 1913 00fb 04       		.uleb128 0x4
+ 1914 00fc 04       		.byte	0x4
+ 1915 00fd 07       		.byte	0x7
+ 1916 00fe 8D010000 		.4byte	.LASF19
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccLFIdLJ.s 			page 39
+
+
+ 1917 0102 04       		.uleb128 0x4
+ 1918 0103 01       		.byte	0x1
+ 1919 0104 08       		.byte	0x8
+ 1920 0105 75020000 		.4byte	.LASF20
+ 1921 0109 08       		.uleb128 0x8
+ 1922 010a 60020000 		.4byte	.LASF27
+ 1923 010e 01       		.byte	0x1
+ 1924 010f 2B       		.byte	0x2b
+ 1925 0110 3D010000 		.4byte	0x13d
+ 1926 0114 00000000 		.4byte	.LFB1
+ 1927 0118 4C000000 		.4byte	.LFE1-.LFB1
+ 1928 011c 01       		.uleb128 0x1
+ 1929 011d 9C       		.byte	0x9c
+ 1930 011e 3D010000 		.4byte	0x13d
+ 1931 0122 09       		.uleb128 0x9
+ 1932 0123 7000     		.ascii	"p\000"
+ 1933 0125 01       		.byte	0x1
+ 1934 0126 2B       		.byte	0x2b
+ 1935 0127 F0000000 		.4byte	0xf0
+ 1936 012b 02       		.uleb128 0x2
+ 1937 012c 91       		.byte	0x91
+ 1938 012d 70       		.sleb128 -16
+ 1939 012e 09       		.uleb128 0x9
+ 1940 012f 6D617000 		.ascii	"map\000"
+ 1941 0133 01       		.byte	0x1
+ 1942 0134 2B       		.byte	0x2b
+ 1943 0135 59010000 		.4byte	0x159
+ 1944 0139 02       		.uleb128 0x2
+ 1945 013a 91       		.byte	0x91
+ 1946 013b 6C       		.sleb128 -20
+ 1947 013c 00       		.byte	0
+ 1948 013d 04       		.uleb128 0x4
+ 1949 013e 01       		.byte	0x1
+ 1950 013f 02       		.byte	0x2
+ 1951 0140 C7010000 		.4byte	.LASF21
+ 1952 0144 0A       		.uleb128 0xa
+ 1953 0145 54010000 		.4byte	0x154
+ 1954 0149 54010000 		.4byte	0x154
+ 1955 014d 0B       		.uleb128 0xb
+ 1956 014e FB000000 		.4byte	0xfb
+ 1957 0152 12       		.byte	0x12
+ 1958 0153 00       		.byte	0
+ 1959 0154 0C       		.uleb128 0xc
+ 1960 0155 88000000 		.4byte	0x88
+ 1961 0159 0D       		.uleb128 0xd
+ 1962 015a 04       		.byte	0x4
+ 1963 015b 44010000 		.4byte	0x144
+ 1964 015f 0E       		.uleb128 0xe
+ 1965 0160 68020000 		.4byte	.LASF22
+ 1966 0164 01       		.byte	0x1
+ 1967 0165 34       		.byte	0x34
+ 1968 0166 3D010000 		.4byte	0x13d
+ 1969 016a 00000000 		.4byte	.LFB2
+ 1970 016e 20000000 		.4byte	.LFE2-.LFB2
+ 1971 0172 01       		.uleb128 0x1
+ 1972 0173 9C       		.byte	0x9c
+ 1973 0174 0E       		.uleb128 0xe
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccLFIdLJ.s 			page 40
+
+
+ 1974 0175 AC020000 		.4byte	.LASF23
+ 1975 0179 01       		.byte	0x1
+ 1976 017a 36       		.byte	0x36
+ 1977 017b 3D010000 		.4byte	0x13d
+ 1978 017f 00000000 		.4byte	.LFB3
+ 1979 0183 24000000 		.4byte	.LFE3-.LFB3
+ 1980 0187 01       		.uleb128 0x1
+ 1981 0188 9C       		.byte	0x9c
+ 1982 0189 0F       		.uleb128 0xf
+ 1983 018a BB000000 		.4byte	.LASF25
+ 1984 018e 01       		.byte	0x1
+ 1985 018f 38       		.byte	0x38
+ 1986 0190 00000000 		.4byte	.LFB4
+ 1987 0194 80000000 		.4byte	.LFE4-.LFB4
+ 1988 0198 01       		.uleb128 0x1
+ 1989 0199 9C       		.byte	0x9c
+ 1990 019a AD010000 		.4byte	0x1ad
+ 1991 019e 10       		.uleb128 0x10
+ 1992 019f D9020000 		.4byte	.LASF24
+ 1993 01a3 01       		.byte	0x1
+ 1994 01a4 38       		.byte	0x38
+ 1995 01a5 F0000000 		.4byte	0xf0
+ 1996 01a9 02       		.uleb128 0x2
+ 1997 01aa 91       		.byte	0x91
+ 1998 01ab 68       		.sleb128 -24
+ 1999 01ac 00       		.byte	0
+ 2000 01ad 11       		.uleb128 0x11
+ 2001 01ae A2010000 		.4byte	.LASF26
+ 2002 01b2 01       		.byte	0x1
+ 2003 01b3 40       		.byte	0x40
+ 2004 01b4 F0000000 		.4byte	0xf0
+ 2005 01b8 00000000 		.4byte	.LFB5
+ 2006 01bc 9C000000 		.4byte	.LFE5-.LFB5
+ 2007 01c0 01       		.uleb128 0x1
+ 2008 01c1 9C       		.byte	0x9c
+ 2009 01c2 D5010000 		.4byte	0x1d5
+ 2010 01c6 12       		.uleb128 0x12
+ 2011 01c7 D9020000 		.4byte	.LASF24
+ 2012 01cb 01       		.byte	0x1
+ 2013 01cc 41       		.byte	0x41
+ 2014 01cd F0000000 		.4byte	0xf0
+ 2015 01d1 02       		.uleb128 0x2
+ 2016 01d2 91       		.byte	0x91
+ 2017 01d3 68       		.sleb128 -24
+ 2018 01d4 00       		.byte	0
+ 2019 01d5 13       		.uleb128 0x13
+ 2020 01d6 62667300 		.ascii	"bfs\000"
+ 2021 01da 01       		.byte	0x1
+ 2022 01db 49       		.byte	0x49
+ 2023 01dc 2C000000 		.4byte	0x2c
+ 2024 01e0 00000000 		.4byte	.LFB6
+ 2025 01e4 100B0000 		.4byte	.LFE6-.LFB6
+ 2026 01e8 01       		.uleb128 0x1
+ 2027 01e9 9C       		.byte	0x9c
+ 2028 01ea D2030000 		.4byte	0x3d2
+ 2029 01ee 09       		.uleb128 0x9
+ 2030 01ef 6D617000 		.ascii	"map\000"
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccLFIdLJ.s 			page 41
+
+
+ 2031 01f3 01       		.byte	0x1
+ 2032 01f4 49       		.byte	0x49
+ 2033 01f5 59010000 		.4byte	0x159
+ 2034 01f9 03       		.uleb128 0x3
+ 2035 01fa 91       		.byte	0x91
+ 2036 01fb DC5D     		.sleb128 -4388
+ 2037 01fd 10       		.uleb128 0x10
+ 2038 01fe BD020000 		.4byte	.LASF28
+ 2039 0202 01       		.byte	0x1
+ 2040 0203 49       		.byte	0x49
+ 2041 0204 F0000000 		.4byte	0xf0
+ 2042 0208 03       		.uleb128 0x3
+ 2043 0209 91       		.byte	0x91
+ 2044 020a D45D     		.sleb128 -4396
+ 2045 020c 10       		.uleb128 0x10
+ 2046 020d 83020000 		.4byte	.LASF29
+ 2047 0211 01       		.byte	0x1
+ 2048 0212 4A       		.byte	0x4a
+ 2049 0213 D2030000 		.4byte	0x3d2
+ 2050 0217 03       		.uleb128 0x3
+ 2051 0218 91       		.byte	0x91
+ 2052 0219 D05D     		.sleb128 -4400
+ 2053 021b 10       		.uleb128 0x10
+ 2054 021c 8E020000 		.4byte	.LASF30
+ 2055 0220 01       		.byte	0x1
+ 2056 0221 4A       		.byte	0x4a
+ 2057 0222 2C000000 		.4byte	0x2c
+ 2058 0226 02       		.uleb128 0x2
+ 2059 0227 91       		.byte	0x91
+ 2060 0228 00       		.sleb128 0
+ 2061 0229 09       		.uleb128 0x9
+ 2062 022a 6F757400 		.ascii	"out\000"
+ 2063 022e 01       		.byte	0x1
+ 2064 022f 4A       		.byte	0x4a
+ 2065 0230 DD030000 		.4byte	0x3dd
+ 2066 0234 02       		.uleb128 0x2
+ 2067 0235 91       		.byte	0x91
+ 2068 0236 04       		.sleb128 4
+ 2069 0237 12       		.uleb128 0x12
+ 2070 0238 FB010000 		.4byte	.LASF31
+ 2071 023c 01       		.byte	0x1
+ 2072 023d 4B       		.byte	0x4b
+ 2073 023e E3030000 		.4byte	0x3e3
+ 2074 0242 03       		.uleb128 0x3
+ 2075 0243 91       		.byte	0x91
+ 2076 0244 8870     		.sleb128 -2040
+ 2077 0246 12       		.uleb128 0x12
+ 2078 0247 B4010000 		.4byte	.LASF32
+ 2079 024b 01       		.byte	0x1
+ 2080 024c 4C       		.byte	0x4c
+ 2081 024d F9030000 		.4byte	0x3f9
+ 2082 0251 03       		.uleb128 0x3
+ 2083 0252 91       		.byte	0x91
+ 2084 0253 E86D     		.sleb128 -2328
+ 2085 0255 12       		.uleb128 0x12
+ 2086 0256 88020000 		.4byte	.LASF33
+ 2087 025a 01       		.byte	0x1
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccLFIdLJ.s 			page 42
+
+
+ 2088 025b 52       		.byte	0x52
+ 2089 025c 88000000 		.4byte	0x88
+ 2090 0260 02       		.uleb128 0x2
+ 2091 0261 91       		.byte	0x91
+ 2092 0262 53       		.sleb128 -45
+ 2093 0263 12       		.uleb128 0x12
+ 2094 0264 AA010000 		.4byte	.LASF34
+ 2095 0268 01       		.byte	0x1
+ 2096 0269 53       		.byte	0x53
+ 2097 026a 2C000000 		.4byte	0x2c
+ 2098 026e 02       		.uleb128 0x2
+ 2099 026f 91       		.byte	0x91
+ 2100 0270 68       		.sleb128 -24
+ 2101 0271 12       		.uleb128 0x12
+ 2102 0272 4A010000 		.4byte	.LASF35
+ 2103 0276 01       		.byte	0x1
+ 2104 0277 54       		.byte	0x54
+ 2105 0278 88000000 		.4byte	0x88
+ 2106 027c 02       		.uleb128 0x2
+ 2107 027d 91       		.byte	0x91
+ 2108 027e 67       		.sleb128 -25
+ 2109 027f 12       		.uleb128 0x12
+ 2110 0280 34010000 		.4byte	.LASF36
+ 2111 0284 01       		.byte	0x1
+ 2112 0285 56       		.byte	0x56
+ 2113 0286 F0000000 		.4byte	0xf0
+ 2114 028a 03       		.uleb128 0x3
+ 2115 028b 91       		.byte	0x91
+ 2116 028c E06D     		.sleb128 -2336
+ 2117 028e 14       		.uleb128 0x14
+ 2118 028f 32000000 		.4byte	.LBB2
+ 2119 0293 B8000000 		.4byte	.LBE2-.LBB2
+ 2120 0297 BE020000 		.4byte	0x2be
+ 2121 029b 15       		.uleb128 0x15
+ 2122 029c 6900     		.ascii	"i\000"
+ 2123 029e 01       		.byte	0x1
+ 2124 029f 4D       		.byte	0x4d
+ 2125 02a0 88000000 		.4byte	0x88
+ 2126 02a4 02       		.uleb128 0x2
+ 2127 02a5 91       		.byte	0x91
+ 2128 02a6 6F       		.sleb128 -17
+ 2129 02a7 16       		.uleb128 0x16
+ 2130 02a8 40000000 		.4byte	.LBB3
+ 2131 02ac 86000000 		.4byte	.LBE3-.LBB3
+ 2132 02b0 15       		.uleb128 0x15
+ 2133 02b1 6A00     		.ascii	"j\000"
+ 2134 02b3 01       		.byte	0x1
+ 2135 02b4 4E       		.byte	0x4e
+ 2136 02b5 88000000 		.4byte	0x88
+ 2137 02b9 02       		.uleb128 0x2
+ 2138 02ba 91       		.byte	0x91
+ 2139 02bb 6E       		.sleb128 -18
+ 2140 02bc 00       		.byte	0
+ 2141 02bd 00       		.byte	0
+ 2142 02be 16       		.uleb128 0x16
+ 2143 02bf 3A010000 		.4byte	.LBB4
+ 2144 02c3 AA090000 		.4byte	.LBE4-.LBB4
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccLFIdLJ.s 			page 43
+
+
+ 2145 02c7 12       		.uleb128 0x12
+ 2146 02c8 DB010000 		.4byte	.LASF37
+ 2147 02cc 01       		.byte	0x1
+ 2148 02cd 5A       		.byte	0x5a
+ 2149 02ce F0000000 		.4byte	0xf0
+ 2150 02d2 03       		.uleb128 0x3
+ 2151 02d3 91       		.byte	0x91
+ 2152 02d4 D86D     		.sleb128 -2344
+ 2153 02d6 12       		.uleb128 0x12
+ 2154 02d7 D4020000 		.4byte	.LASF38
+ 2155 02db 01       		.byte	0x1
+ 2156 02dc 5B       		.byte	0x5b
+ 2157 02dd F0000000 		.4byte	0xf0
+ 2158 02e1 03       		.uleb128 0x3
+ 2159 02e2 91       		.byte	0x91
+ 2160 02e3 D06D     		.sleb128 -2352
+ 2161 02e5 12       		.uleb128 0x12
+ 2162 02e6 E3000000 		.4byte	.LASF39
+ 2163 02ea 01       		.byte	0x1
+ 2164 02eb 5C       		.byte	0x5c
+ 2165 02ec F0000000 		.4byte	0xf0
+ 2166 02f0 03       		.uleb128 0x3
+ 2167 02f1 91       		.byte	0x91
+ 2168 02f2 C86D     		.sleb128 -2360
+ 2169 02f4 12       		.uleb128 0x12
+ 2170 02f5 2E010000 		.4byte	.LASF40
+ 2171 02f9 01       		.byte	0x1
+ 2172 02fa 5D       		.byte	0x5d
+ 2173 02fb F0000000 		.4byte	0xf0
+ 2174 02ff 03       		.uleb128 0x3
+ 2175 0300 91       		.byte	0x91
+ 2176 0301 C06D     		.sleb128 -2368
+ 2177 0303 12       		.uleb128 0x12
+ 2178 0304 22010000 		.4byte	.LASF41
+ 2179 0308 01       		.byte	0x1
+ 2180 0309 5E       		.byte	0x5e
+ 2181 030a F0000000 		.4byte	0xf0
+ 2182 030e 03       		.uleb128 0x3
+ 2183 030f 91       		.byte	0x91
+ 2184 0310 B86D     		.sleb128 -2376
+ 2185 0312 12       		.uleb128 0x12
+ 2186 0313 E5010000 		.4byte	.LASF42
+ 2187 0317 01       		.byte	0x1
+ 2188 0318 B4       		.byte	0xb4
+ 2189 0319 88000000 		.4byte	0x88
+ 2190 031d 02       		.uleb128 0x2
+ 2191 031e 91       		.byte	0x91
+ 2192 031f 54       		.sleb128 -44
+ 2193 0320 16       		.uleb128 0x16
+ 2194 0321 30020000 		.4byte	.LBB5
+ 2195 0325 2A060000 		.4byte	.LBE5-.LBB5
+ 2196 0329 12       		.uleb128 0x12
+ 2197 032a 97020000 		.4byte	.LASF43
+ 2198 032e 01       		.byte	0x1
+ 2199 032f 68       		.byte	0x68
+ 2200 0330 0F040000 		.4byte	0x40f
+ 2201 0334 03       		.uleb128 0x3
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccLFIdLJ.s 			page 44
+
+
+ 2202 0335 91       		.byte	0x91
+ 2203 0336 E45D     		.sleb128 -4380
+ 2204 0338 12       		.uleb128 0x12
+ 2205 0339 00000000 		.4byte	.LASF44
+ 2206 033d 01       		.byte	0x1
+ 2207 033e 69       		.byte	0x69
+ 2208 033f 2C000000 		.4byte	0x2c
+ 2209 0343 02       		.uleb128 0x2
+ 2210 0344 91       		.byte	0x91
+ 2211 0345 60       		.sleb128 -32
+ 2212 0346 12       		.uleb128 0x12
+ 2213 0347 03010000 		.4byte	.LASF45
+ 2214 034b 01       		.byte	0x1
+ 2215 034c 6A       		.byte	0x6a
+ 2216 034d F0000000 		.4byte	0xf0
+ 2217 0351 03       		.uleb128 0x3
+ 2218 0352 91       		.byte	0x91
+ 2219 0353 B06D     		.sleb128 -2384
+ 2220 0355 12       		.uleb128 0x12
+ 2221 0356 C3020000 		.4byte	.LASF46
+ 2222 035a 01       		.byte	0x1
+ 2223 035b 6C       		.byte	0x6c
+ 2224 035c 88000000 		.4byte	0x88
+ 2225 0360 02       		.uleb128 0x2
+ 2226 0361 91       		.byte	0x91
+ 2227 0362 5F       		.sleb128 -33
+ 2228 0363 12       		.uleb128 0x12
+ 2229 0364 CE020000 		.4byte	.LASF17
+ 2230 0368 01       		.byte	0x1
+ 2231 0369 6D       		.byte	0x6d
+ 2232 036a 88000000 		.4byte	0x88
+ 2233 036e 02       		.uleb128 0x2
+ 2234 036f 91       		.byte	0x91
+ 2235 0370 5E       		.sleb128 -34
+ 2236 0371 14       		.uleb128 0x14
+ 2237 0372 E4030000 		.4byte	.LBB6
+ 2238 0376 20030000 		.4byte	.LBE6-.LBB6
+ 2239 037a A3030000 		.4byte	0x3a3
+ 2240 037e 15       		.uleb128 0x15
+ 2241 037f 6900     		.ascii	"i\000"
+ 2242 0381 01       		.byte	0x1
+ 2243 0382 86       		.byte	0x86
+ 2244 0383 25000000 		.4byte	0x25
+ 2245 0387 02       		.uleb128 0x2
+ 2246 0388 91       		.byte	0x91
+ 2247 0389 58       		.sleb128 -40
+ 2248 038a 16       		.uleb128 0x16
+ 2249 038b FC030000 		.4byte	.LBB7
+ 2250 038f E2020000 		.4byte	.LBE7-.LBB7
+ 2251 0393 12       		.uleb128 0x12
+ 2252 0394 23000000 		.4byte	.LASF13
+ 2253 0398 01       		.byte	0x1
+ 2254 0399 87       		.byte	0x87
+ 2255 039a 88000000 		.4byte	0x88
+ 2256 039e 02       		.uleb128 0x2
+ 2257 039f 91       		.byte	0x91
+ 2258 03a0 57       		.sleb128 -41
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccLFIdLJ.s 			page 45
+
+
+ 2259 03a1 00       		.byte	0
+ 2260 03a2 00       		.byte	0
+ 2261 03a3 16       		.uleb128 0x16
+ 2262 03a4 04070000 		.4byte	.LBB8
+ 2263 03a8 F2000000 		.4byte	.LBE8-.LBB8
+ 2264 03ac 15       		.uleb128 0x15
+ 2265 03ad 6900     		.ascii	"i\000"
+ 2266 03af 01       		.byte	0x1
+ 2267 03b0 9F       		.byte	0x9f
+ 2268 03b1 88000000 		.4byte	0x88
+ 2269 03b5 02       		.uleb128 0x2
+ 2270 03b6 91       		.byte	0x91
+ 2271 03b7 56       		.sleb128 -42
+ 2272 03b8 16       		.uleb128 0x16
+ 2273 03b9 12070000 		.4byte	.LBB9
+ 2274 03bd C0000000 		.4byte	.LBE9-.LBB9
+ 2275 03c1 15       		.uleb128 0x15
+ 2276 03c2 6A00     		.ascii	"j\000"
+ 2277 03c4 01       		.byte	0x1
+ 2278 03c5 A0       		.byte	0xa0
+ 2279 03c6 88000000 		.4byte	0x88
+ 2280 03ca 02       		.uleb128 0x2
+ 2281 03cb 91       		.byte	0x91
+ 2282 03cc 55       		.sleb128 -43
+ 2283 03cd 00       		.byte	0
+ 2284 03ce 00       		.byte	0
+ 2285 03cf 00       		.byte	0
+ 2286 03d0 00       		.byte	0
+ 2287 03d1 00       		.byte	0
+ 2288 03d2 0D       		.uleb128 0xd
+ 2289 03d3 04       		.byte	0x4
+ 2290 03d4 D8030000 		.4byte	0x3d8
+ 2291 03d8 0C       		.uleb128 0xc
+ 2292 03d9 F0000000 		.4byte	0xf0
+ 2293 03dd 0D       		.uleb128 0xd
+ 2294 03de 04       		.byte	0x4
+ 2295 03df F0000000 		.4byte	0xf0
+ 2296 03e3 0A       		.uleb128 0xa
+ 2297 03e4 F0000000 		.4byte	0xf0
+ 2298 03e8 F9030000 		.4byte	0x3f9
+ 2299 03ec 0B       		.uleb128 0xb
+ 2300 03ed FB000000 		.4byte	0xfb
+ 2301 03f1 0E       		.byte	0xe
+ 2302 03f2 0B       		.uleb128 0xb
+ 2303 03f3 FB000000 		.4byte	0xfb
+ 2304 03f7 12       		.byte	0x12
+ 2305 03f8 00       		.byte	0
+ 2306 03f9 0A       		.uleb128 0xa
+ 2307 03fa 88000000 		.4byte	0x88
+ 2308 03fe 0F040000 		.4byte	0x40f
+ 2309 0402 0B       		.uleb128 0xb
+ 2310 0403 FB000000 		.4byte	0xfb
+ 2311 0407 0E       		.byte	0xe
+ 2312 0408 0B       		.uleb128 0xb
+ 2313 0409 FB000000 		.4byte	0xfb
+ 2314 040d 12       		.byte	0x12
+ 2315 040e 00       		.byte	0
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccLFIdLJ.s 			page 46
+
+
+ 2316 040f 0A       		.uleb128 0xa
+ 2317 0410 F0000000 		.4byte	0xf0
+ 2318 0414 20040000 		.4byte	0x420
+ 2319 0418 17       		.uleb128 0x17
+ 2320 0419 FB000000 		.4byte	0xfb
+ 2321 041d 1C01     		.2byte	0x11c
+ 2322 041f 00       		.byte	0
+ 2323 0420 18       		.uleb128 0x18
+ 2324 0421 DA000000 		.4byte	.LASF47
+ 2325 0425 01       		.byte	0x1
+ 2326 0426 E0       		.byte	0xe0
+ 2327 0427 2C000000 		.4byte	0x2c
+ 2328 042b 00000000 		.4byte	.LFB7
+ 2329 042f 2E000000 		.4byte	.LFE7-.LFB7
+ 2330 0433 01       		.uleb128 0x1
+ 2331 0434 9C       		.byte	0x9c
+ 2332 0435 80040000 		.4byte	0x480
+ 2333 0439 09       		.uleb128 0x9
+ 2334 043a 6D617000 		.ascii	"map\000"
+ 2335 043e 01       		.byte	0x1
+ 2336 043f E0       		.byte	0xe0
+ 2337 0440 59010000 		.4byte	0x159
+ 2338 0444 02       		.uleb128 0x2
+ 2339 0445 91       		.byte	0x91
+ 2340 0446 74       		.sleb128 -12
+ 2341 0447 10       		.uleb128 0x10
+ 2342 0448 BD020000 		.4byte	.LASF28
+ 2343 044c 01       		.byte	0x1
+ 2344 044d E0       		.byte	0xe0
+ 2345 044e F0000000 		.4byte	0xf0
+ 2346 0452 02       		.uleb128 0x2
+ 2347 0453 91       		.byte	0x91
+ 2348 0454 6C       		.sleb128 -20
+ 2349 0455 10       		.uleb128 0x10
+ 2350 0456 83020000 		.4byte	.LASF29
+ 2351 045a 01       		.byte	0x1
+ 2352 045b E1       		.byte	0xe1
+ 2353 045c D2030000 		.4byte	0x3d2
+ 2354 0460 02       		.uleb128 0x2
+ 2355 0461 91       		.byte	0x91
+ 2356 0462 68       		.sleb128 -24
+ 2357 0463 10       		.uleb128 0x10
+ 2358 0464 8E020000 		.4byte	.LASF30
+ 2359 0468 01       		.byte	0x1
+ 2360 0469 E1       		.byte	0xe1
+ 2361 046a 2C000000 		.4byte	0x2c
+ 2362 046e 02       		.uleb128 0x2
+ 2363 046f 91       		.byte	0x91
+ 2364 0470 00       		.sleb128 0
+ 2365 0471 09       		.uleb128 0x9
+ 2366 0472 6F757400 		.ascii	"out\000"
+ 2367 0476 01       		.byte	0x1
+ 2368 0477 E1       		.byte	0xe1
+ 2369 0478 DD030000 		.4byte	0x3dd
+ 2370 047c 02       		.uleb128 0x2
+ 2371 047d 91       		.byte	0x91
+ 2372 047e 04       		.sleb128 4
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccLFIdLJ.s 			page 47
+
+
+ 2373 047f 00       		.byte	0
+ 2374 0480 08       		.uleb128 0x8
+ 2375 0481 7A020000 		.4byte	.LASF48
+ 2376 0485 01       		.byte	0x1
+ 2377 0486 E9       		.byte	0xe9
+ 2378 0487 88000000 		.4byte	0x88
+ 2379 048b 00000000 		.4byte	.LFB8
+ 2380 048f 36000000 		.4byte	.LFE8-.LFB8
+ 2381 0493 01       		.uleb128 0x1
+ 2382 0494 9C       		.byte	0x9c
+ 2383 0495 B2040000 		.4byte	0x4b2
+ 2384 0499 09       		.uleb128 0x9
+ 2385 049a 6100     		.ascii	"a\000"
+ 2386 049c 01       		.byte	0x1
+ 2387 049d E9       		.byte	0xe9
+ 2388 049e F0000000 		.4byte	0xf0
+ 2389 04a2 02       		.uleb128 0x2
+ 2390 04a3 91       		.byte	0x91
+ 2391 04a4 70       		.sleb128 -16
+ 2392 04a5 09       		.uleb128 0x9
+ 2393 04a6 6200     		.ascii	"b\000"
+ 2394 04a8 01       		.byte	0x1
+ 2395 04a9 E9       		.byte	0xe9
+ 2396 04aa F0000000 		.4byte	0xf0
+ 2397 04ae 02       		.uleb128 0x2
+ 2398 04af 91       		.byte	0x91
+ 2399 04b0 68       		.sleb128 -24
+ 2400 04b1 00       		.byte	0
+ 2401 04b2 19       		.uleb128 0x19
+ 2402 04b3 1C010000 		.4byte	.LASF49
+ 2403 04b7 01       		.byte	0x1
+ 2404 04b8 2F       		.byte	0x2f
+ 2405 04b9 0F040000 		.4byte	0x40f
+ 2406 04bd 05       		.uleb128 0x5
+ 2407 04be 03       		.byte	0x3
+ 2408 04bf 00000000 		.4byte	queue
+ 2409 04c3 19       		.uleb128 0x19
+ 2410 04c4 28010000 		.4byte	.LASF50
+ 2411 04c8 01       		.byte	0x1
+ 2412 04c9 30       		.byte	0x30
+ 2413 04ca 2C000000 		.4byte	0x2c
+ 2414 04ce 05       		.uleb128 0x5
+ 2415 04cf 03       		.byte	0x3
+ 2416 04d0 00000000 		.4byte	front
+ 2417 04d4 19       		.uleb128 0x19
+ 2418 04d5 B8020000 		.4byte	.LASF51
+ 2419 04d9 01       		.byte	0x1
+ 2420 04da 31       		.byte	0x31
+ 2421 04db 2C000000 		.4byte	0x2c
+ 2422 04df 05       		.uleb128 0x5
+ 2423 04e0 03       		.byte	0x3
+ 2424 04e1 00000000 		.4byte	rear
+ 2425 04e5 19       		.uleb128 0x19
+ 2426 04e6 75010000 		.4byte	.LASF52
+ 2427 04ea 01       		.byte	0x1
+ 2428 04eb 32       		.byte	0x32
+ 2429 04ec 2C000000 		.4byte	0x2c
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccLFIdLJ.s 			page 48
+
+
+ 2430 04f0 05       		.uleb128 0x5
+ 2431 04f1 03       		.byte	0x3
+ 2432 04f2 00000000 		.4byte	size
+ 2433 04f6 00       		.byte	0
+ 2434              		.section	.debug_abbrev,"",%progbits
+ 2435              	.Ldebug_abbrev0:
+ 2436 0000 01       		.uleb128 0x1
+ 2437 0001 11       		.uleb128 0x11
+ 2438 0002 01       		.byte	0x1
+ 2439 0003 25       		.uleb128 0x25
+ 2440 0004 0E       		.uleb128 0xe
+ 2441 0005 13       		.uleb128 0x13
+ 2442 0006 0B       		.uleb128 0xb
+ 2443 0007 03       		.uleb128 0x3
+ 2444 0008 0E       		.uleb128 0xe
+ 2445 0009 1B       		.uleb128 0x1b
+ 2446 000a 0E       		.uleb128 0xe
+ 2447 000b 55       		.uleb128 0x55
+ 2448 000c 17       		.uleb128 0x17
+ 2449 000d 11       		.uleb128 0x11
+ 2450 000e 01       		.uleb128 0x1
+ 2451 000f 10       		.uleb128 0x10
+ 2452 0010 17       		.uleb128 0x17
+ 2453 0011 00       		.byte	0
+ 2454 0012 00       		.byte	0
+ 2455 0013 02       		.uleb128 0x2
+ 2456 0014 24       		.uleb128 0x24
+ 2457 0015 00       		.byte	0
+ 2458 0016 0B       		.uleb128 0xb
+ 2459 0017 0B       		.uleb128 0xb
+ 2460 0018 3E       		.uleb128 0x3e
+ 2461 0019 0B       		.uleb128 0xb
+ 2462 001a 03       		.uleb128 0x3
+ 2463 001b 08       		.uleb128 0x8
+ 2464 001c 00       		.byte	0
+ 2465 001d 00       		.byte	0
+ 2466 001e 03       		.uleb128 0x3
+ 2467 001f 16       		.uleb128 0x16
+ 2468 0020 00       		.byte	0
+ 2469 0021 03       		.uleb128 0x3
+ 2470 0022 0E       		.uleb128 0xe
+ 2471 0023 3A       		.uleb128 0x3a
+ 2472 0024 0B       		.uleb128 0xb
+ 2473 0025 3B       		.uleb128 0x3b
+ 2474 0026 0B       		.uleb128 0xb
+ 2475 0027 49       		.uleb128 0x49
+ 2476 0028 13       		.uleb128 0x13
+ 2477 0029 00       		.byte	0
+ 2478 002a 00       		.byte	0
+ 2479 002b 04       		.uleb128 0x4
+ 2480 002c 24       		.uleb128 0x24
+ 2481 002d 00       		.byte	0
+ 2482 002e 0B       		.uleb128 0xb
+ 2483 002f 0B       		.uleb128 0xb
+ 2484 0030 3E       		.uleb128 0x3e
+ 2485 0031 0B       		.uleb128 0xb
+ 2486 0032 03       		.uleb128 0x3
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccLFIdLJ.s 			page 49
+
+
+ 2487 0033 0E       		.uleb128 0xe
+ 2488 0034 00       		.byte	0
+ 2489 0035 00       		.byte	0
+ 2490 0036 05       		.uleb128 0x5
+ 2491 0037 13       		.uleb128 0x13
+ 2492 0038 01       		.byte	0x1
+ 2493 0039 03       		.uleb128 0x3
+ 2494 003a 0E       		.uleb128 0xe
+ 2495 003b 0B       		.uleb128 0xb
+ 2496 003c 0B       		.uleb128 0xb
+ 2497 003d 3A       		.uleb128 0x3a
+ 2498 003e 0B       		.uleb128 0xb
+ 2499 003f 3B       		.uleb128 0x3b
+ 2500 0040 0B       		.uleb128 0xb
+ 2501 0041 01       		.uleb128 0x1
+ 2502 0042 13       		.uleb128 0x13
+ 2503 0043 00       		.byte	0
+ 2504 0044 00       		.byte	0
+ 2505 0045 06       		.uleb128 0x6
+ 2506 0046 0D       		.uleb128 0xd
+ 2507 0047 00       		.byte	0
+ 2508 0048 03       		.uleb128 0x3
+ 2509 0049 08       		.uleb128 0x8
+ 2510 004a 3A       		.uleb128 0x3a
+ 2511 004b 0B       		.uleb128 0xb
+ 2512 004c 3B       		.uleb128 0x3b
+ 2513 004d 0B       		.uleb128 0xb
+ 2514 004e 49       		.uleb128 0x49
+ 2515 004f 13       		.uleb128 0x13
+ 2516 0050 38       		.uleb128 0x38
+ 2517 0051 0B       		.uleb128 0xb
+ 2518 0052 00       		.byte	0
+ 2519 0053 00       		.byte	0
+ 2520 0054 07       		.uleb128 0x7
+ 2521 0055 0D       		.uleb128 0xd
+ 2522 0056 00       		.byte	0
+ 2523 0057 03       		.uleb128 0x3
+ 2524 0058 0E       		.uleb128 0xe
+ 2525 0059 3A       		.uleb128 0x3a
+ 2526 005a 0B       		.uleb128 0xb
+ 2527 005b 3B       		.uleb128 0x3b
+ 2528 005c 0B       		.uleb128 0xb
+ 2529 005d 49       		.uleb128 0x49
+ 2530 005e 13       		.uleb128 0x13
+ 2531 005f 38       		.uleb128 0x38
+ 2532 0060 0B       		.uleb128 0xb
+ 2533 0061 00       		.byte	0
+ 2534 0062 00       		.byte	0
+ 2535 0063 08       		.uleb128 0x8
+ 2536 0064 2E       		.uleb128 0x2e
+ 2537 0065 01       		.byte	0x1
+ 2538 0066 3F       		.uleb128 0x3f
+ 2539 0067 19       		.uleb128 0x19
+ 2540 0068 03       		.uleb128 0x3
+ 2541 0069 0E       		.uleb128 0xe
+ 2542 006a 3A       		.uleb128 0x3a
+ 2543 006b 0B       		.uleb128 0xb
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccLFIdLJ.s 			page 50
+
+
+ 2544 006c 3B       		.uleb128 0x3b
+ 2545 006d 0B       		.uleb128 0xb
+ 2546 006e 27       		.uleb128 0x27
+ 2547 006f 19       		.uleb128 0x19
+ 2548 0070 49       		.uleb128 0x49
+ 2549 0071 13       		.uleb128 0x13
+ 2550 0072 11       		.uleb128 0x11
+ 2551 0073 01       		.uleb128 0x1
+ 2552 0074 12       		.uleb128 0x12
+ 2553 0075 06       		.uleb128 0x6
+ 2554 0076 40       		.uleb128 0x40
+ 2555 0077 18       		.uleb128 0x18
+ 2556 0078 9742     		.uleb128 0x2117
+ 2557 007a 19       		.uleb128 0x19
+ 2558 007b 01       		.uleb128 0x1
+ 2559 007c 13       		.uleb128 0x13
+ 2560 007d 00       		.byte	0
+ 2561 007e 00       		.byte	0
+ 2562 007f 09       		.uleb128 0x9
+ 2563 0080 05       		.uleb128 0x5
+ 2564 0081 00       		.byte	0
+ 2565 0082 03       		.uleb128 0x3
+ 2566 0083 08       		.uleb128 0x8
+ 2567 0084 3A       		.uleb128 0x3a
+ 2568 0085 0B       		.uleb128 0xb
+ 2569 0086 3B       		.uleb128 0x3b
+ 2570 0087 0B       		.uleb128 0xb
+ 2571 0088 49       		.uleb128 0x49
+ 2572 0089 13       		.uleb128 0x13
+ 2573 008a 02       		.uleb128 0x2
+ 2574 008b 18       		.uleb128 0x18
+ 2575 008c 00       		.byte	0
+ 2576 008d 00       		.byte	0
+ 2577 008e 0A       		.uleb128 0xa
+ 2578 008f 01       		.uleb128 0x1
+ 2579 0090 01       		.byte	0x1
+ 2580 0091 49       		.uleb128 0x49
+ 2581 0092 13       		.uleb128 0x13
+ 2582 0093 01       		.uleb128 0x1
+ 2583 0094 13       		.uleb128 0x13
+ 2584 0095 00       		.byte	0
+ 2585 0096 00       		.byte	0
+ 2586 0097 0B       		.uleb128 0xb
+ 2587 0098 21       		.uleb128 0x21
+ 2588 0099 00       		.byte	0
+ 2589 009a 49       		.uleb128 0x49
+ 2590 009b 13       		.uleb128 0x13
+ 2591 009c 2F       		.uleb128 0x2f
+ 2592 009d 0B       		.uleb128 0xb
+ 2593 009e 00       		.byte	0
+ 2594 009f 00       		.byte	0
+ 2595 00a0 0C       		.uleb128 0xc
+ 2596 00a1 26       		.uleb128 0x26
+ 2597 00a2 00       		.byte	0
+ 2598 00a3 49       		.uleb128 0x49
+ 2599 00a4 13       		.uleb128 0x13
+ 2600 00a5 00       		.byte	0
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccLFIdLJ.s 			page 51
+
+
+ 2601 00a6 00       		.byte	0
+ 2602 00a7 0D       		.uleb128 0xd
+ 2603 00a8 0F       		.uleb128 0xf
+ 2604 00a9 00       		.byte	0
+ 2605 00aa 0B       		.uleb128 0xb
+ 2606 00ab 0B       		.uleb128 0xb
+ 2607 00ac 49       		.uleb128 0x49
+ 2608 00ad 13       		.uleb128 0x13
+ 2609 00ae 00       		.byte	0
+ 2610 00af 00       		.byte	0
+ 2611 00b0 0E       		.uleb128 0xe
+ 2612 00b1 2E       		.uleb128 0x2e
+ 2613 00b2 00       		.byte	0
+ 2614 00b3 3F       		.uleb128 0x3f
+ 2615 00b4 19       		.uleb128 0x19
+ 2616 00b5 03       		.uleb128 0x3
+ 2617 00b6 0E       		.uleb128 0xe
+ 2618 00b7 3A       		.uleb128 0x3a
+ 2619 00b8 0B       		.uleb128 0xb
+ 2620 00b9 3B       		.uleb128 0x3b
+ 2621 00ba 0B       		.uleb128 0xb
+ 2622 00bb 49       		.uleb128 0x49
+ 2623 00bc 13       		.uleb128 0x13
+ 2624 00bd 11       		.uleb128 0x11
+ 2625 00be 01       		.uleb128 0x1
+ 2626 00bf 12       		.uleb128 0x12
+ 2627 00c0 06       		.uleb128 0x6
+ 2628 00c1 40       		.uleb128 0x40
+ 2629 00c2 18       		.uleb128 0x18
+ 2630 00c3 9742     		.uleb128 0x2117
+ 2631 00c5 19       		.uleb128 0x19
+ 2632 00c6 00       		.byte	0
+ 2633 00c7 00       		.byte	0
+ 2634 00c8 0F       		.uleb128 0xf
+ 2635 00c9 2E       		.uleb128 0x2e
+ 2636 00ca 01       		.byte	0x1
+ 2637 00cb 3F       		.uleb128 0x3f
+ 2638 00cc 19       		.uleb128 0x19
+ 2639 00cd 03       		.uleb128 0x3
+ 2640 00ce 0E       		.uleb128 0xe
+ 2641 00cf 3A       		.uleb128 0x3a
+ 2642 00d0 0B       		.uleb128 0xb
+ 2643 00d1 3B       		.uleb128 0x3b
+ 2644 00d2 0B       		.uleb128 0xb
+ 2645 00d3 27       		.uleb128 0x27
+ 2646 00d4 19       		.uleb128 0x19
+ 2647 00d5 11       		.uleb128 0x11
+ 2648 00d6 01       		.uleb128 0x1
+ 2649 00d7 12       		.uleb128 0x12
+ 2650 00d8 06       		.uleb128 0x6
+ 2651 00d9 40       		.uleb128 0x40
+ 2652 00da 18       		.uleb128 0x18
+ 2653 00db 9642     		.uleb128 0x2116
+ 2654 00dd 19       		.uleb128 0x19
+ 2655 00de 01       		.uleb128 0x1
+ 2656 00df 13       		.uleb128 0x13
+ 2657 00e0 00       		.byte	0
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccLFIdLJ.s 			page 52
+
+
+ 2658 00e1 00       		.byte	0
+ 2659 00e2 10       		.uleb128 0x10
+ 2660 00e3 05       		.uleb128 0x5
+ 2661 00e4 00       		.byte	0
+ 2662 00e5 03       		.uleb128 0x3
+ 2663 00e6 0E       		.uleb128 0xe
+ 2664 00e7 3A       		.uleb128 0x3a
+ 2665 00e8 0B       		.uleb128 0xb
+ 2666 00e9 3B       		.uleb128 0x3b
+ 2667 00ea 0B       		.uleb128 0xb
+ 2668 00eb 49       		.uleb128 0x49
+ 2669 00ec 13       		.uleb128 0x13
+ 2670 00ed 02       		.uleb128 0x2
+ 2671 00ee 18       		.uleb128 0x18
+ 2672 00ef 00       		.byte	0
+ 2673 00f0 00       		.byte	0
+ 2674 00f1 11       		.uleb128 0x11
+ 2675 00f2 2E       		.uleb128 0x2e
+ 2676 00f3 01       		.byte	0x1
+ 2677 00f4 3F       		.uleb128 0x3f
+ 2678 00f5 19       		.uleb128 0x19
+ 2679 00f6 03       		.uleb128 0x3
+ 2680 00f7 0E       		.uleb128 0xe
+ 2681 00f8 3A       		.uleb128 0x3a
+ 2682 00f9 0B       		.uleb128 0xb
+ 2683 00fa 3B       		.uleb128 0x3b
+ 2684 00fb 0B       		.uleb128 0xb
+ 2685 00fc 49       		.uleb128 0x49
+ 2686 00fd 13       		.uleb128 0x13
+ 2687 00fe 11       		.uleb128 0x11
+ 2688 00ff 01       		.uleb128 0x1
+ 2689 0100 12       		.uleb128 0x12
+ 2690 0101 06       		.uleb128 0x6
+ 2691 0102 40       		.uleb128 0x40
+ 2692 0103 18       		.uleb128 0x18
+ 2693 0104 9642     		.uleb128 0x2116
+ 2694 0106 19       		.uleb128 0x19
+ 2695 0107 01       		.uleb128 0x1
+ 2696 0108 13       		.uleb128 0x13
+ 2697 0109 00       		.byte	0
+ 2698 010a 00       		.byte	0
+ 2699 010b 12       		.uleb128 0x12
+ 2700 010c 34       		.uleb128 0x34
+ 2701 010d 00       		.byte	0
+ 2702 010e 03       		.uleb128 0x3
+ 2703 010f 0E       		.uleb128 0xe
+ 2704 0110 3A       		.uleb128 0x3a
+ 2705 0111 0B       		.uleb128 0xb
+ 2706 0112 3B       		.uleb128 0x3b
+ 2707 0113 0B       		.uleb128 0xb
+ 2708 0114 49       		.uleb128 0x49
+ 2709 0115 13       		.uleb128 0x13
+ 2710 0116 02       		.uleb128 0x2
+ 2711 0117 18       		.uleb128 0x18
+ 2712 0118 00       		.byte	0
+ 2713 0119 00       		.byte	0
+ 2714 011a 13       		.uleb128 0x13
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccLFIdLJ.s 			page 53
+
+
+ 2715 011b 2E       		.uleb128 0x2e
+ 2716 011c 01       		.byte	0x1
+ 2717 011d 3F       		.uleb128 0x3f
+ 2718 011e 19       		.uleb128 0x19
+ 2719 011f 03       		.uleb128 0x3
+ 2720 0120 08       		.uleb128 0x8
+ 2721 0121 3A       		.uleb128 0x3a
+ 2722 0122 0B       		.uleb128 0xb
+ 2723 0123 3B       		.uleb128 0x3b
+ 2724 0124 0B       		.uleb128 0xb
+ 2725 0125 27       		.uleb128 0x27
+ 2726 0126 19       		.uleb128 0x19
+ 2727 0127 49       		.uleb128 0x49
+ 2728 0128 13       		.uleb128 0x13
+ 2729 0129 11       		.uleb128 0x11
+ 2730 012a 01       		.uleb128 0x1
+ 2731 012b 12       		.uleb128 0x12
+ 2732 012c 06       		.uleb128 0x6
+ 2733 012d 40       		.uleb128 0x40
+ 2734 012e 18       		.uleb128 0x18
+ 2735 012f 9642     		.uleb128 0x2116
+ 2736 0131 19       		.uleb128 0x19
+ 2737 0132 01       		.uleb128 0x1
+ 2738 0133 13       		.uleb128 0x13
+ 2739 0134 00       		.byte	0
+ 2740 0135 00       		.byte	0
+ 2741 0136 14       		.uleb128 0x14
+ 2742 0137 0B       		.uleb128 0xb
+ 2743 0138 01       		.byte	0x1
+ 2744 0139 11       		.uleb128 0x11
+ 2745 013a 01       		.uleb128 0x1
+ 2746 013b 12       		.uleb128 0x12
+ 2747 013c 06       		.uleb128 0x6
+ 2748 013d 01       		.uleb128 0x1
+ 2749 013e 13       		.uleb128 0x13
+ 2750 013f 00       		.byte	0
+ 2751 0140 00       		.byte	0
+ 2752 0141 15       		.uleb128 0x15
+ 2753 0142 34       		.uleb128 0x34
+ 2754 0143 00       		.byte	0
+ 2755 0144 03       		.uleb128 0x3
+ 2756 0145 08       		.uleb128 0x8
+ 2757 0146 3A       		.uleb128 0x3a
+ 2758 0147 0B       		.uleb128 0xb
+ 2759 0148 3B       		.uleb128 0x3b
+ 2760 0149 0B       		.uleb128 0xb
+ 2761 014a 49       		.uleb128 0x49
+ 2762 014b 13       		.uleb128 0x13
+ 2763 014c 02       		.uleb128 0x2
+ 2764 014d 18       		.uleb128 0x18
+ 2765 014e 00       		.byte	0
+ 2766 014f 00       		.byte	0
+ 2767 0150 16       		.uleb128 0x16
+ 2768 0151 0B       		.uleb128 0xb
+ 2769 0152 01       		.byte	0x1
+ 2770 0153 11       		.uleb128 0x11
+ 2771 0154 01       		.uleb128 0x1
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccLFIdLJ.s 			page 54
+
+
+ 2772 0155 12       		.uleb128 0x12
+ 2773 0156 06       		.uleb128 0x6
+ 2774 0157 00       		.byte	0
+ 2775 0158 00       		.byte	0
+ 2776 0159 17       		.uleb128 0x17
+ 2777 015a 21       		.uleb128 0x21
+ 2778 015b 00       		.byte	0
+ 2779 015c 49       		.uleb128 0x49
+ 2780 015d 13       		.uleb128 0x13
+ 2781 015e 2F       		.uleb128 0x2f
+ 2782 015f 05       		.uleb128 0x5
+ 2783 0160 00       		.byte	0
+ 2784 0161 00       		.byte	0
+ 2785 0162 18       		.uleb128 0x18
+ 2786 0163 2E       		.uleb128 0x2e
+ 2787 0164 01       		.byte	0x1
+ 2788 0165 3F       		.uleb128 0x3f
+ 2789 0166 19       		.uleb128 0x19
+ 2790 0167 03       		.uleb128 0x3
+ 2791 0168 0E       		.uleb128 0xe
+ 2792 0169 3A       		.uleb128 0x3a
+ 2793 016a 0B       		.uleb128 0xb
+ 2794 016b 3B       		.uleb128 0x3b
+ 2795 016c 0B       		.uleb128 0xb
+ 2796 016d 27       		.uleb128 0x27
+ 2797 016e 19       		.uleb128 0x19
+ 2798 016f 49       		.uleb128 0x49
+ 2799 0170 13       		.uleb128 0x13
+ 2800 0171 11       		.uleb128 0x11
+ 2801 0172 01       		.uleb128 0x1
+ 2802 0173 12       		.uleb128 0x12
+ 2803 0174 06       		.uleb128 0x6
+ 2804 0175 40       		.uleb128 0x40
+ 2805 0176 18       		.uleb128 0x18
+ 2806 0177 9642     		.uleb128 0x2116
+ 2807 0179 19       		.uleb128 0x19
+ 2808 017a 01       		.uleb128 0x1
+ 2809 017b 13       		.uleb128 0x13
+ 2810 017c 00       		.byte	0
+ 2811 017d 00       		.byte	0
+ 2812 017e 19       		.uleb128 0x19
+ 2813 017f 34       		.uleb128 0x34
+ 2814 0180 00       		.byte	0
+ 2815 0181 03       		.uleb128 0x3
+ 2816 0182 0E       		.uleb128 0xe
+ 2817 0183 3A       		.uleb128 0x3a
+ 2818 0184 0B       		.uleb128 0xb
+ 2819 0185 3B       		.uleb128 0x3b
+ 2820 0186 0B       		.uleb128 0xb
+ 2821 0187 49       		.uleb128 0x49
+ 2822 0188 13       		.uleb128 0x13
+ 2823 0189 3F       		.uleb128 0x3f
+ 2824 018a 19       		.uleb128 0x19
+ 2825 018b 02       		.uleb128 0x2
+ 2826 018c 18       		.uleb128 0x18
+ 2827 018d 00       		.byte	0
+ 2828 018e 00       		.byte	0
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccLFIdLJ.s 			page 55
+
+
+ 2829 018f 00       		.byte	0
+ 2830              		.section	.debug_aranges,"",%progbits
+ 2831 0000 54000000 		.4byte	0x54
+ 2832 0004 0200     		.2byte	0x2
+ 2833 0006 00000000 		.4byte	.Ldebug_info0
+ 2834 000a 04       		.byte	0x4
+ 2835 000b 00       		.byte	0
+ 2836 000c 0000     		.2byte	0
+ 2837 000e 0000     		.2byte	0
+ 2838 0010 00000000 		.4byte	.LFB1
+ 2839 0014 4C000000 		.4byte	.LFE1-.LFB1
+ 2840 0018 00000000 		.4byte	.LFB2
+ 2841 001c 20000000 		.4byte	.LFE2-.LFB2
+ 2842 0020 00000000 		.4byte	.LFB3
+ 2843 0024 24000000 		.4byte	.LFE3-.LFB3
+ 2844 0028 00000000 		.4byte	.LFB4
+ 2845 002c 80000000 		.4byte	.LFE4-.LFB4
+ 2846 0030 00000000 		.4byte	.LFB5
+ 2847 0034 9C000000 		.4byte	.LFE5-.LFB5
+ 2848 0038 00000000 		.4byte	.LFB6
+ 2849 003c 100B0000 		.4byte	.LFE6-.LFB6
+ 2850 0040 00000000 		.4byte	.LFB7
+ 2851 0044 2E000000 		.4byte	.LFE7-.LFB7
+ 2852 0048 00000000 		.4byte	.LFB8
+ 2853 004c 36000000 		.4byte	.LFE8-.LFB8
+ 2854 0050 00000000 		.4byte	0
+ 2855 0054 00000000 		.4byte	0
+ 2856              		.section	.debug_ranges,"",%progbits
+ 2857              	.Ldebug_ranges0:
+ 2858 0000 00000000 		.4byte	.LFB1
+ 2859 0004 4C000000 		.4byte	.LFE1
+ 2860 0008 00000000 		.4byte	.LFB2
+ 2861 000c 20000000 		.4byte	.LFE2
+ 2862 0010 00000000 		.4byte	.LFB3
+ 2863 0014 24000000 		.4byte	.LFE3
+ 2864 0018 00000000 		.4byte	.LFB4
+ 2865 001c 80000000 		.4byte	.LFE4
+ 2866 0020 00000000 		.4byte	.LFB5
+ 2867 0024 9C000000 		.4byte	.LFE5
+ 2868 0028 00000000 		.4byte	.LFB6
+ 2869 002c 100B0000 		.4byte	.LFE6
+ 2870 0030 00000000 		.4byte	.LFB7
+ 2871 0034 2E000000 		.4byte	.LFE7
+ 2872 0038 00000000 		.4byte	.LFB8
+ 2873 003c 36000000 		.4byte	.LFE8
+ 2874 0040 00000000 		.4byte	0
+ 2875 0044 00000000 		.4byte	0
+ 2876              		.section	.debug_line,"",%progbits
+ 2877              	.Ldebug_line0:
+ 2878 0000 05040000 		.section	.debug_str,"MS",%progbits,1
+ 2878      0200A901 
+ 2878      00000201 
+ 2878      FB0E0D00 
+ 2878      01010101 
+ 2879              	.LASF44:
+ 2880 0000 73686F72 		.ascii	"shortestPathIndex\000"
+ 2880      74657374 
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccLFIdLJ.s 			page 56
+
+
+ 2880      50617468 
+ 2880      496E6465 
+ 2880      7800
+ 2881              	.LASF4:
+ 2882 0012 73697A65 		.ascii	"size_t\000"
+ 2882      5F7400
+ 2883              	.LASF5:
+ 2884 0019 5F5F7569 		.ascii	"__uint8_t\000"
+ 2884      6E74385F 
+ 2884      7400
+ 2885              	.LASF13:
+ 2886 0023 64697265 		.ascii	"direction\000"
+ 2886      6374696F 
+ 2886      6E00
+ 2887              	.LASF53:
+ 2888 002d 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 2888      43313120 
+ 2888      352E342E 
+ 2888      31203230 
+ 2888      31363036 
+ 2889 0060 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 2889      20726576 
+ 2889      6973696F 
+ 2889      6E203233 
+ 2889      37373135 
+ 2890 0093 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
+ 2890      66756E63 
+ 2890      74696F6E 
+ 2890      2D736563 
+ 2890      74696F6E 
+ 2891              	.LASF25:
+ 2892 00bb 656E7175 		.ascii	"enqueue\000"
+ 2892      65756500 
+ 2893              	.LASF11:
+ 2894 00c3 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 2894      206C6F6E 
+ 2894      6720756E 
+ 2894      7369676E 
+ 2894      65642069 
+ 2895              	.LASF47:
+ 2896 00da 72756E5F 		.ascii	"run_algo\000"
+ 2896      616C676F 
+ 2896      00
+ 2897              	.LASF39:
+ 2898 00e3 72696768 		.ascii	"right\000"
+ 2898      7400
+ 2899              	.LASF1:
+ 2900 00e9 6C6F6E67 		.ascii	"long long int\000"
+ 2900      206C6F6E 
+ 2900      6720696E 
+ 2900      7400
+ 2901              	.LASF3:
+ 2902 00f7 7369676E 		.ascii	"signed char\000"
+ 2902      65642063 
+ 2902      68617200 
+ 2903              	.LASF45:
+ 2904 0103 74726163 		.ascii	"traceBack\000"
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccLFIdLJ.s 			page 57
+
+
+ 2904      65426163 
+ 2904      6B00
+ 2905              	.LASF9:
+ 2906 010d 6C6F6E67 		.ascii	"long int\000"
+ 2906      20696E74 
+ 2906      00
+ 2907              	.LASF18:
+ 2908 0116 506F696E 		.ascii	"Point\000"
+ 2908      7400
+ 2909              	.LASF49:
+ 2910 011c 71756575 		.ascii	"queue\000"
+ 2910      6500
+ 2911              	.LASF41:
+ 2912 0122 62656C6F 		.ascii	"below\000"
+ 2912      7700
+ 2913              	.LASF50:
+ 2914 0128 66726F6E 		.ascii	"front\000"
+ 2914      7400
+ 2915              	.LASF40:
+ 2916 012e 61626F76 		.ascii	"above\000"
+ 2916      6500
+ 2917              	.LASF36:
+ 2918 0134 6E657753 		.ascii	"newStart\000"
+ 2918      74617274 
+ 2918      00
+ 2919              	.LASF0:
+ 2920 013d 756E7369 		.ascii	"unsigned int\000"
+ 2920      676E6564 
+ 2920      20696E74 
+ 2920      00
+ 2921              	.LASF35:
+ 2922 014a 666F756E 		.ascii	"foundEndsCount\000"
+ 2922      64456E64 
+ 2922      73436F75 
+ 2922      6E7400
+ 2923              	.LASF10:
+ 2924 0159 6C6F6E67 		.ascii	"long unsigned int\000"
+ 2924      20756E73 
+ 2924      69676E65 
+ 2924      6420696E 
+ 2924      7400
+ 2925              	.LASF16:
+ 2926 016b 666F6F64 		.ascii	"foodPoint\000"
+ 2926      506F696E 
+ 2926      7400
+ 2927              	.LASF52:
+ 2928 0175 73697A65 		.ascii	"size\000"
+ 2928      00
+ 2929              	.LASF8:
+ 2930 017a 73686F72 		.ascii	"short unsigned int\000"
+ 2930      7420756E 
+ 2930      7369676E 
+ 2930      65642069 
+ 2930      6E7400
+ 2931              	.LASF19:
+ 2932 018d 73697A65 		.ascii	"sizetype\000"
+ 2932      74797065 
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccLFIdLJ.s 			page 58
+
+
+ 2932      00
+ 2933              	.LASF2:
+ 2934 0196 6C6F6E67 		.ascii	"long double\000"
+ 2934      20646F75 
+ 2934      626C6500 
+ 2935              	.LASF26:
+ 2936 01a2 64657175 		.ascii	"dequeue\000"
+ 2936      65756500 
+ 2937              	.LASF34:
+ 2938 01aa 70617468 		.ascii	"pathIndex\000"
+ 2938      496E6465 
+ 2938      7800
+ 2939              	.LASF32:
+ 2940 01b4 64756D6D 		.ascii	"dummyMap\000"
+ 2940      794D6170 
+ 2940      00
+ 2941              	.LASF15:
+ 2942 01bd 66696E61 		.ascii	"finalTurn\000"
+ 2942      6C547572 
+ 2942      6E00
+ 2943              	.LASF21:
+ 2944 01c7 5F426F6F 		.ascii	"_Bool\000"
+ 2944      6C00
+ 2945              	.LASF6:
+ 2946 01cd 756E7369 		.ascii	"unsigned char\000"
+ 2946      676E6564 
+ 2946      20636861 
+ 2946      7200
+ 2947              	.LASF37:
+ 2948 01db 63757272 		.ascii	"curr\000"
+ 2948      00
+ 2949              	.LASF14:
+ 2950 01e0 6E6F6465 		.ascii	"node\000"
+ 2950      00
+ 2951              	.LASF42:
+ 2952 01e5 706F696E 		.ascii	"pointsValid\000"
+ 2952      74735661 
+ 2952      6C696400 
+ 2953              	.LASF7:
+ 2954 01f1 73686F72 		.ascii	"short int\000"
+ 2954      7420696E 
+ 2954      7400
+ 2955              	.LASF31:
+ 2956 01fb 76697369 		.ascii	"visited\000"
+ 2956      74656400 
+ 2957              	.LASF55:
+ 2958 0203 483A5C44 		.ascii	"H:\\Documents\\12_Cypress_LineFollowingRobot\\Rober"
+ 2958      6F63756D 
+ 2958      656E7473 
+ 2958      5C31325F 
+ 2958      43797072 
+ 2959 0233 745C4841 		.ascii	"t\\HArdware_Task2\\Hardware_Task2.cydsn\000"
+ 2959      72647761 
+ 2959      72655F54 
+ 2959      61736B32 
+ 2959      5C486172 
+ 2960              	.LASF54:
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccLFIdLJ.s 			page 59
+
+
+ 2961 0259 616C676F 		.ascii	"algo.c\000"
+ 2961      2E6300
+ 2962              	.LASF27:
+ 2963 0260 69735661 		.ascii	"isValid\000"
+ 2963      6C696400 
+ 2964              	.LASF22:
+ 2965 0268 69735175 		.ascii	"isQueueEmpty\000"
+ 2965      65756545 
+ 2965      6D707479 
+ 2965      00
+ 2966              	.LASF20:
+ 2967 0275 63686172 		.ascii	"char\000"
+ 2967      00
+ 2968              	.LASF48:
+ 2969 027a 706F696E 		.ascii	"point_eq\000"
+ 2969      745F6571 
+ 2969      00
+ 2970              	.LASF29:
+ 2971 0283 656E6473 		.ascii	"ends\000"
+ 2971      00
+ 2972              	.LASF33:
+ 2973 0288 666F756E 		.ascii	"found\000"
+ 2973      6400
+ 2974              	.LASF30:
+ 2975 028e 656E6443 		.ascii	"endCount\000"
+ 2975      6F756E74 
+ 2975      00
+ 2976              	.LASF43:
+ 2977 0297 73686F72 		.ascii	"shortestPath\000"
+ 2977      74657374 
+ 2977      50617468 
+ 2977      00
+ 2978              	.LASF12:
+ 2979 02a4 75696E74 		.ascii	"uint8_t\000"
+ 2979      385F7400 
+ 2980              	.LASF23:
+ 2981 02ac 69735175 		.ascii	"isQueueFull\000"
+ 2981      65756546 
+ 2981      756C6C00 
+ 2982              	.LASF51:
+ 2983 02b8 72656172 		.ascii	"rear\000"
+ 2983      00
+ 2984              	.LASF28:
+ 2985 02bd 73746172 		.ascii	"start\000"
+ 2985      7400
+ 2986              	.LASF46:
+ 2987 02c3 66696E61 		.ascii	"finalFound\000"
+ 2987      6C466F75 
+ 2987      6E6400
+ 2988              	.LASF17:
+ 2989 02ce 73746570 		.ascii	"steps\000"
+ 2989      7300
+ 2990              	.LASF38:
+ 2991 02d4 6C656674 		.ascii	"left\000"
+ 2991      00
+ 2992              	.LASF24:
+ 2993 02d9 656C656D 		.ascii	"element\000"
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccLFIdLJ.s 			page 60
+
+
+ 2993      656E7400 
+ 2994              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

@@ -1,5 +1,5 @@
 -- Project:   Team12_PsoC_FinalImplementation
--- Generated: 10/03/2023 14:21:29
+-- Generated: 10/11/2023 12:29:15
 -- PSoC Creator  4.2
 
 ENTITY Team12_PsoC_FinalImplementation IS
@@ -125,6 +125,10 @@ ARCHITECTURE __DEFAULT__ OF Team12_PsoC_FinalImplementation IS
     SIGNAL Net_4513 : bit;
     SIGNAL Net_4514 : bit;
     SIGNAL Net_4524 : bit;
+    SIGNAL Net_4546 : bit;
+    ATTRIBUTE global_signal OF Net_4546 : SIGNAL IS true;
+    SIGNAL Net_4546_local : bit;
+    SIGNAL Net_4554 : bit;
     SIGNAL Net_724 : bit;
     SIGNAL Net_724_SYNCOUT : bit;
     SIGNAL Net_725 : bit;
@@ -361,6 +365,8 @@ ARCHITECTURE __DEFAULT__ OF Team12_PsoC_FinalImplementation IS
     SIGNAL \RF_BT_SELECT:control_5\ : bit;
     SIGNAL \RF_BT_SELECT:control_6\ : bit;
     SIGNAL \RF_BT_SELECT:control_7\ : bit;
+    SIGNAL \Timer_Sensor:Net_261\ : bit;
+    SIGNAL \Timer_Sensor:Net_57\ : bit;
     SIGNAL \Timer_TS:Net_261\ : bit;
     SIGNAL \Timer_TS:Net_57\ : bit;
     SIGNAL \UART:BUART:counter_load_not\ : bit;
@@ -438,6 +444,7 @@ ARCHITECTURE __DEFAULT__ OF Team12_PsoC_FinalImplementation IS
     ATTRIBUTE POWER OF tmpOE__M1_IN1_net_0 : SIGNAL IS true;
     SIGNAL \ClockBlock.dclk_glb_ff_2__sig\ : bit;
     SIGNAL \ClockBlock.dclk_glb_ff_3__sig\ : bit;
+    SIGNAL \ClockBlock.dclk_glb_ff_5__sig\ : bit;
     SIGNAL \QuadDec_M1:Cnt16:CounterUDB:sC16:counterdp:u0.ce0__sig\ : bit;
     SIGNAL \QuadDec_M1:Cnt16:CounterUDB:sC16:counterdp:u0.cl0__sig\ : bit;
     SIGNAL \QuadDec_M1:Cnt16:CounterUDB:sC16:counterdp:u0.z0__sig\ : bit;
@@ -1209,8 +1216,11 @@ BEGIN
             dclk_3 => Net_10_local,
             dclk_glb_4 => \UART:Net_9\,
             dclk_4 => \UART:Net_9_local\,
+            dclk_glb_5 => Net_4546,
+            dclk_5 => Net_4546_local,
             dclk_glb_ff_2 => \ClockBlock.dclk_glb_ff_2__sig\,
-            dclk_glb_ff_3 => \ClockBlock.dclk_glb_ff_3__sig\);
+            dclk_glb_ff_3 => \ClockBlock.dclk_glb_ff_3__sig\,
+            dclk_glb_ff_5 => \ClockBlock.dclk_glb_ff_5__sig\);
 
     M1_IN1:logicalport
         GENERIC MAP(
@@ -6024,6 +6034,27 @@ BEGIN
             reset => open,
             idir => open,
             ioff => open);
+
+    \Timer_Sensor:TimerHW\:timercell
+        GENERIC MAP(
+            cy_registers => "")
+        PORT MAP(
+            clock => \ClockBlock.dclk_glb_ff_5__sig\,
+            kill => open,
+            enable => __ONE__,
+            capture => open,
+            timer_reset => open,
+            tc => Net_4554,
+            cmp => \Timer_Sensor:Net_261\,
+            irq => \Timer_Sensor:Net_57\);
+
+    Sensor_isr:interrupt
+        GENERIC MAP(
+            int_type => "10",
+            is_nmi => 0)
+        PORT MAP(
+            interrupt => Net_4554,
+            clock => ClockBlock_BUS_CLK);
 
     \QuadDec_M1:Net_1251\:macrocell
         GENERIC MAP(

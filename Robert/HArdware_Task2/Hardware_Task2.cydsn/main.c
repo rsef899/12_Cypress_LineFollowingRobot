@@ -14,6 +14,48 @@
  *
  * ========================================
 */
+
+/* ALGORITHM STUFF */
+#include "algo.h"
+#include <assert.h>
+#include <stddef.h>
+#include <string.h>
+
+#define GRID_SCALE 30
+#define T(x) ((x)*GRID_SCALE)
+#define COUNT_OF(x)                                                                    \
+  ((sizeof(x) / sizeof(0 [x])) / ((size_t)(!(sizeof(x) % sizeof(0 [x])))))
+
+
+static uint8_t map[15][19] = {
+{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+{1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+{1,0,1,0,1,1,1,1,1,0,1,1,1,0,1,1,1,0,1},
+{1,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,1,0,1},
+{1,1,1,0,1,0,1,0,1,1,1,0,1,0,1,1,1,0,1},
+{1,0,0,0,1,0,1,0,0,0,1,0,1,0,0,0,0,0,1},
+{1,0,1,1,1,0,1,0,1,0,1,0,1,0,1,1,1,0,1},
+{1,0,1,0,1,0,0,0,1,0,1,0,1,0,1,0,0,0,1},
+{1,0,1,0,1,0,1,1,1,0,1,0,1,0,1,0,1,1,1},
+{1,0,0,0,1,0,1,0,0,0,1,0,0,0,1,0,0,0,1},
+{1,1,1,0,1,0,1,1,1,1,1,1,1,1,1,1,1,0,1},
+{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+{1,0,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1},
+{1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,1},
+{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+};
+
+
+static Point food_list[]= {
+{1,9},
+{5,5},
+{7,1},
+{13,5},
+{9,9}
+};
+
+
+
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -40,7 +82,7 @@ float distanceTravelledM1,distanceTravelledM2,distanceTravelled = 0;
 
 float distanceRequired = 76.5; // This is in cm (i.e 100cm distance(
 
-uint8_t printSpeed = 0;
+uint8_t printSpeed,distanceCheck = 0;
 volatile uint8_t changeVal = 0;
 uint16_t m1Count = 0;
 uint16_t m2Count = 0;
@@ -76,21 +118,24 @@ void motorControl(float m1speed, float m2speed) {
     }
     //PWM_1_WriteCompare(250);
     changeVal = 0;
+    
     m1motorSpeed =  (float) m1Count / (float) PULSES_PER_ROT;
     m2motorSpeed = (float) m2Count / (float) PULSES_PER_ROT;
     m1motorSpeed = 2 * CY_M_PI * m1motorSpeed / MOTORSPEED_PER_SECOND; // 2 * pi * rotations / (m/s)
     m1motorSpeed = m1motorSpeed * RADIUS;
     m2motorSpeed = 2 * CY_M_PI * m2motorSpeed / MOTORSPEED_PER_SECOND;
     m2motorSpeed = m2motorSpeed * RADIUS;
-    
-    distanceTravelledM1 = distanceTravelledM1 + m1motorSpeed*MOTORSPEED_PER_SECOND;
-    distanceTravelledM2 = distanceTravelledM2 + m2motorSpeed*MOTORSPEED_PER_SECOND;
-    distanceTravelled = (distanceTravelledM1 + distanceTravelledM2 ) / 2.0;
-    if (distanceTravelled >= distanceRequired) {
-        stop = 1;
-        changeDutyCycle(50);
-        return;
+    if (distanceCheck == 1) {
+        distanceTravelledM1 = distanceTravelledM1 + m1motorSpeed*MOTORSPEED_PER_SECOND;
+        distanceTravelledM2 = distanceTravelledM2 + m2motorSpeed*MOTORSPEED_PER_SECOND;
+        distanceTravelled = (distanceTravelledM1 + distanceTravelledM2 ) / 2.0;
+        if (distanceTravelled >= distanceRequired) {
+            stop = 1;
+            changeDutyCycle(50);
+            return;
+        }
     }
+    
     float m1error = m1speed - m1motorSpeed;
     float m2error = m2speed - m2motorSpeed;
     
@@ -168,11 +213,34 @@ void setupMotor() {
     
     
 }
-
+void printPoints(const Point *arr, size_t length) {
+    for (size_t i = 0; i < length; i++) {
+        printf("Point %zu: x = %d, y = %d, direction = %d, node= %d finalTurn = %d,food=%d,steps = %d\n",
+               i, arr[i].x, arr[i].y, arr[i].direction,arr[i].node,arr[i].finalTurn,arr[i].foodPoint,arr[i].steps);
+    }
+}
 
 int main(){
+    #ifdef USE_USB
+        USBUART_Start(0,USBUART_5V_OPERATION);
+    #endif
+    char buffer [64];
     M2_INV_Write(1);
+    
+    static const Point start = (Point){.x = 1, .y = 1};
+  
+    static Point pathArray[MAX_PATH_SIZE];
+
+    // Find the quickest path to the first piece of food
+    size_t result = run_algo(map, start, food_list, COUNT_OF(food_list), pathArray);
     setupMotor();
+    // Print the 'out' array
+    //printf("Path Length: %zu\n", result);
+    usbPutString("PathLength: ");
+    itoa((float) result, buffer, 10);
+    usbPutString(buffer);
+    //printPoints(pathArray, result);
+    
     float m1speed = 25.0;
     float m2speed = 25.0;
     //float timer =  100.0/abs(m1speed);
@@ -182,9 +250,7 @@ int main(){
     Timer_TS_WritePeriod(200);
     Timer_TS_WriteCounter(0);
 
-    #ifdef USE_USB
-        USBUART_Start(0,USBUART_5V_OPERATION);
-    #endif
+    
 
     
     
@@ -197,7 +263,7 @@ int main(){
     {
         
         motorControl(m1speed,m2speed);
-        char buffer [64];
+        
         
         while (!(Q1_Read() && Q3_Read())) {
             if (!Q3_Read()) {

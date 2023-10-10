@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccG4kYYd.s 			page 1
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccGBKCrx.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccG4kYYd.s 			page 1
   22:Generated_Source\PSoC5/Timer_TS.c **** ********************************************************************************/
   23:Generated_Source\PSoC5/Timer_TS.c **** 
   24:Generated_Source\PSoC5/Timer_TS.c **** #include "Timer_TS.h"
-ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccG4kYYd.s 			page 2
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccGBKCrx.s 			page 2
 
 
   25:Generated_Source\PSoC5/Timer_TS.c **** 
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccG4kYYd.s 			page 1
   52              		.loc 1 60 0
   53 0014 1E4A     		ldr	r2, .L2+4
   54 0016 1E4B     		ldr	r3, .L2+4
-ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccG4kYYd.s 			page 3
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccGBKCrx.s 			page 3
 
 
   55 0018 1B78     		ldrb	r3, [r3]
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccG4kYYd.s 			page 1
   63 0028 1B78     		ldrb	r3, [r3]
   64 002a DBB2     		uxtb	r3, r3
   65 002c 23F03003 		bic	r3, r3, #48
-ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccG4kYYd.s 			page 4
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccGBKCrx.s 			page 4
 
 
   66 0030 DBB2     		uxtb	r3, r3
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccG4kYYd.s 			page 1
  121:Generated_Source\PSoC5/Timer_TS.c ****     #if (Timer_TS_UsingHWCaptureCounter)/* Capture counter is enabled */
  122:Generated_Source\PSoC5/Timer_TS.c ****         Timer_TS_CAPTURE_COUNT_CTRL |= Timer_TS_CNTR_ENABLE;
  123:Generated_Source\PSoC5/Timer_TS.c ****         Timer_TS_SetCaptureCount(Timer_TS_INIT_CAPTURE_COUNT);
-ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccG4kYYd.s 			page 5
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccGBKCrx.s 			page 5
 
 
  124:Generated_Source\PSoC5/Timer_TS.c ****     #endif /* Configure capture counter value */
@@ -290,15 +290,15 @@ ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccG4kYYd.s 			page 1
  112              	.L3:
  113 008a 00BF     		.align	2
  114              	.L2:
- 115 008c 184F0040 		.word	1073762072
- 116 0090 1A4F0040 		.word	1073762074
- 117 0094 234F0040 		.word	1073762083
- 118 0098 194F0040 		.word	1073762073
+ 115 008c 244F0040 		.word	1073762084
+ 116 0090 264F0040 		.word	1073762086
+ 117 0094 2F4F0040 		.word	1073762095
+ 118 0098 254F0040 		.word	1073762085
  119              		.cfi_endproc
  120              	.LFE0:
  121              		.size	Timer_TS_Init, .-Timer_TS_Init
  122              		.section	.text.Timer_TS_Enable,"ax",%progbits
-ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccG4kYYd.s 			page 6
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccGBKCrx.s 			page 6
 
 
  123              		.align	2
@@ -344,7 +344,7 @@ ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccG4kYYd.s 			page 1
  142 0006 0D4B     		ldr	r3, .L5
  143 0008 1B78     		ldrb	r3, [r3]
  144 000a DBB2     		uxtb	r3, r3
- 145 000c 43F00403 		orr	r3, r3, #4
+ 145 000c 43F00803 		orr	r3, r3, #8
  146 0010 DBB2     		uxtb	r3, r3
  147 0012 1370     		strb	r3, [r2]
  185:Generated_Source\PSoC5/Timer_TS.c ****         Timer_TS_GLOBAL_STBY_ENABLE |= Timer_TS_BLOCK_STBY_EN_MASK;
@@ -353,12 +353,12 @@ ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccG4kYYd.s 			page 1
  150 0016 0A4B     		ldr	r3, .L5+4
  151 0018 1B78     		ldrb	r3, [r3]
  152 001a DBB2     		uxtb	r3, r3
- 153 001c 43F00403 		orr	r3, r3, #4
+ 153 001c 43F00803 		orr	r3, r3, #8
  154 0020 DBB2     		uxtb	r3, r3
  155 0022 1370     		strb	r3, [r2]
  186:Generated_Source\PSoC5/Timer_TS.c ****     #endif /* Set Enable bit for enabling Fixed function timer*/
  187:Generated_Source\PSoC5/Timer_TS.c **** 
-ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccG4kYYd.s 			page 7
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccGBKCrx.s 			page 7
 
 
  188:Generated_Source\PSoC5/Timer_TS.c ****     /* Remove assignment if control register is removed */
@@ -388,7 +388,7 @@ ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccG4kYYd.s 			page 1
  175              	.L5:
  176 003c A3430040 		.word	1073759139
  177 0040 B3430040 		.word	1073759155
- 178 0044 184F0040 		.word	1073762072
+ 178 0044 244F0040 		.word	1073762084
  179              		.cfi_endproc
  180              	.LFE1:
  181              		.size	Timer_TS_Enable, .-Timer_TS_Enable
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccG4kYYd.s 			page 1
  208:Generated_Source\PSoC5/Timer_TS.c **** *  void
  209:Generated_Source\PSoC5/Timer_TS.c **** *
  210:Generated_Source\PSoC5/Timer_TS.c **** * Global variables:
-ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccG4kYYd.s 			page 8
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccGBKCrx.s 			page 8
 
 
  211:Generated_Source\PSoC5/Timer_TS.c **** *  Timer_TS_initVar: Is modified when this function is called for the
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccG4kYYd.s 			page 1
  228              		.thumb_func
  229              		.type	Timer_TS_Stop, %function
  230              	Timer_TS_Stop:
-ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccG4kYYd.s 			page 9
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccGBKCrx.s 			page 9
 
 
  231              	.LFB3:
@@ -535,10 +535,10 @@ ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccG4kYYd.s 			page 1
  252 0016 0A4B     		ldr	r3, .L12+4
  253 0018 1B78     		ldrb	r3, [r3]
  254 001a DBB2     		uxtb	r3, r3
- 255 001c 23F00403 		bic	r3, r3, #4
+ 255 001c 23F00803 		bic	r3, r3, #8
  256 0020 DBB2     		uxtb	r3, r3
  257 0022 1370     		strb	r3, [r2]
-ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccG4kYYd.s 			page 10
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccGBKCrx.s 			page 10
 
 
  257:Generated_Source\PSoC5/Timer_TS.c ****         Timer_TS_GLOBAL_STBY_ENABLE &= ((uint8)(~Timer_TS_BLOCK_STBY_EN_MASK));
@@ -547,7 +547,7 @@ ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccG4kYYd.s 			page 1
  260 0026 074B     		ldr	r3, .L12+8
  261 0028 1B78     		ldrb	r3, [r3]
  262 002a DBB2     		uxtb	r3, r3
- 263 002c 23F00403 		bic	r3, r3, #4
+ 263 002c 23F00803 		bic	r3, r3, #8
  264 0030 DBB2     		uxtb	r3, r3
  265 0032 1370     		strb	r3, [r2]
  258:Generated_Source\PSoC5/Timer_TS.c ****     #endif /* Disable global enable for the Timer Fixed function block to stop the Timer*/
@@ -564,7 +564,7 @@ ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccG4kYYd.s 			page 1
  275              	.L13:
  276              		.align	2
  277              	.L12:
- 278 003c 184F0040 		.word	1073762072
+ 278 003c 244F0040 		.word	1073762084
  279 0040 A3430040 		.word	1073759139
  280 0044 B3430040 		.word	1073759155
  281              		.cfi_endproc
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccG4kYYd.s 			page 1
  277:Generated_Source\PSoC5/Timer_TS.c **** *
  278:Generated_Source\PSoC5/Timer_TS.c **** *******************************************************************************/
  279:Generated_Source\PSoC5/Timer_TS.c **** void Timer_TS_SetInterruptMode(uint8 interruptMode) 
-ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccG4kYYd.s 			page 11
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccGBKCrx.s 			page 11
 
 
  280:Generated_Source\PSoC5/Timer_TS.c **** {
@@ -636,7 +636,7 @@ ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccG4kYYd.s 			page 1
  321              	.L16:
  322 001a 00BF     		.align	2
  323              	.L15:
- 324 001c 1B4F0040 		.word	1073762075
+ 324 001c 274F0040 		.word	1073762087
  325              		.cfi_endproc
  326              	.LFE4:
  327              		.size	Timer_TS_SetInterruptMode, .-Timer_TS_SetInterruptMode
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccG4kYYd.s 			page 1
  290:Generated_Source\PSoC5/Timer_TS.c **** *  This function forces a capture independent of the capture signal.
  291:Generated_Source\PSoC5/Timer_TS.c **** *
  292:Generated_Source\PSoC5/Timer_TS.c **** * Parameters:
-ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccG4kYYd.s 			page 12
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccGBKCrx.s 			page 12
 
 
  293:Generated_Source\PSoC5/Timer_TS.c **** *  void
@@ -705,7 +705,7 @@ ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccG4kYYd.s 			page 1
  358              	.L19:
  359              		.align	2
  360              	.L18:
- 361 0010 1E4F0040 		.word	1073762078
+ 361 0010 2A4F0040 		.word	1073762090
  362              		.cfi_endproc
  363              	.LFE5:
  364              		.size	Timer_TS_SoftwareCapture, .-Timer_TS_SoftwareCapture
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccG4kYYd.s 			page 1
  371              	Timer_TS_ReadStatusRegister:
  372              	.LFB6:
  312:Generated_Source\PSoC5/Timer_TS.c **** 
-ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccG4kYYd.s 			page 13
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccGBKCrx.s 			page 13
 
 
  313:Generated_Source\PSoC5/Timer_TS.c **** 
@@ -771,14 +771,14 @@ ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccG4kYYd.s 			page 1
  396              	.L23:
  397 0012 00BF     		.align	2
  398              	.L22:
- 399 0014 1B4F0040 		.word	1073762075
+ 399 0014 274F0040 		.word	1073762087
  400              		.cfi_endproc
  401              	.LFE6:
  402              		.size	Timer_TS_ReadStatusRegister, .-Timer_TS_ReadStatusRegister
  403              		.section	.text.Timer_TS_ReadControlRegister,"ax",%progbits
  404              		.align	2
  405              		.global	Timer_TS_ReadControlRegister
-ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccG4kYYd.s 			page 14
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccGBKCrx.s 			page 14
 
 
  406              		.thumb
@@ -838,11 +838,11 @@ ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccG4kYYd.s 			page 1
  433 0010 7047     		bx	lr
  434              	.L27:
  435 0012 00BF     		.align	2
-ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccG4kYYd.s 			page 15
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccGBKCrx.s 			page 15
 
 
  436              	.L26:
- 437 0014 184F0040 		.word	1073762072
+ 437 0014 244F0040 		.word	1073762084
  438              		.cfi_endproc
  439              	.LFE7:
  440              		.size	Timer_TS_ReadControlRegister, .-Timer_TS_ReadControlRegister
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccG4kYYd.s 			page 1
  467              		.loc 1 386 0
  468 0010 00BF     		nop
  469 0012 0C37     		adds	r7, r7, #12
-ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccG4kYYd.s 			page 16
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccGBKCrx.s 			page 16
 
 
  470              		.cfi_def_cfa_offset 4
@@ -912,7 +912,7 @@ ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccG4kYYd.s 			page 1
  478              	.L30:
  479 001a 00BF     		.align	2
  480              	.L29:
- 481 001c 184F0040 		.word	1073762072
+ 481 001c 244F0040 		.word	1073762084
  482              		.cfi_endproc
  483              	.LFE8:
  484              		.size	Timer_TS_WriteControlRegister, .-Timer_TS_WriteControlRegister
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccG4kYYd.s 			page 1
  408:Generated_Source\PSoC5/Timer_TS.c ****        return ((uint8)CY_GET_REG16(Timer_TS_PERIOD_LSB_PTR));
  503              		.loc 1 408 0
  504 0004 034B     		ldr	r3, .L33
-ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccG4kYYd.s 			page 17
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccGBKCrx.s 			page 17
 
 
  505 0006 1B88     		ldrh	r3, [r3]	@ movhi
@@ -980,7 +980,7 @@ ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccG4kYYd.s 			page 1
  517              	.L34:
  518              		.align	2
  519              	.L33:
- 520 0014 1C4F0040 		.word	1073762076
+ 520 0014 284F0040 		.word	1073762088
  521              		.cfi_endproc
  522              	.LFE9:
  523              		.size	Timer_TS_ReadPeriod, .-Timer_TS_ReadPeriod
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccG4kYYd.s 			page 1
  535              		@ frame_needed = 1, uses_anonymous_args = 0
  536              		@ link register save eliminated.
  537 0000 80B4     		push	{r7}
-ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccG4kYYd.s 			page 18
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccGBKCrx.s 			page 18
 
 
  538              		.cfi_def_cfa_offset 4
@@ -1057,7 +1057,7 @@ ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccG4kYYd.s 			page 1
  564              	.L37:
  565 001e 00BF     		.align	2
  566              	.L36:
- 567 0020 1C4F0040 		.word	1073762076
+ 567 0020 284F0040 		.word	1073762088
  568              		.cfi_endproc
  569              	.LFE10:
  570              		.size	Timer_TS_WritePeriod, .-Timer_TS_WritePeriod
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccG4kYYd.s 			page 1
  446:Generated_Source\PSoC5/Timer_TS.c **** * Summary:
  447:Generated_Source\PSoC5/Timer_TS.c **** *  This function returns the last value captured.
  448:Generated_Source\PSoC5/Timer_TS.c **** *
-ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccG4kYYd.s 			page 19
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccGBKCrx.s 			page 19
 
 
  449:Generated_Source\PSoC5/Timer_TS.c **** * Parameters:
@@ -1123,7 +1123,7 @@ ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccG4kYYd.s 			page 1
  603              	.L41:
  604              		.align	2
  605              	.L40:
- 606 0014 204F0040 		.word	1073762080
+ 606 0014 2C4F0040 		.word	1073762092
  607              		.cfi_endproc
  608              	.LFE11:
  609              		.size	Timer_TS_ReadCapture, .-Timer_TS_ReadCapture
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccG4kYYd.s 			page 1
  464:Generated_Source\PSoC5/Timer_TS.c **** 
  465:Generated_Source\PSoC5/Timer_TS.c **** 
  466:Generated_Source\PSoC5/Timer_TS.c **** /*******************************************************************************
-ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccG4kYYd.s 			page 20
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccGBKCrx.s 			page 20
 
 
  467:Generated_Source\PSoC5/Timer_TS.c **** * Function Name: Timer_TS_WriteCounter
@@ -1198,11 +1198,11 @@ ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccG4kYYd.s 			page 1
  647 001a 7047     		bx	lr
  648              	.L44:
  649              		.align	2
-ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccG4kYYd.s 			page 21
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccGBKCrx.s 			page 21
 
 
  650              	.L43:
- 651 001c 1E4F0040 		.word	1073762078
+ 651 001c 2A4F0040 		.word	1073762090
  652              		.cfi_endproc
  653              	.LFE12:
  654              		.size	Timer_TS_WriteCounter, .-Timer_TS_WriteCounter
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccG4kYYd.s 			page 1
  520:Generated_Source\PSoC5/Timer_TS.c ****     #if(Timer_TS_UsingFixedFunction)
  521:Generated_Source\PSoC5/Timer_TS.c ****         return ((uint8)CY_GET_REG16(Timer_TS_CAPTURE_LSB_PTR));
  676              		.loc 1 521 0
-ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccG4kYYd.s 			page 22
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccGBKCrx.s 			page 22
 
 
  677 0008 044B     		ldr	r3, .L47+4
@@ -1281,8 +1281,8 @@ ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccG4kYYd.s 			page 1
  690              	.L48:
  691              		.align	2
  692              	.L47:
- 693 0018 1E4F0040 		.word	1073762078
- 694 001c 204F0040 		.word	1073762080
+ 693 0018 2A4F0040 		.word	1073762090
+ 694 001c 2C4F0040 		.word	1073762092
  695              		.cfi_endproc
  696              	.LFE13:
  697              		.size	Timer_TS_ReadCounter, .-Timer_TS_ReadCounter
@@ -1299,45 +1299,45 @@ ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccG4kYYd.s 			page 1
  708 000c 06000000 		.4byte	.LASF36
  709 0010 0C       		.byte	0xc
  710 0011 BE000000 		.4byte	.LASF37
- 711 0015 FE000000 		.4byte	.LASF38
+ 711 0015 43010000 		.4byte	.LASF38
  712 0019 00000000 		.4byte	.Ldebug_ranges0+0
  713 001d 00000000 		.4byte	0
  714 0021 00000000 		.4byte	.Ldebug_line0
  715 0025 02       		.uleb128 0x2
  716 0026 01       		.byte	0x1
  717 0027 06       		.byte	0x6
- 718 0028 14030000 		.4byte	.LASF0
+ 718 0028 01030000 		.4byte	.LASF0
  719 002c 02       		.uleb128 0x2
  720 002d 01       		.byte	0x1
  721 002e 08       		.byte	0x8
- 722 002f A9010000 		.4byte	.LASF1
+ 722 002f 30010000 		.4byte	.LASF1
  723 0033 02       		.uleb128 0x2
  724 0034 02       		.byte	0x2
  725 0035 05       		.byte	0x5
- 726 0036 D4020000 		.4byte	.LASF2
+ 726 0036 C1020000 		.4byte	.LASF2
  727 003a 02       		.uleb128 0x2
  728 003b 02       		.byte	0x2
  729 003c 07       		.byte	0x7
-ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccG4kYYd.s 			page 23
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccGBKCrx.s 			page 23
 
 
  730 003d 9B000000 		.4byte	.LASF3
  731 0041 02       		.uleb128 0x2
  732 0042 04       		.byte	0x4
  733 0043 05       		.byte	0x5
- 734 0044 FA020000 		.4byte	.LASF4
+ 734 0044 E7020000 		.4byte	.LASF4
  735 0048 02       		.uleb128 0x2
  736 0049 04       		.byte	0x4
  737 004a 07       		.byte	0x7
- 738 004b BC010000 		.4byte	.LASF5
+ 738 004b 23020000 		.4byte	.LASF5
  739 004f 02       		.uleb128 0x2
  740 0050 08       		.byte	0x8
  741 0051 05       		.byte	0x5
- 742 0052 95020000 		.4byte	.LASF6
+ 742 0052 82020000 		.4byte	.LASF6
  743 0056 02       		.uleb128 0x2
  744 0057 08       		.byte	0x8
  745 0058 07       		.byte	0x7
- 746 0059 55020000 		.4byte	.LASF7
+ 746 0059 42020000 		.4byte	.LASF7
  747 005d 03       		.uleb128 0x3
  748 005e 04       		.byte	0x4
  749 005f 05       		.byte	0x5
@@ -1345,31 +1345,31 @@ ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccG4kYYd.s 			page 1
  751 0064 02       		.uleb128 0x2
  752 0065 04       		.byte	0x4
  753 0066 07       		.byte	0x7
- 754 0067 48020000 		.4byte	.LASF8
+ 754 0067 35020000 		.4byte	.LASF8
  755 006b 04       		.uleb128 0x4
- 756 006c E7010000 		.4byte	.LASF9
+ 756 006c C2010000 		.4byte	.LASF9
  757 0070 02       		.byte	0x2
  758 0071 E701     		.2byte	0x1e7
  759 0073 2C000000 		.4byte	0x2c
  760 0077 04       		.uleb128 0x4
- 761 0078 41020000 		.4byte	.LASF10
+ 761 0078 1C020000 		.4byte	.LASF10
  762 007c 02       		.byte	0x2
  763 007d E801     		.2byte	0x1e8
  764 007f 3A000000 		.4byte	0x3a
  765 0083 02       		.uleb128 0x2
  766 0084 04       		.byte	0x4
  767 0085 04       		.byte	0x4
- 768 0086 8C010000 		.4byte	.LASF11
+ 768 0086 13010000 		.4byte	.LASF11
  769 008a 02       		.uleb128 0x2
  770 008b 08       		.byte	0x8
  771 008c 04       		.byte	0x4
- 772 008d 1D020000 		.4byte	.LASF12
+ 772 008d F8010000 		.4byte	.LASF12
  773 0091 02       		.uleb128 0x2
  774 0092 01       		.byte	0x1
  775 0093 08       		.byte	0x8
- 776 0094 03030000 		.4byte	.LASF13
+ 776 0094 F0020000 		.4byte	.LASF13
  777 0098 04       		.uleb128 0x4
- 778 0099 B7010000 		.4byte	.LASF14
+ 778 0099 3E010000 		.4byte	.LASF14
  779 009d 02       		.byte	0x2
  780 009e 9102     		.2byte	0x291
  781 00a0 A4000000 		.4byte	0xa4
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccG4kYYd.s 			page 1
  784 00a9 04       		.uleb128 0x4
  785 00aa 00000000 		.4byte	.LASF15
  786 00ae 02       		.byte	0x2
-ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccG4kYYd.s 			page 24
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccGBKCrx.s 			page 24
 
 
  787 00af 9202     		.2byte	0x292
@@ -1388,13 +1388,13 @@ ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccG4kYYd.s 			page 1
  791 00ba 02       		.uleb128 0x2
  792 00bb 08       		.byte	0x8
  793 00bc 04       		.byte	0x4
- 794 00bd 08030000 		.4byte	.LASF16
+ 794 00bd F5020000 		.4byte	.LASF16
  795 00c1 02       		.uleb128 0x2
  796 00c2 04       		.byte	0x4
  797 00c3 07       		.byte	0x7
- 798 00c4 8C020000 		.4byte	.LASF17
+ 798 00c4 79020000 		.4byte	.LASF17
  799 00c8 06       		.uleb128 0x6
- 800 00c9 F5010000 		.4byte	.LASF18
+ 800 00c9 D0010000 		.4byte	.LASF18
  801 00cd 01       		.byte	0x1
  802 00ce 2B       		.byte	0x2b
  803 00cf 00000000 		.4byte	.LFB0
@@ -1410,7 +1410,7 @@ ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccG4kYYd.s 			page 1
  813 00e8 01       		.uleb128 0x1
  814 00e9 9C       		.byte	0x9c
  815 00ea 06       		.uleb128 0x6
- 816 00eb 9A010000 		.4byte	.LASF20
+ 816 00eb 21010000 		.4byte	.LASF20
  817 00ef 01       		.byte	0x1
  818 00f0 D7       		.byte	0xd7
  819 00f1 00000000 		.4byte	.LFB2
@@ -1418,7 +1418,7 @@ ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccG4kYYd.s 			page 1
  821 00f9 01       		.uleb128 0x1
  822 00fa 9C       		.byte	0x9c
  823 00fb 07       		.uleb128 0x7
- 824 00fc B1020000 		.4byte	.LASF21
+ 824 00fc 9E020000 		.4byte	.LASF21
  825 0100 01       		.byte	0x1
  826 0101 F7       		.byte	0xf7
  827 0102 00000000 		.4byte	.LFB3
@@ -1426,7 +1426,7 @@ ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccG4kYYd.s 			page 1
  829 010a 01       		.uleb128 0x1
  830 010b 9C       		.byte	0x9c
  831 010c 08       		.uleb128 0x8
- 832 010d 03020000 		.4byte	.LASF25
+ 832 010d DE010000 		.4byte	.LASF25
  833 0111 01       		.byte	0x1
  834 0112 1701     		.2byte	0x117
  835 0114 00000000 		.4byte	.LFB4
@@ -1435,10 +1435,10 @@ ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccG4kYYd.s 			page 1
  838 011d 9C       		.byte	0x9c
  839 011e 32010000 		.4byte	0x132
  840 0122 09       		.uleb128 0x9
- 841 0123 A3020000 		.4byte	.LASF27
+ 841 0123 90020000 		.4byte	.LASF27
  842 0127 01       		.byte	0x1
  843 0128 1701     		.2byte	0x117
-ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccG4kYYd.s 			page 25
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccGBKCrx.s 			page 25
 
 
  844 012a 6B000000 		.4byte	0x6b
@@ -1447,7 +1447,7 @@ ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccG4kYYd.s 			page 1
  847 0130 77       		.sleb128 -9
  848 0131 00       		.byte	0
  849 0132 0A       		.uleb128 0xa
- 850 0133 CE010000 		.4byte	.LASF22
+ 850 0133 A9010000 		.4byte	.LASF22
  851 0137 01       		.byte	0x1
  852 0138 2E01     		.2byte	0x12e
  853 013a 00000000 		.4byte	.LFB5
@@ -1455,7 +1455,7 @@ ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccG4kYYd.s 			page 1
  855 0142 01       		.uleb128 0x1
  856 0143 9C       		.byte	0x9c
  857 0144 0B       		.uleb128 0xb
- 858 0145 DE020000 		.4byte	.LASF23
+ 858 0145 CB020000 		.4byte	.LASF23
  859 0149 01       		.byte	0x1
  860 014a 4D01     		.2byte	0x14d
  861 014c 6B000000 		.4byte	0x6b
@@ -1464,7 +1464,7 @@ ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccG4kYYd.s 			page 1
  864 0158 01       		.uleb128 0x1
  865 0159 9C       		.byte	0x9c
  866 015a 0B       		.uleb128 0xb
- 867 015b 24020000 		.4byte	.LASF24
+ 867 015b FF010000 		.4byte	.LASF24
  868 015f 01       		.byte	0x1
  869 0160 6401     		.2byte	0x164
  870 0162 6B000000 		.4byte	0x6b
@@ -1482,7 +1482,7 @@ ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccG4kYYd.s 			page 1
  882 0181 9C       		.byte	0x9c
  883 0182 96010000 		.4byte	0x196
  884 0186 09       		.uleb128 0x9
- 885 0187 ED010000 		.4byte	.LASF28
+ 885 0187 C8010000 		.4byte	.LASF28
  886 018b 01       		.byte	0x1
  887 018c 7B01     		.2byte	0x17b
  888 018e 6B000000 		.4byte	0x6b
@@ -1491,19 +1491,19 @@ ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccG4kYYd.s 			page 1
  891 0194 77       		.sleb128 -9
  892 0195 00       		.byte	0
  893 0196 0B       		.uleb128 0xb
- 894 0197 6C020000 		.4byte	.LASF29
+ 894 0197 59020000 		.4byte	.LASF29
  895 019b 01       		.byte	0x1
  896 019c 9501     		.2byte	0x195
  897 019e 6B000000 		.4byte	0x6b
  898 01a2 00000000 		.4byte	.LFB9
  899 01a6 18000000 		.4byte	.LFE9-.LFB9
  900 01aa 01       		.uleb128 0x1
-ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccG4kYYd.s 			page 26
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccGBKCrx.s 			page 26
 
 
  901 01ab 9C       		.byte	0x9c
  902 01ac 08       		.uleb128 0x8
- 903 01ad 77010000 		.4byte	.LASF30
+ 903 01ad FE000000 		.4byte	.LASF30
  904 01b1 01       		.byte	0x1
  905 01b2 AF01     		.2byte	0x1af
  906 01b4 00000000 		.4byte	.LFB10
@@ -1520,7 +1520,7 @@ ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccG4kYYd.s 			page 1
  917 01cf 91       		.byte	0x91
  918 01d0 6F       		.sleb128 -17
  919 01d1 0C       		.uleb128 0xc
- 920 01d2 80020000 		.4byte	.LASF39
+ 920 01d2 6D020000 		.4byte	.LASF39
  921 01d6 01       		.byte	0x1
  922 01d7 B201     		.2byte	0x1b2
  923 01d9 77000000 		.4byte	0x77
@@ -1529,7 +1529,7 @@ ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccG4kYYd.s 			page 1
  926 01df 76       		.sleb128 -10
  927 01e0 00       		.byte	0
  928 01e1 0B       		.uleb128 0xb
- 929 01e2 BF020000 		.4byte	.LASF32
+ 929 01e2 AC020000 		.4byte	.LASF32
  930 01e6 01       		.byte	0x1
  931 01e7 C801     		.2byte	0x1c8
  932 01e9 6B000000 		.4byte	0x6b
@@ -1538,7 +1538,7 @@ ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccG4kYYd.s 			page 1
  935 01f5 01       		.uleb128 0x1
  936 01f6 9C       		.byte	0x9c
  937 01f7 08       		.uleb128 0x8
- 938 01f8 46030000 		.4byte	.LASF33
+ 938 01f8 33030000 		.4byte	.LASF33
  939 01fc 01       		.byte	0x1
  940 01fd E001     		.2byte	0x1e0
  941 01ff 00000000 		.4byte	.LFB12
@@ -1547,7 +1547,7 @@ ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccG4kYYd.s 			page 1
  944 0208 9C       		.byte	0x9c
  945 0209 1D020000 		.4byte	0x21d
  946 020d 09       		.uleb128 0x9
- 947 020e 92010000 		.4byte	.LASF34
+ 947 020e 19010000 		.4byte	.LASF34
  948 0212 01       		.byte	0x1
  949 0213 E001     		.2byte	0x1e0
  950 0215 6B000000 		.4byte	0x6b
@@ -1556,9 +1556,9 @@ ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccG4kYYd.s 			page 1
  953 021b 77       		.sleb128 -9
  954 021c 00       		.byte	0
  955 021d 0B       		.uleb128 0xb
- 956 021e 20030000 		.4byte	.LASF35
+ 956 021e 0D030000 		.4byte	.LASF35
  957 0222 01       		.byte	0x1
-ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccG4kYYd.s 			page 27
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccGBKCrx.s 			page 27
 
 
  958 0223 FC01     		.2byte	0x1fc
@@ -1568,7 +1568,7 @@ ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccG4kYYd.s 			page 1
  962 0231 01       		.uleb128 0x1
  963 0232 9C       		.byte	0x9c
  964 0233 0D       		.uleb128 0xd
- 965 0234 35030000 		.4byte	.LASF40
+ 965 0234 22030000 		.4byte	.LASF40
  966 0238 01       		.byte	0x1
  967 0239 1A       		.byte	0x1a
  968 023a 6B000000 		.4byte	0x6b
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccG4kYYd.s 			page 1
  1012 0025 03       		.uleb128 0x3
  1013 0026 08       		.uleb128 0x8
  1014 0027 00       		.byte	0
-ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccG4kYYd.s 			page 28
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccGBKCrx.s 			page 28
 
 
  1015 0028 00       		.byte	0
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccG4kYYd.s 			page 1
  1069 005f 0B       		.uleb128 0xb
  1070 0060 27       		.uleb128 0x27
  1071 0061 19       		.uleb128 0x19
-ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccG4kYYd.s 			page 29
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccGBKCrx.s 			page 29
 
 
  1072 0062 11       		.uleb128 0x11
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccG4kYYd.s 			page 1
  1126 009a 19       		.uleb128 0x19
  1127 009b 03       		.uleb128 0x3
  1128 009c 0E       		.uleb128 0xe
-ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccG4kYYd.s 			page 30
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccGBKCrx.s 			page 30
 
 
  1129 009d 3A       		.uleb128 0x3a
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccG4kYYd.s 			page 1
  1183 00d5 00       		.byte	0
  1184 00d6 00       		.byte	0
  1185 00d7 0D       		.uleb128 0xd
-ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccG4kYYd.s 			page 31
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccGBKCrx.s 			page 31
 
 
  1186 00d8 34       		.uleb128 0x34
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccG4kYYd.s 			page 1
  1240 0084 00000000 		.4byte	0
  1241              		.section	.debug_ranges,"",%progbits
  1242              	.Ldebug_ranges0:
-ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccG4kYYd.s 			page 32
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccGBKCrx.s 			page 32
 
 
  1243 0000 00000000 		.4byte	.LFB0
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccG4kYYd.s 			page 1
  1281      2D736563 
  1281      74696F6E 
  1282              	.LASF31:
-ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccG4kYYd.s 			page 33
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccGBKCrx.s 			page 33
 
 
  1283 0094 70657269 		.ascii	"period\000"
@@ -1946,182 +1946,178 @@ ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccG4kYYd.s 			page 1
  1291      5F577269 
  1291      7465436F 
  1291      6E74726F 
- 1292              	.LASF38:
- 1293 00fe 433A5C55 		.ascii	"C:\\Users\\schoo\\OneDrive\\Desktop\\12_Cypress_Lin"
- 1293      73657273 
- 1293      5C736368 
- 1293      6F6F5C4F 
- 1293      6E654472 
- 1294 012c 65466F6C 		.ascii	"eFollowingRobot\\Final_implementation\\Team12_PsoC_"
- 1294      6C6F7769 
- 1294      6E67526F 
- 1294      626F745C 
- 1294      46696E61 
- 1295 015d 46696E61 		.ascii	"FinalImplementation.cydsn\000"
- 1295      6C496D70 
- 1295      6C656D65 
- 1295      6E746174 
- 1295      696F6E2E 
- 1296              	.LASF30:
- 1297 0177 54696D65 		.ascii	"Timer_TS_WritePeriod\000"
- 1297      725F5453 
- 1297      5F577269 
- 1297      74655065 
- 1297      72696F64 
- 1298              	.LASF11:
- 1299 018c 666C6F61 		.ascii	"float\000"
- 1299      7400
- 1300              	.LASF34:
- 1301 0192 636F756E 		.ascii	"counter\000"
- 1301      74657200 
- 1302              	.LASF20:
- 1303 019a 54696D65 		.ascii	"Timer_TS_Start\000"
- 1303      725F5453 
- 1303      5F537461 
-ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccG4kYYd.s 			page 34
+ 1292              	.LASF30:
+ 1293 00fe 54696D65 		.ascii	"Timer_TS_WritePeriod\000"
+ 1293      725F5453 
+ 1293      5F577269 
+ 1293      74655065 
+ 1293      72696F64 
+ 1294              	.LASF11:
+ 1295 0113 666C6F61 		.ascii	"float\000"
+ 1295      7400
+ 1296              	.LASF34:
+ 1297 0119 636F756E 		.ascii	"counter\000"
+ 1297      74657200 
+ 1298              	.LASF20:
+ 1299 0121 54696D65 		.ascii	"Timer_TS_Start\000"
+ 1299      725F5453 
+ 1299      5F537461 
+ 1299      727400
+ 1300              	.LASF1:
+ 1301 0130 756E7369 		.ascii	"unsigned char\000"
+ 1301      676E6564 
+ 1301      20636861 
+ 1301      7200
+ 1302              	.LASF14:
+ 1303 013e 72656738 		.ascii	"reg8\000"
+ 1303      00
+ 1304              	.LASF38:
+ 1305 0143 483A5C44 		.ascii	"H:\\Documents\\12_Cypress_LineFollowingRobot\\Final"
+ 1305      6F63756D 
+ 1305      656E7473 
+ 1305      5C31325F 
+ 1305      43797072 
+ 1306 0173 5F696D70 		.ascii	"_implementation\\Team12_PsoC_FinalImplementation.cy"
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccGBKCrx.s 			page 34
 
 
- 1303      727400
- 1304              	.LASF1:
- 1305 01a9 756E7369 		.ascii	"unsigned char\000"
- 1305      676E6564 
- 1305      20636861 
- 1305      7200
- 1306              	.LASF14:
- 1307 01b7 72656738 		.ascii	"reg8\000"
- 1307      00
- 1308              	.LASF5:
- 1309 01bc 6C6F6E67 		.ascii	"long unsigned int\000"
- 1309      20756E73 
- 1309      69676E65 
- 1309      6420696E 
- 1309      7400
- 1310              	.LASF22:
- 1311 01ce 54696D65 		.ascii	"Timer_TS_SoftwareCapture\000"
- 1311      725F5453 
- 1311      5F536F66 
- 1311      74776172 
- 1311      65436170 
- 1312              	.LASF9:
- 1313 01e7 75696E74 		.ascii	"uint8\000"
- 1313      3800
- 1314              	.LASF28:
- 1315 01ed 636F6E74 		.ascii	"control\000"
- 1315      726F6C00 
- 1316              	.LASF18:
- 1317 01f5 54696D65 		.ascii	"Timer_TS_Init\000"
+ 1306      6C656D65 
+ 1306      6E746174 
+ 1306      696F6E5C 
+ 1306      5465616D 
+ 1307 01a5 64736E00 		.ascii	"dsn\000"
+ 1308              	.LASF22:
+ 1309 01a9 54696D65 		.ascii	"Timer_TS_SoftwareCapture\000"
+ 1309      725F5453 
+ 1309      5F536F66 
+ 1309      74776172 
+ 1309      65436170 
+ 1310              	.LASF9:
+ 1311 01c2 75696E74 		.ascii	"uint8\000"
+ 1311      3800
+ 1312              	.LASF28:
+ 1313 01c8 636F6E74 		.ascii	"control\000"
+ 1313      726F6C00 
+ 1314              	.LASF18:
+ 1315 01d0 54696D65 		.ascii	"Timer_TS_Init\000"
+ 1315      725F5453 
+ 1315      5F496E69 
+ 1315      7400
+ 1316              	.LASF25:
+ 1317 01de 54696D65 		.ascii	"Timer_TS_SetInterruptMode\000"
  1317      725F5453 
- 1317      5F496E69 
- 1317      7400
- 1318              	.LASF25:
- 1319 0203 54696D65 		.ascii	"Timer_TS_SetInterruptMode\000"
- 1319      725F5453 
- 1319      5F536574 
- 1319      496E7465 
- 1319      72727570 
- 1320              	.LASF12:
- 1321 021d 646F7562 		.ascii	"double\000"
- 1321      6C6500
- 1322              	.LASF24:
- 1323 0224 54696D65 		.ascii	"Timer_TS_ReadControlRegister\000"
- 1323      725F5453 
- 1323      5F526561 
- 1323      64436F6E 
- 1323      74726F6C 
- 1324              	.LASF10:
- 1325 0241 75696E74 		.ascii	"uint16\000"
- 1325      313600
+ 1317      5F536574 
+ 1317      496E7465 
+ 1317      72727570 
+ 1318              	.LASF12:
+ 1319 01f8 646F7562 		.ascii	"double\000"
+ 1319      6C6500
+ 1320              	.LASF24:
+ 1321 01ff 54696D65 		.ascii	"Timer_TS_ReadControlRegister\000"
+ 1321      725F5453 
+ 1321      5F526561 
+ 1321      64436F6E 
+ 1321      74726F6C 
+ 1322              	.LASF10:
+ 1323 021c 75696E74 		.ascii	"uint16\000"
+ 1323      313600
+ 1324              	.LASF5:
+ 1325 0223 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1325      20756E73 
+ 1325      69676E65 
+ 1325      6420696E 
+ 1325      7400
  1326              	.LASF8:
- 1327 0248 756E7369 		.ascii	"unsigned int\000"
+ 1327 0235 756E7369 		.ascii	"unsigned int\000"
  1327      676E6564 
  1327      20696E74 
  1327      00
  1328              	.LASF7:
- 1329 0255 6C6F6E67 		.ascii	"long long unsigned int\000"
-ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccG4kYYd.s 			page 35
-
-
+ 1329 0242 6C6F6E67 		.ascii	"long long unsigned int\000"
  1329      206C6F6E 
  1329      6720756E 
  1329      7369676E 
  1329      65642069 
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccGBKCrx.s 			page 35
+
+
  1330              	.LASF29:
- 1331 026c 54696D65 		.ascii	"Timer_TS_ReadPeriod\000"
+ 1331 0259 54696D65 		.ascii	"Timer_TS_ReadPeriod\000"
  1331      725F5453 
  1331      5F526561 
  1331      64506572 
  1331      696F6400 
  1332              	.LASF39:
- 1333 0280 70657269 		.ascii	"period_temp\000"
+ 1333 026d 70657269 		.ascii	"period_temp\000"
  1333      6F645F74 
  1333      656D7000 
  1334              	.LASF17:
- 1335 028c 73697A65 		.ascii	"sizetype\000"
+ 1335 0279 73697A65 		.ascii	"sizetype\000"
  1335      74797065 
  1335      00
  1336              	.LASF6:
- 1337 0295 6C6F6E67 		.ascii	"long long int\000"
+ 1337 0282 6C6F6E67 		.ascii	"long long int\000"
  1337      206C6F6E 
  1337      6720696E 
  1337      7400
  1338              	.LASF27:
- 1339 02a3 696E7465 		.ascii	"interruptMode\000"
+ 1339 0290 696E7465 		.ascii	"interruptMode\000"
  1339      72727570 
  1339      744D6F64 
  1339      6500
  1340              	.LASF21:
- 1341 02b1 54696D65 		.ascii	"Timer_TS_Stop\000"
+ 1341 029e 54696D65 		.ascii	"Timer_TS_Stop\000"
  1341      725F5453 
  1341      5F53746F 
  1341      7000
  1342              	.LASF32:
- 1343 02bf 54696D65 		.ascii	"Timer_TS_ReadCapture\000"
+ 1343 02ac 54696D65 		.ascii	"Timer_TS_ReadCapture\000"
  1343      725F5453 
  1343      5F526561 
  1343      64436170 
  1343      74757265 
  1344              	.LASF2:
- 1345 02d4 73686F72 		.ascii	"short int\000"
+ 1345 02c1 73686F72 		.ascii	"short int\000"
  1345      7420696E 
  1345      7400
  1346              	.LASF23:
- 1347 02de 54696D65 		.ascii	"Timer_TS_ReadStatusRegister\000"
+ 1347 02cb 54696D65 		.ascii	"Timer_TS_ReadStatusRegister\000"
  1347      725F5453 
  1347      5F526561 
  1347      64537461 
  1347      74757352 
  1348              	.LASF4:
- 1349 02fa 6C6F6E67 		.ascii	"long int\000"
+ 1349 02e7 6C6F6E67 		.ascii	"long int\000"
  1349      20696E74 
  1349      00
  1350              	.LASF13:
- 1351 0303 63686172 		.ascii	"char\000"
+ 1351 02f0 63686172 		.ascii	"char\000"
  1351      00
  1352              	.LASF16:
-ARM GAS  C:\Users\schoo\AppData\Local\Temp\ccG4kYYd.s 			page 36
-
-
- 1353 0308 6C6F6E67 		.ascii	"long double\000"
+ 1353 02f5 6C6F6E67 		.ascii	"long double\000"
  1353      20646F75 
  1353      626C6500 
  1354              	.LASF0:
- 1355 0314 7369676E 		.ascii	"signed char\000"
+ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccGBKCrx.s 			page 36
+
+
+ 1355 0301 7369676E 		.ascii	"signed char\000"
  1355      65642063 
  1355      68617200 
  1356              	.LASF35:
- 1357 0320 54696D65 		.ascii	"Timer_TS_ReadCounter\000"
+ 1357 030d 54696D65 		.ascii	"Timer_TS_ReadCounter\000"
  1357      725F5453 
  1357      5F526561 
  1357      64436F75 
  1357      6E746572 
  1358              	.LASF40:
- 1359 0335 54696D65 		.ascii	"Timer_TS_initVar\000"
+ 1359 0322 54696D65 		.ascii	"Timer_TS_initVar\000"
  1359      725F5453 
  1359      5F696E69 
  1359      74566172 
  1359      00
  1360              	.LASF33:
- 1361 0346 54696D65 		.ascii	"Timer_TS_WriteCounter\000"
+ 1361 0333 54696D65 		.ascii	"Timer_TS_WriteCounter\000"
  1361      725F5453 
  1361      5F577269 
  1361      7465436F 
