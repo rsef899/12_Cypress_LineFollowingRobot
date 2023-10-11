@@ -1,9 +1,0 @@
-C:\Users\schoo\302OffOnedrive\301 Project\12_Cypress_LineFollowingRobot\student_pack\psoc student pack\lab exercise\psoc_intro\lab1.cydsn\lab1.cyprj|f89893ae-b597-4535-b0f2-938d44c396b9
-C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|5c36e277-341c-40ad-b386-d528081ca386
-C:\Users\schoo\OneDrive\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\Downloads ( 4.2).cyprj|0bbf6b8a-31c6-4c08-895d-b4bad6594e93
-C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|0cda1c24-f1b0-486a-b245-39a260a21cf5
-C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|10c0a795-dc0b-4fab-b374-eeb762202245
-C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|bd826dd4-3470-4ecb-89ee-64d35cdfb744
-C:\Users\schoo\302OffOnedrive\301 Project\12_Cypress_LineFollowingRobot\student_pack\psoc student pack\lab exercise\psoc_intro\lab2.cydsn\lab2.cyprj|f010c139-6d21-4410-ab1c-5477340fe4bf
-C:\Users\schoo\302OffOnedrive\301 Project\12_Cypress_LineFollowingRobot\student_pack\psoc student pack\lab exercise\psoc_intro\lab3.cydsn\lab3.cyprj|88060383-25a8-47ed-b765-52069434c8d9
-C:\Users\schoo\302OffOnedrive\301 Project\12_Cypress_LineFollowingRobot\student_pack\psoc student pack\lab exercise\psoc_intro\CS301_Class.cydsn\CS301_Class.cyprj|84f2931e-ccac-4d5a-b679-e53c06c7ce07

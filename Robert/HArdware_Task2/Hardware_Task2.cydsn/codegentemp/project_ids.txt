@@ -1,6 +1,0 @@
-H:\Documents\12_Cypress_LineFollowingRobot\Robert\HArdware_Task2\Hardware_Task2.cydsn\Hardware_Task2.cyprj|d10863ba-16e7-4a13-b8d9-f87c60315f81
-C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|21ed3d69-35ae-47ac-9332-8b5ff0915d0f
-C:\Users\sela847\OneDrive - The University of Auckland\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\Downloads ( 4.2).cyprj|e70d55dc-c79a-46ed-9996-71422fd4ace3
-C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|2f13d1e1-0d9d-4c7c-8a2c-ba5288262539
-C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|215b5b05-3760-4151-9f93-e32e3b125d2f
-C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|d7d2eb8e-56cf-40e9-a1ce-d4c5483d2311
