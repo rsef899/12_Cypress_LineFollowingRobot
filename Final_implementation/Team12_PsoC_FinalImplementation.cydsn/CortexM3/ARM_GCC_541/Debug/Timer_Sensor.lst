@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccPaeldf.s 			page 1
+ARM GAS  C:\Users\Janit\AppData\Local\Temp\ccNTVccG.s 			page 1
 
 
    1              		.syntax unified
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccPaeldf.s 			page 1
   22:Generated_Source\PSoC5/Timer_Sensor.c **** ********************************************************************************/
   23:Generated_Source\PSoC5/Timer_Sensor.c **** 
   24:Generated_Source\PSoC5/Timer_Sensor.c **** #include "Timer_Sensor.h"
-ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccPaeldf.s 			page 2
+ARM GAS  C:\Users\Janit\AppData\Local\Temp\ccNTVccG.s 			page 2
 
 
   25:Generated_Source\PSoC5/Timer_Sensor.c **** 
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccPaeldf.s 			page 1
   52              		.loc 1 60 0
   53 0014 234A     		ldr	r2, .L2+4
   54 0016 234B     		ldr	r3, .L2+4
-ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccPaeldf.s 			page 3
+ARM GAS  C:\Users\Janit\AppData\Local\Temp\ccNTVccG.s 			page 3
 
 
   55 0018 1B78     		ldrb	r3, [r3]
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccPaeldf.s 			page 1
  102:Generated_Source\PSoC5/Timer_Sensor.c **** 
  103:Generated_Source\PSoC5/Timer_Sensor.c ****         #endif /* Configure Run Mode with hardware enable */
  104:Generated_Source\PSoC5/Timer_Sensor.c **** 
-ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccPaeldf.s 			page 4
+ARM GAS  C:\Users\Janit\AppData\Local\Temp\ccNTVccG.s 			page 4
 
 
  105:Generated_Source\PSoC5/Timer_Sensor.c ****         /* Clear and Set SYNCTC and SYNCCMP bits of RT1 register */
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccPaeldf.s 			page 1
  108              		.loc 1 118 0
  109 0084 40F28F10 		movw	r0, #399
  110 0088 FFF7FEFF 		bl	Timer_Sensor_WritePeriod
-ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccPaeldf.s 			page 5
+ARM GAS  C:\Users\Janit\AppData\Local\Temp\ccNTVccG.s 			page 5
 
 
  119:Generated_Source\PSoC5/Timer_Sensor.c ****     Timer_Sensor_WriteCounter(Timer_Sensor_INIT_PERIOD);
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccPaeldf.s 			page 1
  120              	.L3:
  121 009e 00BF     		.align	2
  122              	.L2:
-ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccPaeldf.s 			page 6
+ARM GAS  C:\Users\Janit\AppData\Local\Temp\ccNTVccG.s 			page 6
 
 
  123 00a0 184F0040 		.word	1073762072
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccPaeldf.s 			page 1
  185:Generated_Source\PSoC5/Timer_Sensor.c ****         Timer_Sensor_GLOBAL_STBY_ENABLE |= Timer_Sensor_BLOCK_STBY_EN_MASK;
  156              		.loc 1 185 0
  157 0014 0A4A     		ldr	r2, .L5+4
-ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccPaeldf.s 			page 7
+ARM GAS  C:\Users\Janit\AppData\Local\Temp\ccNTVccG.s 			page 7
 
 
  158 0016 0A4B     		ldr	r3, .L5+4
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccPaeldf.s 			page 1
  200:Generated_Source\PSoC5/Timer_Sensor.c **** *  The start function initializes the timer with the default values, the
  201:Generated_Source\PSoC5/Timer_Sensor.c **** *  enables the timerto begin counting.  It does not enable interrupts,
  202:Generated_Source\PSoC5/Timer_Sensor.c **** *  the EnableInt command should be called if interrupt generation is required.
-ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccPaeldf.s 			page 8
+ARM GAS  C:\Users\Janit\AppData\Local\Temp\ccNTVccG.s 			page 8
 
 
  203:Generated_Source\PSoC5/Timer_Sensor.c **** *
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccPaeldf.s 			page 1
  228 0020 00000000 		.word	Timer_Sensor_initVar
  229              		.cfi_endproc
  230              	.LFE2:
-ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccPaeldf.s 			page 9
+ARM GAS  C:\Users\Janit\AppData\Local\Temp\ccNTVccG.s 			page 9
 
 
  231              		.size	Timer_Sensor_Start, .-Timer_Sensor_Start
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccPaeldf.s 			page 1
  254:Generated_Source\PSoC5/Timer_Sensor.c ****     /* Globally disable the Fixed Function Block chosen */
  255:Generated_Source\PSoC5/Timer_Sensor.c ****     #if (Timer_Sensor_UsingFixedFunction)
  256:Generated_Source\PSoC5/Timer_Sensor.c ****         Timer_Sensor_GLOBAL_ENABLE &= ((uint8)(~Timer_Sensor_BLOCK_EN_MASK));
-ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccPaeldf.s 			page 10
+ARM GAS  C:\Users\Janit\AppData\Local\Temp\ccNTVccG.s 			page 10
 
 
  258              		.loc 1 256 0
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccPaeldf.s 			page 1
  269:Generated_Source\PSoC5/Timer_Sensor.c **** *  be selected.
  270:Generated_Source\PSoC5/Timer_Sensor.c **** *
  271:Generated_Source\PSoC5/Timer_Sensor.c **** * Parameters:
-ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccPaeldf.s 			page 11
+ARM GAS  C:\Users\Janit\AppData\Local\Temp\ccNTVccG.s 			page 11
 
 
  272:Generated_Source\PSoC5/Timer_Sensor.c **** *  interruptMode:   This parameter is used to enable interrups on either/or
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccPaeldf.s 			page 1
  343              	.LFB5:
  283:Generated_Source\PSoC5/Timer_Sensor.c **** 
  284:Generated_Source\PSoC5/Timer_Sensor.c **** 
-ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccPaeldf.s 			page 12
+ARM GAS  C:\Users\Janit\AppData\Local\Temp\ccNTVccG.s 			page 12
 
 
  285:Generated_Source\PSoC5/Timer_Sensor.c **** /*******************************************************************************
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccPaeldf.s 			page 1
  371              	.LFE5:
  372              		.size	Timer_Sensor_SoftwareCapture, .-Timer_Sensor_SoftwareCapture
  373              		.section	.text.Timer_Sensor_ReadStatusRegister,"ax",%progbits
-ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccPaeldf.s 			page 13
+ARM GAS  C:\Users\Janit\AppData\Local\Temp\ccNTVccG.s 			page 13
 
 
  374              		.align	2
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccPaeldf.s 			page 1
  403 0010 7047     		bx	lr
  404              	.L23:
  405 0012 00BF     		.align	2
-ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccPaeldf.s 			page 14
+ARM GAS  C:\Users\Janit\AppData\Local\Temp\ccNTVccG.s 			page 14
 
 
  406              	.L22:
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccPaeldf.s 			page 1
  433              		.loc 1 363 0
  434 000a 1846     		mov	r0, r3
  435 000c BD46     		mov	sp, r7
-ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccPaeldf.s 			page 15
+ARM GAS  C:\Users\Janit\AppData\Local\Temp\ccNTVccG.s 			page 15
 
 
  436              		.cfi_def_cfa_register 13
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccPaeldf.s 			page 1
  471              		.loc 1 382 0
  472 000a 044A     		ldr	r2, .L29
  473 000c FB79     		ldrb	r3, [r7, #7]
-ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccPaeldf.s 			page 16
+ARM GAS  C:\Users\Janit\AppData\Local\Temp\ccNTVccG.s 			page 16
 
 
  474 000e 1370     		strb	r3, [r2]
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccPaeldf.s 			page 1
  504              		@ frame_needed = 1, uses_anonymous_args = 0
  505              		@ link register save eliminated.
  506 0000 80B4     		push	{r7}
-ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccPaeldf.s 			page 17
+ARM GAS  C:\Users\Janit\AppData\Local\Temp\ccNTVccG.s 			page 17
 
 
  507              		.cfi_def_cfa_offset 4
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccPaeldf.s 			page 1
  429:Generated_Source\PSoC5/Timer_Sensor.c **** *
  430:Generated_Source\PSoC5/Timer_Sensor.c **** *******************************************************************************/
  431:Generated_Source\PSoC5/Timer_Sensor.c **** void Timer_Sensor_WritePeriod(uint16 period) 
-ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccPaeldf.s 			page 18
+ARM GAS  C:\Users\Janit\AppData\Local\Temp\ccNTVccG.s 			page 18
 
 
  432:Generated_Source\PSoC5/Timer_Sensor.c **** {
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccPaeldf.s 			page 1
  585              	.LFB11:
  440:Generated_Source\PSoC5/Timer_Sensor.c **** 
  441:Generated_Source\PSoC5/Timer_Sensor.c **** 
-ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccPaeldf.s 			page 19
+ARM GAS  C:\Users\Janit\AppData\Local\Temp\ccNTVccG.s 			page 19
 
 
  442:Generated_Source\PSoC5/Timer_Sensor.c **** /*******************************************************************************
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccPaeldf.s 			page 1
  618              		.global	Timer_Sensor_WriteCounter
  619              		.thumb
  620              		.thumb_func
-ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccPaeldf.s 			page 20
+ARM GAS  C:\Users\Janit\AppData\Local\Temp\ccNTVccG.s 			page 20
 
 
  621              		.type	Timer_Sensor_WriteCounter, %function
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccPaeldf.s 			page 1
  647              		.cfi_def_cfa_register 13
  648              		@ sp needed
  649 0016 80BC     		pop	{r7}
-ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccPaeldf.s 			page 21
+ARM GAS  C:\Users\Janit\AppData\Local\Temp\ccNTVccG.s 			page 21
 
 
  650              		.cfi_restore 7
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccPaeldf.s 			page 1
  515:Generated_Source\PSoC5/Timer_Sensor.c ****     #else
  516:Generated_Source\PSoC5/Timer_Sensor.c ****         (void)CY_GET_REG8(Timer_Sensor_COUNTER_LSB_PTR_8BIT);
  517:Generated_Source\PSoC5/Timer_Sensor.c ****     #endif/* (Timer_Sensor_UsingFixedFunction) */
-ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccPaeldf.s 			page 22
+ARM GAS  C:\Users\Janit\AppData\Local\Temp\ccNTVccG.s 			page 22
 
 
  518:Generated_Source\PSoC5/Timer_Sensor.c **** 
@@ -1302,26 +1302,26 @@ ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccPaeldf.s 			page 1
  711 000b 01       		.uleb128 0x1
  712 000c 06000000 		.4byte	.LASF36
  713 0010 0C       		.byte	0xc
- 714 0011 DC020000 		.4byte	.LASF37
- 715 0015 A2010000 		.4byte	.LASF38
+ 714 0011 28010000 		.4byte	.LASF37
+ 715 0015 6B020000 		.4byte	.LASF38
  716 0019 00000000 		.4byte	.Ldebug_ranges0+0
  717 001d 00000000 		.4byte	0
  718 0021 00000000 		.4byte	.Ldebug_line0
  719 0025 02       		.uleb128 0x2
  720 0026 01       		.byte	0x1
  721 0027 06       		.byte	0x6
- 722 0028 5B030000 		.4byte	.LASF0
+ 722 0028 80030000 		.4byte	.LASF0
  723 002c 02       		.uleb128 0x2
  724 002d 01       		.byte	0x1
  725 002e 08       		.byte	0x8
- 726 002f 7B010000 		.4byte	.LASF1
+ 726 002f 8E010000 		.4byte	.LASF1
  727 0033 02       		.uleb128 0x2
  728 0034 02       		.byte	0x2
  729 0035 05       		.byte	0x5
-ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccPaeldf.s 			page 23
+ARM GAS  C:\Users\Janit\AppData\Local\Temp\ccNTVccG.s 			page 23
 
 
- 730 0036 1E030000 		.4byte	.LASF2
+ 730 0036 43030000 		.4byte	.LASF2
  731 003a 02       		.uleb128 0x2
  732 003b 02       		.byte	0x2
  733 003c 07       		.byte	0x7
@@ -1329,19 +1329,19 @@ ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccPaeldf.s 			page 1
  735 0041 02       		.uleb128 0x2
  736 0042 04       		.byte	0x4
  737 0043 05       		.byte	0x5
- 738 0044 41030000 		.4byte	.LASF4
+ 738 0044 66030000 		.4byte	.LASF4
  739 0048 02       		.uleb128 0x2
  740 0049 04       		.byte	0x4
  741 004a 07       		.byte	0x7
- 742 004b 78020000 		.4byte	.LASF5
+ 742 004b 38020000 		.4byte	.LASF5
  743 004f 02       		.uleb128 0x2
  744 0050 08       		.byte	0x8
  745 0051 05       		.byte	0x5
- 746 0052 02030000 		.4byte	.LASF6
+ 746 0052 27030000 		.4byte	.LASF6
  747 0056 02       		.uleb128 0x2
  748 0057 08       		.byte	0x8
  749 0058 07       		.byte	0x7
- 750 0059 AB020000 		.4byte	.LASF7
+ 750 0059 F6020000 		.4byte	.LASF7
  751 005d 03       		.uleb128 0x3
  752 005e 04       		.byte	0x4
  753 005f 05       		.byte	0x5
@@ -1351,34 +1351,34 @@ ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccPaeldf.s 			page 1
  757 0066 07       		.byte	0x7
  758 0067 F7000000 		.4byte	.LASF8
  759 006b 04       		.uleb128 0x4
- 760 006c 08020000 		.4byte	.LASF9
+ 760 006c C8010000 		.4byte	.LASF9
  761 0070 02       		.byte	0x2
  762 0071 E701     		.2byte	0x1e7
  763 0073 2C000000 		.4byte	0x2c
  764 0077 04       		.uleb128 0x4
- 765 0078 3A020000 		.4byte	.LASF10
+ 765 0078 FA010000 		.4byte	.LASF10
  766 007c 02       		.byte	0x2
  767 007d E801     		.2byte	0x1e8
  768 007f 3A000000 		.4byte	0x3a
  769 0083 02       		.uleb128 0x2
  770 0084 04       		.byte	0x4
  771 0085 04       		.byte	0x4
- 772 0086 6D010000 		.4byte	.LASF11
+ 772 0086 80010000 		.4byte	.LASF11
  773 008a 02       		.uleb128 0x2
  774 008b 08       		.byte	0x8
  775 008c 04       		.byte	0x4
- 776 008d 33020000 		.4byte	.LASF12
+ 776 008d F3010000 		.4byte	.LASF12
  777 0091 02       		.uleb128 0x2
  778 0092 01       		.byte	0x1
  779 0093 08       		.byte	0x8
- 780 0094 4A030000 		.4byte	.LASF13
+ 780 0094 6F030000 		.4byte	.LASF13
  781 0098 04       		.uleb128 0x4
- 782 0099 CE020000 		.4byte	.LASF14
+ 782 0099 19030000 		.4byte	.LASF14
  783 009d 02       		.byte	0x2
  784 009e 9102     		.2byte	0x291
  785 00a0 A4000000 		.4byte	0xa4
  786 00a4 05       		.uleb128 0x5
-ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccPaeldf.s 			page 24
+ARM GAS  C:\Users\Janit\AppData\Local\Temp\ccNTVccG.s 			page 24
 
 
  787 00a5 6B000000 		.4byte	0x6b
@@ -1392,11 +1392,11 @@ ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccPaeldf.s 			page 1
  795 00ba 02       		.uleb128 0x2
  796 00bb 08       		.byte	0x8
  797 00bc 04       		.byte	0x4
- 798 00bd 4F030000 		.4byte	.LASF16
+ 798 00bd 74030000 		.4byte	.LASF16
  799 00c1 02       		.uleb128 0x2
  800 00c2 04       		.byte	0x4
  801 00c3 07       		.byte	0x7
- 802 00c4 D3020000 		.4byte	.LASF17
+ 802 00c4 1E030000 		.4byte	.LASF17
  803 00c8 06       		.uleb128 0x6
  804 00c9 04010000 		.4byte	.LASF18
  805 00cd 01       		.byte	0x1
@@ -1414,7 +1414,7 @@ ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccPaeldf.s 			page 1
  817 00e8 01       		.uleb128 0x1
  818 00e9 9C       		.byte	0x9c
  819 00ea 06       		.uleb128 0x6
- 820 00eb 28010000 		.4byte	.LASF20
+ 820 00eb B5010000 		.4byte	.LASF20
  821 00ef 01       		.byte	0x1
  822 00f0 D7       		.byte	0xd7
  823 00f1 00000000 		.4byte	.LFB2
@@ -1430,7 +1430,7 @@ ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccPaeldf.s 			page 1
  833 010a 01       		.uleb128 0x1
  834 010b 9C       		.byte	0x9c
  835 010c 08       		.uleb128 0x8
- 836 010d 5A020000 		.4byte	.LASF25
+ 836 010d 1A020000 		.4byte	.LASF25
  837 0111 01       		.byte	0x1
  838 0112 1701     		.2byte	0x117
  839 0114 00000000 		.4byte	.LFB4
@@ -1438,11 +1438,11 @@ ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccPaeldf.s 			page 1
  841 011c 01       		.uleb128 0x1
  842 011d 9C       		.byte	0x9c
  843 011e 32010000 		.4byte	0x132
-ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccPaeldf.s 			page 25
+ARM GAS  C:\Users\Janit\AppData\Local\Temp\ccNTVccG.s 			page 25
 
 
  844 0122 09       		.uleb128 0x9
- 845 0123 10030000 		.4byte	.LASF27
+ 845 0123 35030000 		.4byte	.LASF27
  846 0127 01       		.byte	0x1
  847 0128 1701     		.2byte	0x117
  848 012a 6B000000 		.4byte	0x6b
@@ -1451,7 +1451,7 @@ ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccPaeldf.s 			page 1
  851 0130 77       		.sleb128 -9
  852 0131 00       		.byte	0
  853 0132 0A       		.uleb128 0xa
- 854 0133 16020000 		.4byte	.LASF22
+ 854 0133 D6010000 		.4byte	.LASF22
  855 0137 01       		.byte	0x1
  856 0138 2E01     		.2byte	0x12e
  857 013a 00000000 		.4byte	.LFB5
@@ -1468,7 +1468,7 @@ ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccPaeldf.s 			page 1
  868 0158 01       		.uleb128 0x1
  869 0159 9C       		.byte	0x9c
  870 015a 0B       		.uleb128 0xb
- 871 015b 8A020000 		.4byte	.LASF24
+ 871 015b 4A020000 		.4byte	.LASF24
  872 015f 01       		.byte	0x1
  873 0160 6401     		.2byte	0x164
  874 0162 6B000000 		.4byte	0x6b
@@ -1477,7 +1477,7 @@ ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccPaeldf.s 			page 1
  877 016e 01       		.uleb128 0x1
  878 016f 9C       		.byte	0x9c
  879 0170 08       		.uleb128 0x8
- 880 0171 67030000 		.4byte	.LASF26
+ 880 0171 8C030000 		.4byte	.LASF26
  881 0175 01       		.byte	0x1
  882 0176 7B01     		.2byte	0x17b
  883 0178 00000000 		.4byte	.LFB8
@@ -1486,7 +1486,7 @@ ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccPaeldf.s 			page 1
  886 0181 9C       		.byte	0x9c
  887 0182 96010000 		.4byte	0x196
  888 0186 09       		.uleb128 0x9
- 889 0187 0E020000 		.4byte	.LASF28
+ 889 0187 CE010000 		.4byte	.LASF28
  890 018b 01       		.byte	0x1
  891 018c 7B01     		.2byte	0x17b
  892 018e 6B000000 		.4byte	0x6b
@@ -1495,10 +1495,10 @@ ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccPaeldf.s 			page 1
  895 0194 77       		.sleb128 -9
  896 0195 00       		.byte	0
  897 0196 0B       		.uleb128 0xb
- 898 0197 55010000 		.4byte	.LASF29
+ 898 0197 68010000 		.4byte	.LASF29
  899 019b 01       		.byte	0x1
  900 019c 9501     		.2byte	0x195
-ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccPaeldf.s 			page 26
+ARM GAS  C:\Users\Janit\AppData\Local\Temp\ccNTVccG.s 			page 26
 
 
  901 019e 77000000 		.4byte	0x77
@@ -1507,7 +1507,7 @@ ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccPaeldf.s 			page 1
  904 01aa 01       		.uleb128 0x1
  905 01ab 9C       		.byte	0x9c
  906 01ac 08       		.uleb128 0x8
- 907 01ad 89010000 		.4byte	.LASF30
+ 907 01ad 9C010000 		.4byte	.LASF30
  908 01b1 01       		.byte	0x1
  909 01b2 AF01     		.2byte	0x1af
  910 01b4 00000000 		.4byte	.LFB10
@@ -1524,7 +1524,7 @@ ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccPaeldf.s 			page 1
  921 01cf 91       		.byte	0x91
  922 01d0 6E       		.sleb128 -18
  923 01d1 0C       		.uleb128 0xc
- 924 01d2 C2020000 		.4byte	.LASF39
+ 924 01d2 0D030000 		.4byte	.LASF39
  925 01d6 01       		.byte	0x1
  926 01d7 B201     		.2byte	0x1b2
  927 01d9 77000000 		.4byte	0x77
@@ -1533,7 +1533,7 @@ ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccPaeldf.s 			page 1
  930 01df 76       		.sleb128 -10
  931 01e0 00       		.byte	0
  932 01e1 0B       		.uleb128 0xb
- 933 01e2 28030000 		.4byte	.LASF32
+ 933 01e2 4D030000 		.4byte	.LASF32
  934 01e6 01       		.byte	0x1
  935 01e7 C801     		.2byte	0x1c8
  936 01e9 77000000 		.4byte	0x77
@@ -1542,7 +1542,7 @@ ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccPaeldf.s 			page 1
  939 01f5 01       		.uleb128 0x1
  940 01f6 9C       		.byte	0x9c
  941 01f7 08       		.uleb128 0x8
- 942 01f8 3B010000 		.4byte	.LASF33
+ 942 01f8 4E010000 		.4byte	.LASF33
  943 01fc 01       		.byte	0x1
  944 01fd E001     		.2byte	0x1e0
  945 01ff 00000000 		.4byte	.LFB12
@@ -1551,19 +1551,19 @@ ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccPaeldf.s 			page 1
  948 0208 9C       		.byte	0x9c
  949 0209 1D020000 		.4byte	0x21d
  950 020d 09       		.uleb128 0x9
- 951 020e 73010000 		.4byte	.LASF34
+ 951 020e 86010000 		.4byte	.LASF34
  952 0212 01       		.byte	0x1
  953 0213 E001     		.2byte	0x1e0
  954 0215 77000000 		.4byte	0x77
  955 0219 02       		.uleb128 0x2
  956 021a 91       		.byte	0x91
  957 021b 76       		.sleb128 -10
-ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccPaeldf.s 			page 27
+ARM GAS  C:\Users\Janit\AppData\Local\Temp\ccNTVccG.s 			page 27
 
 
  958 021c 00       		.byte	0
  959 021d 0B       		.uleb128 0xb
- 960 021e 41020000 		.4byte	.LASF35
+ 960 021e 01020000 		.4byte	.LASF35
  961 0222 01       		.byte	0x1
  962 0223 FC01     		.2byte	0x1fc
  963 0225 77000000 		.4byte	0x77
@@ -1618,7 +1618,7 @@ ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccPaeldf.s 			page 1
  1012 0021 0B       		.uleb128 0xb
  1013 0022 0B       		.uleb128 0xb
  1014 0023 3E       		.uleb128 0x3e
-ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccPaeldf.s 			page 28
+ARM GAS  C:\Users\Janit\AppData\Local\Temp\ccNTVccG.s 			page 28
 
 
  1015 0024 0B       		.uleb128 0xb
@@ -1678,7 +1678,7 @@ ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccPaeldf.s 			page 1
  1069 005b 0E       		.uleb128 0xe
  1070 005c 3A       		.uleb128 0x3a
  1071 005d 0B       		.uleb128 0xb
-ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccPaeldf.s 			page 29
+ARM GAS  C:\Users\Janit\AppData\Local\Temp\ccNTVccG.s 			page 29
 
 
  1072 005e 3B       		.uleb128 0x3b
@@ -1738,7 +1738,7 @@ ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccPaeldf.s 			page 1
  1126 0096 0A       		.uleb128 0xa
  1127 0097 2E       		.uleb128 0x2e
  1128 0098 00       		.byte	0
-ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccPaeldf.s 			page 30
+ARM GAS  C:\Users\Janit\AppData\Local\Temp\ccNTVccG.s 			page 30
 
 
  1129 0099 3F       		.uleb128 0x3f
@@ -1798,7 +1798,7 @@ ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccPaeldf.s 			page 1
  1183 00d1 49       		.uleb128 0x49
  1184 00d2 13       		.uleb128 0x13
  1185 00d3 02       		.uleb128 0x2
-ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccPaeldf.s 			page 31
+ARM GAS  C:\Users\Janit\AppData\Local\Temp\ccNTVccG.s 			page 31
 
 
  1186 00d4 18       		.uleb128 0x18
@@ -1858,7 +1858,7 @@ ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccPaeldf.s 			page 1
  1240 0074 20000000 		.4byte	.LFE12-.LFB12
  1241 0078 00000000 		.4byte	.LFB13
  1242 007c 20000000 		.4byte	.LFE13-.LFB13
-ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccPaeldf.s 			page 32
+ARM GAS  C:\Users\Janit\AppData\Local\Temp\ccNTVccG.s 			page 32
 
 
  1243 0080 00000000 		.4byte	0
@@ -1918,7 +1918,7 @@ ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccPaeldf.s 			page 1
  1284      37373135 
  1285 006c 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
  1285      66756E63 
-ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccPaeldf.s 			page 33
+ARM GAS  C:\Users\Janit\AppData\Local\Temp\ccNTVccG.s 			page 33
 
 
  1285      74696F6E 
@@ -1968,164 +1968,168 @@ ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccPaeldf.s 			page 1
  1301      6E736F72 
  1301      5F53746F 
  1301      7000
- 1302              	.LASF20:
- 1303 0128 54696D65 		.ascii	"Timer_Sensor_Start\000"
- 1303      725F5365 
- 1303      6E736F72 
- 1303      5F537461 
- 1303      727400
+ 1302              	.LASF37:
+ 1303 0128 47656E65 		.ascii	"Generated_Source\\PSoC5\\Timer_Sensor.c\000"
+ 1303      72617465 
+ 1303      645F536F 
+ 1303      75726365 
+ 1303      5C50536F 
  1304              	.LASF33:
- 1305 013b 54696D65 		.ascii	"Timer_Sensor_WriteCounter\000"
+ 1305 014e 54696D65 		.ascii	"Timer_Sensor_WriteCounter\000"
  1305      725F5365 
  1305      6E736F72 
-ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccPaeldf.s 			page 34
+ARM GAS  C:\Users\Janit\AppData\Local\Temp\ccNTVccG.s 			page 34
 
 
  1305      5F577269 
  1305      7465436F 
  1306              	.LASF29:
- 1307 0155 54696D65 		.ascii	"Timer_Sensor_ReadPeriod\000"
+ 1307 0168 54696D65 		.ascii	"Timer_Sensor_ReadPeriod\000"
  1307      725F5365 
  1307      6E736F72 
  1307      5F526561 
  1307      64506572 
  1308              	.LASF11:
- 1309 016d 666C6F61 		.ascii	"float\000"
+ 1309 0180 666C6F61 		.ascii	"float\000"
  1309      7400
  1310              	.LASF34:
- 1311 0173 636F756E 		.ascii	"counter\000"
+ 1311 0186 636F756E 		.ascii	"counter\000"
  1311      74657200 
  1312              	.LASF1:
- 1313 017b 756E7369 		.ascii	"unsigned char\000"
+ 1313 018e 756E7369 		.ascii	"unsigned char\000"
  1313      676E6564 
  1313      20636861 
  1313      7200
  1314              	.LASF30:
- 1315 0189 54696D65 		.ascii	"Timer_Sensor_WritePeriod\000"
+ 1315 019c 54696D65 		.ascii	"Timer_Sensor_WritePeriod\000"
  1315      725F5365 
  1315      6E736F72 
  1315      5F577269 
  1315      74655065 
- 1316              	.LASF38:
- 1317 01a2 483A5C44 		.ascii	"H:\\Documents\\12_Cypress_LineFollowingRobot\\Final"
- 1317      6F63756D 
- 1317      656E7473 
- 1317      5C31325F 
- 1317      43797072 
- 1318 01d2 5F696D70 		.ascii	"_implementation\\Team12_PsoC_FinalImplementation.cy"
- 1318      6C656D65 
- 1318      6E746174 
- 1318      696F6E5C 
- 1318      5465616D 
- 1319 0204 64736E00 		.ascii	"dsn\000"
- 1320              	.LASF9:
- 1321 0208 75696E74 		.ascii	"uint8\000"
- 1321      3800
- 1322              	.LASF28:
- 1323 020e 636F6E74 		.ascii	"control\000"
- 1323      726F6C00 
- 1324              	.LASF22:
- 1325 0216 54696D65 		.ascii	"Timer_Sensor_SoftwareCapture\000"
- 1325      725F5365 
- 1325      6E736F72 
- 1325      5F536F66 
- 1325      74776172 
- 1326              	.LASF12:
- 1327 0233 646F7562 		.ascii	"double\000"
- 1327      6C6500
- 1328              	.LASF10:
- 1329 023a 75696E74 		.ascii	"uint16\000"
- 1329      313600
- 1330              	.LASF35:
- 1331 0241 54696D65 		.ascii	"Timer_Sensor_ReadCounter\000"
-ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccPaeldf.s 			page 35
+ 1316              	.LASF20:
+ 1317 01b5 54696D65 		.ascii	"Timer_Sensor_Start\000"
+ 1317      725F5365 
+ 1317      6E736F72 
+ 1317      5F537461 
+ 1317      727400
+ 1318              	.LASF9:
+ 1319 01c8 75696E74 		.ascii	"uint8\000"
+ 1319      3800
+ 1320              	.LASF28:
+ 1321 01ce 636F6E74 		.ascii	"control\000"
+ 1321      726F6C00 
+ 1322              	.LASF22:
+ 1323 01d6 54696D65 		.ascii	"Timer_Sensor_SoftwareCapture\000"
+ 1323      725F5365 
+ 1323      6E736F72 
+ 1323      5F536F66 
+ 1323      74776172 
+ 1324              	.LASF12:
+ 1325 01f3 646F7562 		.ascii	"double\000"
+ 1325      6C6500
+ 1326              	.LASF10:
+ 1327 01fa 75696E74 		.ascii	"uint16\000"
+ 1327      313600
+ 1328              	.LASF35:
+ 1329 0201 54696D65 		.ascii	"Timer_Sensor_ReadCounter\000"
+ 1329      725F5365 
+ 1329      6E736F72 
+ 1329      5F526561 
+ 1329      64436F75 
+ 1330              	.LASF25:
+ 1331 021a 54696D65 		.ascii	"Timer_Sensor_SetInterruptMode\000"
+ARM GAS  C:\Users\Janit\AppData\Local\Temp\ccNTVccG.s 			page 35
 
 
  1331      725F5365 
  1331      6E736F72 
- 1331      5F526561 
- 1331      64436F75 
- 1332              	.LASF25:
- 1333 025a 54696D65 		.ascii	"Timer_Sensor_SetInterruptMode\000"
- 1333      725F5365 
- 1333      6E736F72 
- 1333      5F536574 
- 1333      496E7465 
- 1334              	.LASF5:
- 1335 0278 6C6F6E67 		.ascii	"long unsigned int\000"
- 1335      20756E73 
- 1335      69676E65 
- 1335      6420696E 
- 1335      7400
- 1336              	.LASF24:
- 1337 028a 54696D65 		.ascii	"Timer_Sensor_ReadControlRegister\000"
- 1337      725F5365 
- 1337      6E736F72 
- 1337      5F526561 
- 1337      64436F6E 
- 1338              	.LASF7:
- 1339 02ab 6C6F6E67 		.ascii	"long long unsigned int\000"
- 1339      206C6F6E 
- 1339      6720756E 
- 1339      7369676E 
- 1339      65642069 
- 1340              	.LASF39:
- 1341 02c2 70657269 		.ascii	"period_temp\000"
- 1341      6F645F74 
- 1341      656D7000 
- 1342              	.LASF14:
- 1343 02ce 72656738 		.ascii	"reg8\000"
- 1343      00
- 1344              	.LASF17:
- 1345 02d3 73697A65 		.ascii	"sizetype\000"
- 1345      74797065 
+ 1331      5F536574 
+ 1331      496E7465 
+ 1332              	.LASF5:
+ 1333 0238 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1333      20756E73 
+ 1333      69676E65 
+ 1333      6420696E 
+ 1333      7400
+ 1334              	.LASF24:
+ 1335 024a 54696D65 		.ascii	"Timer_Sensor_ReadControlRegister\000"
+ 1335      725F5365 
+ 1335      6E736F72 
+ 1335      5F526561 
+ 1335      64436F6E 
+ 1336              	.LASF38:
+ 1337 026b 443A5C44 		.ascii	"D:\\Documents\\UOA\\2023\\Semester 2\\COMPSYS301\\r"
+ 1337      6F63756D 
+ 1337      656E7473 
+ 1337      5C554F41 
+ 1337      5C323032 
+ 1338 0298 65706F73 		.ascii	"epos\\12_Cypress_LineFollowingRobot\\Final_implemen"
+ 1338      5C31325F 
+ 1338      43797072 
+ 1338      6573735F 
+ 1338      4C696E65 
+ 1339 02c9 74617469 		.ascii	"tation\\Team12_PsoC_FinalImplementation.cydsn\000"
+ 1339      6F6E5C54 
+ 1339      65616D31 
+ 1339      325F5073 
+ 1339      6F435F46 
+ 1340              	.LASF7:
+ 1341 02f6 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1341      206C6F6E 
+ 1341      6720756E 
+ 1341      7369676E 
+ 1341      65642069 
+ 1342              	.LASF39:
+ 1343 030d 70657269 		.ascii	"period_temp\000"
+ 1343      6F645F74 
+ 1343      656D7000 
+ 1344              	.LASF14:
+ 1345 0319 72656738 		.ascii	"reg8\000"
  1345      00
- 1346              	.LASF37:
- 1347 02dc 47656E65 		.ascii	"Generated_Source\\PSoC5\\Timer_Sensor.c\000"
- 1347      72617465 
- 1347      645F536F 
- 1347      75726365 
- 1347      5C50536F 
+ 1346              	.LASF17:
+ 1347 031e 73697A65 		.ascii	"sizetype\000"
+ 1347      74797065 
+ 1347      00
  1348              	.LASF6:
- 1349 0302 6C6F6E67 		.ascii	"long long int\000"
+ 1349 0327 6C6F6E67 		.ascii	"long long int\000"
  1349      206C6F6E 
  1349      6720696E 
  1349      7400
  1350              	.LASF27:
- 1351 0310 696E7465 		.ascii	"interruptMode\000"
+ 1351 0335 696E7465 		.ascii	"interruptMode\000"
  1351      72727570 
+ARM GAS  C:\Users\Janit\AppData\Local\Temp\ccNTVccG.s 			page 36
+
+
  1351      744D6F64 
  1351      6500
  1352              	.LASF2:
- 1353 031e 73686F72 		.ascii	"short int\000"
-ARM GAS  C:\Users\sela847\AppData\Local\Temp\ccPaeldf.s 			page 36
-
-
+ 1353 0343 73686F72 		.ascii	"short int\000"
  1353      7420696E 
  1353      7400
  1354              	.LASF32:
- 1355 0328 54696D65 		.ascii	"Timer_Sensor_ReadCapture\000"
+ 1355 034d 54696D65 		.ascii	"Timer_Sensor_ReadCapture\000"
  1355      725F5365 
  1355      6E736F72 
  1355      5F526561 
  1355      64436170 
  1356              	.LASF4:
- 1357 0341 6C6F6E67 		.ascii	"long int\000"
+ 1357 0366 6C6F6E67 		.ascii	"long int\000"
  1357      20696E74 
  1357      00
  1358              	.LASF13:
- 1359 034a 63686172 		.ascii	"char\000"
+ 1359 036f 63686172 		.ascii	"char\000"
  1359      00
  1360              	.LASF16:
- 1361 034f 6C6F6E67 		.ascii	"long double\000"
+ 1361 0374 6C6F6E67 		.ascii	"long double\000"
  1361      20646F75 
  1361      626C6500 
  1362              	.LASF0:
- 1363 035b 7369676E 		.ascii	"signed char\000"
+ 1363 0380 7369676E 		.ascii	"signed char\000"
  1363      65642063 
  1363      68617200 
  1364              	.LASF26:
- 1365 0367 54696D65 		.ascii	"Timer_Sensor_WriteControlRegister\000"
+ 1365 038c 54696D65 		.ascii	"Timer_Sensor_WriteControlRegister\000"
  1365      725F5365 
  1365      6E736F72 
  1365      5F577269 
