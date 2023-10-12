@@ -101,6 +101,11 @@ size_t bfs(const uint8_t map[MAP_HEIGHT][MAP_WIDTH], Point start,
             if (traceBack.node == 1 && finalFound == 0) {
               traceBack.steps = steps;
               traceBack.finalTurn = 1;
+              if (traceBack.x == curr.x) {
+                traceBack.xOrY = VERTICAL;
+              } else {
+                traceBack.xOrY = HORIZONTAL; 
+              }
               finalFound = 1;
             }
             if (finalFound==0) {

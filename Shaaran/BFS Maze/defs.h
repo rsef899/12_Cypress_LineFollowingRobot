@@ -12,9 +12,11 @@
 #define DOWNTURN  2
 #define LEFTTURN  3
 #define RIGHTTURN 4
+#define VERTICAL 1
+#define HORIZONTAL 0
 
 typedef struct Point {
-  uint8_t x, y,direction,node,finalTurn,foodPoint,steps;
+  uint8_t x, y,direction,node,finalTurn,foodPoint,steps,xOrY; //xOrY 0 = x, 1 = Y
 } Point;
 
 #endif // _MAP_H

@@ -124,8 +124,8 @@ AlgoResult find_full_path(Point start, Point *out, size_t outCap);
 
 void printPoints(const Point *arr, size_t length) {
     for (size_t i = 0; i < length; i++) {
-        printf("Point %zu: x = %d, y = %d, direction = %d, node= %d finalTurn = %d,food=%d,steps = %d\n",
-               i, arr[i].x, arr[i].y, arr[i].direction,arr[i].node,arr[i].finalTurn,arr[i].foodPoint,arr[i].steps);
+        printf("Point %zu: x = %d, y = %d, direction = %d, node= %d finalTurn = %d,food=%d,steps = %d, vertical(1) or horizontal(0) = %d\n",
+               i, arr[i].x, arr[i].y, arr[i].direction,arr[i].node,arr[i].finalTurn,arr[i].foodPoint,arr[i].steps,arr[i].xOrY);
     }
 }
 
