@@ -89,7 +89,7 @@ int main(){
                 LED_BLUE_Write(0);
                 LED_Write(0);
                 
-                motorControl(go_speed, go_speed);
+                controlWheels(MEDIUM_FORWARD_L, MEDIUM_FORWARD);
 
                 if ((!Q5_Read() || !Q4_Read()) && !noSensor) {
                     currentState = PREPARETURN;
@@ -107,7 +107,7 @@ int main(){
                 LED_GREEN_Write(0);
                 LED_BLUE_Write(1);
                 LED_Write(0);
-                motorControl(go_speed, go_speed);
+                controlWheels(MEDIUM_FORWARD_L, MEDIUM_FORWARD);
                                
                     // if the front wheels are all of the line, we must drive before turning
                     if (Q1_Read() && Q2_Read() && Q3_Read()){
@@ -124,13 +124,11 @@ int main(){
                     }
                     // right correction
                     if (!Q3_Read()){
-                        //controlWheels(MEDIUM_FORWARD, SLOW_FORWARD);
-                        motorControl(go_speed, go_speed-5.0);
+                        controlWheels(MEDIUM_FORWARD, SLOW_FORWARD);
                     }
                     // left correction
                     if (!Q1_Read()){
-                        //controlWheels(SLOW_FORWARD, MEDIUM_FORWARD); 
-                        motorControl(go_speed-5.0, go_speed);
+                        controlWheels(SLOW_FORWARD, MEDIUM_FORWARD); 
                     }
                 break;       
             case(PREPARETURN):
@@ -140,8 +138,7 @@ int main(){
                 if(!currentInstruction.foodPoint) {
                     switch(currentInstruction.direction) {
                     case(LEFT):
-                        //controlWheels(MEDIUM_REVERSE, MEDIUM_FORWARD);
-                        motorControl(-go_speed, go_speed);
+                        controlWheels(MEDIUM_REVERSE, MEDIUM_FORWARD);
                          //Working Mostly
                         if ((firstEntry == 1 && Q2_Read() && Q1_Read() && Q3_Read())) { // i.e nothing in front -- wdc ab intersect then
                             intersect = 1;
@@ -166,20 +163,17 @@ int main(){
                         
                         break;   
                     case(FORWARD):
-                        motorControl(go_speed, go_speed);
-                        //motorControl(go_speed, go_speed);
+                        controlWheels(MEDIUM_FORWARD_L, MEDIUM_FORWARD);
                         CyDelay(400);    // REVIEW MAYBE //
                         if (Q5_Read() && Q4_Read()){
-                            motorControl(go_speed, go_speed);
-                            //motorControl(go_speed, go_speed);
+                            controlWheels(MEDIUM_FORWARD_L, MEDIUM_FORWARD);
                             currentState = DRIVING;
                         }
                         firstEntry = 0;
                     
                         break;
                     case(RIGHT):
-                        //controlWheels(MEDIUM_FORWARD, MEDIUM_REVERSE);
-                        motorControl(go_speed, -go_speed);
+                        controlWheels(MEDIUM_FORWARD, MEDIUM_REVERSE);
                          //Working Mostly
                         if ((firstEntry == 1 && Q2_Read() && Q1_Read() && Q3_Read())) { // i.e nothing in front -- wdc ab intersect then
                             intersect = 1;
@@ -218,10 +212,9 @@ int main(){
                     LED_BLUE_Write(0);
                     LED_Write(1);
                     case(LEFT):
-                       //controlWheels(MEDIUM_REVERSE, MEDIUM_FORWARD);
-                        motorControl(-go_speed, go_speed);
+                       controlWheels(MEDIUM_REVERSE, MEDIUM_FORWARD);
                         
-                        if (!Q2_Read() && !intersect){
+                        if (!Q1_Read() && !intersect){
                             controlWheels(STOP, STOP);
                             noSensor = 1;
                             Timer_Sensor_Start();
@@ -235,10 +228,9 @@ int main(){
 
                         break; 
                     case(RIGHT):
-                        //controlWheels(MEDIUM_FORWARD, MEDIUM_REVERSE);
-                        motorControl(go_speed, -go_speed);
+                        controlWheels(MEDIUM_FORWARD, MEDIUM_REVERSE);
                         
-                        if (!Q2_Read() && !intersect){
+                        if (!Q3_Read() && !intersect){
                             controlWheels(STOP, STOP);
                             noSensor = 1;
                             Timer_Sensor_Start();
