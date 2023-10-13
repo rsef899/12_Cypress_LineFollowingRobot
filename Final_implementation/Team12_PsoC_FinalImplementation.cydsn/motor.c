@@ -21,15 +21,15 @@
 uint8_t timeIndex = 0;
 float m1motorSpeed =0;
 float m2motorSpeed =0;
-float distanceTravelledM1,distanceTravelledM2,distanceTravelled = 0;
 
-float distanceRequired = 76.5; // This is in cm (i.e 100cm distance(
 
-uint8_t printSpeed,distanceCheck = 0;
+
+
+
 volatile uint8_t changeVal = 0;
 float m1Count = 0;
 float m2Count = 0;
-uint8_t stop = 0;
+
 uint8_t flag = 0;
 
 float m1Comp,m2Comp;
@@ -46,7 +46,7 @@ CY_ISR(QuadDecoderIsr){
 void motorControl(float m1speed, float m2speed) {
     if(changeVal == 0) {
         return;
-    } else if (stop ==1) {
+    } else if (stopMotor ==1) {
             // ******** THIS IS THE CODE FOR CONTROL WHEELS, EITHER REMOVE FROM MAIN OR MOVE TO THIS FILE **//
             uint8_t compareValue1 = ((float)PWM_1_ReadPeriod() * (50/100.0));
             uint8_t compareValue2 = ((float)PWM_2_ReadPeriod() * (50/100.0));
@@ -67,7 +67,20 @@ void motorControl(float m1speed, float m2speed) {
     
     float m1error = m1speed - m1motorSpeed;
     float m2error = m2speed - m2motorSpeed;
-    
+    if (distanceCheck == 1) {
+        distanceTravelledM1 = distanceTravelledM1 + m1motorSpeed*MOTORSPEED_PER_SECOND;
+        distanceTravelledM2 = distanceTravelledM2 + m2motorSpeed*MOTORSPEED_PER_SECOND;
+        distanceTravelled = (distanceTravelledM1 + distanceTravelledM2 ) / 2.0;
+        if (distanceTravelled >= distanceRequired) {
+            stopMotor = 1;
+            uint8_t compareValue1 = ((float)PWM_1_ReadPeriod() * (50/100.0));
+            uint8_t compareValue2 = ((float)PWM_2_ReadPeriod() * (50/100.0));
+            //set the PWM to the found value
+            PWM_1_WriteCompare(compareValue1);
+            PWM_2_WriteCompare(compareValue2);
+            return;
+        }
+    }
     m1Comp = PWM_1_ReadCompare();
     m2Comp = PWM_2_ReadCompare();
     float m1Target = m1Comp + m1error;

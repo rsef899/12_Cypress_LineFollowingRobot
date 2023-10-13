@@ -29,9 +29,11 @@
 <v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\Team12_PsoC_FinalImplementation.cydwr\Flash Security</v>
 <v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\Team12_PsoC_FinalImplementation.cydwr\EEPROM</v>
 <v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\Header Files</v>
+<v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\Header Files\algo.h</v>
 <v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\Header Files\defines.h</v>
 <v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\Header Files\vars.h</v>
 <v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\Source Files</v>
+<v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\Source Files\algo.c</v>
 <v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\Source Files\main.c</v>
 <v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\Source Files\movement.c</v>
 <v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\Source Files\movement.h</v>
@@ -43,6 +45,9 @@
 <v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\Generated_Source\PSoC5</v>
 </ExpandedNodeIds>
 <VisibleNodeIds>
+<v>Team12_PsoC_FinalImplementation-000</v>
+<v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation</v>
+<v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\TopDesign</v>
 <v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\Team12_PsoC_FinalImplementation.cydwr</v>
 <v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\Team12_PsoC_FinalImplementation.cydwr\Pins</v>
 <v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\Team12_PsoC_FinalImplementation.cydwr\Analog</v>
@@ -54,10 +59,14 @@
 <v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\Team12_PsoC_FinalImplementation.cydwr\Flash Security</v>
 <v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\Team12_PsoC_FinalImplementation.cydwr\EEPROM</v>
 <v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\Header Files</v>
+<v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\Header Files\algo.h</v>
 <v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\Header Files\defines.h</v>
+<v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\Header Files\motor.h</v>
 <v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\Header Files\vars.h</v>
 <v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\Source Files</v>
+<v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\Source Files\algo.c</v>
 <v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\Source Files\main.c</v>
+<v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\Source Files\motor.c</v>
 <v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\Source Files\movement.c</v>
 <v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\Source Files\movement.h</v>
 <v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\Source Files\QuadEncoder.c</v>
@@ -67,13 +76,6 @@
 <v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\Generated_Source</v>
 <v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\Generated_Source\PSoC5</v>
 <v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\Generated_Source\PSoC5\A7</v>
-<v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\Generated_Source\PSoC5\ADC</v>
-<v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\Generated_Source\PSoC5\ADC_FinalBuf</v>
-<v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\Generated_Source\PSoC5\ADC_IntClock</v>
-<v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\Generated_Source\PSoC5\ADC_IRQ</v>
-<v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\Generated_Source\PSoC5\ADC_SAR</v>
-<v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\Generated_Source\PSoC5\ADC_SAR_Bypass</v>
-<v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\Generated_Source\PSoC5\ADC_TempBuf</v>
 <v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\Generated_Source\PSoC5\Clock_PWM</v>
 <v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\Generated_Source\PSoC5\Clock_QENC</v>
 <v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\Generated_Source\PSoC5\Clock2</v>
@@ -90,7 +92,7 @@
 <v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\Generated_Source\PSoC5\DB1</v>
 <v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\Generated_Source\PSoC5\DB2</v>
 <v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\Generated_Source\PSoC5\Em_EEPROM_Dynamic</v>
-<v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\Generated_Source\PSoC5\isr_eoc</v>
+<v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\Generated_Source\PSoC5\isr_quad_timer</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 <CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
@@ -116,17 +118,7 @@
 <v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\CortexM3\ARM_GCC_541\Debug</v>
 <v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\CortexM3\ARM_GCC_541\Debug\Listing Files</v>
 <v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\CortexM3\ARM_GCC_541\Debug\Listing Files\A7.lst</v>
-<v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC.lst</v>
-<v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_FinalBuf_dma.lst</v>
-<v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_INT.lst</v>
-<v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_IntClock.lst</v>
-<v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_IRQ.lst</v>
-<v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_PM.lst</v>
-<v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_SAR.lst</v>
-<v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_SAR_Bypass.lst</v>
-<v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_SAR_INT.lst</v>
-<v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_SAR_PM.lst</v>
-<v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_TempBuf_dma.lst</v>
+<v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\CortexM3\ARM_GCC_541\Debug\Listing Files\algo.lst</v>
 <v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\CortexM3\ARM_GCC_541\Debug\Listing Files\Clock_PWM.lst</v>
 <v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\CortexM3\ARM_GCC_541\Debug\Listing Files\Clock_QENC.lst</v>
 <v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\CortexM3\ARM_GCC_541\Debug\Listing Files\Clock2.lst</v>
@@ -153,8 +145,7 @@
 <v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\CortexM3\ARM_GCC_541\Debug\Listing Files\DB0.lst</v>
 <v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\CortexM3\ARM_GCC_541\Debug\Listing Files\DB1.lst</v>
 <v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\CortexM3\ARM_GCC_541\Debug\Listing Files\DB2.lst</v>
-<v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\CortexM3\ARM_GCC_541\Debug\Listing Files\isr_eoc.lst</v>
-<v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\CortexM3\ARM_GCC_541\Debug\Listing Files\isr_TS.lst</v>
+<v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\CortexM3\ARM_GCC_541\Debug\Listing Files\isr_quad_timer.lst</v>
 <v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\CortexM3\ARM_GCC_541\Debug\Listing Files\isrRF_RX.lst</v>
 <v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\CortexM3\ARM_GCC_541\Debug\Listing Files\isrRF_TX.lst</v>
 <v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\CortexM3\ARM_GCC_541\Debug\Listing Files\LED.lst</v>
@@ -173,6 +164,7 @@
 <v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\CortexM3\ARM_GCC_541\Debug\Listing Files\M2_QA.lst</v>
 <v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\CortexM3\ARM_GCC_541\Debug\Listing Files\M2_QB.lst</v>
 <v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\CortexM3\ARM_GCC_541\Debug\Listing Files\main.lst</v>
+<v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\CortexM3\ARM_GCC_541\Debug\Listing Files\motor.lst</v>
 <v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\CortexM3\ARM_GCC_541\Debug\Listing Files\movement.lst</v>
 <v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\CortexM3\ARM_GCC_541\Debug\Listing Files\PWM_1.lst</v>
 <v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\CortexM3\ARM_GCC_541\Debug\Listing Files\PWM_1_PM.lst</v>
@@ -188,10 +180,14 @@
 <v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\CortexM3\ARM_GCC_541\Debug\Listing Files\QuadDec_M1.lst</v>
 <v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\CortexM3\ARM_GCC_541\Debug\Listing Files\QuadDec_M1_Cnt16.lst</v>
 <v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\CortexM3\ARM_GCC_541\Debug\Listing Files\QuadDec_M1_Cnt16_PM.lst</v>
+<v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\CortexM3\ARM_GCC_541\Debug\Listing Files\QuadDec_M1_INT.lst</v>
+<v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\CortexM3\ARM_GCC_541\Debug\Listing Files\QuadDec_M1_isr.lst</v>
 <v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\CortexM3\ARM_GCC_541\Debug\Listing Files\QuadDec_M1_PM.lst</v>
 <v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\CortexM3\ARM_GCC_541\Debug\Listing Files\QuadDec_M2.lst</v>
 <v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\CortexM3\ARM_GCC_541\Debug\Listing Files\QuadDec_M2_Cnt16.lst</v>
 <v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\CortexM3\ARM_GCC_541\Debug\Listing Files\QuadDec_M2_Cnt16_PM.lst</v>
+<v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\CortexM3\ARM_GCC_541\Debug\Listing Files\QuadDec_M2_INT.lst</v>
+<v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\CortexM3\ARM_GCC_541\Debug\Listing Files\QuadDec_M2_isr.lst</v>
 <v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\CortexM3\ARM_GCC_541\Debug\Listing Files\QuadDec_M2_PM.lst</v>
 <v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\CortexM3\ARM_GCC_541\Debug\Listing Files\QuadEncoder.lst</v>
 <v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\CortexM3\ARM_GCC_541\Debug\Listing Files\RF_BT_SELECT.lst</v>
@@ -201,8 +197,8 @@
 <v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\CortexM3\ARM_GCC_541\Debug\Listing Files\timer_clock.lst</v>
 <v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\CortexM3\ARM_GCC_541\Debug\Listing Files\Timer_Sensor.lst</v>
 <v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\CortexM3\ARM_GCC_541\Debug\Listing Files\Timer_Sensor_PM.lst</v>
-<v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\CortexM3\ARM_GCC_541\Debug\Listing Files\Timer_TS.lst</v>
-<v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\CortexM3\ARM_GCC_541\Debug\Listing Files\Timer_TS_PM.lst</v>
+<v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\CortexM3\ARM_GCC_541\Debug\Listing Files\tmm.lst</v>
+<v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\CortexM3\ARM_GCC_541\Debug\Listing Files\tmm_PM.lst</v>
 <v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\CortexM3\ARM_GCC_541\Debug\Listing Files\UART.lst</v>
 <v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_BOOT.lst</v>
 <v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\CortexM3\ARM_GCC_541\Debug\Listing Files\UART_INT.lst</v>
@@ -236,52 +232,6 @@
 <VisibleNodeIds>
 <v>Team12_PsoC_FinalImplementation-000</v>
 <v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation</v>
-<v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\CortexM3</v>
-<v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\CortexM3\ARM_GCC_541</v>
-<v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\CortexM3\ARM_GCC_541\Debug</v>
-<v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\CortexM3\ARM_GCC_541\Debug\Listing Files</v>
-<v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\CortexM3\ARM_GCC_541\Debug\Listing Files\A7.lst</v>
-<v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC.lst</v>
-<v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_FinalBuf_dma.lst</v>
-<v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_INT.lst</v>
-<v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_IntClock.lst</v>
-<v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_IRQ.lst</v>
-<v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_PM.lst</v>
-<v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_SAR.lst</v>
-<v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_SAR_Bypass.lst</v>
-<v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_SAR_INT.lst</v>
-<v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_SAR_PM.lst</v>
-<v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\CortexM3\ARM_GCC_541\Debug\Listing Files\ADC_TempBuf_dma.lst</v>
-<v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\CortexM3\ARM_GCC_541\Debug\Listing Files\Clock_PWM.lst</v>
-<v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\CortexM3\ARM_GCC_541\Debug\Listing Files\Clock_QENC.lst</v>
-<v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\CortexM3\ARM_GCC_541\Debug\Listing Files\Clock2.lst</v>
-<v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\CortexM3\ARM_GCC_541\Debug\Listing Files\Cm3Start.lst</v>
-<v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\CortexM3\ARM_GCC_541\Debug\Listing Files\CONTROL.lst</v>
-<v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\CortexM3\ARM_GCC_541\Debug\Listing Files\CONTROL_PM.lst</v>
-<v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\CortexM3\ARM_GCC_541\Debug\Listing Files\cy_em_eeprom.lst</v>
-<v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\CortexM3\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
-<v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\CortexM3\ARM_GCC_541\Debug\Listing Files\CyDmac.lst</v>
-<v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\CortexM3\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
-<v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\CortexM3\ARM_GCC_541\Debug\Listing Files\CyFlash.lst</v>
-<v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\CortexM3\ARM_GCC_541\Debug\Listing Files\CyLib.lst</v>
-<v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\CortexM3\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
-<v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\CortexM3\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
-<v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\CortexM3\ARM_GCC_541\Debug\Listing Files\CySpc.lst</v>
-<v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\CortexM3\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
-<v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\CortexM3\ARM_GCC_541\Debug\Listing Files\D11.lst</v>
-<v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\CortexM3\ARM_GCC_541\Debug\Listing Files\D12.lst</v>
-<v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\CortexM3\ARM_GCC_541\Debug\Listing Files\D13.lst</v>
-<v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\CortexM3\ARM_GCC_541\Debug\Listing Files\D14.lst</v>
-<v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\CortexM3\ARM_GCC_541\Debug\Listing Files\D15.lst</v>
-<v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\CortexM3\ARM_GCC_541\Debug\Listing Files\D16.lst</v>
-<v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\CortexM3\ARM_GCC_541\Debug\Listing Files\D17.lst</v>
-<v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\CortexM3\ARM_GCC_541\Debug\Listing Files\DB0.lst</v>
-<v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\CortexM3\ARM_GCC_541\Debug\Listing Files\DB1.lst</v>
-<v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\CortexM3\ARM_GCC_541\Debug\Listing Files\DB2.lst</v>
-<v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\CortexM3\ARM_GCC_541\Debug\Listing Files\isr_eoc.lst</v>
-<v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\CortexM3\ARM_GCC_541\Debug\Listing Files\isr_TS.lst</v>
-<v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\CortexM3\ARM_GCC_541\Debug\Listing Files\isrRF_RX.lst</v>
-<v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\CortexM3\ARM_GCC_541\Debug\Listing Files\isrRF_TX.lst</v>
 </VisibleNodeIds>
 </CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
 </TreeStates>
@@ -297,7 +247,6 @@
 <v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\CY8C58LP Family Datasheet</v>
 <v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\System Reference Guides</v>
 <v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\System Reference Guides\cy_boot_v5_82</v>
-<v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\ADC_SAR_SEQ_v2_10.pdf</v>
 <v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\cy_clock_v2_20</v>
 <v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\cy_clock_v2_20\cy_clock_v2_20.pdf</v>
 <v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\cy_constant_v1_0.pdf</v>
@@ -329,7 +278,6 @@
 <v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\CY8C58LP Family Datasheet</v>
 <v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\System Reference Guides</v>
 <v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\System Reference Guides\cy_boot_v5_82</v>
-<v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\ADC_SAR_SEQ_v2_10.pdf</v>
 <v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\cy_clock_v2_20</v>
 <v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\cy_clock_v2_20\cy_clock_v2_20.pdf</v>
 <v>Team12_PsoC_FinalImplementation-000\Team12_PsoC_FinalImplementation\cy_constant_v1_0.pdf</v>
@@ -369,12 +317,13 @@
 <OpenDocs>
 <name v=".\main.c" />
 <name v=".\TopDesign\TopDesign.cysch" />
+<name v=".\movement.h" />
+<name v=".\algo.c" />
+<name v=".\algo.h" />
 <name v=".\defines.h" />
 <name v=".\states.h" />
-<name v=".\tacho.c" />
-<name v=".\vars.h" />
-<name v=".\movement.c" />
-<name v=".\movement.h" />
+<name v=".\motor.c" />
+<name v=".\motor.h" />
 </OpenDocs>
 <OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
 
@@ -382,7 +331,7 @@
   Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
   http://www.actiprosoftware.com
 
---><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1439, 711" SelectedTabbedMdiWindow="08c7aec1-3d4d-4634-95e2-e96a2eccd1a9"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="9c47c467-8355-49b4-b3ec-0ff5472e6de4" /><DocumentWindow Key="H:\Documents\12_Cypress_LineFollowingRobot\Final_implementation\Team12_PsoC_FinalImplementation.cydsn\main.c" Guid="08c7aec1-3d4d-4634-95e2-e96a2eccd1a9" /><DocumentWindow Key="H:\Documents\12_Cypress_LineFollowingRobot\Final_implementation\Team12_PsoC_FinalImplementation.cydsn\TopDesign\TopDesign.cysch" Guid="2322fd40-8d7d-4378-a1ea-c7520bb15acb" /><DocumentWindow Key="H:\Documents\12_Cypress_LineFollowingRobot\Final_implementation\Team12_PsoC_FinalImplementation.cydsn\defines.h" Guid="a1f948ef-8669-4af9-a2fb-bfeca14397d3" /><DocumentWindow Key="H:\Documents\12_Cypress_LineFollowingRobot\Final_implementation\Team12_PsoC_FinalImplementation.cydsn\states.h" Guid="296be45a-4ef1-4de0-a1ab-6376b0b314f3" /><DocumentWindow Key="H:\Documents\12_Cypress_LineFollowingRobot\Final_implementation\Team12_PsoC_FinalImplementation.cydsn\tacho.c" Guid="c4af9bc8-387d-40ef-a3dc-9a78b8aaa744" /><DocumentWindow Key="H:\Documents\12_Cypress_LineFollowingRobot\Final_implementation\Team12_PsoC_FinalImplementation.cydsn\vars.h" Guid="56a013d7-42bb-423c-8934-d306aa24b8b1" /><DocumentWindow Key="H:\Documents\12_Cypress_LineFollowingRobot\Final_implementation\Team12_PsoC_FinalImplementation.cydsn\movement.c" Guid="046b73c5-5736-4910-94db-98c7f4bfdb0c" /><DocumentWindow Key="H:\Documents\12_Cypress_LineFollowingRobot\Final_implementation\Team12_PsoC_FinalImplementation.cydsn\movement.h" Guid="b2a6dde2-81bc-4249-b5e4-253c48e2f714" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1439, 711" SelectedTabbedMdiWindow="1dfcfcbc-5f84-49ed-b54c-c6e30a9d6cee"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="9c47c467-8355-49b4-b3ec-0ff5472e6de4" /><DocumentWindow Key="H:\Documents\301_MAIN\12_Cypress_LineFollowingRobot\Final_implementation\Team12_PsoC_FinalImplementation.cydsn\main.c" Guid="1dfcfcbc-5f84-49ed-b54c-c6e30a9d6cee" /><DocumentWindow Key="H:\Documents\301_MAIN\12_Cypress_LineFollowingRobot\Final_implementation\Team12_PsoC_FinalImplementation.cydsn\TopDesign\TopDesign.cysch" Guid="678a7201-4af7-4fc1-87d4-8b7f5d8298ec" /><DocumentWindow Key="H:\Documents\301_MAIN\12_Cypress_LineFollowingRobot\Final_implementation\Team12_PsoC_FinalImplementation.cydsn\movement.h" Guid="db04171e-3a6e-40c2-8b94-701da3c606ae" /><DocumentWindow Key="H:\Documents\301_MAIN\12_Cypress_LineFollowingRobot\Final_implementation\Team12_PsoC_FinalImplementation.cydsn\algo.c" Guid="8293edbf-840b-4ac9-8817-7a98c786e259" /><DocumentWindow Key="H:\Documents\301_MAIN\12_Cypress_LineFollowingRobot\Final_implementation\Team12_PsoC_FinalImplementation.cydsn\algo.h" Guid="9add3b14-f135-4742-9198-7caa172f6f50" /><DocumentWindow Key="H:\Documents\301_MAIN\12_Cypress_LineFollowingRobot\Final_implementation\Team12_PsoC_FinalImplementation.cydsn\defines.h" Guid="a9f24fb7-b451-4caa-9d42-a7fe2d1df051" /><DocumentWindow Key="H:\Documents\301_MAIN\12_Cypress_LineFollowingRobot\Final_implementation\Team12_PsoC_FinalImplementation.cydsn\states.h" Guid="596a6a56-0a84-4487-bb63-628281d50fad" /><DocumentWindow Key="H:\Documents\301_MAIN\12_Cypress_LineFollowingRobot\Final_implementation\Team12_PsoC_FinalImplementation.cydsn\motor.c" Guid="29b36e38-ad04-4d54-a51b-3d7df4754575" /><DocumentWindow Key="H:\Documents\301_MAIN\12_Cypress_LineFollowingRobot\Final_implementation\Team12_PsoC_FinalImplementation.cydsn\motor.h" Guid="361f1d1e-ede5-48a7-82b8-07e96cfb2d93" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
 <config v="" />
 <AutoUpdate v="true" />
 </CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>

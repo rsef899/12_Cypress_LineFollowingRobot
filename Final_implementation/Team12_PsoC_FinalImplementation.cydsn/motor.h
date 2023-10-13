@@ -23,8 +23,12 @@
 #define PULSES_PER_ROT (GEAR_RATIO * 3 * QuadDec_M1_COUNTER_RESOLUTION)
 #define RADIUS (3.25f)
 #define MOTORSPEED_PER_SECOND ((float) 50/1000.0f) // 50ms is the period we want to be changing the motor speed
+float distanceTravelledM1,distanceTravelledM2,distanceTravelled;
 
 void motorControl(float m1speed, float m2speed);
 void setupMotor();
 CY_ISR(QuadDecoderIsr);
 void usbPutString1(char *s);
+float distanceRequired; // This is in cm (i.e 100cm distance)
+uint8_t distanceCheck;
+uint8_t stopMotor;

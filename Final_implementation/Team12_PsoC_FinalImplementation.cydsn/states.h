@@ -25,6 +25,7 @@
     #define TURNING 5
     #define STOPCAR 10
     #define PREPARETURN 6
+    #define DIST_DRIVE 7
     
 #endif
 

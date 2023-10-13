@@ -18,10 +18,13 @@
 #include <string.h>
 #include <stdlib.h>
 #include <project.h>
+#include <stddef.h>
+#include <assert.h>
 //* ========================================
 #include "defines.h"
 #include "vars.h"
 #include "motor.h"
+#include "algo.h"
 //* ========================================
 //* ==== Our functionsality Includes =======
 #include "movement.h"
@@ -31,10 +34,6 @@ void usbPutString(char *s);
 void usbPutChar(char c);
 void handle_usb();
 //* ========================================
-# define MAX_PATH_SIZE 128
-typedef struct Point {
-    uint8_t x,y,direction,node,finalTurn,foodPoint,steps  ;
-} Point;
 
 #define FORWARD    1
 #define BACKWARD  2
@@ -42,12 +41,59 @@ typedef struct Point {
 #define RIGHT 4
 
 #define go_speed 15.0
+#define turn_speed 12.0
 
-static Point pathArray[MAX_PATH_SIZE] = {{1,1,FORWARD,1,0,0,0},{1,1,FORWARD,1,0,0,0},{1,3,LEFT,1,0,0,0}, {1,3,LEFT,1,0,0,0},{1,3,RIGHT,1,0,0,0},{1,3,LEFT,1,0,0,0},{1,3,LEFT,1,0,0,0},{1,3,RIGHT,1,1,0,0},{1,3,LEFT,1,0,1,0}};
+#define CIRCUMFERENCE ((11.5f) * CY_M_PI)
+
+#define COUNT_OF(x)\
+  ((sizeof(x) / sizeof(0 [x])) / ((size_t)(!(sizeof(x) % sizeof(0 [x])))))
+//* ===========================================
+// MAP and FOOD
+
+static uint8_t map[15][19] = {
+{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+{1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+{1,0,1,0,1,1,1,1,1,0,1,1,1,0,1,1,1,0,1},
+{1,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,1,0,1},
+{1,1,1,0,1,0,1,0,1,1,1,0,1,0,1,1,1,0,1},
+{1,0,0,0,1,0,1,0,0,0,1,0,1,0,0,0,0,0,1},
+{1,0,1,1,1,0,1,0,1,0,1,0,1,0,1,1,1,0,1},
+{1,0,1,0,1,0,0,0,1,0,1,0,1,0,1,0,0,0,1},
+{1,0,1,0,1,0,1,1,1,0,1,0,1,0,1,0,1,1,1},
+{1,0,0,0,1,0,1,0,0,0,1,0,0,0,1,0,0,0,1},
+{1,1,1,0,1,0,1,1,1,1,1,1,1,1,1,1,1,0,1},
+{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+{1,0,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1},
+{1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,1},
+{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+};
+/*
+static Point food_list[]= {
+{1,9},
+{5,5},
+{7,1},
+{13,5},
+{9,9}
+};*/
+
+static Point food_list[] = {
+    {13,5}   
+};
+//* ===========================================
+
+static const Point start = (Point){.x = 1, .y = 1};
+ 
+static Point pathArray[MAX_PATH_SIZE];
+
+
+
+
+
+ // static Point pathArray[MAX_PATH_SIZE] = {{1,1,FORWARD,1,0,0,0},{1,1,FORWARD,1,0,0,0},{1,3,LEFT,1,0,0,0}, {1,3,LEFT,1,0,0,0},{1,3,RIGHT,1,0,0,0},{1,3,LEFT,1,0,0,0},{1,3,LEFT,1,0,0,0},{1,3,RIGHT,1,1,0,0,0},{1,3,LEFT,1,0,1,0}};
 uint8_t currentState = DRIVING;
 uint8_t firstEntry = 0;
 volatile int noSensor = 0;
-
+uint8_t xOrY;
 CY_ISR(Sensor_Timer_Isr){
     noSensor = 0;
     Timer_Sensor_Stop();
@@ -55,6 +101,14 @@ CY_ISR(Sensor_Timer_Isr){
     LED_BLUE_Write(0);
     LED_Write(1);
 }
+void stopMotorControl() {
+    isr_quad_timer_Stop();
+    QuadDec_M1_Stop();
+    QuadDec_M2_Stop();
+    QuadDec_M1_SetCounter(0);
+    QuadDec_M2_SetCounter(0);
+}
+
 
 int main(){
     
@@ -63,7 +117,9 @@ int main(){
     CYGlobalIntEnable;   
     M2_INV_Write(1);
     //controlWheels(STOP, STOP);
-    
+    // Find the quickest path to the first piece of food
+    size_t result = run_algo(map, start, food_list, COUNT_OF(food_list), pathArray);
+    Timer_Sensor_WritePeriod(200);
     
     uint8_t intersect = 0;
     //#ifdef USE_USB
@@ -90,8 +146,15 @@ int main(){
                 LED_Write(0);
                 
                 motorControl(go_speed, go_speed);
+                if (stopMotor) {
+                    controlWheels(STOP,STOP);
+                    distanceCheck = 0;
+                    currentState = PREPARETURN;
+                    currentInstruction = pathArray[instructions++];
+                }
 
                 if ((!Q5_Read() || !Q4_Read()) && !noSensor) {
+                    //stopMotorControl();
                     currentState = PREPARETURN;
                     firstEntry = 1;
                     currentInstruction = pathArray[instructions++];
@@ -118,6 +181,7 @@ int main(){
                     }
                     if ((!Q5_Read() || !Q4_Read()) && !noSensor) {
                         controlWheels(STOP, STOP);
+                        //stopMotorControl();
                         currentState = PREPARETURN;
                         firstEntry = 1;
                         currentInstruction = pathArray[instructions++];
@@ -141,7 +205,8 @@ int main(){
                     switch(currentInstruction.direction) {
                     case(LEFT):
                         //controlWheels(MEDIUM_REVERSE, MEDIUM_FORWARD);
-                        motorControl(-go_speed, go_speed);
+                        
+                        motorControl(-turn_speed, turn_speed);
                          //Working Mostly
                         if ((firstEntry == 1 && Q2_Read() && Q1_Read() && Q3_Read())) { // i.e nothing in front -- wdc ab intersect then
                             intersect = 1;
@@ -166,6 +231,7 @@ int main(){
                         
                         break;   
                     case(FORWARD):
+                        setupMotor();
                         motorControl(go_speed, go_speed);
                         //motorControl(go_speed, go_speed);
                         CyDelay(400);    // REVIEW MAYBE //
@@ -178,8 +244,9 @@ int main(){
                     
                         break;
                     case(RIGHT):
+                        
                         //controlWheels(MEDIUM_FORWARD, MEDIUM_REVERSE);
-                        motorControl(go_speed, -go_speed);
+                        motorControl(turn_speed, -turn_speed);
                          //Working Mostly
                         if ((firstEntry == 1 && Q2_Read() && Q1_Read() && Q3_Read())) { // i.e nothing in front -- wdc ab intersect then
                             intersect = 1;
@@ -218,31 +285,49 @@ int main(){
                     LED_BLUE_Write(0);
                     LED_Write(1);
                     case(LEFT):
-                       //controlWheels(MEDIUM_REVERSE, MEDIUM_FORWARD);
-                        motorControl(-go_speed, go_speed);
+                        
+                        //controlWheels(MEDIUM_REVERSE, MEDIUM_FORWARD);
+                        motorControl(-turn_speed, turn_speed);
                         
                         if (!Q2_Read() && !intersect){
                             controlWheels(STOP, STOP);
                             noSensor = 1;
                             Timer_Sensor_Start();
                             currentState = DRIVING;
+                            
+                            controlWheels(MEDIUM_FORWARD,MEDIUM_FORWARD);
+                            //setupMotor();
+                            motorControl(go_speed,go_speed);
+                            //controlWheels(MEDIUM_FORWARD,MEDIUM_FORWARD);
                         
-                        }
+                        } 
                         
                         if (Q2_Read()){                            
                             intersect = 0;
                         }
-
+                       
                         break; 
                     case(RIGHT):
+                        
                         //controlWheels(MEDIUM_FORWARD, MEDIUM_REVERSE);
-                        motorControl(go_speed, -go_speed);
+                        motorControl(turn_speed, -turn_speed);
                         
                         if (!Q2_Read() && !intersect){
                             controlWheels(STOP, STOP);
+                            
                             noSensor = 1;
                             Timer_Sensor_Start();
-                            currentState = DRIVING;
+                            if (currentInstruction.finalTurn) {
+                                currentState = DIST_DRIVE;
+                            } else {
+                                currentState = DRIVING;
+                                motorControl(go_speed,go_speed);
+                            }
+                            
+                            //setupMotor();
+                            
+                            //controlWheels(MEDIUM_FORWARD,MEDIUM_FORWARD);
+                            
                         
                         }
                         
@@ -256,6 +341,24 @@ int main(){
                 break;
             case (STOPCAR):
                 controlWheels(STOP,STOP);
+                break;
+            case (DIST_DRIVE):
+                xOrY = currentInstruction.xOrY;
+                if (xOrY) { // 1 means vertical change (i forgot the length)
+                    float distanceReq = 9.50 * currentInstruction.steps;
+                    distanceCheck = 1;
+                    distanceRequired = distanceReq;
+                    motorControl(go_speed,go_speed);
+                    currentState = DRIVING;
+                } else { // 0 means horizontal
+                    float distanceReq = 12.50 * currentInstruction.steps;
+                    distanceCheck = 1;
+                    distanceRequired = distanceReq;
+                    motorControl(go_speed,go_speed);
+                    currentState = DRIVING;
+                }
+                
+                
                 break;
         } 
     } 
