@@ -43,9 +43,23 @@ CY_ISR(QuadDecoderIsr){
     tmm_ReadStatusRegister();
 }
 
-void motorControl(float m1speed, float m2speed) {
+uint8_t motorControl(float m1speed, float m2speed, float distance, uint8_t calisensL, uint8_t calisensR) {
+    
+    if(calisensL){
+        m2speed-=5.0;
+        LED_GREEN_Write(0);
+        LED_BLUE_Write(1);
+        LED_Write(0);
+    }
+    if(calisensR){
+        m1speed-=5.0;
+        LED_GREEN_Write(0);
+        LED_BLUE_Write(1);
+        LED_Write(0);
+    }
+    
     if(changeVal == 0) {
-        return;
+        return 0;
     } else if (stop ==1) {
             // ******** THIS IS THE CODE FOR CONTROL WHEELS, EITHER REMOVE FROM MAIN OR MOVE TO THIS FILE **//
             uint8_t compareValue1 = ((float)PWM_1_ReadPeriod() * (50/100.0));
@@ -53,7 +67,8 @@ void motorControl(float m1speed, float m2speed) {
             //set the PWM to the found value
             PWM_1_WriteCompare(compareValue1);
             PWM_2_WriteCompare(compareValue2);
-        return;
+            stop = 0;
+        return 1;
     }
     changeVal = 0;
     
@@ -64,17 +79,31 @@ void motorControl(float m1speed, float m2speed) {
     m2motorSpeed = 2 * CY_M_PI * m2motorSpeed / MOTORSPEED_PER_SECOND;
     m2motorSpeed = m2motorSpeed * RADIUS; 
     
+    distanceTravelledM1 += m1motorSpeed*MOTORSPEED_PER_SECOND;
+    distanceTravelledM2 += m2motorSpeed*MOTORSPEED_PER_SECOND;
+    distanceTravelled = (distanceTravelledM1 + distanceTravelledM2)/2.0;
+    if (distanceTravelled >= distance){
+        stop = 1;
+        distanceTravelledM1 = 0;
+        distanceTravelledM2 = 0;
+        distanceTravelled = 0;
+        return 0;
+    }
+    
     
     float m1error = m1speed - m1motorSpeed;
     float m2error = m2speed - m2motorSpeed;
     
     m1Comp = PWM_1_ReadCompare();
     m2Comp = PWM_2_ReadCompare();
+    
     float m1Target = m1Comp + m1error;
     float m2Target = m2Comp + m2error;
     
+    
     PWM_1_WriteCompare((uint8_t) m1Target);
     PWM_2_WriteCompare((uint8_t) m2Target);
+    return 0;
 }
 
 void setupMotor() {

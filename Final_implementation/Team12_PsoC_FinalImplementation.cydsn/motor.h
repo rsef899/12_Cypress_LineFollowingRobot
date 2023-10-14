@@ -24,7 +24,7 @@
 #define RADIUS (3.25f)
 #define MOTORSPEED_PER_SECOND ((float) 50/1000.0f) // 50ms is the period we want to be changing the motor speed
 
-void motorControl(float m1speed, float m2speed);
+uint8_t motorControl(float m1speed, float m2speed, float distance, uint8_t calisensL, uint8_t calisensR);
 void setupMotor();
 CY_ISR(QuadDecoderIsr);
 void usbPutString1(char *s);

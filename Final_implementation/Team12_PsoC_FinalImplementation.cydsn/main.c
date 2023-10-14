@@ -43,7 +43,7 @@ typedef struct Point {
 
 #define go_speed 15.0
 
-static Point pathArray[MAX_PATH_SIZE] = {{1,1,FORWARD,1,0,0,0},{1,1,FORWARD,1,0,0,0},{1,3,LEFT,1,0,0,0}, {1,3,LEFT,1,0,0,0},{1,3,RIGHT,1,0,0,0},{1,3,LEFT,1,0,0,0},{1,3,LEFT,1,0,0,0},{1,3,RIGHT,1,1,0,0},{1,3,LEFT,1,0,1,0}};
+static Point pathArray[MAX_PATH_SIZE] = {{1,1,FORWARD,1,0,0,0},{1,1,FORWARD,1,0,0,0},{1,3,LEFT,1,0,0,0}, {1,3,LEFT,1,0,0,0},{1,3,RIGHT,1,0,0,0},{1,3,LEFT,1,0,0,0},{1,3,LEFT,1,0,0,0},{1,3,RIGHT,1,1,0,4},{1,3,LEFT,1,0,1,0}};
 uint8_t currentState = DRIVING;
 uint8_t firstEntry = 0;
 volatile int noSensor = 0;
@@ -85,10 +85,7 @@ int main(){
     for(;;){
         switch(currentState){
             case (DRIVING):
-                LED_GREEN_Write(1);
-                LED_BLUE_Write(0);
-                LED_Write(0);
-                
+            
                 controlWheels(MEDIUM_FORWARD_L, MEDIUM_FORWARD);
 
                 if ((!Q5_Read() || !Q4_Read()) && !noSensor) {
@@ -103,25 +100,39 @@ int main(){
                 }
 
                 break;   
+                
+            case (DISTANCEDRIVING):
+                LED_GREEN_Write(1);
+                LED_BLUE_Write(1);
+                LED_Write(1);
+                if(motorControl(go_speed, go_speed, 10.00, Q1_Read(), Q2_Read())){
+                    currentState = STOPCAR;
+                }
+                              
+                break;           
             case (CALIBRATING):
                 LED_GREEN_Write(0);
                 LED_BLUE_Write(1);
                 LED_Write(0);
-                controlWheels(MEDIUM_FORWARD_L, MEDIUM_FORWARD);
+                //controlWheels(MEDIUM_FORWARD_L, MEDIUM_FORWARD);
                                
                     // if the front wheels are all of the line, we must drive before turning
+                    /*
                     if (Q1_Read() && Q2_Read() && Q3_Read()){
                         currentState = DRIVING;
                     }
                     if (!Q1_Read() && !Q3_Read()){
                         currentState = DRIVING;
                     }
+                    */
+                    /*
                     if ((!Q5_Read() || !Q4_Read()) && !noSensor) {
                         controlWheels(STOP, STOP);
                         currentState = PREPARETURN;
                         firstEntry = 1;
                         currentInstruction = pathArray[instructions++];
                     }
+                    */
                     // right correction
                     if (!Q3_Read()){
                         controlWheels(MEDIUM_FORWARD, SLOW_FORWARD);
@@ -130,6 +141,7 @@ int main(){
                     if (!Q1_Read()){
                         controlWheels(SLOW_FORWARD, MEDIUM_FORWARD); 
                     }
+                    currentState = DRIVING;
                 break;       
             case(PREPARETURN):
                 LED_GREEN_Write(0);
@@ -167,7 +179,15 @@ int main(){
                         CyDelay(400);    // REVIEW MAYBE //
                         if (Q5_Read() && Q4_Read()){
                             controlWheels(MEDIUM_FORWARD_L, MEDIUM_FORWARD);
-                            currentState = DRIVING;
+                            
+                            
+                            if (currentInstruction.steps){
+                                currentState = DISTANCEDRIVING;
+                            
+                            } else{                                
+                                currentState = DRIVING;
+                            }
+                            
                         }
                         firstEntry = 0;
                     
@@ -218,7 +238,14 @@ int main(){
                             controlWheels(STOP, STOP);
                             noSensor = 1;
                             Timer_Sensor_Start();
-                            currentState = DRIVING;
+                                                    
+                            if (currentInstruction.steps){
+                                currentState = DISTANCEDRIVING;
+                                CyDelay(500);
+                            
+                            } else{                                
+                                currentState = DRIVING;
+                            }
                         
                         }
                         
@@ -234,7 +261,15 @@ int main(){
                             controlWheels(STOP, STOP);
                             noSensor = 1;
                             Timer_Sensor_Start();
-                            currentState = DRIVING;
+                                                     
+                            if (currentInstruction.steps){
+                                CyDelay(500);
+                                currentState = DISTANCEDRIVING;
+                                
+                            
+                            } else{                                
+                                currentState = DRIVING;
+                            }
                         
                         }
                         

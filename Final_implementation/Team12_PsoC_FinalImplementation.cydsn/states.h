@@ -22,9 +22,11 @@
     #define SHORTESTMODE 2
     #define CALIBRATING 3
     #define DRIVING 4
-    #define TURNING 5
-    #define STOPCAR 10
+    #define DISTANCEDRIVING 5
     #define PREPARETURN 6
+    #define TURNING 7
+    #define STOPCAR 10
+    
     
 #endif
 
