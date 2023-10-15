@@ -34,6 +34,8 @@ uint8_t flag = 0;
 
 float m1Comp,m2Comp;
 
+float turning_circle = WHEEL_SPACING * CY_M_PI;
+
 CY_ISR(QuadDecoderIsr){
     m2Count = QuadDec_M2_GetCounter();
     m1Count = QuadDec_M1_GetCounter();
@@ -44,30 +46,21 @@ CY_ISR(QuadDecoderIsr){
 }
 
 uint8_t motorControl(float m1speed, float m2speed, float distance, uint8_t calisensL, uint8_t calisensR) {
-    
-    if(calisensL){
-        m2speed-=5.0;
-        LED_GREEN_Write(0);
-        LED_BLUE_Write(1);
-        LED_Write(0);
-    }
-    if(calisensR){
-        m1speed-=5.0;
-        LED_GREEN_Write(0);
-        LED_BLUE_Write(1);
-        LED_Write(0);
-    }
+
     
     if(changeVal == 0) {
         return 0;
     } else if (stop ==1) {
-            // ******** THIS IS THE CODE FOR CONTROL WHEELS, EITHER REMOVE FROM MAIN OR MOVE TO THIS FILE **//
-            uint8_t compareValue1 = ((float)PWM_1_ReadPeriod() * (50/100.0));
-            uint8_t compareValue2 = ((float)PWM_2_ReadPeriod() * (50/100.0));
-            //set the PWM to the found value
-            PWM_1_WriteCompare(compareValue1);
-            PWM_2_WriteCompare(compareValue2);
-            stop = 0;
+        // ******** THIS IS THE CODE FOR CONTROL WHEELS, EITHER REMOVE FROM MAIN OR MOVE TO THIS FILE **//
+        uint8_t compareValue1 = ((float)PWM_1_ReadPeriod() * (50/100.0));
+        uint8_t compareValue2 = ((float)PWM_2_ReadPeriod() * (50/100.0));
+        //set the PWM to the found value
+        PWM_1_WriteCompare(compareValue1);
+        PWM_2_WriteCompare(compareValue2);
+        stop = 0;
+        distanceTravelledM1 = 0;
+        distanceTravelledM2 = 0;
+        distanceTravelled = 0;
         return 1;
     }
     changeVal = 0;
@@ -79,17 +72,37 @@ uint8_t motorControl(float m1speed, float m2speed, float distance, uint8_t calis
     m2motorSpeed = 2 * CY_M_PI * m2motorSpeed / MOTORSPEED_PER_SECOND;
     m2motorSpeed = m2motorSpeed * RADIUS; 
     
-    distanceTravelledM1 += m1motorSpeed*MOTORSPEED_PER_SECOND;
-    distanceTravelledM2 += m2motorSpeed*MOTORSPEED_PER_SECOND;
-    distanceTravelled = (distanceTravelledM1 + distanceTravelledM2)/2.0;
-    if (distanceTravelled >= distance){
-        stop = 1;
-        distanceTravelledM1 = 0;
-        distanceTravelledM2 = 0;
-        distanceTravelled = 0;
-        return 0;
+    if (m1speed < 0){
+        //distanceTravelledM1 += m1motorSpeed*MOTORSPEED_PER_SECOND * -1;
+        distanceTravelledM2 += m2motorSpeed*MOTORSPEED_PER_SECOND;
+        distanceTravelled = (distanceTravelledM1 + distanceTravelledM2)/2.0; //divide by 2 for average, divide by two again as we are travelling in a circle
+        if ((distanceTravelled + 1.5) >= turning_circle/4.0){
+            if (!calisensL){
+                stop = 1;
+                return 0;
+            }
+        }
+    } else {
+        if(calisensL){
+            m2speed-=5.0;
+            LED_GREEN_Write(0);
+            LED_BLUE_Write(1);
+            LED_Write(0);
+        }
+        if(calisensR){
+            m1speed-=5.0;
+            LED_GREEN_Write(0);
+            LED_BLUE_Write(1);
+            LED_Write(0);
+        }
+        distanceTravelledM1 += m1motorSpeed*MOTORSPEED_PER_SECOND;
+        distanceTravelledM2 += m2motorSpeed*MOTORSPEED_PER_SECOND;
+        distanceTravelled = (distanceTravelledM1 + distanceTravelledM2)/2.0;
+        if (distanceTravelled >= distance){
+            stop = 1;
+            return 0;
+        }
     }
-    
     
     float m1error = m1speed - m1motorSpeed;
     float m2error = m2speed - m2motorSpeed;
