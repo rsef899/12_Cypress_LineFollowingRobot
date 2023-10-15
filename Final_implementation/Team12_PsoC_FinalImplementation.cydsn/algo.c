@@ -1,14 +1,3 @@
-/* ========================================
- *
- * Copyright YOUR COMPANY, THE YEAR
- * All Rights Reserved
- * UNPUBLISHED, LICENSED SOFTWARE.
- *
- * CONFIDENTIAL AND PROPRIETARY INFORMATION
- * WHICH IS THE PROPERTY OF your company.
- *
- * ========================================
-*/
 // finds shortes path from start to first endpoint
 #include "algo.h"
 #include "defines.h"
@@ -215,6 +204,13 @@ size_t bfs(const uint8_t map[MAP_HEIGHT][MAP_WIDTH], Point start,
 
           if (foundEndsCount == endCount) {
             // Return the shortest path length
+            
+            
+            if ((isValid(LEFT(curr),map) || isValid(RIGHT(curr),map))  && ((isValid(BELOW(curr),map)) || isValid(ABOVE(curr),map))) {
+              curr.node = 1;
+            }
+            curr.foodPoint = 1;
+            out[pathIndex++] = curr;
             return pathIndex;
           }
         }
@@ -284,4 +280,3 @@ uint8_t whichDirection(Point a, Point b) { // a is current, b is where we are go
 // Don't need to modify this
 
 uint8_t point_eq(Point a, Point b) { return a.x == b.x && a.y == b.y; }
-/* [] END OF FILE */

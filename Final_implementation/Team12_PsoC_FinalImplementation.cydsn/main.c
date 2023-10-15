@@ -22,6 +22,7 @@
 #include "defines.h"
 #include "vars.h"
 #include "motor.h"
+#include "algo.h"
 //* ========================================
 //* ==== Our functionsality Includes =======
 #include "movement.h"
@@ -62,24 +63,24 @@ static uint8_t map[15][19] = {
 {1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,1},
 {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
 };
-/*
+
 static Point food_list[]= {
 {1,9},
 {5,5},
 {7,1},
 {13,5},
 {9,9}
-};*/
-
+};
+/*
 static Point food_list[] = {
     {13,5}   
-};
+};*/
 //* ===========================================
 
 static const Point start = (Point){.x = 1, .y = 1};
  
-//static Point pathArray[MAX_PATH_SIZE];
-static Point pathArray[MAX_PATH_SIZE] = {{1,1,FORWARD,1,0,0,0},{1,1,FORWARD,1,0,0,0},{1,3,LEFT,1,0,0,0}, {1,3,LEFT,1,0,0,0},{1,3,RIGHT,1,0,0,0},{1,3,LEFT,1,0,0,0},{1,3,LEFT,1,0,0,0},{1,3,RIGHT,1,1,0,4},{1,3,BACKWARD,1,0,0,0},{1,3,LEFT,1,0,1,0}};
+static Point pathArray[MAX_PATH_SIZE];
+//static Point pathArray[MAX_PATH_SIZE] = {{1,1,FORWARD,1,0,0,0},{1,1,FORWARD,1,0,0,0},{1,3,LEFT,1,0,0,0}, {1,3,LEFT,1,0,0,0},{1,3,RIGHT,1,0,0,0},{1,3,LEFT,1,0,0,0},{1,3,LEFT,1,0,0,0},{1,3,RIGHT,1,1,0,4},{1,3,BACKWARD,1,0,0,0},{1,3,LEFT,1,0,1,0}};
 uint8_t currentState = DRIVING;
 uint8_t firstEntry = 0;
 volatile int noSensor = 0;
@@ -100,7 +101,7 @@ int main(){
     M2_INV_Write(1);
     //controlWheels(STOP, STOP);
      // Find the quickest path to the first piece of food
-    //size_t result = run_algo(map, start, food_list, COUNT_OF(food_list), pathArray);
+    size_t result = run_algo(map, start, food_list, COUNT_OF(food_list), pathArray);
     
     uint8_t intersect = 0;
     //#ifdef USE_USB
@@ -122,10 +123,13 @@ int main(){
     for(;;){
         switch(currentState){
             case (DRIVING):
-            
+                if (currentInstruction.foodPoint){
+                    currentState = STOPCAR;
+                    break;
+                }
                 controlWheels(MEDIUM_FORWARD_L, MEDIUM_FORWARD);
                 
-                if((pathArray[instructions].direction == BACKWARD) && !noSensor){
+                if((pathArray[instructions].direction == BACKWARD) && !noSensor && !pathArray[instructions].foodPoint){
                     currentState = PREPARETURN;
                     currentInstruction = pathArray[instructions++];
                     break;
@@ -201,12 +205,12 @@ int main(){
                     break;   
                 case(FORWARD):
                     controlWheels(MEDIUM_FORWARD_L, MEDIUM_FORWARD);
-                    CyDelay(400);    // REVIEW MAYBE //
+                    //CyDelay(400);    // REVIEW MAYBE //
                     if (Q5_Read() && Q4_Read()){
                         controlWheels(MEDIUM_FORWARD_L, MEDIUM_FORWARD);
                         
                         
-                        if (currentInstruction.steps){
+                        if (currentInstruction.steps && !(pathArray[instructions].node)){
                             currentState = DISTANCEDRIVING;
                         
                         } else{                                
@@ -242,7 +246,13 @@ int main(){
                     break;
                 case(BACKWARD):
                         if(motorControl(-go_speed, go_speed, 0, Q2_Read(), 0)){
-                            currentState = DRIVING;
+                            if (currentInstruction.steps && !(pathArray[instructions].node)){
+                                currentState = DISTANCEDRIVING;
+                                CyDelay(500);
+                            
+                            } else{                                
+                                currentState = DRIVING;
+                            }
                         };
                     break;
                 }
@@ -262,7 +272,7 @@ int main(){
                             noSensor = 1;
                             Timer_Sensor_Start();
                                                     
-                            if (currentInstruction.steps){
+                            if (currentInstruction.steps && !(pathArray[instructions].node)){
                                 currentState = DISTANCEDRIVING;
                                 CyDelay(500);
                             
@@ -285,7 +295,7 @@ int main(){
                             noSensor = 1;
                             Timer_Sensor_Start();
                                                      
-                            if (currentInstruction.steps){
+                            if (currentInstruction.steps && !(pathArray[instructions].node)){
                                 currentState = DISTANCEDRIVING;
                                 CyDelay(500);
                                 
