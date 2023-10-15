@@ -84,16 +84,10 @@ uint8_t motorControl(float m1speed, float m2speed, float distance, uint8_t calis
         }
     } else {
         if(calisensL){
-            m2speed-=5.0;
-            LED_GREEN_Write(0);
-            LED_BLUE_Write(1);
-            LED_Write(0);
+            m2speed-=3.0;
         }
         if(calisensR){
-            m1speed-=5.0;
-            LED_GREEN_Write(0);
-            LED_BLUE_Write(1);
-            LED_Write(0);
+            m1speed-=3.0;
         }
         distanceTravelledM1 += m1motorSpeed*MOTORSPEED_PER_SECOND;
         distanceTravelledM2 += m2motorSpeed*MOTORSPEED_PER_SECOND;

@@ -49,8 +49,12 @@
 #define PWM_MAX 255     // maximum value of duty cycle
 #define PWM_MIN 0       // minimum value of duty cycle
 
-
 //* ========================================
+// MAD
+#define x_block 48.0f / 4.0f
+#define y_block 15.5f / 2.0f
+
+
 // Algorithm
 #ifndef _MAP_H
 #define _MAP_H
