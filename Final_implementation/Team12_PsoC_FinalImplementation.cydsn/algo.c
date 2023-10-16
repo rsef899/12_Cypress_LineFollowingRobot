@@ -104,6 +104,7 @@ size_t bfs(const uint8_t map[MAP_HEIGHT][MAP_WIDTH], Point start,
             Point traceUp = ABOVE(traceBack);
             Point traceBelow = BELOW(traceBack);
             if (traceBack.node == 1 && finalFound == 0) {
+              printf("NODE FOUND BRO WHAT");
               traceBack.steps = steps;
               traceBack.finalTurn = 1;
               if (traceBack.x == curr.x) {
@@ -131,7 +132,7 @@ size_t bfs(const uint8_t map[MAP_HEIGHT][MAP_WIDTH], Point start,
             traceBack = visited[traceBack.y][traceBack.x];
           }
           uint8_t pointsValid = 0;
-          if ((isValid(LEFT(newStart),map) || isValid(RIGHT(newStart),map))  && ((isValid(BELOW(newStart),map)) || isValid(ABOVE(newStart),map))) {
+          if ((isValid(LEFT(newStart),map) || isValid(RIGHT(newStart),map))  && ((isValid(BELOW(newStart),map)) || isValid(ABOVE(newStart),map)) || (point_eq(newStart,start))) {
             newStart.node = 1;
           }
           shortestPath[shortestPathIndex++] = newStart;
@@ -208,6 +209,7 @@ size_t bfs(const uint8_t map[MAP_HEIGHT][MAP_WIDTH], Point start,
             
             if ((isValid(LEFT(curr),map) || isValid(RIGHT(curr),map))  && ((isValid(BELOW(curr),map)) || isValid(ABOVE(curr),map))) {
               curr.node = 1;
+              
             }
             curr.foodPoint = 1;
             out[pathIndex++] = curr;
@@ -216,41 +218,72 @@ size_t bfs(const uint8_t map[MAP_HEIGHT][MAP_WIDTH], Point start,
         }
     dummyMap[curr.y][curr.x] = 1;
     uint8_t pointsValid = 0;
+    uint8_t leftNode = 0;
+    uint8_t leftValid = 0;
+    uint8_t rightValid = 0;
+    uint8_t upValid = 0;
+    uint8_t downValid = 0;
+    uint8_t rightNode = 0;
+    uint8_t upNode = 0;
+    uint8_t downNode = 0;
     if (isValid(left, dummyMap)) {
       left.direction = LEFTTURN;
       pointsValid++;
       enqueue(left);
       if (pointsValid >= 2 || (curr.direction != LEFTTURN)) { // If more than two points valid it is a node
-        curr.node = 1;
+        leftNode = 1;
       }
-      visited[left.y][left.x] = curr; // Store the parent
+      leftValid = 1;
+      //visited[left.y][left.x] = curr; // Store the parent
     }
     if (isValid(right, dummyMap)) {
       right.direction = RIGHTTURN;
       pointsValid++;
       if (pointsValid >= 2 || (curr.direction != RIGHTTURN)) { // If more than two points valid it is a node
-        curr.node = 1;
+        rightNode = 1;
       }
+      rightValid = 1;
       enqueue(right);
-      visited[right.y][right.x] = curr; // Store the parent
+      //visited[right.y][right.x] = curr; // Store the parent
     }
     if (isValid(above, dummyMap)) {
       above.direction = UPTURN;
       pointsValid++;
       if (pointsValid >= 2 || (curr.direction != UPTURN)) { // If more than two points valid it is a node
-        curr.node = 1;
+        
+        upNode = 1;
       }
       enqueue(above);
-      visited[above.y][above.x] = curr; // Store the parent
+      upValid = 1;
+      //visited[above.y][above.x] = curr; // Store the parent
     }
     if (isValid(below, dummyMap)) {
       below.direction = DOWNTURN;
       pointsValid++;
       if (pointsValid >= 2 || (curr.direction != DOWNTURN)) { // If more than two points valid it is a node
-        curr.node = 1;
+        
+        downNode = 1;
       }
       enqueue(below);
-      visited[below.y][below.x] = curr; // Store the parent
+      downValid = 1;
+      //visited[below.y][below.x] = curr; // Store the parent
+    }
+    if (pointsValid >= 2) {
+      curr.node = 1;
+    } else if (downNode || upNode || rightNode || leftNode) {
+      curr.node = 1;
+    }
+    if (leftValid) {
+      visited[left.y][left.x] = curr; // Store the parent
+    } 
+    if (rightValid) {
+      visited[right.y][right.x] = curr; // Store the parent
+    }
+    if (upValid) {
+      visited[above.y][above.x] = curr; // Store the parent
+    }
+    if (downValid) {
+      visited[below.y][below.x] = curr;
     }
     
 
